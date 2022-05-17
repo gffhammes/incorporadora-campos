@@ -1,6 +1,8 @@
 import { Container, Typography } from '@mui/material'
 import Head from 'next/head'
 import Image from 'next/image'
+import { HeroSection } from '../src/components/homePage/HeroSection'
+import { HistorySection } from '../src/components/homePage/HistorySection'
 
 export default function Home() {
   return (
@@ -11,10 +13,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <link href="https://api.fontshare.com/css?f[]=satoshi@300,301,400,401,500,501,700,701,900,901&display=swap" rel="stylesheet"/>
       </Head>
-      <main>
-        <Container>
-          <Typography variant='h1'>Hello World</Typography>
-        </Container>
+      <main style={{ height: 'fit-content' }}>
+        <HeroSection />
+        <HistorySection />
       </main>
     </>
   )
