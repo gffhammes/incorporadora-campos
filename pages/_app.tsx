@@ -10,8 +10,8 @@ const theme = createTheme({
     fontFamily: 'Satoshi, sans-serif',
   },
   palette: {
-    primary: { main: '#0d235e' },
-    secondary: { main: '#1a47bc' },
+    primary: { main: '#0E1E42' },
+    secondary: { main: '#1A47BC' },
   }
 })
 

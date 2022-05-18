@@ -5,20 +5,14 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import LogoCampos from '../../../public/vectors/incorporadora-campos-logo.svg';
+import { FollowUs } from './FollowUs';
 
 const TopBar = () => {
   return (
     <Box bgcolor='primary.main' sx={{ color: 'white', py: 1 }}>
       <Container>
         <Stack direction='row' justifyContent='space-between'>
-          <Stack direction='row' alignItems='center' spacing={2}>              
-            <Typography>SIGA NAS REDES SOCIAIS</Typography>
-            <Stack direction='row' spacing={1}>
-              <LinkedInIcon />
-              <InstagramIcon />
-              <FacebookIcon />
-            </Stack>
-          </Stack>
+          <FollowUs />
           <Stack direction='row' alignItems='center' spacing={2}> 
             <WhatsAppIcon />             
             <Typography>47 9 99138-2244</Typography>

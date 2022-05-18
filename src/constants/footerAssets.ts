@@ -1,22 +1,22 @@
 export const footerLinks = [
   {
-    href: '',
+    href: '/',
     label: 'Central de vendas',
   },
   {
-    href: '',
+    href: '/',
     label: 'Fale com um corretor',
   },
   {
-    href: '',
+    href: '/',
     label: 'Ofereça um terreno',
   },
   {
-    href: '',
+    href: '/',
     label: 'Seja um fornecedor',
   },
   {
-    href: '',
+    href: '/',
     label: 'Envie um WhatsApp',
   },
 ]
