@@ -28,7 +28,7 @@ const Menu = () => {
     <nav>
       <Box>
         <Container>
-          <Box sx={{ display: 'flex', justifyContent: 'center', py: 2 }}>            
+          <Box sx={{ display: 'flex', justifyContent: 'center', py: 5 }}>            
             <LogoCampos />
           </Box>
         </Container>
@@ -39,7 +39,7 @@ const Menu = () => {
 
 export const NavBar = () => {
   return (
-    <Box sx={{ position: 'absolute', width: '100%' }}>
+    <Box sx={{ position: 'absolute', width: '100%', zIndex: 999 }}>
       <TopBar />
       <Menu />
     </Box>
