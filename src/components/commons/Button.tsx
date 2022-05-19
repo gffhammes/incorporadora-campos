@@ -30,6 +30,18 @@ export const ContainedPrimaryButton = styled(ButtonBase)(({ theme }) => ({
   backgroundColor: '#0E1E42',
   color: 'white',
   '&:hover': {
-    backgroundColor: 'rgba(14, 30, 66, 0.8)',
+    backgroundColor: '#060e1f',
+  }
+}));
+
+export const OutlinedWhiteButton = styled(ButtonBase)(({ theme }) => ({
+  ...commonProps,
+  backgroundColor: 'transparent',
+  border: '1px solid rgba(255, 255, 255, 0.5)',
+  color: 'white',
+  boxSizing: 'content-box',
+  '&:hover': {
+    backgroundColor: 'rgba(255, 255, 255, 0.04)',
+    border: '1px solid white',
   }
 }));
