@@ -4,6 +4,7 @@ import React from 'react'
 
 const buttonStyle = {
   position: 'fixed',
+  zIndex: 999,
   height: 'fit-content',
   width: 'fit-content',
   backgroundColor: '#51c33a',
