@@ -7,7 +7,7 @@ const buttonStyle = {
   height: 'fit-content',
   width: 'fit-content',
   backgroundColor: '#51c33a',
-  top: '60vh',
+  top: '60%',
   right: 0,
   boxShadow: 10,
   color: '#fff',
