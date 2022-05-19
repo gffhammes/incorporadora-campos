@@ -8,6 +8,7 @@ import { FollowUs } from './FollowUs'
 import LogoHorizontal from '../../../public/vectors/logo-horizontal.svg'
 import { ContainedPrimaryButton, ContainedWhiteButton } from './Button'
 import { Input } from './Input'
+import { defaultLinkHoverProps } from '../../constants/defaultLinkHover'
 
 const defaultSpacing = 1;
 
@@ -58,9 +59,9 @@ export const Footer = () => {
             <Stack spacing={defaultSpacing} >
               {pages.map((page, index) => (
                 <Link key={index} href={page.route} passHref>
-                  <a>
+                  <Box component='a' sx={defaultLinkHoverProps} >
                     <Typography>{page.name.toUpperCase()}</Typography>
-                  </a>
+                  </Box>
                 </Link>
               ))}
             </Stack>

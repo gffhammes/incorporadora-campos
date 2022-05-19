@@ -6,22 +6,22 @@ import { SectionTitle } from '../commons/SectionTitle'
 
 const articles = [
   {
-    image: '',
+    image: '/images/blog-1.jpg',
     title: 'Coronavírus e condomínio: o que deve ser feito durante a pandemia?',
     href: '/',
   },
   {
-    image: '',
+    image: '/images/blog-2.jpg',
     title: 'Consultor destaca que momento atual é propício para adquirir',
     href: '/',
   },
   {
-    image: '',
+    image: '/images/blog-3.jpg',
     title: 'Home office permanente, escritório do futuro e a volta ao trabalho pós-quarentena',
     href: '/',
   },
   {
-    image: '',
+    image: '/images/blog-4.jpg',
     title: 'Preços médios de venda e locação de imóveis comerciais ficam estáveis em abril',
     href: '/',
   },
@@ -37,11 +37,11 @@ export const BlogSection = () => {
             {articles.map((article, index) => (              
               <Grid key={index} item xs={12} sm={6} md={3}>
                 <Box>
-                  <Box bgcolor='primary.main' sx={{ width: '100%', aspectRatio: '1 / 1' }} />
-                  <Typography fontWeight={500}>{article.title.toUpperCase()}</Typography>
+                  <Box sx={{ width: '100%', aspectRatio: '1 / 1', backgroundImage: `url(${article.image})`, backgroundSize: 'cover' }} />
+                  <Typography fontWeight={500} fontSize={13} >{article.title.toUpperCase()}</Typography>
                   <Link href={article.href} passHref >
                     <a>
-                      <Typography fontWeight={600} letterSpacing={1} sx={{ textDecoration: 'underline', width: 'fit-content' }} >LEIA MAIS</Typography>
+                      <Typography fontWeight={600} fontSize={13} letterSpacing={1} sx={{ textDecoration: 'underline', width: 'fit-content' }} >LEIA MAIS</Typography>
                     </a>
                   </Link>
                 </Box>
