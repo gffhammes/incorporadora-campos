@@ -6,21 +6,23 @@ import { pages } from '../../constants/pages'
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 import { FollowUs } from './FollowUs'
 import LogoHorizontal from '../../../public/vectors/logo-horizontal.svg'
+import { ContainedPrimaryButton, ContainedWhiteButton } from './Button'
+import { Input } from './Input'
 
 const defaultSpacing = 1;
 
 const Subscribe = () => {
   const [email, setEmail] = useState('')
 
-  const handleEmailChange = (e) => {
+  const handleEmailChange = (e: any) => {
     setEmail(e.target.value)
   }
 
   return (
     <Box bgcolor='secondary.main'>
-      <Container sx={{ color: '#fff' }}>        
-        <Stack direction='row' justifyContent='space-between' alignItems='center'>
-          <Stack direction='row'>
+      <Container sx={{ color: '#fff', py: 3 }}>        
+        <Stack direction='row' justifyContent='space-between' alignItems='center' spacing={6} >
+          <Stack direction='row' alignItems='center' spacing={2}>
             <svg xmlns="http://www.w3.org/2000/svg" width="33.621" height="33.621" viewBox="0 0 33.621 33.621">
               <g id="Group_371" data-name="Group 371" transform="translate(-144.5 -4085.879)">
                 <g id="Icon_feather-send" data-name="Icon feather-send" transform="translate(143 4085)">
@@ -30,11 +32,11 @@ const Subscribe = () => {
               </g>
             </svg>
 
-            <Typography>CADASTRE SEU E-MAIL E FIQUE POR DENTRO DAS NOVIDADES</Typography>
+            <Typography fontWeight={500} sx={{ whiteSpace: 'nowrap' }}>CADASTRE SEU E-MAIL E FIQUE POR DENTRO DAS NOVIDADES</Typography>
           </Stack>
-          <Stack direction='row'>
-            <TextField value={email} onChange={handleEmailChange} type='email' placeholder='Seu e-mail...'  />
-            <Button variant='contained'>Cadastrar</Button>
+          <Stack direction='row' alignItems='center' spacing={2} sx={{ width: '100%' }}>
+            <Input value={email} handleChange={handleEmailChange} type='email' placeholder='Seu e-mail...'  />
+            <ContainedWhiteButton>CADASTRAR</ContainedWhiteButton>
           </Stack>
         </Stack>
       </Container>
