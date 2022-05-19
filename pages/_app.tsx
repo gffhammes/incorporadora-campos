@@ -2,6 +2,7 @@ import { NavBar } from '../src/components/commons/NavBar'
 import '../styles/globals.css'
 import { createTheme, ThemeProvider } from '@mui/material'
 import { Footer } from '../src/components/commons/Footer';
+import { WhatsAppFloatButton } from '../src/components/commons/WhatsAppFloatButton';
 
 const { palette } = createTheme();
 
@@ -20,6 +21,7 @@ function MyApp({ Component, pageProps }) {
     <ThemeProvider theme={theme}>
       <NavBar />
       <Component {...pageProps} />
+      <WhatsAppFloatButton />
       <Footer />
     </ThemeProvider>
   )
