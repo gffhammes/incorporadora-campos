@@ -21,7 +21,7 @@ const Subscribe = () => {
   return (
     <Box bgcolor='secondary.main'>
       <Container sx={{ color: '#fff', py: 3 }}>        
-        <Stack direction='row' justifyContent='space-between' alignItems='center' spacing={6} >
+        <Stack direction={{ xs: 'column', md: 'row' }} justifyContent='space-between' alignItems='center' spacing={6} >
           <Stack direction='row' alignItems='center' spacing={2}>
             <svg xmlns="http://www.w3.org/2000/svg" width="33.621" height="33.621" viewBox="0 0 33.621 33.621">
               <g id="Group_371" data-name="Group 371" transform="translate(-144.5 -4085.879)">
@@ -32,7 +32,7 @@ const Subscribe = () => {
               </g>
             </svg>
 
-            <Typography fontWeight={500} sx={{ whiteSpace: 'nowrap' }}>CADASTRE SEU E-MAIL E FIQUE POR DENTRO DAS NOVIDADES</Typography>
+            <Typography fontWeight={500} sx={{ whiteSpace: { xs: 'normal', md: 'nowrap'} }}>CADASTRE SEU E-MAIL E FIQUE POR DENTRO DAS NOVIDADES</Typography>
           </Stack>
           <Stack direction='row' alignItems='center' spacing={2} sx={{ width: '100%' }}>
             <Input value={email} handleChange={handleEmailChange} type='email' placeholder='Seu e-mail...'  />
@@ -51,7 +51,7 @@ export const Footer = () => {
       <Subscribe />
       <Box bgcolor='primary.main' sx={{ color: '#fff', py: 10 }}>
         <Container>
-          <Stack direction='row' spacing={4} justifyContent='space-between'>
+          <Stack direction={{ xs: 'column', md: 'row' }} spacing={4} justifyContent='space-between'>
             <Box>
               <LogoHorizontal />
             </Box>

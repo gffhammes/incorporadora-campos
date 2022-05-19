@@ -11,7 +11,7 @@ const TopBar = () => {
   return (
     <Box bgcolor='primary.main' sx={{ color: 'white', py: 1 }}>
       <Container>
-        <Stack direction='row' justifyContent='space-between'>
+        <Stack direction={{ xs: 'column', md: 'row'}} justifyContent='space-between' alignItems='center'>
           <FollowUs />
           <Stack direction='row' alignItems='center' spacing={2}> 
             <WhatsAppIcon />             

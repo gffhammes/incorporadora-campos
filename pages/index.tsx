@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { EnterprisesSection } from '../src/components/homePage/EnterprisesSection'
 import { HeroSection } from '../src/components/homePage/HeroSection'
 import { HistorySection } from '../src/components/homePage/HistorySection'
+import { BlogSection } from '../src/components/homePage/BlogSection'
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <HeroSection />
         <HistorySection />
         <EnterprisesSection />
+        <BlogSection />
       </main>
     </>
   )
