@@ -8,11 +8,7 @@ import { BlogSection } from '../src/components/homePage/BlogSection'
 
 export default function Home() {
   return (
-    <main style={{ height: 'fit-content' }}>
-      <HeroSection />
-      <HistorySection />
-      <EnterprisesSection />
-      <BlogSection />
+    <main style={{ height: '200vh' }}>
     </main>
   )
 }

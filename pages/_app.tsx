@@ -3,6 +3,7 @@ import '../styles/globals.css'
 import { createTheme, ThemeProvider } from '@mui/material'
 import { Footer } from '../src/components/commons/Footer';
 import { WhatsAppFloatButton } from '../src/components/commons/WhatsAppFloatButton';
+import { PageTitle } from '../src/components/commons/PageTitle';
 
 const { palette } = createTheme();
 
@@ -19,6 +20,7 @@ const theme = createTheme({
 function MyApp({ Component, pageProps }) {
   return (    
     <ThemeProvider theme={theme}>
+      <PageTitle />
       <NavBar />
       <Component {...pageProps} />
       <WhatsAppFloatButton />
