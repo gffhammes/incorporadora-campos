@@ -14,9 +14,10 @@ export const SectionTitle = ({ theme, children }) => {
   return (
     <Typography
       variant='h2'
-      fontSize={28}
+      fontSize={{ xs: 20, sm: 28}}
       fontWeight={500}
       letterSpacing={6}
+      textAlign='center'
       sx={{ ...titleStyle, borderBottom: `1px solid ${borderColor}`, color: textColor }} 
     >
       {children}

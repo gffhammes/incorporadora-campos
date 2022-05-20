@@ -35,7 +35,7 @@ const Subscribe = () => {
 
             <Typography fontWeight={500} sx={{ whiteSpace: { xs: 'normal', md: 'nowrap'} }}>CADASTRE SEU E-MAIL E FIQUE POR DENTRO DAS NOVIDADES</Typography>
           </Stack>
-          <Stack direction='row' alignItems='center' spacing={2} sx={{ width: '100%' }}>
+          <Stack direction={{ xs: 'column', sm: 'row' }} alignItems='center' spacing={2} sx={{ width: '100%' }}>
             <Input value={email} handleChange={handleEmailChange} type='email' placeholder='Seu e-mail...'  />
             <ContainedWhiteButton>CADASTRAR</ContainedWhiteButton>
           </Stack>
@@ -53,8 +53,8 @@ export const Footer = () => {
       <Box bgcolor='primary.main' sx={{ color: '#fff', py: 10 }}>
         <Container>
           <Stack direction={{ xs: 'column', md: 'row' }} spacing={4} justifyContent='space-between'>
-            <Box>
-              <LogoHorizontal />
+            <Box sx={{ width: '100%', maxWidth: '20rem', height: '100%' }} >
+              <LogoHorizontal width='100%' height='100%' />
             </Box>
             <Stack spacing={defaultSpacing} >
               {pages.map((page, index) => (

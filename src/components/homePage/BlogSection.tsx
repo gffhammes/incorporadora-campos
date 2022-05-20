@@ -35,7 +35,7 @@ export const BlogSection = () => {
         <Box sx={{ mt: 10 }}>
           <Grid container spacing={2}>
             {articles.map((article, index) => (              
-              <Grid key={index} item xs={12} sm={6} md={3}>
+              <Grid key={index} item xs={6} sm={3} md={3}>
                 <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   <Box sx={{ width: '100%', aspectRatio: '1 / 1', backgroundImage: `url(${article.image})`, backgroundSize: 'cover' }} />
                   <Typography fontWeight={500} fontSize={13} >{article.title.toUpperCase()}</Typography>

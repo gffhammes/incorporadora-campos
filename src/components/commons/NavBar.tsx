@@ -9,9 +9,9 @@ import { FollowUs } from './FollowUs';
 
 const TopBar = () => {
   return (
-    <Box bgcolor='primary.main' sx={{ color: 'white', py: 1 }}>
+    <Box bgcolor='primary.main' sx={{ color: 'white', py: 2 }}>
       <Container>
-        <Stack direction={{ xs: 'column', md: 'row'}} justifyContent='space-between' alignItems='center'>
+        <Stack direction={{ xs: 'column', md: 'row'}} justifyContent='space-between' alignItems='center' spacing={2} >
           <FollowUs />
           <Stack direction='row' alignItems='center' spacing={2}> 
             <WhatsAppIcon />             
@@ -28,8 +28,10 @@ const Menu = () => {
     <nav>
       <Box>
         <Container>
-          <Box sx={{ display: 'flex', justifyContent: 'center', py: 5 }}>            
-            <LogoCampos />
+          <Box sx={{ display: 'flex', justifyContent: 'center', py: 5 }}>
+            <Box sx={{ height: '100%', width: '10rem' }} >              
+              <LogoCampos width='100%' height='100%' />
+            </Box>
           </Box>
         </Container>
       </Box>

@@ -21,7 +21,7 @@ export const HistorySection = () => {
               Estar na vanguarda com os empreendimentos imobiliários, criar conexões com seus sócios, clientes e comunidade nos impulsiona, nos move. Venha fazer parte da nossa história, somos muito além do que se constrói... somos a sua próxima jogada.
             </Typography>
           </Box>
-          <Stack direction='row' spacing={10}>
+          <Stack direction={{ xs: 'column', md: 'row' }} spacing={10}>
             <Box sx={imageStyle}>
               <Image
                 src='/images/logo-bolshoi.png'
