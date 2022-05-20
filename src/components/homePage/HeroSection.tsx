@@ -5,7 +5,7 @@ import { OutlinedWhiteButton } from '../commons/Button'
 
 export const HeroSection = () => {
   return (
-    <Box sx={{ position: 'relative', zIndex: 500, height: '100vh', }}>
+    <Box sx={{ position: 'relative', zIndex: 500, height: '100%', }}>
       <Box
         sx={{
           position: 'absolute',

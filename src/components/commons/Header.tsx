@@ -1,4 +1,5 @@
 import { Box, Container, Stack, Typography, useTheme } from '@mui/material'
+import Link from 'next/link'
 import React, { FC } from 'react'
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -40,8 +41,10 @@ const Menu = () => {
       <Box>
         <Container>
           <Box sx={{ display: 'flex', justifyContent: 'center', py: 5 }}>
-            <Box sx={{ height: '100%', width: '8rem' }} >              
-              <LogoCampos width='100%' height='100%' />
+            <Box component={Link} href='/' passHref>
+              <a style={{ height: '100%', width: '8rem' }} >
+                <LogoCampos width='100%' height='100%' />
+              </a>
             </Box>
           </Box>
         </Container>
@@ -50,7 +53,7 @@ const Menu = () => {
   )
 }
 
-export const NavBar = () => {
+export const Header = () => {
   return (
     <Box component='header' sx={{ position: 'absolute', width: '100%', zIndex: 999 }}>
       <TopBar />

@@ -1,11 +1,9 @@
-import { NavBar } from '../src/components/commons/NavBar'
+import { Header } from '../src/components/commons/Header'
 import '../styles/globals.css'
-import { createTheme, ThemeProvider } from '@mui/material'
+import { Box, createTheme, ThemeProvider } from '@mui/material'
 import { Footer } from '../src/components/commons/Footer';
 import { WhatsAppFloatButton } from '../src/components/commons/WhatsAppFloatButton';
 import { PageTitle } from '../src/components/commons/PageTitle';
-
-const { palette } = createTheme();
 
 const theme = createTheme({
   typography: {
@@ -21,10 +19,9 @@ function MyApp({ Component, pageProps }) {
   return (    
     <ThemeProvider theme={theme}>
       <PageTitle />
-      <NavBar />
+      <Header />
       <Component {...pageProps} />
       <WhatsAppFloatButton />
-      <Footer />
     </ThemeProvider>
   )
 }

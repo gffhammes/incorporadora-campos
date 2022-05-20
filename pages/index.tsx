@@ -5,14 +5,18 @@ import { EnterprisesSection } from '../src/components/homePage/EnterprisesSectio
 import { HeroSection } from '../src/components/homePage/HeroSection'
 import { HistorySection } from '../src/components/homePage/HistorySection'
 import { BlogSection } from '../src/components/homePage/BlogSection'
+import { Footer } from '../src/components/commons/Footer'
 
 export default function Home() {
   return (
-    <main style={{ height: 'fit-content' }}>
-      <HeroSection />
-      <HistorySection />
-      <EnterprisesSection />
-      <BlogSection />
-    </main>
+    <>    
+      <main style={{ height: '100%' }}>
+        <HeroSection />
+        <HistorySection />
+        <EnterprisesSection />
+        <BlogSection />
+        <Footer />
+      </main>
+    </>
   )
 }
