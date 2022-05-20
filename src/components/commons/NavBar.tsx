@@ -1,4 +1,4 @@
-import { Box, Container, Stack, Typography } from '@mui/material'
+import { Box, Container, Stack, Typography, useTheme } from '@mui/material'
 import React, { FC } from 'react'
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -6,13 +6,24 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import LogoCampos from '../../../public/vectors/incorporadora-campos-logo.svg';
 import { FollowUs } from './FollowUs';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const TopBar = () => {
+  const theme = useTheme();
+  const sizeSm = useMediaQuery(theme.breakpoints.up('sm'));
+
   return (
-    <Box bgcolor='primary.main' sx={{ color: 'white', py: 2 }}>
+    <Box bgcolor='primary.main' sx={{ color: 'white', py: 1 }}>
       <Container>
-        <Stack direction={{ xs: 'column', md: 'row'}} justifyContent='space-between' alignItems='center' spacing={2} >
-          <FollowUs />
+        <Stack direction='row' justifyContent='space-between' alignItems='center' spacing={2} >
+          {sizeSm
+            ? <FollowUs /> 
+            : <Stack direction='row' spacing={1}>
+                <LinkedInIcon />
+                <InstagramIcon />
+                <FacebookIcon />
+              </Stack>            
+          }
           <Stack direction='row' alignItems='center' spacing={2}> 
             <WhatsAppIcon />             
             <Typography>47 9 99138-2244</Typography>
@@ -29,7 +40,7 @@ const Menu = () => {
       <Box>
         <Container>
           <Box sx={{ display: 'flex', justifyContent: 'center', py: 5 }}>
-            <Box sx={{ height: '100%', width: '10rem' }} >              
+            <Box sx={{ height: '100%', width: '8rem' }} >              
               <LogoCampos width='100%' height='100%' />
             </Box>
           </Box>
@@ -41,7 +52,7 @@ const Menu = () => {
 
 export const NavBar = () => {
   return (
-    <Box sx={{ position: 'absolute', width: '100%', zIndex: 999 }}>
+    <Box component='header' sx={{ position: 'absolute', width: '100%', zIndex: 999 }}>
       <TopBar />
       <Menu />
     </Box>
