@@ -1,7 +1,6 @@
 import { Header } from '../src/components/commons/Header'
 import '../styles/globals.css'
 import { Box, createTheme, ThemeProvider } from '@mui/material'
-import { Footer } from '../src/components/commons/Footer';
 import { WhatsAppFloatButton } from '../src/components/commons/WhatsAppFloatButton';
 import { PageTitle } from '../src/components/commons/PageTitle';
 

@@ -1,6 +1,3 @@
-import { Container, Typography } from '@mui/material'
-import Head from 'next/head'
-import Image from 'next/image'
 import { EnterprisesSection } from '../src/components/homePage/EnterprisesSection'
 import { HeroSection } from '../src/components/homePage/HeroSection'
 import { HistorySection } from '../src/components/homePage/HistorySection'
@@ -9,14 +6,12 @@ import { Footer } from '../src/components/commons/Footer'
 
 export default function Home() {
   return (
-    <>    
-      <main style={{ height: '100%' }}>
-        <HeroSection />
-        <HistorySection />
-        <EnterprisesSection />
-        <BlogSection />
-        <Footer />
-      </main>
-    </>
+    <main style={{ height: '100%' }}>
+      <HeroSection />
+      <HistorySection />
+      <EnterprisesSection />
+      <BlogSection />
+      <Footer />
+    </main>
   )
 }

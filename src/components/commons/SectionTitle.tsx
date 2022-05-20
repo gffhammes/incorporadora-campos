@@ -15,7 +15,7 @@ export const SectionTitle = ({ theme, children }) => {
     <Typography
       variant='h2'
       fontSize={{ xs: 20, sm: 28}}
-      fontWeight={500}
+      fontWeight={400}
       letterSpacing={6}
       textAlign='center'
       sx={{ ...titleStyle, borderBottom: `1px solid ${borderColor}`, color: textColor }} 
