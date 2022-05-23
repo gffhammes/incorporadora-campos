@@ -4,13 +4,21 @@ import React from 'react'
 import { pages } from '../../constants/pages'
 
 export const PageTitle = () => {
-  const { pathname } = useRouter()
+  const { asPath: path } = useRouter();
 
-  if (pathname === '/_error') return null;
+  if (path === '/_error') return null;
 
-  const { name } = pages.find(page => page.route === pathname)
+  const slashCount = (path.match(/\//g) || []).length;
 
-  const title = name === 'Home' ? 'Campos Incorporadora' : `${name} | Campos Incorporadora`;
+  let title: string;
+
+  if (slashCount === 1) {
+    const { name } = pages.find(page => page.route === path)
+    title = name === 'Home' ? 'Campos Incorporadora' : `${name} | Campos Incorporadora`;
+  } else {    
+    const enterpriseName = path.split('/').pop();
+    title = enterpriseName === '[name]' ? 'Campos Incorporadora' : `${enterpriseName} | Campos Incorporadora`
+  }
 
   return (
     <Head>
