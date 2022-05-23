@@ -5,8 +5,6 @@ import { ContainedPrimaryButton } from '../commons/Button'
 import { SectionTitle } from '../commons/SectionTitle'
 import { EnterprisesSlider } from './EnterprisesSlider'
 
-
-
 export const EnterprisesSection = () => {
   return (
     <Box bgcolor='#f2f2f2' >

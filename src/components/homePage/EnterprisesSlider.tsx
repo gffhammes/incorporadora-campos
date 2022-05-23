@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import { Box, Stack, Typography } from '@mui/material'
+import { enterprises } from '../../assets/enterprises'
 
 const imageStyle = {
   height: '20rem',
@@ -9,73 +10,6 @@ const imageStyle = {
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat'
 }
-
-const buildings = [
-  {
-    image: '/images/SAN-PIETRO.png',
-    name: 'Piazza San Pietro',
-    status: 'Em obras',
-    district: 'América',
-    area: 'Área privativa entre 148 e 171 m²',
-    bedrooms: '3 e 4 dormitórios | 3 suítes'
-  },
-  {
-    image: '/images/piazza-del-mare.png',
-    name: 'Piazza Del Mare',
-    status: 'Lançamento',
-    district: 'Itacolomi',
-    area: 'Área privativa entre 148 e 171 m²',
-    bedrooms: '3 e 4 dormitórios | 3 suítes'
-  },
-  {
-    image: '/images/piazza-san-marco.png',
-    name: 'Piazza San Marco',
-    status: '100% vendido',
-    district: 'Costa e Silva',
-    area: 'Área privativa entre 148 e 171 m²',
-    bedrooms: '3 e 4 dormitórios | 3 suítes'
-  },
-  {
-    image: '/images/piazza-san-carlo.png',
-    name: 'Piazza San Carlo',
-    status: '100% vendido',
-    district: 'Costa e Silva',
-    area: 'Área privativa entre 148 e 171 m²',
-    bedrooms: '3 e 4 dormitórios | 3 suítes'
-  },
-  {
-    image: '/images/SAN-PIETRO.png',
-    name: 'Piazza San Pietro',
-    status: 'Em obras',
-    district: 'América',
-    area: 'Área privativa entre 148 e 171 m²',
-    bedrooms: '3 e 4 dormitórios | 3 suítes'
-  },
-  {
-    image: '/images/piazza-del-mare.png',
-    name: 'Piazza Del Mare',
-    status: 'Lançamento',
-    district: 'Itacolomi',
-    area: 'Área privativa entre 148 e 171 m²',
-    bedrooms: '3 e 4 dormitórios | 3 suítes'
-  },
-  {
-    image: '/images/piazza-san-marco.png',
-    name: 'Piazza San Marco',
-    status: '100% vendido',
-    district: 'Costa e Silva',
-    area: 'Área privativa entre 148 e 171 m²',
-    bedrooms: '3 e 4 dormitórios | 3 suítes'
-  },
-  {
-    image: '/images/piazza-san-carlo.png',
-    name: 'Piazza San Carlo',
-    status: '100% vendido',
-    district: 'Costa e Silva',
-    area: 'Área privativa entre 148 e 171 m²',
-    bedrooms: '3 e 4 dormitórios | 3 suítes'
-  },
-]
 
 export const EnterprisesSlider = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
@@ -98,10 +32,10 @@ export const EnterprisesSlider = () => {
     <div className="embla">
       <div className="embla__viewport"  ref={emblaRef}>
         <div className="embla__container">
-          {buildings.map((building, index) => (
+          {enterprises.map((building, index) => (
             <Box className="embla__slide" key={index}>
               <Box sx={{ width: '100%', height: 'fit-content', backgroundImage: 'linear-gradient(transparent 20%, #e4e2e7 20%)', p: 2 }}>
-                <Box sx={{ ...imageStyle, backgroundImage: `url(${building.image})` }} />
+                <Box sx={{ ...imageStyle, backgroundImage: `url(${building.thumb})` }} />
                 <Stack sx={{ mt: 2 }} direction='row' justifyContent='space-between' alignItems='center' >                              
                   <Typography fontSize={13} fontWeight={600} sx={{ color: 'secondary.main', textDecoration: 'underline' }} >{building.name.toUpperCase()}</Typography>
                   <Typography fontSize={10}>{building.status.toUpperCase()}</Typography>

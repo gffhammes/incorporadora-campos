@@ -2,61 +2,7 @@ import { Box, Button, Container, Grid, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-
-const enterprises = [
-  {
-    image: '/images/piazza-san-carlo-empreendimentos.jpg',
-    name: 'Piazza San Carlo',
-    slug: 'piazza-san-carlo',
-    district: 'América',
-    city: 'Joinville',
-    buildingsQty: 1,
-    floorsQty: 8,
-    apartmentsTotal: 17,
-    apartmentsPerFloor: 3,
-    status: 'Entregue',
-    description: `Sacada com churrasqueira a carvão
-Duas vagas de garagem
-Ambientes integrados nos apartamentos
-Infraestrutura para sistema de segurança
-Infraestrutura para refrigeração em todos os cômodos
-    `,
-  },
-  {
-    image: '/images/piazza-del-mare-empreendimentos.jpg',
-    name: 'Piazza Del Mare',
-    slug: 'piazza-del-mare',
-    district: 'Itacolumi',
-    city: 'Balneário Piçarras',
-    buildingsQty: 1,
-    floorsQty: 8,
-    apartmentsTotal: 17,
-    apartmentsPerFloor: 3,
-    status: 'Lançamento',
-    description: `Viva a experiência do mais alto nível de qualidade de vida.
-O seu sonho de morar próximo ao mar é possível.
-E o PIAZZA DEL MARE foi feito para realizá-lo.
-    `,
-  },
-  {
-    image: '/images/piazza-san-pietro-empreendimentos.jpg',
-    name: 'Piazza San Pietro',
-    slug: 'piazza-san-pietro',
-    district: 'América',
-    city: 'Joinville',
-    buildingsQty: 1,
-    floorsQty: 8,
-    apartmentsTotal: 17,
-    apartmentsPerFloor: 3,
-    status: 'Em obras',
-    description: `Sacada com churrasqueira a carvão
-Duas vagas de garagem
-Ambientes integrados nos apartamentos
-Infraestrutura para sistema de segurança
-Infraestrutura para refrigeração em todos os cômodos
-    `,
-  },
-]
+import { enterprises } from '../../assets/enterprises'
 
 export const EnterprisesSection = () => {
   return (
