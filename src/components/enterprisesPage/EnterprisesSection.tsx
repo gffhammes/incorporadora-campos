@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { enterprises } from '../../assets/enterprises'
+import { getEnterpriseDetailsString } from '../../helpers/getEnterpriseDetailsString'
 
 export const EnterprisesSection = () => {
   return (
@@ -27,7 +28,7 @@ export const EnterprisesSection = () => {
                     <Typography fontSize={19} fontWeight={500} letterSpacing={2} sx={{ color: '#1a47bc', textDecoration: 'underline' }}>{enterprise.name.toUpperCase()}</Typography>
                     <Typography fontSize={16} fontWeight={500}>{enterprise.district} | {enterprise.city}</Typography>
                     <Typography fontSize={14}>
-                      {enterprise.buildingsQty} torre | {enterprise.floorsQty} andares | {enterprise.apartmentsTotal} aptos. | {enterprise.apartmentsPerFloor} por andar
+                      {getEnterpriseDetailsString(enterprise.slug)}
                     </Typography>
                     <Typography fontSize={14} fontWeight={400} sx={{ mt: '1rem', whiteSpace: 'pre-wrap' }} >{enterprise.description}</Typography>
                     <Link href={`/empreendimentos/${enterprise.slug}`} passHref>

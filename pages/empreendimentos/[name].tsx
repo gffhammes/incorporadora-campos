@@ -2,16 +2,31 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import { Footer } from '../../src/components/commons/Footer'
 import { Box } from '@mui/material'
+import { getEnterpriseBySlug } from '../../src/helpers/getEnterpriseBySlug'
+import { HeroSection } from '../../src/components/enterprisesInternalPage/HeroSection'
+import { SummarySection } from '../../src/components/enterprisesInternalPage/SummarySection'
+import { DetailsSections } from '../../src/components/enterprisesInternalPage/DetailsSections'
+import { DifferentialsSections } from '../../src/components/enterprisesInternalPage/DifferentialsSections'
+import { PlanOptions } from '../../src/components/enterprisesInternalPage/PlanOptions'
+import { ConstructionStatusSection } from '../../src/components/enterprisesInternalPage/ConstructionStatusSection'
+import { ContactSection } from '../../src/components/enterprisesInternalPage/ContactSection'
 
 const Enterprise = () => {
   const router = useRouter()
   const { name } = router.query
 
+  const currentEnterprise = getEnterpriseBySlug(name);
+  if (!currentEnterprise) return null
+
   return (
     <main style={{ height: '100%' }}>
-      <Box sx={{ height: '100%', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div>{name}</div>
-      </Box>
+      <HeroSection enterpriseData={currentEnterprise} />
+      <SummarySection enterpriseData={currentEnterprise} />
+      <DetailsSections enterpriseData={currentEnterprise} />
+      <DifferentialsSections enterpriseData={currentEnterprise} />
+      <PlanOptions enterpriseData={currentEnterprise} />
+      <ContactSection enterpriseData={currentEnterprise} />
+      <ConstructionStatusSection enterpriseData={currentEnterprise} />
       <Footer />
     </main>
   )
