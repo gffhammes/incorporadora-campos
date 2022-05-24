@@ -1,5 +1,6 @@
 export const enterprises = [
   {
+    logo: '/vectors/piazza-san-pietro.svg',
     thumb: '/images/SAN-PIETRO.png',
     image: '/images/piazza-san-pietro-empreendimentos.jpg',
     banner: '/images/campos-incorporadora-san-pietro.jpg',

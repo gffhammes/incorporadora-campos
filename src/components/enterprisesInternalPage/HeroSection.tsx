@@ -1,4 +1,5 @@
 import { Box, Container, Stack, Typography } from '@mui/material'
+import Image from 'next/image'
 import React from 'react'
 
 export const HeroSection = ({ enterpriseData }) => {
@@ -21,13 +22,17 @@ export const HeroSection = ({ enterpriseData }) => {
           backgroundImage: 'linear-gradient(rgb(14, 30, 66) 5%, rgba(14, 30, 66, 0.1) 70%)',
         }}
       />
-      <Box sx={{ position: 'absolute', width: '100%', height: '100%', zIndex: 500, display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
-        <Container sx={{ display: 'flex', height: '50%', mb: 10 }}>  
+      <Box sx={{ position: 'absolute', width: '100%', height: '100%', zIndex: 500, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Container sx={{ display: 'flex', height: '100%', alignItems: 'center' }}>  
           <Stack sx={{ mx: 'auto' }} alignItems='center' justifyContent='flex-start' >
-            <Typography>{enterpriseData.name}</Typography>
-            {/* <Box sx={{ minHeight: '5rem', height: '35vw', maxHeight: '10rem', width: '100%' }} >                           
-              <PizzaSanPietro width='100%' height='100%' />
-            </Box> */}
+            <Box sx={{ minHeight: '15rem', height: '50vw', maxHeight: '25rem', position: 'relative', aspectRatio: '1 / 1' }} >                           
+              <Image
+                src={enterpriseData.logo}
+                alt={enterpriseData.name}
+                layout='fill'
+                objectFit='contain'
+              />
+            </Box>
           </Stack>
         </Container>
       </Box>
