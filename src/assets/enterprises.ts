@@ -31,7 +31,13 @@ export const enterprises = [
       'playroom',
       'zen-lounge',
       'noble-area',
-    ]
+    ],
+    detailedStatus: {
+      infrastructure: 1,
+      masonry: 0.8,
+      installations: 1,
+      coating: 0.75,
+    }
   },
   {
     thumb: '/images/piazza-san-carlo.png',
