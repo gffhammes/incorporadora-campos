@@ -15,7 +15,7 @@ export const PageTitle = () => {
 
   if (slashCount === 1) {
     const currentPage = pages.find(page => page.route === path)
-    title = currentPage?.name === 'Home' || !currentPage ? 'Campos Incorporadora' : `${name} | Campos Incorporadora`;
+    title = currentPage?.name === 'Home' || !currentPage ? 'Campos Incorporadora' : `${currentPage.name} | Campos Incorporadora`;
   } else {
     const enterprisePath = path.split('/').pop();
 
