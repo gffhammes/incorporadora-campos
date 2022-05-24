@@ -2,9 +2,11 @@ import { styled, TextField } from '@mui/material'
 import React, { FC } from 'react'
 
 interface InputProps {
+  id?: string;
   label?: string;
   placeholder?: string;
   type?: string;
+  required?: boolean;
   value: string;
   handleChange(e: any): void;
 }
@@ -29,12 +31,14 @@ const CssTextField = styled(TextField)({
   },
 });
 
-export const Input: FC<InputProps> = ({ label, placeholder, type, value, handleChange }) => {
+export const Input: FC<InputProps> = ({ id, label, placeholder, type, required, value, handleChange }) => {
   const textFieldProps = {
+    id: id,
     label: label,
     placeholder: placeholder,
     variant: "outlined",
     value: value,
+    required: required,
     onChange: handleChange,
     type: type,
   }

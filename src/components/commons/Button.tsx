@@ -34,6 +34,15 @@ export const ContainedPrimaryButton = styled(ButtonBase)(({ theme }) => ({
   }
 }));
 
+export const ContainedSecondaryButton = styled(ButtonBase)(({ theme }) => ({
+  ...commonProps,
+  backgroundColor: '#1A47BC',
+  color: 'white',
+  '&:hover': {
+    backgroundColor: '#102d75',
+  }
+}));
+
 export const OutlinedWhiteButton = styled(ButtonBase)(({ theme }) => ({
   ...commonProps,
   backgroundColor: 'transparent',

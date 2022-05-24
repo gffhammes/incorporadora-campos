@@ -7,7 +7,7 @@ export const ConstructionStatusSection = ({ enterpriseData }) => {
   return (
     <Box bgcolor='#e7e7e7'>
       <Container sx={{ py: 10 }}>
-        <StatusCharts />
+        <StatusCharts data={enterpriseData.detailedStatus} />
       </Container>
     </Box>
   )
