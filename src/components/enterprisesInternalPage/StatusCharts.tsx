@@ -5,22 +5,9 @@ import { Box, Grid, Stack, Typography } from '@mui/material';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-
-const options = {
-  plugins: {
-    legend: {
-      display: false,
-    },
-    tooltip: {
-      events: [],
-    },
-  },
-  cutout: '90%',
-}
-
 const GeneralStatus = ({ status }) => {  
   const data = {
-    labels: ['Red', 'Blue'],
+    labels: ['ready', 'waiting'],
     datasets: [
       {
         data: [status, (1 - status)],
@@ -32,6 +19,16 @@ const GeneralStatus = ({ status }) => {
       },
     ],  
   };
+  
+  const options = {
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+    events: [],
+    cutout: '90%',
+  }
 
   return (
     <Box
