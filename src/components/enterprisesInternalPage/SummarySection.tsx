@@ -8,8 +8,8 @@ export const SummarySection = ({ enterpriseData }) => {
     <Box>
       <Container sx={{ py: 10 }}>
         <Grid container spacing={10}>
-          <Grid item xs={6}>
-            <Box sx={{ position: 'relative', height: '100%', width: '100%' }}>
+          <Grid item xs={12} sm={6}>
+            <Box sx={{ position: 'relative', height: { xs: 'unset', md: '100%' }, aspectRatio: { xs: '1', md: 'unset' }, width: '100%' }}>
               <Image
                 src={enterpriseData.image}
                 alt={enterpriseData.name}
@@ -19,7 +19,7 @@ export const SummarySection = ({ enterpriseData }) => {
               />
             </Box>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} sm={6}>
             <Stack spacing={3}>              
               <Typography fontSize={32} fontWeight={500} letterSpacing={1} sx={{ color: '#1a47bc' }}>{enterpriseData.pageTitle.toUpperCase()}</Typography>
               <Typography sx={{ whiteSpace: 'pre-wrap' }}>{enterpriseData.pageText}</Typography>

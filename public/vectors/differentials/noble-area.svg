@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="115" height="114" viewBox="0 0 115 114">
+  <g id="Group_499" data-name="Group 499" transform="translate(-1051 -2800)">
+    <ellipse id="Ellipse_44" data-name="Ellipse 44" cx="57.5" cy="57" rx="57.5" ry="57" transform="translate(1051 2800)" fill="#0e1e42"/>
+    <g id="pin" transform="translate(1083.5 2830.5)">
+      <path id="Path_1414" data-name="Path 1414" d="M30.63,18.519a9.111,9.111,0,1,1-9.111-9.111,9.111,9.111,0,0,1,9.111,9.111Zm-4.556,0a4.556,4.556,0,1,1-4.556-4.556,4.556,4.556,0,0,1,4.556,4.556Z" transform="translate(4.1 4.101)" fill="#1a47bc" fill-rule="evenodd"/>
+      <path id="Path_1415" data-name="Path 1415" d="M10.864,36.847a20.5,20.5,0,1,1,28.982-.711L25.711,50.982,10.864,36.847Zm25.684-3.852L25.554,44.542,14.006,33.548A15.944,15.944,0,1,1,36.55,33Z" transform="translate(0 0)" fill="#1a47bc" fill-rule="evenodd"/>
+    </g>
+  </g>
+</svg>
