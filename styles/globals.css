@@ -25,7 +25,13 @@ a {
 }
 
 .embla {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+.embla.overflow_show {
+  overflow-x: visible;
+  overflow-y: visible;
 }
 .embla__container {
   display: flex;
@@ -36,9 +42,18 @@ a {
   margin-right: 16px; /* Default slide gap */
 }
 
+.embla__slide_full {
+  position: relative;
+  flex: 0 0 100%;
+  margin-right: 16px; /* Default slide gap */
+}
+
 @media (min-width: 575px) {
   .embla__slide {
     flex: 0 0 50%; /* Breakpoint SM slide covers 50% of the viewport */
+  }
+  .embla__slide_full {
+    flex: 0 0 70%; /* Breakpoint SM slide covers 50% of the viewport */
   }
 }
 

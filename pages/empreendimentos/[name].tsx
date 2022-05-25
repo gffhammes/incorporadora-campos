@@ -5,7 +5,7 @@ import { Box } from '@mui/material'
 import { getEnterpriseBySlug } from '../../src/helpers/getEnterpriseBySlug'
 import { HeroSection } from '../../src/components/enterprisesInternalPage/HeroSection'
 import { SummarySection } from '../../src/components/enterprisesInternalPage/SummarySection'
-import { DetailsSections } from '../../src/components/enterprisesInternalPage/DetailsSections'
+import { DetailsSection } from '../../src/components/enterprisesInternalPage/DetailsSection'
 import { DifferentialsSections } from '../../src/components/enterprisesInternalPage/DifferentialsSections'
 import { PlanOptions } from '../../src/components/enterprisesInternalPage/PlanOptions'
 import { ConstructionStatusSection } from '../../src/components/enterprisesInternalPage/ConstructionStatusSection'
@@ -22,7 +22,7 @@ const Enterprise = () => {
     <main style={{ height: '100%' }}>
       <HeroSection enterpriseData={currentEnterprise} />
       <SummarySection enterpriseData={currentEnterprise} />
-      <DetailsSections enterpriseData={currentEnterprise} />
+      <DetailsSection enterpriseData={currentEnterprise} />
       <DifferentialsSections enterpriseData={currentEnterprise} />
       <PlanOptions enterpriseData={currentEnterprise} />
       <ContactSection enterpriseData={currentEnterprise} />

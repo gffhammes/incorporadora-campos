@@ -1,4 +1,5 @@
 import { Box, Button, Container, Stack, Typography } from '@mui/material'
+import Link from 'next/link'
 import React from 'react'
 import PizzaSanPietro from '../../../public/vectors/piazza-san-pietro.svg'
 import { OutlinedWhiteButton } from '../commons/Button'
@@ -30,7 +31,11 @@ export const HeroSection = () => {
               <PizzaSanPietro  width='100%' height='100%' />
             </Box>
             <Typography fontSize={21} letterSpacing={4} textAlign='center' sx={{ color: 'white', mt: 'auto', mb: 2 }} >LANÇAMENTO NO AMÉRICA</Typography>
-            <OutlinedWhiteButton>SAIBA MAIS</OutlinedWhiteButton>
+            <Link href='/empreendimentos/piazza-san-pietro' passHref >
+              <a>
+                <OutlinedWhiteButton>SAIBA MAIS</OutlinedWhiteButton>
+              </a>
+            </Link>
           </Stack>
         </Container>
       </Box>
