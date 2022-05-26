@@ -7,7 +7,7 @@ import { HeroSection } from '../../src/components/enterprisesInternalPage/HeroSe
 import { SummarySection } from '../../src/components/enterprisesInternalPage/SummarySection'
 import { DetailsSection } from '../../src/components/enterprisesInternalPage/DetailsSection'
 import { DifferentialsSections } from '../../src/components/enterprisesInternalPage/DifferentialsSections'
-import { PlanOptions } from '../../src/components/enterprisesInternalPage/PlanOptions'
+import { PlanOptionsSection } from '../../src/components/enterprisesInternalPage/PlanOptionsSection'
 import { ConstructionStatusSection } from '../../src/components/enterprisesInternalPage/ConstructionStatusSection'
 import { ContactSection } from '../../src/components/enterprisesInternalPage/ContactSection'
 
@@ -24,7 +24,7 @@ const Enterprise = () => {
       <SummarySection enterpriseData={currentEnterprise} />
       <DetailsSection enterpriseData={currentEnterprise} />
       <DifferentialsSections enterpriseData={currentEnterprise} />
-      <PlanOptions enterpriseData={currentEnterprise} />
+      <PlanOptionsSection enterpriseData={currentEnterprise} />
       <ContactSection enterpriseData={currentEnterprise} />
       <ConstructionStatusSection enterpriseData={currentEnterprise} />
       <Footer />

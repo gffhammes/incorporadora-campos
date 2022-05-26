@@ -1,6 +1,7 @@
 import { Box, Container, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 export const HeroSection = ({ enterpriseData }) => {
   return (

@@ -9,18 +9,18 @@ export const DifferentialsSections = ({ enterpriseData }) => {
     <Box bgcolor='#f2f2f2'>
       <Container sx={{ py: 10 }}>
         <SectionTitle>DIFERENCIAIS</SectionTitle>
-        <Grid container rowSpacing={8} columnSpacing={4} columns={10} alignItems='center' justifyContent='center'>
+        <Grid container rowSpacing={8} columnSpacing={4} columns={10} alignItems='flex-start' justifyContent='center'>
           {enterpriseData.differentials.map((differential, index) => (
             <Grid item xs={5} sm={4} md={3} lg={2} key={index}>
-              <Stack alignItems='center' spacing={2}>                
-                <Box sx={{ position: 'relative', width: '100%', maxWidth: '6rem', aspectRatio: '1 / 1' }}>
+              <Stack alignItems='center' spacing={3}>                
+                <Box sx={{ position: 'relative', width: '100%', maxWidth: '7rem', aspectRatio: '1 / 1' }}>
                   <Image
                     src={`/vectors/differentials/${differential}.svg`}
                     alt={differentials[differential]}
                     layout='fill'
                   />
                 </Box>
-                <Typography letterSpacing={1} textAlign='center'>{differentials[differential].toUpperCase()}</Typography>
+                <Typography letterSpacing={1} textAlign='center' fontSize={{ xs: 15, md: 18 }} >{differentials[differential].toUpperCase()}</Typography>
               </Stack>
             </Grid>
           ))}

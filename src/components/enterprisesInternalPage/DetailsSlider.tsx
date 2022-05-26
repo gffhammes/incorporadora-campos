@@ -46,7 +46,19 @@ export const DetailsSlider = () => {
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {images.map((image, index) => (
-            <Box className="embla__slide_full" key={index} sx={{ boxShadow: selectedSlide === index ? 10 : 0, transition: 'filter 800ms ease', width: '100%', aspectRatio: '2 / 1', filter: selectedSlide === index ? '' : 'opacity(.5)' }}>
+            <Box
+              className="embla__slide_full"
+              key={index}
+              sx={{
+                boxShadow: selectedSlide === index ? 10 : 0,
+                transitionProperty: 'filter, box-shadow',
+                transitionDuration: '1s',
+                transitionTimingFunction: 'ease',
+                width: '100%',
+                aspectRatio: '2 / 1',
+                filter: selectedSlide === index ? '' : 'opacity(.5)'
+              }}
+            >
               <Image
                 src={image}
                 alt='image'

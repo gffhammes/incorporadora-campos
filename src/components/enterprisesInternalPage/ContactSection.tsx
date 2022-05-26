@@ -17,6 +17,11 @@ export const ContactSection = ({ enterpriseData }) => {
     }))
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(e)
+  }
+
   return (
     <Box bgcolor='#0E1E42'>
       <Container sx={{ py: 10 }}>
@@ -25,21 +30,23 @@ export const ContactSection = ({ enterpriseData }) => {
             <Typography fontSize={22} fontWeight={500} letterSpacing={1} sx={{ whiteSpace: { xs: 'normal', lg: 'nowrap'} }}>TEM INTERESSE NO EMPREENDIMENTO?</Typography>
             <Typography fontSize={18} sx={{ whiteSpace: { xs: 'normal', lg: 'nowrap'} }}>Preencha seus dados e entraremos em contato com você!</Typography>
           </Stack>
-          <div>          
-            <Grid container spacing={2} alignItems='center'>
-              <Grid item xs={12}>
-                <Input id='name' value={contactData.name} handleChange={handleChange} placeholder='Nome Completo' required={true} />
+          <div>
+            <form noValidate onSubmit={e => handleSubmit(e)}>              
+              <Grid container spacing={2} alignItems='center'>
+                <Grid item xs={12}>
+                  <Input id='name' value={contactData.name} handleChange={handleChange} placeholder='Nome Completo' required={true} />
+                </Grid>
+                <Grid item xs={12} md={6} lg={4}>
+                  <Input id='phone' value={contactData.phone} handleChange={handleChange} placeholder='Telefone' required={true} />
+                </Grid>
+                <Grid item xs={12} md={6} lg={4}>
+                  <Input id='email' value={contactData.email} handleChange={handleChange} placeholder='E-mail' required={true} />
+                </Grid>
+                <Grid item xs={12} lg={4}>
+                  <ContainedSecondaryButton sx={{ width: '100%', height: '100%' }} type='submit' >ENVIAR</ContainedSecondaryButton>
+                </Grid>
               </Grid>
-              <Grid item xs={12} md={6} lg={4}>
-                <Input id='phone' value={contactData.phone} handleChange={handleChange} placeholder='Telefone' required={true} />
-              </Grid>
-              <Grid item xs={12} md={6} lg={4}>
-                <Input id='email' value={contactData.email} handleChange={handleChange} placeholder='E-mail' required={true} />
-              </Grid>
-              <Grid item xs={12} lg={4}>
-                <ContainedSecondaryButton sx={{ width: '100%', height: '100%' }}>ENVIAR</ContainedSecondaryButton>
-              </Grid>
-            </Grid>
+            </form>
           </div>
         </Stack>
       </Container>
