@@ -1,9 +1,22 @@
-import { Box, Container, Stack, Typography } from '@mui/material'
+import { Box, Container, IconButton, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import Link from 'next/link';
 
 export const HeroSection = ({ enterpriseData }) => {
+  const [target, setTarget] = useState(null)
+
+
+  function goToInfoSection(): void {    
+    target?.scrollIntoView()
+  }
+
+  useEffect(() => {
+    setTarget(document.getElementById('info'));
+  }, [])
+
+
   return (
     <Box sx={{ position: 'relative', zIndex: 500, height: '100%', }}>
       <Box
@@ -36,6 +49,11 @@ export const HeroSection = ({ enterpriseData }) => {
             </Box>
           </Stack>
         </Container>
+        <Box className='float' sx={{ position: 'absolute', zIndex: 999, color: 'white', bottom: 0, right: '50%', mb: 5 }}>
+          <IconButton onClick={goToInfoSection} sx={{ color: 'white', fontSize: '4rem' }}>
+            <KeyboardArrowDownIcon fontSize='inherit' />
+          </IconButton>
+        </Box>
       </Box>
     </Box>
   )

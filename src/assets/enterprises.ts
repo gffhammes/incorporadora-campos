@@ -10,6 +10,7 @@ export const enterprises = [
     slug: 'piazza-san-pietro',
     district: 'América',
     city: 'Joinville',
+    fullAddress: 'Rua João Pessoa 912, América - Joinville/SC',
     area: 'Área privativa entre 148 e 171 m²',
     bedrooms: '3 e 4 dormitórios | 3 suítes',
     buildingsQty: 1,

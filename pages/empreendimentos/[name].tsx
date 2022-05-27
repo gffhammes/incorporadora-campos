@@ -10,6 +10,8 @@ import { DifferentialsSections } from '../../src/components/enterprisesInternalP
 import { PlanOptionsSection } from '../../src/components/enterprisesInternalPage/PlanOptionsSection'
 import { ConstructionStatusSection } from '../../src/components/enterprisesInternalPage/ConstructionStatusSection'
 import { ContactSection } from '../../src/components/enterprisesInternalPage/ContactSection'
+import { MapsSection } from '../../src/components/enterprisesInternalPage/MapsSection'
+import { SimulatorsSection } from '../../src/components/enterprisesInternalPage/SimulatorsSection'
 
 const Enterprise = () => {
   const router = useRouter()
@@ -27,6 +29,8 @@ const Enterprise = () => {
       <PlanOptionsSection enterpriseData={currentEnterprise} />
       <ContactSection enterpriseData={currentEnterprise} />
       <ConstructionStatusSection enterpriseData={currentEnterprise} />
+      <MapsSection enterpriseData={currentEnterprise} />
+      <SimulatorsSection />
       <Footer />
     </main>
   )

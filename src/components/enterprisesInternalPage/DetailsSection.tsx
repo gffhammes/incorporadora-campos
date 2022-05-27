@@ -1,7 +1,7 @@
 import { Box, Container } from '@mui/material'
 import React from 'react'
 import { SectionTitle } from '../commons/SectionTitle'
-import { DetailsSlider } from './DetailsSlider'
+import { DetailsSlider } from './detailsSlider/DetailsSlider'
 
 export const DetailsSection = ({ enterpriseData }) => {
   return (

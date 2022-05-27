@@ -5,6 +5,7 @@ body {
   height: 100%;
   width: 100%;
   font-family: 'Satoshi', sans-serif;
+  scroll-behavior: smooth;
 }
 
 #__next {
@@ -23,6 +24,27 @@ a {
   padding: 0;
   margin: 0;
 }
+
+.float {  
+	animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+	0% {
+		transform: translate(50%, 0px);
+	}
+	50% {
+		transform: translate(50%, -20px);
+	}
+	100% {
+		transform: translate(50%, 0px);
+	}
+}
+
+
+
+
+
 
 .embla {
   overflow-x: hidden;

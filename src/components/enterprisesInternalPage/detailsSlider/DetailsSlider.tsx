@@ -1,14 +1,15 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
-import { Box, Stack, Typography } from '@mui/material'
+import { Box, IconButton, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-const imageStyle = {
-  height: '20rem',
-  width: '100%',
-  backgroundSize: 'contain',
-  backgroundPosition: 'center',
-  backgroundRepeat: 'no-repeat'
+const defaultButtonProps = {
+  height: 'fit-content',
+  color: 'white',
+  zIndex: 500,
+  textAlign: 'center',
 }
 
 const images = [
@@ -42,7 +43,14 @@ export const DetailsSlider = () => {
   })
 
   return (
-    <div className="embla overflow_show">
+
+    
+    <Stack direction='row' alignItems='center' sx={{ height: '100%', width: '100%' }}>
+      <IconButton sx={{ ...defaultButtonProps, ml: 5 }} onClick={scrollPrev}>        
+        <ArrowBackIosIcon />
+      </IconButton>
+      <div style={{ width: '100%' }}>
+      <div className="embla overflow_show">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {images.map((image, index) => (
@@ -69,12 +77,11 @@ export const DetailsSlider = () => {
           ))}
         </div>
       </div>
-      {/* <button className="embla__prev" onClick={scrollPrev}>
-        Prev
-      </button>
-      <button className="embla__next" onClick={scrollNext}>
-        Next
-      </button> */}
     </div>
+      </div>
+      <IconButton sx={{ ...defaultButtonProps, mr: 5 }} onClick={scrollNext}>
+        <ArrowForwardIosIcon />
+      </IconButton>
+    </Stack>
   )
 }

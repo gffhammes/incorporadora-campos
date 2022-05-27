@@ -40,7 +40,7 @@ export const PlanSlider = () => {
 
 
   return (
-    <Stack direction='row' alignItems='center' sx={{ height: '100%', width: '100%' }}>
+    <Stack direction='row' alignItems='center' sx={{ height: '100%', width: '100%', overflow: 'hidden' }}>
       <IconButton sx={{ height: 'fit-content', color: '#1A47BC' }} onClick={scrollPrev}>        
         <ArrowBackIosIcon />
       </IconButton>
@@ -54,18 +54,17 @@ export const PlanSlider = () => {
                   sx={{
                     width: '100%',
                     height: '100%',
-                    aspectRatio: '1 / 1',
                     position: 'relative',
                     flex: '0 0 100%',
                     marginRight: '16px',
                   }}
                 >                  
-                  <Box sx={{ position: 'relative', width: '100%', height: '100%', }}>
+                  <Box sx={{ position: 'relative', width: '100%', height: '25vw', minHeight: { xs: '10rem', md: '16rem' }, maxHeight: '18rem' }}>
                     <Image
                       src={image}
                       alt='image'
                       layout='fill'
-                      objectFit='cover'
+                      objectFit='contain'
                     />
                   </Box>
                   <Typography textAlign='center' sx={{ mt: 3 }} fontSize={18} fontWeight={500}>APTO TIPO 1</Typography>

@@ -10,6 +10,7 @@ export const PageTitle = () => {
   if (path === '/_error') return null;
 
   const slashCount = (path.match(/\//g) || []).length;
+  const hashtagCount = (path.match(/#/g) || []).length;
 
   let title: string;
 
@@ -17,12 +18,13 @@ export const PageTitle = () => {
     const currentPage = pages.find(page => page.route === path)
     title = currentPage?.name === 'Home' || !currentPage ? 'Campos Incorporadora' : `${currentPage.name} | Campos Incorporadora`;
   } else {
-    const enterprisePath = path.split('/').pop();
+    let enterprisePath = path.split('/').pop();
+    enterprisePath = enterprisePath.split('#')[0];
 
     if (enterprisePath === '[name]') {
       title = 'Campos Incorporadora'
     } else {
-      const enterpriseName = enterprises.find(enterprise => enterprise.slug === enterprisePath).name;
+      const enterpriseName = enterprises.find(enterprise => enterprise.slug === enterprisePath)?.name;
       title = `${enterpriseName} | Campos Incorporadora`
     }
   }
