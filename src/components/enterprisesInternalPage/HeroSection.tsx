@@ -3,13 +3,14 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Link from 'next/link';
+import { PrimaryGradientCover } from '../commons/PrimaryGradientCover';
 
 export const HeroSection = ({ enterpriseData }) => {
   const [target, setTarget] = useState(null)
 
 
   function goToInfoSection(): void {    
-    target?.scrollIntoView()
+    target?.scrollIntoView({ behavior: "smooth" })
   }
 
   useEffect(() => {
@@ -28,14 +29,7 @@ export const HeroSection = ({ enterpriseData }) => {
           backgroundSize: 'cover',
         }}
       />
-      <Box
-        sx={{
-          position: 'absolute',
-          height: '100%',
-          width: '100%',
-          backgroundImage: 'linear-gradient(rgb(14, 30, 66) 5%, rgba(14, 30, 66, 0.1) 70%)',
-        }}
-      />
+      <PrimaryGradientCover />
       <Box sx={{ position: 'absolute', width: '100%', height: '100%', zIndex: 500, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <Container sx={{ display: 'flex', height: '100%', alignItems: 'center' }}>  
           <Stack sx={{ mx: 'auto' }} alignItems='center' justifyContent='flex-start' >

@@ -2,14 +2,23 @@ import React, { useCallback, useEffect, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import { Box, IconButton, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import LeftArrow from '../../../../public/vectors/arrows/left-arrow.svg'
+import RightArrow from '../../../../public/vectors/arrows/right-arrow.svg'
+import { defaultSvgProps } from '../../../constants/defaultSvgProps'
 
 const defaultButtonProps = {
-  height: 'fit-content',
-  color: 'white',
   zIndex: 500,
-  textAlign: 'center',
+  backgroundColor: 'transparent',
+  border: 0,
+  height: '5vw',
+  width: '5vw',
+  minHeight: '1.5rem',
+  minWidth: '1.5rem',
+  maxHeight: '3rem',
+  maxWidth: '3rem',
+  borderRadius: '20rem',
+  cursor: 'pointer',
+  position: 'absolute',
 }
 
 const images = [
@@ -43,12 +52,10 @@ export const DetailsSlider = () => {
   })
 
   return (
-
-    
     <Stack direction='row' alignItems='center' sx={{ height: '100%', width: '100%' }}>
-      <IconButton sx={{ ...defaultButtonProps, ml: 5 }} onClick={scrollPrev}>        
-        <ArrowBackIosIcon />
-      </IconButton>
+      <Box sx={{ ...defaultButtonProps, marginLeft: '10vw', left: 0 }} onClick={scrollPrev}>        
+        <LeftArrow {...defaultSvgProps} />
+      </Box>
       <div style={{ width: '100%' }}>
       <div className="embla overflow_show">
       <div className="embla__viewport" ref={emblaRef}>
@@ -79,9 +86,9 @@ export const DetailsSlider = () => {
       </div>
     </div>
       </div>
-      <IconButton sx={{ ...defaultButtonProps, mr: 5 }} onClick={scrollNext}>
-        <ArrowForwardIosIcon />
-      </IconButton>
+      <Box sx={{ ...defaultButtonProps, marginRight: '10vw', right: 0 }} onClick={scrollNext}>        
+        <RightArrow {...defaultSvgProps} />
+      </Box>
     </Stack>
   )
 }

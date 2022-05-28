@@ -16,7 +16,7 @@ export const MapsSection = ({ enterpriseData }) => {
       </iframe>
       <Box>
         <Container sx={{ py: 5 }}>
-          <Typography sx={{ width: 'fit-content', mx: 'auto' }}>{enterpriseData.fullAddress}</Typography>
+          <Typography fontSize={20} letterSpacing={1} textAlign='center' sx={{ width: 'fit-content', mx: 'auto' }}>{enterpriseData.fullAddress}</Typography>
         </Container>
       </Box>
     </Box>
