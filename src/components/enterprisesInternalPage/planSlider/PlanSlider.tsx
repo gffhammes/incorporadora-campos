@@ -5,12 +5,26 @@ import Image from 'next/image'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-const imageStyle = {
-  height: '20rem',
-  width: '100%',
-  backgroundSize: 'contain',
-  backgroundPosition: 'center',
-  backgroundRepeat: 'no-repeat'
+const sxButton = (position: 'left' | 'right') => {
+
+  const positionStyle
+    = position === 'left'
+      ? {
+          left: 0
+        }
+      : {
+          right: 0
+        }
+
+  return {
+    height: 'fit-content',
+    color: '#1A47BC',
+    position: 'absolute',
+    zIndex: 200,
+    top: '50%',
+    transform: 'translateY(-50%)',
+    ...positionStyle
+  }
 }
 
 const images = [
@@ -40,8 +54,8 @@ export const PlanSlider = () => {
 
 
   return (
-    <Stack direction='row' alignItems='center' sx={{ height: '100%', width: '100%', overflow: 'hidden' }}>
-      <IconButton sx={{ height: 'fit-content', color: '#1A47BC' }} onClick={scrollPrev}>        
+    <Box sx={{ height: '100%', width: '100%', overflow: 'hidden', position: 'relative' }}>
+      <IconButton sx={sxButton('left')} onClick={scrollPrev}>        
         <ArrowBackIosIcon />
       </IconButton>
       <div style={{ width: '100%' }}>
@@ -74,9 +88,9 @@ export const PlanSlider = () => {
           </div>
         </div>
       </div>
-      <IconButton sx={{ height: 'fit-content', color: '#1A47BC' }} onClick={scrollNext}>
+      <IconButton sx={sxButton('right')} onClick={scrollNext}>
         <ArrowForwardIosIcon />
       </IconButton>
-    </Stack>
+    </Box>
   )
-}
+} 

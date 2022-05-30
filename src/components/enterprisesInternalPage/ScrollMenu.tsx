@@ -25,8 +25,8 @@ const scrollLinks = [
 export const ScrollMenu = () => {
   return (
     <Box bgcolor='secondary.main' id='internal-scroll-menu'>
-      <Container sx={{ py: { xs: 3, lg: 2 }, color: 'white' }}>
-        <Grid container spacing={3}>
+      <Container sx={{ py: { xs: 4, lg: 3 }, color: 'white' }}>
+        <Grid container spacing={4}>
           {scrollLinks.map((link, index) => (
             <Grid item key={index} xs={12} lg={3}>
               <Box onClick={() => {scrollToTarget(link.targetId)}} sx={{ width: 'fit-content', mx: 'auto' }}>
