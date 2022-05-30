@@ -5,7 +5,7 @@ import { PlanSlider } from './planSlider/PlanSlider'
 
 export const PlanOptionsSection = ({ enterpriseData }) => {
   return (
-    <Box>
+    <Box id='plan-options'>
       <Container sx={{ py: 10 }}>
         <Box
           display="grid"

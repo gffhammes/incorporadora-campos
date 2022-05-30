@@ -31,7 +31,7 @@ const sxGrid = {
 
 export const SummarySection = ({ enterpriseData }) => {
   return (
-    <Box id='info'>
+    <Box id='the-enterprise'>
       <Container sx={{ py: 10 }}>
         <Box sx={sxGrid} >
           <Box sx={{ gridArea: 'a' }}>

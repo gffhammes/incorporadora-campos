@@ -6,7 +6,7 @@ import { SectionTitle } from '../commons/SectionTitle'
 
 export const DifferentialsSections = ({ enterpriseData }) => {
   return (
-    <Box bgcolor='#f2f2f2'>
+    <Box bgcolor='#f2f2f2' id='differentials'>
       <Container sx={{ py: 10 }}>
         <SectionTitle>DIFERENCIAIS</SectionTitle>
         <Grid container rowSpacing={8} columnSpacing={4} columns={10} alignItems='flex-start' justifyContent='center'>

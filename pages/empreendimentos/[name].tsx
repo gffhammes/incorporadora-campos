@@ -4,6 +4,7 @@ import { Footer } from '../../src/components/commons/Footer'
 import { Box } from '@mui/material'
 import { getEnterpriseBySlug } from '../../src/helpers/getEnterpriseBySlug'
 import { HeroSection } from '../../src/components/enterprisesInternalPage/HeroSection'
+import { ScrollMenu } from '../../src/components/enterprisesInternalPage/ScrollMenu'
 import { SummarySection } from '../../src/components/enterprisesInternalPage/SummarySection'
 import { DetailsSection } from '../../src/components/enterprisesInternalPage/DetailsSection'
 import { DifferentialsSections } from '../../src/components/enterprisesInternalPage/DifferentialsSections'
@@ -23,6 +24,7 @@ const Enterprise = () => {
   return (
     <main style={{ height: '100%' }}>
       <HeroSection enterpriseData={currentEnterprise} />
+      <ScrollMenu />
       <SummarySection enterpriseData={currentEnterprise} />
       <DetailsSection enterpriseData={currentEnterprise} />
       <DifferentialsSections enterpriseData={currentEnterprise} />

@@ -14,7 +14,7 @@ const TopBar = () => {
   const sizeSm = useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
-    <Box bgcolor='primary.main' sx={{ color: 'white', py: 1 }}>
+    <Box bgcolor='#0d235e' sx={{ color: 'white', py: 1 }}>
       <Container>
         <Stack direction='row' justifyContent='space-between' alignItems='center' spacing={2} >
           {sizeSm
