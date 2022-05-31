@@ -6,22 +6,22 @@ import { SectionTitle } from '../commons/SectionTitle'
 
 const imageStyle = {
   position: 'relative',
-  width: '100%',
-  height: '10rem'
+  width: { xs: '40%', sm: '100%' },
+  height: { xs: '6rem', sm: '10rem' }
 }
 
 export const HistorySection = () => {
   return (
     <Box bgcolor='primary.main' >
       <Container maxWidth='sm' sx={{ py: 10 }}>
-        <Stack spacing={4}>          
+        <Stack spacing={{ xs: 8, md: 4 }}>          
           <Box sx={{ color: 'white', textAlign: 'center' }} >
             <SectionTitle theme='light'>UMA HISTÓRIA DE SUCESSO</SectionTitle>
             <Typography fontSize={21} sx={{ mt: 5 }}>
             Estar na vanguarda dos empreendimentos imobiliários e criar conexões com nossos sócios, clientes e comunidade nos impulsiona todos os dias.
             </Typography>
           </Box>
-          <Stack direction={{ xs: 'column', md: 'row' }} spacing={10}>
+          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={8} alignItems='center'>
             <Box sx={imageStyle}>
               <Image
                 src='/images/logo-bolshoi.png'

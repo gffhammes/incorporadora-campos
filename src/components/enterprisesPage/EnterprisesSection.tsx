@@ -13,8 +13,8 @@ export const EnterprisesSection = () => {
           {enterprises.map((enterprise, index) => (
             <Grid item key={index} xs={12}>
               <Box sx={{ height: 'fit-content', width: '100%', boxShadow: 20 }}>
-                <Stack direction='row' sx={{ height: '100%' }}>                  
-                  <Box sx={{ position: 'relative', height: '100%', width: '22rem' }}>
+                <Stack direction={{ xs: 'column', md: 'row' }} sx={{ height: '100%' }}>                  
+                  <Box sx={{ position: 'relative', height: '100%', width: '100%', maxWidth: '22rem' }}>
                     <Image
                       src={enterprise.image}
                       alt={enterprise.name}

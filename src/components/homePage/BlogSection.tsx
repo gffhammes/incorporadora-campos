@@ -31,7 +31,7 @@ export const BlogSection = () => {
   return (
     <Box>
       <Container sx={{ py: 10 }}>
-        <SectionTitle theme='dark'><strong>FIQUE POR DENTRO</strong></SectionTitle>
+        <SectionTitle theme='dark'>FIQUE POR DENTRO</SectionTitle>
         <Box sx={{ mt: 10 }}>
           <Grid container spacing={2}>
             {articles.map((article, index) => (              

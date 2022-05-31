@@ -18,7 +18,7 @@ export const SectionTitle: FC<SectionTitleProps> = ({ theme, textAlign, marginBo
       <Typography
         variant='h2'
         fontSize={{ xs: 20, sm: 28}}
-        fontWeight={400}
+        fontWeight={500}
         letterSpacing={6}
         textAlign={textAlign ? textAlign : 'center'}
         sx={{
@@ -33,7 +33,7 @@ export const SectionTitle: FC<SectionTitleProps> = ({ theme, textAlign, marginBo
         bgcolor={borderColor}
         sx={{
           width: '100%',
-          maxWidth: '42ch',
+          maxWidth: { xs: '20ch', md: '42ch' },
           height: '1px',
           mx: 'auto',
           mt: 4,
