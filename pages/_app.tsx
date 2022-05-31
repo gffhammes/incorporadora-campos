@@ -3,6 +3,8 @@ import '../styles/globals.css'
 import { Box, createTheme, ThemeProvider } from '@mui/material'
 import { WhatsAppFloatButton } from '../src/components/commons/WhatsAppFloatButton';
 import { PageTitle } from '../src/components/commons/PageTitle';
+import TagManager from 'react-gtm-module'
+import { useEffect } from 'react';
 
 const theme = createTheme({
   typography: {
@@ -15,6 +17,10 @@ const theme = createTheme({
 })
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    TagManager.initialize({ gtmId: 'GTM-NZV49Z7' });
+  }, []);
+
   return (    
     <ThemeProvider theme={theme}>
       <PageTitle />
