@@ -26,6 +26,7 @@ const sxButton = (position: 'left' | 'right') => {
     zIndex: 200,
     top: '50%',
     transform: 'translateY(-50%)',
+    cursor: 'pointer',
     ...positionStyle
   }
 }
@@ -50,9 +51,9 @@ export const PlanSlider = ({ plans }) => {
 
   return (
     <Box sx={{ height: '100%', width: '100%', position: 'relative' }}>
-      <IconButton sx={sxButton('left')} onClick={scrollPrev}>        
+      <Box sx={sxButton('left')} onClick={scrollPrev}>        
         <ArrowBackIosIcon />
-      </IconButton>
+      </Box>
       <div style={{ width: '100%' }}>
         <div className="embla">
           <div className="embla__viewport" ref={emblaRef}>
@@ -83,9 +84,9 @@ export const PlanSlider = ({ plans }) => {
           </div>
         </div>
       </div>
-      <IconButton sx={sxButton('right')} onClick={scrollNext}>
+      <Box sx={sxButton('right')} onClick={scrollNext}>
         <ArrowForwardIosIcon />
-      </IconButton>
+      </Box>
     </Box>
   )
 } 
