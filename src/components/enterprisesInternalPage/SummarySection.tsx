@@ -51,7 +51,7 @@ export const SummarySection = ({ enterpriseData }) => {
           <Box sx={{ gridArea: 'c' }}>      
             <Typography sx={{ whiteSpace: 'pre-wrap' }}>{enterpriseData.pageText}</Typography>
             <Typography fontSize={20} fontWeight={600} letterSpacing={1} sx={{ color: '#1a47bc', mt: 4 }}>{getEnterpriseDetailsString(enterpriseData.slug)}</Typography>
-            <Typography fontSize={20} fontWeight={600} letterSpacing={1} sx={{ color: '#1a47bc' }}>{enterpriseData.apartmentsOptions}</Typography>
+            <Typography fontSize={20} fontWeight={600} letterSpacing={1} sx={{ color: '#1a47bc' }}>Apartamentos com opções de {enterpriseData.bedrooms}</Typography>
           </Box>
         </Box>
       </Container>

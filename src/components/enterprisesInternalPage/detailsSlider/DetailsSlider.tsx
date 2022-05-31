@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
-import { Box, IconButton, Stack, Typography } from '@mui/material'
+import { Box, IconButton, Skeleton, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
 import LeftArrow from '../../../../public/vectors/arrows/left-arrow.svg'
 import RightArrow from '../../../../public/vectors/arrows/right-arrow.svg'
@@ -21,15 +21,41 @@ const defaultButtonProps = {
   position: 'absolute',
 }
 
-const images = [
-  '/images/piazza-san-pietro-detalhes-1.jpg',
-  '/images/piazza-san-pietro-detalhes-1.jpg',
-  '/images/piazza-san-pietro-detalhes-1.jpg',
-  '/images/piazza-san-pietro-detalhes-1.jpg',
-  '/images/piazza-san-pietro-detalhes-1.jpg',
-]
+const Slide = ({ image, selectedSlide, index }) => {
+  const [loading, setLoading] = useState(true)
 
-export const DetailsSlider = () => {
+  const isSelected = useMemo(() => selectedSlide === index, [index, selectedSlide])
+
+  const handleLoaded = () => {
+    setLoading(false);
+  }
+
+  return (
+    <Box
+      className="embla__slide_full"
+      sx={{
+        boxShadow: isSelected ? 10 : 0,
+        transitionProperty: 'filter, box-shadow',
+        transitionDuration: '1s',
+        transitionTimingFunction: 'ease',
+        width: '100%',
+        aspectRatio: '2 / 1',
+        filter: isSelected ? '' : 'opacity(.5)'
+      }}
+    >
+      {loading && <Skeleton animation="wave" width="100%" height="100%" sx={{ position: 'absolute', zIndex: 500, transform: 'translateY(0)'}} />}
+      <Image
+        src={image}
+        alt='image'
+        layout='fill'
+        objectFit='cover'
+        onLoadingComplete={handleLoaded}
+      />
+    </Box>
+  )
+}
+
+export const DetailsSlider = ({ images }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
   const [selectedSlide, setSelectedSlide] = useState(0)
 
@@ -61,26 +87,7 @@ export const DetailsSlider = () => {
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {images.map((image, index) => (
-            <Box
-              className="embla__slide_full"
-              key={index}
-              sx={{
-                boxShadow: selectedSlide === index ? 10 : 0,
-                transitionProperty: 'filter, box-shadow',
-                transitionDuration: '1s',
-                transitionTimingFunction: 'ease',
-                width: '100%',
-                aspectRatio: '2 / 1',
-                filter: selectedSlide === index ? '' : 'opacity(.5)'
-              }}
-            >
-              <Image
-                src={image}
-                alt='image'
-                layout='fill'
-                objectFit='cover'
-              />
-            </Box>
+            <Slide image={image} key={index} selectedSlide={selectedSlide} index={index} />
           ))}
         </div>
       </div>

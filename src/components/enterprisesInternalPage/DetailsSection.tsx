@@ -9,7 +9,7 @@ export const DetailsSection = ({ enterpriseData }) => {
       <Container>
         <SectionTitle>CONHEÇA MAIS DETALHES</SectionTitle>
       </Container>
-        <DetailsSlider />
+        <DetailsSlider images={enterpriseData.photos} />
     </Box>
   )
 }

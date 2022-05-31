@@ -10,10 +10,13 @@ const sxButton = (position: 'left' | 'right') => {
   const positionStyle
     = position === 'left'
       ? {
-          left: 0
+          left: 0,
+          transform: { xs: 'translateX(-75%)', md: 'translateX(-50%)' },
+
         }
       : {
-          right: 0
+          right: 0,
+          transform: { xs: 'translateX(75%)', md: 'translateX(50%)' },
         }
 
   return {
@@ -27,15 +30,7 @@ const sxButton = (position: 'left' | 'right') => {
   }
 }
 
-const images = [
-  '/images/piazza-san-pietro-planta-1.jpg',
-  '/images/piazza-san-pietro-planta-1.jpg',
-  '/images/piazza-san-pietro-planta-1.jpg',
-  '/images/piazza-san-pietro-planta-1.jpg',
-  '/images/piazza-san-pietro-planta-1.jpg',
-]
-
-export const PlanSlider = () => {
+export const PlanSlider = ({ plans }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
 
   useEffect(() => {
@@ -54,7 +49,7 @@ export const PlanSlider = () => {
 
 
   return (
-    <Box sx={{ height: '100%', width: '100%', overflow: 'hidden', position: 'relative' }}>
+    <Box sx={{ height: '100%', width: '100%', position: 'relative' }}>
       <IconButton sx={sxButton('left')} onClick={scrollPrev}>        
         <ArrowBackIosIcon />
       </IconButton>
@@ -62,7 +57,7 @@ export const PlanSlider = () => {
         <div className="embla">
           <div className="embla__viewport" ref={emblaRef}>
             <div className="embla__container">
-              {images.map((image, index) => (
+              {plans.map((plan, index) => (
                 <Box                        
                   key={index}
                   sx={{
@@ -73,15 +68,15 @@ export const PlanSlider = () => {
                     marginRight: '16px',
                   }}
                 >                  
-                  <Box sx={{ position: 'relative', width: '100%', height: '25vw', minHeight: { xs: '10rem', md: '16rem' }, maxHeight: '18rem' }}>
+                  <Box sx={{ position: 'relative', width: { xs: '100%', md: '70%' }, mx: 'auto', height: '25vw', minHeight: { xs: '10rem', md: '16rem' }, maxHeight: '18rem' }}>
                     <Image
-                      src={image}
+                      src={plan.image}
                       alt='image'
                       layout='fill'
                       objectFit='contain'
                     />
                   </Box>
-                  <Typography textAlign='center' sx={{ mt: 3 }} fontSize={18} fontWeight={500}>APTO TIPO 1</Typography>
+                  <Typography textAlign='center' sx={{ mt: 3 }} fontSize={18} fontWeight={500}>{plan.label}</Typography>
                 </Box>
               ))}
             </div>

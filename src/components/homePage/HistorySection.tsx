@@ -18,7 +18,7 @@ export const HistorySection = () => {
           <Box sx={{ color: 'white', textAlign: 'center' }} >
             <SectionTitle theme='light'>UMA HISTÓRIA DE SUCESSO</SectionTitle>
             <Typography fontSize={21} sx={{ mt: 5 }}>
-              Estar na vanguarda com os empreendimentos imobiliários, criar conexões com seus sócios, clientes e comunidade nos impulsiona, nos move. Venha fazer parte da nossa história, somos muito além do que se constrói... somos a sua próxima jogada.
+            Estar na vanguarda dos empreendimentos imobiliários e criar conexões com nossos sócios, clientes e comunidade nos impulsiona todos os dias.
             </Typography>
           </Box>
           <Stack direction={{ xs: 'column', md: 'row' }} spacing={10}>

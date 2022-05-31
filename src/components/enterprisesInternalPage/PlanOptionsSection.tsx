@@ -47,7 +47,7 @@ export const PlanOptionsSection = ({ enterpriseData }) => {
           </Box>
           <Box gridArea='c' justifySelf='center' sx={{ width: '100%' }} >
             <Box bgcolor='white' sx={{ height: '100%', width: '100%', maxWidth: '30rem', boxShadow: 20, p: 4 }}>
-              <PlanSlider />
+              <PlanSlider plans={enterpriseData.plans} />
             </Box>
           </Box>
 

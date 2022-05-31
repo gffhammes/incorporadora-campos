@@ -44,7 +44,7 @@ export const EnterprisesSlider = () => {
                       <Typography fontSize={10}>{enterprise.status.toUpperCase()}</Typography>
                     </Stack>
                     <Stack sx={{ mt: 2, fontSize: 14 }} spacing={.5} >
-                      <Typography>{enterprise.district}</Typography>
+                      <Typography>{enterprise.district} - {enterprise.city}</Typography>
                       <Typography>{enterprise.area}</Typography>
                       <Typography>{enterprise.bedrooms}</Typography>
                     </Stack>
