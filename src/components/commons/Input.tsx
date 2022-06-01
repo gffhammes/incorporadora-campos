@@ -69,8 +69,6 @@ export const Input: FC<InputProps> = ({ id, label, placeholder, type, required, 
     sx: { ...sx }
   }
 
-  console.log(multiline)
-
   return (
     checkColor === 'white'
       ? <CssTextField inputProps={textFieldProps} />

@@ -5,6 +5,7 @@ import LogoHorizontal from '../../../../public/vectors/logo-horizontal.svg';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { pages } from '../../../constants/pages';
 import MenuIcon from '@mui/icons-material/Menu';
+import { useRouter } from 'next/router';
 
 const sxLogo = {
   height: '100%',
@@ -14,19 +15,22 @@ const sxLogo = {
 }
 
 const sxNavLink = {
-  transition: '500ms ease all',
   color: 'white',
+  transition: '300ms ease all',
   '&:hover': {
     color: 'secondary.main'
   }
 }
 
 
-export const NavBar = () => {
+export const NavBar = () => {  
+  const { asPath: path } = useRouter();
   const theme = useTheme();
   const sizeSm = useMediaQuery(theme.breakpoints.up('sm'));
   const sizeMd = useMediaQuery(theme.breakpoints.up('md'));
 
+  console.log(path)
+  console.log(pages[0].route)
 
   return(
     <Box component='nav'>
@@ -41,7 +45,7 @@ export const NavBar = () => {
             ? <Stack direction='row' spacing={3}>
                 {pages.map((page, index) => (
                   <Link href={page.route} passHref key={index}>
-                    <Box component='a' sx={sxNavLink}>                    
+                    <Box component='a' sx={{ ...sxNavLink, borderBottom: path === page.route ? '1px solid white' : '', marginBottom: path === page.route ? '-1px' : 0 }}>                    
                       <Typography>{page.name.toUpperCase()}</Typography>
                     </Box>
                   </Link>
