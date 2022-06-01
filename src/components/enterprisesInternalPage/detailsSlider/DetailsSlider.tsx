@@ -44,7 +44,7 @@ const Slide = ({ image, selectedSlide, index }) => {
         filter: isSelected ? 'opacity(1)' : 'opacity(.25)'
       }}
     >
-      {loading && <Box bgcolor='#e2e2e2' sx={{ width: '100%', height: '100%',}}>loading...</Box>}
+      {loading && <Box bgcolor='#e2e2e2' sx={{ width: '100%', height: '100%', display: 'flex',alignItems: 'center', justifyContent: 'center' }}>loading...</Box>}
       <Image
         src={image}
         alt='image'
