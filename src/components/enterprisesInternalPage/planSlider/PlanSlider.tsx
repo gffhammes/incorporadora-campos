@@ -31,6 +31,15 @@ const sxButton = (position: 'left' | 'right') => {
   }
 }
 
+const sxImage = {
+  position: 'relative',
+  width: { xs: '100%', md: '90%' },
+  mx: 'auto',
+  height: '50vw',
+  minHeight: { xs: '15rem', md: '16rem' },
+  maxHeight: '30rem'
+}
+
 export const PlanSlider = ({ plans }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
 
@@ -54,10 +63,10 @@ export const PlanSlider = ({ plans }) => {
       <Box sx={sxButton('left')} onClick={scrollPrev}>        
         <ArrowBackIosIcon />
       </Box>
-      <div style={{ width: '100%' }}>
-        <div className="embla">
-          <div className="embla__viewport" ref={emblaRef}>
-            <div className="embla__container">
+      <div style={{ height: '100%', width: '100%' }}>
+        <div className="embla" style={{ height: '100%', width: '100%' }}>
+          <div className="embla__viewport" ref={emblaRef} style={{ height: '100%', width: '100%' }}>
+            <div className="embla__container" style={{ height: '100%', width: '100%' }}>
               {plans.map((plan, index) => (
                 <Box                        
                   key={index}
@@ -67,9 +76,13 @@ export const PlanSlider = ({ plans }) => {
                     position: 'relative',
                     flex: '0 0 100%',
                     marginRight: '16px',
+                    display: 'flex', 
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                   }}
                 >                  
-                  <Box sx={{ position: 'relative', width: { xs: '100%', md: '70%' }, mx: 'auto', height: '25vw', minHeight: { xs: '10rem', md: '16rem' }, maxHeight: '18rem' }}>
+                  <Box sx={sxImage}>
                     <Image
                       src={plan.image}
                       alt='image'

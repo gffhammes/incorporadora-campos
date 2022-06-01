@@ -3,6 +3,13 @@ import React from 'react'
 import { SectionTitle } from '../commons/SectionTitle'
 import { PlanSlider } from './planSlider/PlanSlider'
 
+const sxPlanSlider = {
+  height: '100vw',
+  minHeight: '20rem',
+  maxHeight: '37rem',
+  width: '100%',
+}
+
 export const PlanOptionsSection = ({ enterpriseData }) => {
   return (
     <Box id='plan-options'>
@@ -45,8 +52,8 @@ export const PlanOptionsSection = ({ enterpriseData }) => {
               Porcelanato na cozinha, sala e áreas molhadas
             </Typography>
           </Box>
-          <Box gridArea='c' justifySelf='center' sx={{ width: '100%' }} >
-            <Box bgcolor='white' sx={{ height: '100%', width: '100%', maxWidth: '30rem', boxShadow: 20, p: 4 }}>
+          <Box gridArea='c' justifySelf='center' sx={sxPlanSlider} >
+            <Box bgcolor='white' sx={{ height: '100%', width: '100%', boxShadow: 20, p: 4 }}>
               <PlanSlider plans={enterpriseData.plans} />
             </Box>
           </Box>
