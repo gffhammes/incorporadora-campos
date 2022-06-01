@@ -5,9 +5,10 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import LogoCampos from '../../../public/vectors/incorporadora-campos-logo.svg';
+import LogoHorizontal from '../../../public/vectors/logo-horizontal.svg';
 import { FollowUs } from './FollowUs';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { pages } from '../../constants/pages';
 
 const TopBar = () => {
   const theme = useTheme();
@@ -40,12 +41,21 @@ const Menu = () => {
     <nav>
       <Box>
         <Container>
-          <Box sx={{ display: 'flex', justifyContent: 'center', py: 5 }}>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', py: 5 }}>
             <Box component={Link} href='/' passHref>
-              <a style={{ height: '100%', width: '8rem' }} >
-                <LogoCampos width='100%' height='100%' />
+              <a style={{ height: '100%', width: '15rem' }} >
+                <LogoHorizontal width='100%' height='100%' />
               </a>
             </Box>
+            <Stack direction='row' spacing={3}>
+              {pages.map((page, index) => (
+                <Link href={page.route} passHref key={index}>
+                  <a>                    
+                    <Typography sx={{ color: 'white' }}>{page.name.toUpperCase()}</Typography>
+                  </a>
+                </Link>
+              ))}
+            </Stack>
           </Box>
         </Container>
       </Box>

@@ -68,9 +68,9 @@ export const Footer = () => {
             <Stack spacing={defaultSpacing} >
               {footerLinks.map((link, index) => (
                 <Link key={index} href={link.href} passHref>
-                  <a>
+                  <Box component='a' sx={defaultLinkHoverProps} >
                     <Typography>{link.label.toUpperCase()}</Typography>
-                  </a>
+                  </Box>
                 </Link>
               ))}
             </Stack>

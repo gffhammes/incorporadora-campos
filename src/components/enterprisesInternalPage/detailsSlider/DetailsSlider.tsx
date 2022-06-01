@@ -5,6 +5,7 @@ import Image from 'next/image'
 import LeftArrow from '../../../../public/vectors/arrows/left-arrow.svg'
 import RightArrow from '../../../../public/vectors/arrows/right-arrow.svg'
 import { defaultSvgProps } from '../../../constants/defaultSvgProps'
+import SimpleDialog from '../../commons/Dialog'
 
 const defaultButtonProps = {
   zIndex: 500,
@@ -58,12 +59,21 @@ const Slide = ({ image, selectedSlide, index }) => {
 export const DetailsSlider = ({ images }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
   const [selectedSlide, setSelectedSlide] = useState(0)
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     if (emblaApi) {
       // Embla API is ready
     }
   }, [emblaApi])
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev()
@@ -78,24 +88,30 @@ export const DetailsSlider = ({ images }) => {
   })
 
   return (
-    <Stack direction='row' alignItems='center' sx={{ height: '100%', width: '100%' }}>
-      <Box sx={{ ...defaultButtonProps, marginLeft: '10vw', left: 0 }} onClick={scrollPrev}>        
-        <LeftArrow {...defaultSvgProps} />
-      </Box>
-      <div style={{ width: '100%' }}>
-      <div className="embla overflow_show">
-      <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
-          {images.map((image, index) => (
-            <Slide image={image} key={index} selectedSlide={selectedSlide} index={index} />
-          ))}
-        </div>
-      </div>
-    </div>
-      </div>
-      <Box sx={{ ...defaultButtonProps, marginRight: '10vw', right: 0 }} onClick={scrollNext}>        
-        <RightArrow {...defaultSvgProps} />
-      </Box>
-    </Stack>
+    <>
+      <Stack direction='row' alignItems='center' sx={{ height: '100%', width: '100%' }}>
+        <Box sx={{ ...defaultButtonProps, marginLeft: '10vw', left: 0 }} onClick={scrollPrev}>        
+          <LeftArrow {...defaultSvgProps} />
+        </Box>
+        <Box sx={{ width: '100%' }} /* onClick={handleClickOpen} */>
+          <div className="embla overflow_show">
+            <div className="embla__viewport" ref={emblaRef}>
+              <div className="embla__container">
+                {images.map((image, index) => (
+                  <Slide image={image} key={index} selectedSlide={selectedSlide} index={index} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </Box>
+        <Box sx={{ ...defaultButtonProps, marginRight: '10vw', right: 0 }} onClick={scrollNext}>        
+          <RightArrow {...defaultSvgProps} />
+        </Box>
+      </Stack>
+      <SimpleDialog
+        open={open}
+        onClose={handleClose}
+      />
+    </>
   )
 }
