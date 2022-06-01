@@ -1,4 +1,4 @@
-import { Header } from '../src/components/commons/Header'
+import { Header } from '../src/components/commons/Header/Header'
 import '../styles/globals.css'
 import { Box, createTheme, ThemeProvider } from '@mui/material'
 import { WhatsAppFloatButton } from '../src/components/commons/WhatsAppFloatButton';

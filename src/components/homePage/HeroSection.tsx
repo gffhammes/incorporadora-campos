@@ -21,7 +21,7 @@ export const HeroSection = () => {
       <Box sx={{ position: 'absolute', width: '100%', height: '100%', zIndex: 500, display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
         <Container sx={{ display: 'flex', height: '50%', mb: 10 }}>  
           <Stack sx={{ mx: 'auto' }} alignItems='center' justifyContent='flex-start' >
-            <Box sx={{ minHeight: '5rem', height: '35vw', maxHeight: '10rem', width: '100%' }} >                           
+            <Box sx={{ minHeight: '4rem', height: '25vw', maxHeight: '8rem', width: '100%' }} >                           
               <PizzaSanPietro  width='100%' height='100%' />
             </Box>
             <Typography fontSize={21} letterSpacing={4} textAlign='center' sx={{ color: 'white', mt: 'auto', mb: 2 }} >LANÇAMENTO NO AMÉRICA</Typography>

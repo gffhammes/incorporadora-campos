@@ -25,7 +25,7 @@ const defaultButtonProps = {
 const Slide = ({ image, selectedSlide, index }) => {
   const [loading, setLoading] = useState(true)
 
-  const isSelected = useMemo(() => selectedSlide === index, [index, selectedSlide])
+  const isSelected = useMemo(() => selectedSlide === index, [index, selectedSlide, loading])
 
   const handleLoaded = () => {
     setLoading(false);
@@ -41,10 +41,10 @@ const Slide = ({ image, selectedSlide, index }) => {
         transitionTimingFunction: 'ease',
         width: '100%',
         aspectRatio: '2 / 1',
-        filter: isSelected ? '' : 'opacity(.5)'
+        filter: isSelected ? 'opacity(1)' : 'opacity(.25)'
       }}
     >
-      {loading && <Skeleton animation="wave" width="100%" height="100%" sx={{ position: 'absolute', zIndex: 500, transform: 'translateY(0)'}} />}
+      {loading && <Box bgcolor='#e2e2e2' sx={{ width: '100%', height: '100%',}}>loading...</Box>}
       <Image
         src={image}
         alt='image'

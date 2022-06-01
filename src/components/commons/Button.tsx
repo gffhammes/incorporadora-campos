@@ -50,7 +50,7 @@ export const OutlinedWhiteButton = styled(ButtonBase)(({ theme }) => ({
   color: 'white',
   boxSizing: 'content-box',
   '&:hover': {
-    backgroundColor: 'rgba(255, 255, 255, 0.04)',
-    border: '1px solid white',
+    backgroundColor: '#1A47BC',
+    border: '1px solid transparent',
   }
 }));

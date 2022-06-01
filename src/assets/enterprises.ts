@@ -56,15 +56,15 @@ export const enterprises = [
     ],
     plans: [
       {
-        label: 'Apto Tipo 1',
+        label: 'Apartamento Tipo 1',
         image: '/images/piazza-del-mare/incorporadora-campos-piazza-del-mare-planta-1.jpg',
       },
       {
-        label: 'Apto Tipo 2',
+        label: 'Apartamento Tipo 2',
         image: '/images/piazza-del-mare/incorporadora-campos-piazza-del-mare-planta-2.jpg',
       },
       {
-        label: 'Apto Tipo 3',
+        label: 'Apartamento Tipo 3',
         image: '/images/piazza-del-mare/incorporadora-campos-piazza-del-mare-planta-3.jpg',
       },
     ],
@@ -78,7 +78,7 @@ export const enterprises = [
   {
     logo: '/',
     thumb: '/images/piazza-del-mare.png',
-    image: '/images/piazza-del-mare-empreendimentos.jpg',
+    image: '/images/piazza-del-mare.jpeg',
     banner: '/images/piazza-del-mare/incorporadora-campos-piazza-del-mare-lounge-1.jpg',
     name: 'Piazza Del Mare',
     slug: 'piazza-del-mare',
@@ -91,7 +91,7 @@ export const enterprises = [
     floorsQty: 19,
     apartmentsTotal: 48,
     apartmentsPerFloor: 3,
-    status: 'Não inciado',
+    status: 'Lançamento',
     description: `Viva a experiência do mais alto nível de qualidade de vida.\nO seu sonho de morar próximo ao mar é possível.\nE o PIAZZA DEL MARE foi feito para realizá-lo.`,
     pageTitle: 'INSPIRADO NA PRAÇA DEL MARE, EM RODI GARGANICO:',
     pageText: 'Rodi Garganico é um pequeno vilarejo italiano cercado de paisagens exuberantes da praia e da natureza. E foi inspirado em paisagens de tirar o fôlego, que o Piazza Del Mare foi projetado.\n\nO mar de Balneário Piçarras foi emoldurado em uma vista única, que pode ser apreciada de dentro do seu próprio apartamento.\n\nE até mesmo o Zico, nosso eterno camisa 10, resolveu descer para Santa Catarina e fazer deste belo empreendimento, a sua próxima jogada.',
@@ -127,15 +127,15 @@ export const enterprises = [
     ],
     plans: [
       {
-        label: 'Apto Tipo 1',
+        label: 'Apartamento Tipo 1',
         image: '/images/piazza-del-mare/incorporadora-campos-piazza-del-mare-planta-1.jpg',
       },
       {
-        label: 'Apto Tipo 2',
+        label: 'Apartamento Tipo 2',
         image: '/images/piazza-del-mare/incorporadora-campos-piazza-del-mare-planta-2.jpg',
       },
       {
-        label: 'Apto Tipo 3',
+        label: 'Apartamento Tipo 3',
         image: '/images/piazza-del-mare/incorporadora-campos-piazza-del-mare-planta-3.jpg',
       },
     ],
@@ -144,6 +144,96 @@ export const enterprises = [
       masonry: 0,
       installations: 0,
       coating: 0,
+    }
+  },
+  {
+    logo: '/',
+    thumb: '/images/LIBERTA.png',
+    image: '/images/della-liberta.jpg',
+    banner: '/images/piazza-del-mare/incorporadora-campos-piazza-del-mare-lounge-1.jpg',
+    name: 'Piazza Della Libertá',
+    slug: '',
+    district: 'Costa e Silva',
+    city: 'Joinville',
+    fullAddress: 'Rua 2.900 (Nonato Costa), 79, Itacolomi - Balneário Piçarras',
+    area: 'Área privativa de 94 a 97m²',
+    bedrooms: '2 suítes e 1 dormitório',
+    buildingsQty: 1,
+    floorsQty: 8,
+    apartmentsTotal: 23,
+    apartmentsPerFloor: 3,
+    status: '100% vendido',
+    description: `Viva a experiência do mais alto nível de qualidade de vida.\nO seu sonho de morar próximo ao mar é possível.\nE o PIAZZA DEL MARE foi feito para realizá-lo.`,
+    pageTitle: 'INSPIRADO NA PRAÇA DEL MARE, EM RODI GARGANICO:',
+    pageText: 'Rodi Garganico é um pequeno vilarejo italiano cercado de paisagens exuberantes da praia e da natureza. E foi inspirado em paisagens de tirar o fôlego, que o Piazza Del Mare foi projetado.\n\nO mar de Balneário Piçarras foi emoldurado em uma vista única, que pode ser apreciada de dentro do seu próprio apartamento.\n\nE até mesmo o Zico, nosso eterno camisa 10, resolveu descer para Santa Catarina e fazer deste belo empreendimento, a sua próxima jogada.',
+    apartmentsOptions: 'Apartamentos com opções de 3 e 2 suítes',
+    photos: [
+    ],
+    differentials: [
+    ],
+    plans: [
+    ],
+    detailedStatus: {
+    }
+  },
+  {
+    logo: '/',
+    thumb: '/images/SAN-CARLO.png',
+    image: '/images',
+    banner: '/images/piazza-del-mare/incorporadora-campos-piazza-del-mare-lounge-1.jpg',
+    name: 'Piazza San Carlo',
+    slug: '',
+    district: 'Costa e Silva',
+    city: 'Joinville',
+    fullAddress: 'Rua 2.900 (Nonato Costa), 79, Itacolomi - Balneário Piçarras',
+    area: 'Área privativa de 39 a 143m²',
+    bedrooms: '1 suíte com 1, 2 ou 3 dormitórios',
+    buildingsQty: 1,
+    floorsQty: 5,
+    apartmentsTotal: 17,
+    apartmentsPerFloor: 3,
+    status: '100% vendido',
+    description: `Viva a experiência do mais alto nível de qualidade de vida.\nO seu sonho de morar próximo ao mar é possível.\nE o PIAZZA DEL MARE foi feito para realizá-lo.`,
+    pageTitle: 'INSPIRADO NA PRAÇA DEL MARE, EM RODI GARGANICO:',
+    pageText: 'Rodi Garganico é um pequeno vilarejo italiano cercado de paisagens exuberantes da praia e da natureza. E foi inspirado em paisagens de tirar o fôlego, que o Piazza Del Mare foi projetado.\n\nO mar de Balneário Piçarras foi emoldurado em uma vista única, que pode ser apreciada de dentro do seu próprio apartamento.\n\nE até mesmo o Zico, nosso eterno camisa 10, resolveu descer para Santa Catarina e fazer deste belo empreendimento, a sua próxima jogada.',
+    apartmentsOptions: 'Apartamentos com opções de 3 e 2 suítes',
+    photos: [
+    ],
+    differentials: [
+    ],
+    plans: [
+    ],
+    detailedStatus: {
+    }
+  },
+  {
+    logo: '/',
+    thumb: '/images/SAN-MARCO.png',
+    image: '/images',
+    banner: '/images/piazza-del-mare/incorporadora-campos-piazza-del-mare-lounge-1.jpg',
+    name: 'Piazza San Marco',
+    slug: '',
+    district: 'Costa e Silva',
+    city: 'Joinville',
+    fullAddress: 'Rua 2.900 (Nonato Costa), 79, Itacolomi - Balneário Piçarras',
+    area: 'Área privativa de 38 a 117m²',
+    bedrooms: '1 suíte com 1 ou 2 dormitórios',
+    buildingsQty: 1,
+    floorsQty: 5,
+    apartmentsTotal: 14,
+    apartmentsPerFloor: 3,
+    status: '100% vendido',
+    description: `Viva a experiência do mais alto nível de qualidade de vida.\nO seu sonho de morar próximo ao mar é possível.\nE o PIAZZA DEL MARE foi feito para realizá-lo.`,
+    pageTitle: 'INSPIRADO NA PRAÇA DEL MARE, EM RODI GARGANICO:',
+    pageText: 'Rodi Garganico é um pequeno vilarejo italiano cercado de paisagens exuberantes da praia e da natureza. E foi inspirado em paisagens de tirar o fôlego, que o Piazza Del Mare foi projetado.\n\nO mar de Balneário Piçarras foi emoldurado em uma vista única, que pode ser apreciada de dentro do seu próprio apartamento.\n\nE até mesmo o Zico, nosso eterno camisa 10, resolveu descer para Santa Catarina e fazer deste belo empreendimento, a sua próxima jogada.',
+    apartmentsOptions: 'Apartamentos com opções de 3 e 2 suítes',
+    photos: [
+    ],
+    differentials: [
+    ],
+    plans: [
+    ],
+    detailedStatus: {
     }
   },
 ]

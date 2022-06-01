@@ -19,11 +19,10 @@ const enterpriseNameProps = {
 
 const sxImage = {
   position: 'relative',
-  height: '100%',
+  height: { xs: '22rem', sm: '30rem', md: '22rem'},
   width: '100%',
-  maxHeight: '23rem',
   overflow: 'hidden',
-  maxWidth: { xs: 'unset', md: '30rem' }
+  maxWidth: { xs: 'unset', md: '22rem' }
 }
 
 const sxStatus = {
@@ -34,15 +33,18 @@ const sxStatus = {
   },
   top: { 
     xs: 0,
-    sm: '100%',
+    sm: '50%',
+    // md: '100%',
     lg: '50%'
   },
   transform: {
     xs: 'translate(50%, -50%)',
-    sm: 'translate(-25%, -125%)',
+    sm: 'translate(0%, -50%)',
+    md: 'translate(0%, -50%)',
+    // md: 'translate(-25%, -125%)',
     lg: 'translate(15%, -50%)',
   },
-  width: '10rem',
+  width: '12rem',
   py: 3,
   px: 2,
   color: 'white',
@@ -50,10 +52,9 @@ const sxStatus = {
 }
 
 const sxInfos = {
-  p: 4,
-  pt: {
-    xs: 10,
-    sm: 4,
+  p: {
+    xs: '5rem 2rem 2rem 2rem',
+    sm: 6,
   },
   display: 'flex',
   flexDirection: 'column',
@@ -73,7 +74,8 @@ export const EnterpriseCard = ({ enterprise }) => {
             objectFit='cover'
             width="100%"
             height="100%"
-            layout="responsive"
+            layout="fill"
+            objectPosition='left bottom'
           />
         </Box>
         <Box sx={sxInfos}>
@@ -84,9 +86,9 @@ export const EnterpriseCard = ({ enterprise }) => {
           </Typography>
           <Typography fontSize={14} fontWeight={400} sx={{ mt: '1rem', whiteSpace: 'pre-wrap' }} >{enterprise.description}</Typography>
           <Link href={`/empreendimentos/${enterprise.slug}`} passHref>
-            <a style={{ marginTop: 'auto' }}>
+            <Box component='a' sx={{ mt: { xs: '1rem', md: 'auto' } }}>
               <Typography fontSize={15} fontWeight={700}  sx={{ width: 'fit-content', color: '#1a47bc', borderBottom: '1px solid #1A47BC', }} >SAIBA MAIS</Typography>
-            </a>
+            </Box>
           </Link>
           <Box bgcolor='primary.main' sx={sxStatus}>
             <Typography fontSize={13} letterSpacing={3}>{enterprise.status.toUpperCase()}</Typography>
