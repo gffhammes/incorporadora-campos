@@ -60,7 +60,7 @@ a {
 .embla__slide {
   position: relative;
   flex: 0 0 100%;
-  margin-right: 16px; /* Default slide gap */
+  margin-right: 32px; /* Default slide gap */
 }
 
 .embla__slide_full {
