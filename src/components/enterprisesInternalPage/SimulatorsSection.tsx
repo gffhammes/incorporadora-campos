@@ -7,22 +7,22 @@ const banks = [
   {
     name: 'Santander',
     imageSrc: '/images/logos/logo-santander.png',
-    href: '/',
+    href: 'https://www.santander.com.br/creditos-e-financiamentos/para-sua-casa/credito-imobiliario',
   },
   {
     name: 'Bradesco',
     imageSrc: '/images/logos/logo-bradesco.png',
-    href: '/',
+    href: 'https://banco.bradesco/html/classic/produtos-servicos/emprestimo-e-financiamento/encontre-seu-credito/simuladores-imoveis.shtm',
   },
   {
     name: 'Caixa',
     imageSrc: '/images/logos/logo-caixa.png',
-    href: '/',
+    href: 'http://www8.caixa.gov.br/siopiinternet-web/simulaOperacaoInternet.do?method=iniciarCasoDeUsoSiteFeirao&isVoltar=true&vaEnquadra=10407',
   },
   {
     name: 'Banco do Brasil',
     imageSrc: '/images/logos/logo-banco-do-brasil.png',
-    href: '/',
+    href: 'https://www42.bb.com.br/portalbb/imobiliario/creditoimobiliario/simular,802,2250,2250.bbx',
   },
 ]
 

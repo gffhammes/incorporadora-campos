@@ -86,7 +86,7 @@ export const EnterpriseCard = ({ enterprise }) => {
           </Typography>
           <Typography fontSize={14} fontWeight={400} sx={{ mt: '1rem', whiteSpace: 'pre-wrap' }} >{enterprise.description}</Typography>
           <Link href={`/empreendimentos/${enterprise.slug}`} passHref>
-            <Box component='a' sx={{ mt: { xs: '1rem', md: 'auto' } }}>
+            <Box component='a' sx={{ mt: { xs: '1rem', md: 'auto' }, width: 'fit-content' }}>
               <Typography fontSize={15} fontWeight={700}  sx={{ width: 'fit-content', color: '#1a47bc', borderBottom: '1px solid #1A47BC', }} >SAIBA MAIS</Typography>
             </Box>
           </Link>

@@ -24,13 +24,10 @@ const sxNavLink = {
 
 
 export const NavBar = () => {  
-  const { asPath: path } = useRouter();
+  const { asPath: currentRoute } = useRouter();
   const theme = useTheme();
   const sizeSm = useMediaQuery(theme.breakpoints.up('sm'));
   const sizeMd = useMediaQuery(theme.breakpoints.up('md'));
-
-  console.log(path)
-  console.log(pages[0].route)
 
   return(
     <Box component='nav'>
@@ -43,13 +40,20 @@ export const NavBar = () => {
           </Box>
           {sizeMd
             ? <Stack direction='row' spacing={3}>
-                {pages.map((page, index) => (
-                  <Link href={page.route} passHref key={index}>
-                    <Box component='a' sx={{ ...sxNavLink, borderBottom: path === page.route ? '1px solid white' : '', marginBottom: path === page.route ? '-1px' : 0 }}>                    
-                      <Typography>{page.name.toUpperCase()}</Typography>
-                    </Box>
-                  </Link>
-                ))}
+                {pages.map((page, index) => {
+                  const isActivePage =
+                    currentRoute.includes(page.route)
+                      ? page.route !== '/' || currentRoute === '/'
+                      : page.route === currentRoute
+
+                  return (
+                    <Link href={page.route} passHref key={index}>
+                      <Box component='a' sx={{ ...sxNavLink, borderBottom: isActivePage ? '1px solid white' : '', marginBottom: isActivePage ? '-1px' : 0 }}>                    
+                        <Typography>{page.name.toUpperCase()}</Typography>
+                      </Box>
+                    </Link>
+                  )
+                })}
               </Stack>
             : <IconButton sx={{ fontSize: 30, color: 'white' }}>
                 <MenuIcon fontSize='inherit' />

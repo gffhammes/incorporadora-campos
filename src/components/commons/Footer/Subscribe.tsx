@@ -36,7 +36,7 @@ export const Subscribe = () => {
           <Stack direction={{ xs: 'column', sm: 'row' }} alignItems='stretch' spacing={2} sx={{ width: '100%' }}>
             <Input value={email} handleChange={handleEmailChange} type='email' placeholder='Seu e-mail...'  />
             <Box>
-              <ContainedWhiteButton>CADASTRAR</ContainedWhiteButton>
+              <ContainedWhiteButton sx={{ height: '100%' }}>CADASTRAR</ContainedWhiteButton>
             </Box>
           </Stack>
         </Stack>
