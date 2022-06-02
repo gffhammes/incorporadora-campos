@@ -4,6 +4,7 @@ import { Box, IconButton, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import FullScreenDialog from '../detailsSlider/DetailsSliderDialog';
 
 const sxButton = (position: 'left' | 'right') => {
 
@@ -42,6 +43,15 @@ const sxImage = {
 
 export const PlanSlider = ({ plans }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
     if (emblaApi) {
@@ -80,7 +90,9 @@ export const PlanSlider = ({ plans }) => {
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
+                    cursor: 'pointer'
                   }}
+                  onClick={handleClickOpen}
                 >                  
                   <Box sx={sxImage}>
                     <Image
@@ -100,6 +112,11 @@ export const PlanSlider = ({ plans }) => {
       <Box sx={sxButton('right')} onClick={scrollNext}>
         <ArrowForwardIosIcon />
       </Box>
+      <FullScreenDialog
+        open={open}
+        handleClose={handleClose}
+        images={plans.map(plan => plan.image)}
+      />
     </Box>
   )
 } 
