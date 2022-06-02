@@ -7,6 +7,7 @@ import { pages } from '../../../constants/pages';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { useRouter } from 'next/router';
+import { useScroll } from '../../../hooks/useScroll';
 
 const sxLogo = {
   height: '100%',
@@ -30,6 +31,9 @@ export const NavBar = () => {
   const sizeSm = useMediaQuery(theme.breakpoints.up('sm'));
   const sizeMd = useMediaQuery(theme.breakpoints.up('md'));
   const [open, setOpen] = useState(false);
+
+  const scroll = useScroll();
+  const isMenuScroll = scroll > 60;
 
   const handleMenuToggle = () => setOpen(open => !open);
 
@@ -62,9 +66,9 @@ export const NavBar = () => {
   }, [currentRoute])
 
   return(
-    <Box component='nav' sx={{ position: sizeMd ? 'relative' : 'fixed', width: '100%' }}>
+    <Box component='nav' sx={{ transition: '.2s ease all', position: isMenuScroll && !sizeMd ? 'fixed' : 'relative', width: '100%', backgroundColor: isMenuScroll && !sizeMd ? 'primary.main' : 'none', boxShadow: isMenuScroll && !sizeMd ? 20 : 0, top: isMenuScroll ? 0 : 'unset' }}>
       <Container>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', py: 5 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', py: isMenuScroll && !sizeMd ? 2 : 5 }}>
           <Box component={Link} href='/' passHref>
             <a style={sxLogo} >
               <LogoHorizontal width='100%' height='100%' />
