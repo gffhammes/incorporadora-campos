@@ -2,14 +2,14 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import { Box, Container, IconButton, Skeleton, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
-import LeftArrow from '../../../../public/vectors/arrows/left-arrow.svg'
-import RightArrow from '../../../../public/vectors/arrows/right-arrow.svg'
 import { defaultSvgProps } from '../../../constants/defaultSvgProps'
 import SimpleDialog from '../../commons/Dialog'
 import { PrimaryGradientCover } from '../../commons/PrimaryGradientCover'
 import { OutlinedWhiteButton } from '../../commons/Button'
 import PizzaSanPietro from '../../../../public/vectors/piazza-san-pietro.svg'
 import Link from 'next/link'
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const slides = [
   <Box key={1} sx={{ position: 'relative', zIndex: 500, height: '100%', }}>
@@ -131,7 +131,7 @@ export const HeroSlider = () => {
   return (
     <Stack direction='row' alignItems='center' sx={{ height: '100%', width: '100%' }}>
       <Box sx={{ ...defaultButtonProps, marginLeft: '10vw', left: 0 }} onClick={scrollPrev}>        
-        <LeftArrow {...defaultSvgProps} />
+        <ArrowBackIosIcon {...defaultSvgProps} sx={{ color: 'white' }} />
       </Box>
       <Box sx={{ width: '100%', height: '100%'}}>
         <Box sx={sxEmbla}>
@@ -147,7 +147,7 @@ export const HeroSlider = () => {
         </Box>
       </Box>
       <Box sx={{ ...defaultButtonProps, marginRight: '10vw', right: 0 }} onClick={scrollNext}>        
-        <RightArrow {...defaultSvgProps} />
+        <ArrowForwardIosIcon {...defaultSvgProps} sx={{ color: 'white' }} />
       </Box>
     </Stack>
   )
