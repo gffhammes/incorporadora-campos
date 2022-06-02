@@ -108,13 +108,31 @@ const sxEmblaContainer = {
 export const HeroSlider = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
   const [selectedSlide, setSelectedSlide] = useState(0)
+  const [dots, setDots] = useState([])
 
   useEffect(() => {
     if (emblaApi) {
       // Embla API is ready
-    }
+    }    
   }, [emblaApi])
 
+
+  useEffect(() => {
+    const arr = [];
+    for (let i = 0; i < slides.length; i++) {
+      arr.push({ active: false })
+    }
+    arr[0].active = true;
+    setDots(arr);
+  }, [])
+
+  useEffect(() => {
+    setDots((dots): any[] => dots.map((dot, index) => index === selectedSlide ? { active: true } : { active: false } ))
+  }, [selectedSlide])
+
+  const changeSelectedSlide = (newSlideIndex) => {
+    emblaApi.scrollTo(newSlideIndex)
+  }
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev()
@@ -148,6 +166,11 @@ export const HeroSlider = () => {
       </Box>
       <Box sx={{ ...defaultButtonProps, marginRight: '10vw', right: 0 }} onClick={scrollNext}>        
         <ArrowForwardIosIcon {...defaultSvgProps} sx={{ color: 'white' }} />
+      </Box>
+      <Box sx={{ position: 'absolute', display: 'flex', bottom: '0', left: '50%', transform: 'translate(-50%, -2rem)', gap: '1rem' }}>
+        {dots.map((dot, index) => (
+          <Box onClick={() => changeSelectedSlide(index)} bgcolor='white' key={index} sx={{ height: '.5rem', width: '.5rem', borderRadius: '1rem', cursor: 'pointer', filter: dot.active ?  'opacity(.8)' : 'opacity(.25)' }} />
+        ))}
       </Box>
     </Stack>
   )
