@@ -32,17 +32,17 @@ export const HistorySection = () => {
             </Box>
             <Box sx={imageStyle}>
               <Image
-                src='/images/logo-zico.png'
+                src='/images/assinatura-zico-pdf.png'
                 layout='fill'
-                alt='Bolshoi'
+                alt='Zico'
                 objectFit='contain'
               />
             </Box>
             <Box sx={imageStyle}>
               <Image
-                src='/images/logo-bolshoi.png'
+                src='/images/logo_millebier.png'
                 layout='fill'
-                alt='Bolshoi'
+                alt='Mille Bier'
                 objectFit='contain'
               />
             </Box>

@@ -51,10 +51,15 @@ const slides = [
     />
     <PrimaryGradientCover />
     <Box sx={{ position: 'absolute', width: '100%', height: '100%', zIndex: 500, display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
-      <Container sx={{ display: 'flex', height: '50%', mb: 10 }}>  
+      <Container sx={{ display: 'flex', height: { xs:'60%' , md: '60%' }, mb: 10 }}>  
         <Stack sx={{ mx: 'auto' }} alignItems='center' justifyContent='flex-start' >
-          <Box sx={{ minHeight: '4rem', height: '25vw', maxHeight: '8rem', width: '100%' }} >                           
-            {/* <PizzaSanPietro  width='100%' height='100%' /> */}
+          <Box sx={{ position: 'relative', minHeight: '12rem', height: '35vw', maxHeight: '20rem', width: '100%' }} >
+            <Image
+              src='/images/DEL_MARE.png'
+              alt='Piazza Del Mare'
+              layout='fill'
+              objectFit='contain'
+            />
           </Box>
           <Typography fontSize={21} letterSpacing={4} textAlign='center' sx={{ color: 'white', mt: 'auto', mb: 2 }} >LANÇAMENTO EM PIÇARRAS</Typography>
           <Link href='/empreendimentos/piazza-del-mare' passHref >

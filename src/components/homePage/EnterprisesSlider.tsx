@@ -18,7 +18,7 @@ const sxImage = {
 }
 
 export const EnterprisesSlider = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false })
 
   useEffect(() => {
     if (emblaApi) {

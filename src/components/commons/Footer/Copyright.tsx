@@ -10,17 +10,22 @@ const texts = [
 
 export const Copyright = () => {
   return (
-    <Box bgcolor='primary.main' sx={{ borderTop: '1px solid #969696' }}>
+    <Box bgcolor='primary.main' >
       <Container sx={{ py: 2 }}>        
         <Stack
           direction={{ xs: 'column', md: 'row' }}
           justifyContent='center'
           alignItems='center'
           spacing={2}
-          divider={<Divider orientation="vertical" flexItem sx={{ borderColor: '#969696' }}  />}
+          divider={<Divider orientation="vertical" flexItem sx={{ borderColor: '#fff' }}  />}
         >
           {texts.map((text, index) => (
-            <Typography key={index} fontSize={12} letterSpacing={1.5} sx={{ color: '#969696' }}>{text.toUpperCase()}</Typography>
+            index === texts.length - 1
+              ? <a href='https://www.instagram.com/siga.simple/' target='_blank' rel="noreferrer">
+                  <Typography key={index} fontSize={12} letterSpacing={1.5} sx={{ color: '#fff' }}>{text.toUpperCase()}</Typography>
+                </a>
+              : <Typography key={index} fontSize={12} letterSpacing={1.5} sx={{ color: '#fff' }}>{text.toUpperCase()}</Typography>
+
           ))}
         </Stack>
       </Container>
