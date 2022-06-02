@@ -1,7 +1,9 @@
 import { Box, Container, Grid, Typography } from '@mui/material'
-import React from 'react'
+import React, { useRef } from 'react'
 import { defaultLinkHoverProps } from '../../constants/defaultLinkHover'
 import { scrollToTarget } from '../../helpers/scrollToTarget'
+import { useScroll } from '../../hooks/useScroll'
+import { useWindowSize } from '../../hooks/useWindowSize'
 
 const scrollLinks = [
   {

@@ -5,7 +5,7 @@ import Image from 'next/image'
 import LeftArrow from '../../../../public/vectors/arrows/left-arrow.svg'
 import RightArrow from '../../../../public/vectors/arrows/right-arrow.svg'
 import { defaultSvgProps } from '../../../constants/defaultSvgProps'
-import SimpleDialog from '../../commons/Dialog'
+import FullScreenDialog from './DetailsSliderDialog'
 
 const defaultButtonProps = {
   zIndex: 500,
@@ -41,7 +41,8 @@ const Slide = ({ image, selectedSlide, index }) => {
         transitionTimingFunction: 'ease',
         width: '100%',
         aspectRatio: '2 / 1',
-        filter: isSelected ? 'opacity(1)' : 'opacity(.25)'
+        filter: isSelected ? 'opacity(1)' : 'opacity(.25)',
+        cursor: 'pointer'
       }}
     >
       {loading && <Box bgcolor='#e2e2e2' sx={{ width: '100%', height: '100%', display: 'flex',alignItems: 'center', justifyContent: 'center' }}>loading...</Box>}
@@ -93,7 +94,7 @@ export const DetailsSlider = ({ images }) => {
         <Box sx={{ ...defaultButtonProps, marginLeft: '10vw', left: 0 }} onClick={scrollPrev}>        
           <LeftArrow {...defaultSvgProps} />
         </Box>
-        <Box sx={{ width: '100%' }} /* onClick={handleClickOpen} */>
+        <Box sx={{ width: '100%' }} onClick={handleClickOpen}>
           <div className="embla overflow_show">
             <div className="embla__viewport" ref={emblaRef}>
               <div className="embla__container">
@@ -108,9 +109,10 @@ export const DetailsSlider = ({ images }) => {
           <RightArrow {...defaultSvgProps} />
         </Box>
       </Stack>
-      <SimpleDialog
+      <FullScreenDialog
         open={open}
-        onClose={handleClose}
+        handleClose={handleClose}
+        images={images}
       />
     </>
   )

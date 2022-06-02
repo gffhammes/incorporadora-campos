@@ -21,8 +21,8 @@ export const Copyright = () => {
         >
           {texts.map((text, index) => (
             index === texts.length - 1
-              ? <a href='https://www.instagram.com/siga.simple/' target='_blank' rel="noreferrer">
-                  <Typography key={index} fontSize={12} letterSpacing={1.5} sx={{ color: '#fff' }}>{text.toUpperCase()}</Typography>
+              ? <a key={index} href='https://www.instagram.com/siga.simple/' target='_blank' rel="noreferrer">
+                  <Typography  fontSize={12} letterSpacing={1.5} sx={{ color: '#fff' }}>{text.toUpperCase()}</Typography>
                 </a>
               : <Typography key={index} fontSize={12} letterSpacing={1.5} sx={{ color: '#fff' }}>{text.toUpperCase()}</Typography>
 
