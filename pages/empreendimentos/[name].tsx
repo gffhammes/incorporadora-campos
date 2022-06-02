@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import { Footer } from '../../src/components/commons/Footer'
+import { Footer } from '../../src/components/commons/Footer/Footer'
 import { Box } from '@mui/material'
 import { getEnterpriseBySlug } from '../../src/helpers/getEnterpriseBySlug'
 import { HeroSection } from '../../src/components/enterprisesInternalPage/HeroSection'

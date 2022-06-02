@@ -150,7 +150,7 @@ export const enterprises = [
     logo: '/',
     thumb: '/images/piazza-della-liberta/LIBERTA-card-home.png',
     image: '/images/della-liberta.jpg',
-    banner: '/images/piazza-del-mare/incorporadora-campos-piazza-del-mare-lounge-1.jpg',
+    banner: '/images/piazza-della-liberta/piazza-della-liberta-salao-de-festas.jpg',
     name: 'Piazza Della Libertá',
     slug: 'piazza-della-liberta',
     district: 'Costa e Silva',
@@ -167,7 +167,18 @@ export const enterprises = [
     pageTitle: 'INSPIRADO NA PRAÇA DELLA LIBERTÁ, DE FLORENÇA:',
     pageText: 'A Piazza della Libertá foi construída no século 19, no extremo norte do centro histórico de Florença.\n\nEla fez parte das obras para produzir o Viali di Circonvallazione, um projeto que criou grandes praças, das quais se ramificam vias largas que circundam o centro da cidade\n\nSua arquitetura burguesa e cheia de história, inspirou a criação do residencial Piazza della Libertá\n\n',
     apartmentsOptions: 'Apartamentos com opções de 3 e 2 suítes',
-    photos: [
+    photos: [      
+      '/images/piazza-della-liberta/piazza-della-liberta-fachada-1.jpg',
+      '/images/piazza-della-liberta/piazza-della-liberta-fachada-2.jpg',
+      '/images/piazza-della-liberta/piazza-della-liberta-fachada-3.jpg',
+      '/images/piazza-della-liberta/piazza-della-liberta-hall.jpg',
+      '/images/piazza-della-liberta/piazza-della-liberta-piscina.jpg',
+      '/images/piazza-della-liberta/piazza-della-liberta-piscina-2.jpg',
+      '/images/piazza-della-liberta/piazza-della-liberta-piscina-3.jpg',
+      '/images/piazza-della-liberta/piazza-della-liberta-salao-de-festas.jpg',
+      '/images/piazza-della-liberta/piazza-della-liberta-salao-de-festas-2.jpg',
+      '/images/piazza-della-liberta/piazza-della-liberta-salao-de-festas-3.jpg',
+      '/images/piazza-della-liberta/piazza-della-liberta-salao-de-festas-4.jpg',
     ],
     differentials: [
       'leisure',
@@ -194,7 +205,7 @@ export const enterprises = [
     logo: '/',
     thumb: '/images/piazza-san-carlo/piazzasancarlo-card-home.png',
     image: '/images',
-    banner: '/images/piazza-del-mare/incorporadora-campos-piazza-del-mare-lounge-1.jpg',
+    banner: '/images/piazza-san-carlo/piazza-san-carlo-salao-de-festas.png',
     name: 'Piazza San Carlo', 
     slug: 'piazza-san-carlo',
     district: 'Costa e Silva',
@@ -212,6 +223,10 @@ export const enterprises = [
     pageText: 'Projetada por Carlo di Castellamonte em meados do século 17, a Piazza San Carlo é uma das principais e mais bonitas praças de Turim, na Itália.\n\nSan Carlo é rodeada por edifícios soberbos e possui proporções perfeitas, típicas do estilo barroco. É um lugar para passear e viver momentos inesquecíveis.\n\nE também, o local que inspirou o nosso residencial, Piazza San Carlo.',
     apartmentsOptions: 'Apartamentos com opções de 3 e 2 suítes',
     photos: [
+      '/images/piazza-san-carlo/piazza-san-carlo-salao-de-festas.png',
+      '/images/piazza-san-carlo/san_carlo_academia.png',
+      '/images/piazza-san-carlo/piazza-san-carlo-salao-de-festas.png',
+      '/images/piazza-san-carlo/san_carlo_academia.png',
     ],
     differentials: [
       'leisure',

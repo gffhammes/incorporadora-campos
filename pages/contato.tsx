@@ -1,5 +1,5 @@
 import React from 'react'
-import { Footer } from '../src/components/commons/Footer'
+import { Footer } from '../src/components/commons/Footer/Footer'
 import { BlueSection } from '../src/components/contactPage/BlueSection'
 import { ContactForm } from '../src/components/contactPage/ContactForm'
 import { HeroSection } from '../src/components/contactPage/HeroSection'

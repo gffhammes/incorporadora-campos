@@ -32,7 +32,7 @@ export const ContactSection = ({ enterpriseData }) => {
           </Stack>
           <div>
             <form noValidate onSubmit={e => handleSubmit(e)}>              
-              <Grid container spacing={2} alignItems='center'>
+              <Grid container spacing={2} alignItems='stretch'>
                 <Grid item xs={12}>
                   <Input id='name' value={contactData.name} handleChange={handleChange} placeholder='Nome Completo' required={true} />
                 </Grid>
@@ -43,7 +43,9 @@ export const ContactSection = ({ enterpriseData }) => {
                   <Input id='email' value={contactData.email} handleChange={handleChange} placeholder='E-mail' required={true} />
                 </Grid>
                 <Grid item xs={12} lg={4}>
-                  <ContainedSecondaryButton sx={{ width: '100%', height: '100%' }} type='submit' >ENVIAR</ContainedSecondaryButton>
+                  <Box sx={{ height: '100%' }}>                    
+                    <ContainedSecondaryButton sx={{ width: '100%', height: '100%' }} type='submit' >ENVIAR</ContainedSecondaryButton>
+                  </Box>
                 </Grid>
               </Grid>
             </form>

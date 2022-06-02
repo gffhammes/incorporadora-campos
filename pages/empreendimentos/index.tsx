@@ -1,6 +1,6 @@
 import { HeroSection } from "../../src/components/enterprisesPage/HeroSection";
 import { EnterprisesSection } from "../../src/components/enterprisesPage/EnterprisesSection";
-import { Footer } from "../../src/components/commons/Footer";
+import { Footer } from "../../src/components/commons/Footer/Footer";
 import { enterprises } from "../../src/assets/enterprises";
 
 export default function Home() {
