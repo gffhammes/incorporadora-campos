@@ -6,7 +6,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { FollowUs } from '../FollowUs';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { whatsappUrl } from '../../../constants/socialLinks';
+import { facebookUrl, instagramUrl, linkedinUrl, whatsappUrl } from '../../../constants/socialLinks';
 
 export const TopBar = () => {
   const theme = useTheme();
@@ -18,11 +18,11 @@ export const TopBar = () => {
         <Stack direction='row' justifyContent='space-between' alignItems='center' spacing={2} >
           {sizeSm
             ? <FollowUs /> 
-            : <Stack direction='row' spacing={1}>
-                <LinkedInIcon />
-                <InstagramIcon />
-                <FacebookIcon />
-              </Stack>            
+            : <Stack direction='row' spacing={1} alignItems='center'>
+                <a href={linkedinUrl} target='_blank' rel="noreferrer" ><LinkedInIcon /></a>
+                <a href={instagramUrl} target='_blank' rel="noreferrer" ><InstagramIcon /></a>
+                <a href={facebookUrl} target='_blank' rel="noreferrer" ><FacebookIcon /></a>
+              </Stack>           
           }
           <a href={whatsappUrl} target='_blank' rel="noreferrer" >
             <Stack direction='row' alignItems='center' spacing={2}> 

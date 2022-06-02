@@ -204,7 +204,7 @@ export const enterprises = [
   {
     logo: '/',
     thumb: '/images/piazza-san-carlo/piazzasancarlo-card-home.png',
-    image: '/images',
+    image: '/images/PREDIO_SAN_CARLO.png',
     banner: '/images/piazza-san-carlo/piazza-san-carlo-salao-de-festas.png',
     name: 'Piazza San Carlo', 
     slug: 'piazza-san-carlo',

@@ -1,6 +1,10 @@
 import { Box, Container, Stack, SxProps, Typography } from '@mui/material'
 import Link from 'next/link'
 import React from 'react'
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import { facebookUrl, instagramUrl, linkedinUrl } from '../../constants/socialLinks';
 
 const sxBold: SxProps = {
   fontSize: '14',
@@ -31,6 +35,11 @@ export const BlueSection = () => {
           </Stack>
           <Box>
             <Typography sx={sxBold} >SIGA NAS REDES SOCIAIS</Typography>
+            <Stack direction='row' spacing={1} alignItems='flex-end' sx={{ fontSize: 40, height: 'fit-content', mt: '1rem' }}>
+                <a href={linkedinUrl} target='_blank' rel="noreferrer" ><LinkedInIcon fontSize='inherit' /></a>
+                <a href={instagramUrl} target='_blank' rel="noreferrer" ><InstagramIcon fontSize='inherit' /></a>
+                <a href={facebookUrl} target='_blank' rel="noreferrer" ><FacebookIcon fontSize='inherit' /></a>
+              </Stack>   
           </Box>
         </Stack>
       </Container>

@@ -1,6 +1,6 @@
 import { Box, Container, IconButton, Stack, Typography, useTheme } from '@mui/material'
 import Link from 'next/link'
-import React, { FC, useState } from 'react'
+import React, { FC, useMemo, useState } from 'react'
 import LogoHorizontal from '../../../../public/vectors/logo-horizontal.svg';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { pages } from '../../../constants/pages';
@@ -16,10 +16,10 @@ const sxLogo = {
 }
 
 const sxNavLink = {
-  color: 'white',
+  width: 'fit-content',  
   transition: '300ms ease all',
   '&:hover': {
-    color: 'secondary.main'
+    color: '#ffffff'
   }
 }
 
@@ -33,6 +33,34 @@ export const NavBar = () => {
 
   const handleMenuToggle = () => setOpen(open => !open);
 
+  const pagesMemo = useMemo(() => {
+    return (
+      pages.map((page, index) => {
+        const isActivePage =
+          currentRoute.includes(page.route)
+            ? page.route !== '/' || currentRoute === '/'
+            : page.route === currentRoute
+  
+        return (
+          <Link href={page.route} passHref key={index}>
+            <Box
+              component='a'
+              sx={{
+                ...sxNavLink,
+                borderBottom: isActivePage ? '1px solid white' : '',
+                marginBottom: isActivePage ? '-1px' : 0,
+                color: isActivePage ? '#fff' : '#ffffff89',
+              }}
+              onClick={handleMenuToggle}
+            >                    
+              <Typography>{page.name.toUpperCase()}</Typography>
+            </Box>
+          </Link>
+        )
+      })
+    )
+  }, [currentRoute])
+
   return(
     <Box component='nav' sx={{ position: sizeMd ? 'relative' : 'fixed', width: '100%' }}>
       <Container>
@@ -44,26 +72,28 @@ export const NavBar = () => {
           </Box>
           {sizeMd
             ? <Stack direction='row' spacing={3}>
-                {pages.map((page, index) => {
-                  const isActivePage =
-                    currentRoute.includes(page.route)
-                      ? page.route !== '/' || currentRoute === '/'
-                      : page.route === currentRoute
-
-                  return (
-                    <Link href={page.route} passHref key={index}>
-                      <Box component='a' sx={{ ...sxNavLink, borderBottom: isActivePage ? '1px solid white' : '', marginBottom: isActivePage ? '-1px' : 0 }}>                    
-                        <Typography>{page.name.toUpperCase()}</Typography>
-                      </Box>
-                    </Link>
-                  )
-                })}
+                {pagesMemo}
               </Stack>
             : <>
                 <IconButton sx={{ fontSize: 30, color: 'white', zIndex: 999 }} onClick={handleMenuToggle}>
                   {open ? <CloseIcon fontSize='inherit' /> : <MenuIcon fontSize='inherit' />}
                 </IconButton>
-                <Box bgcolor='secondary.main' sx={{ transition: '.3s ease all', position: 'fixed', width: '100vw', height: '100vh', top: 0, right: 0, transform: open ? 'translateX(0%)' : 'translateX(100%)' }} >
+                <Box
+                  bgcolor='secondary.main'
+                  sx={{
+                    transition: '.3s ease all',
+                    position: 'fixed',
+                    width: '100vw',
+                    height: '100vh',
+                    top: 0,
+                    right: 0,
+                    transform: open ? 'translateX(0%)' : 'translateX(100%)',
+                    p: '15rem 2rem 2rem 2rem'
+                  }}
+                >
+                  <Stack direction='column' spacing={3} sx={{ textAlign: 'center' }}>
+                    {pagesMemo}
+                  </Stack>
                 </Box>
               </>
           }
