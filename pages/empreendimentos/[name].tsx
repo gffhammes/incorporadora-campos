@@ -26,9 +26,9 @@ const Enterprise = () => {
       <HeroSection enterpriseData={currentEnterprise} />
       <ScrollMenu />
       <SummarySection enterpriseData={currentEnterprise} />
-      <DetailsSection enterpriseData={currentEnterprise} />
+      {currentEnterprise.hideSections?.includes('details') ? null : <DetailsSection enterpriseData={currentEnterprise} />}
       <DifferentialsSections enterpriseData={currentEnterprise} />
-      <PlanOptionsSection enterpriseData={currentEnterprise} />
+      {currentEnterprise.hideSections?.includes('planOptions') ? null : <PlanOptionsSection enterpriseData={currentEnterprise} />}      
       <ContactSection enterpriseData={currentEnterprise} />
       <ConstructionStatusSection enterpriseData={currentEnterprise} />
       <MapsSection enterpriseData={currentEnterprise} />

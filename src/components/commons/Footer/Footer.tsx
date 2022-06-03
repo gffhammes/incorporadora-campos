@@ -31,7 +31,7 @@ export const Footer = () => {
                 </Link>
               ))}
             </Stack>
-            <Stack spacing={defaultSpacing} >
+            {/* <Stack spacing={defaultSpacing} >
               {footerLinks.map((link, index) => (
                 <Link key={index} href={link.href} passHref>
                   <Box component='a' sx={defaultLinkHoverProps} >
@@ -39,7 +39,7 @@ export const Footer = () => {
                   </Box>
                 </Link>
               ))}
-            </Stack>
+            </Stack> */}
             <Stack spacing={1} >
               <Typography fontSize={14} fontWeight='bold'>47 9 99138-2244</Typography>
               <Typography fontSize={14}>vendas@camposincorporadora.com.br</Typography>

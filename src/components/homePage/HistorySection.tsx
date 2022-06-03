@@ -1,5 +1,6 @@
 import { Box, Button, Container, Stack, styled, Typography } from '@mui/material'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 import { ContainedWhiteButton } from '../commons/Button'
 import { SectionTitle } from '../commons/SectionTitle'
@@ -47,8 +48,12 @@ export const HistorySection = () => {
               />
             </Box>
           </Stack>
-          <Box sx={{ display: 'flex' }}>            
-            <ContainedWhiteButton>SAIBA MAIS</ContainedWhiteButton>
+          <Box sx={{ display: 'flex' }}>
+            <Link href='contato' passHref>
+              <Box component='a' sx={{ width: 'fit-content', mx: 'auto' }}>                
+                <ContainedWhiteButton>SAIBA MAIS</ContainedWhiteButton>
+              </Box>
+            </Link>
           </Box>
         </Stack>
       </Container>

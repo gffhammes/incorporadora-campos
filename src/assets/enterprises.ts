@@ -29,18 +29,15 @@ export const enterprises = [
       '/images/piazza-san-pietro/Apto_Tipo02_Cam01-min.jpg',
       '/images/piazza-san-pietro/Apto_Tipo02_Cam02-min.jpg',
       '/images/piazza-san-pietro/Campos_SanPietro_Social_Jogos_Cam01-min.jpg',
-      '/images/piazza-san-pietro/Campos_SanPietro_Social_Piscina_Cam01-min.jpg',
-      '/images/piazza-san-pietro/Campos_SanPietro_Social_Piscina_Cam02-min.jpg',
       '/images/piazza-san-pietro/Espaço_zen_Cam01-min.jpg',
       '/images/piazza-san-pietro/Hall_Entrada_Cam01-min.jpg',
       '/images/piazza-san-pietro/Jardim_Fundos_Cam01 (2)-min.jpg',
-      '/images/piazza-san-pietro/Piscina_Cam01 (2)-min.jpg',
-      '/images/piazza-san-pietro/Piscina_Cam01-min.jpg',
-      '/images/piazza-san-pietro/Piscina_Cam02-min.jpg',
-      '/images/piazza-san-pietro/Piscina_Cam03 (1)-min.jpg',
-      '/images/piazza-san-pietro/Piscina_Cam03-min.jpg',
       '/images/piazza-san-pietro/Quarto_Tipo01_Cam01-min.jpg',
       '/images/piazza-san-pietro/Salão_Festas_Cam01-min.jpg',
+      '/images/piazza-san-pietro/_CAMPOS_SAN_PIETRO_PISCINA_R02.png',
+      '/images/piazza-san-pietro/Campos_SanPietro_Social_Academia_Cam02.jpg',
+      '/images/piazza-san-pietro/Campos_SanPietro_Social_Academia_Cam01.jpg',
+      '/images/piazza-san-pietro/Campos_SanPietro_Social_Brinquedoteca_Cam01.jpg',      
     ],
     differentials: [
       'leisure',
@@ -54,6 +51,7 @@ export const enterprises = [
       'zen-lounge',
       'noble-area',
     ],
+    planText: 'Torre única | 8 andares | 17 aptos. | 3 por andar\n7 Aptos. tipo 1 com 126m² privativos | 3 suítes\n10 Aptos. tipo 2 e 3 com 108m² privativos | 2 suítes e 1 dormitório\n1 cobertura plana com 168m²\n1 cobertura plana com 173m²\nSacada com churrasqueira a carvão\nDuas vagas de garagem\nOpção para a terceira vaga de garagem\nAmbientes integrados nos apartamentos\nInfraestrutura para sistema de segurança\nInfraestrutura para refrigeração em todos os cômodos\nPorcelanato na cozinha, sala e áreas molhadas',
     plans: [
       {
         label: 'Apartamento Tipo 1',
@@ -96,6 +94,7 @@ export const enterprises = [
     pageTitle: 'INSPIRADO NA PRAÇA DEL MARE, EM RODI GARGANICO:',
     pageText: 'Rodi Garganico é um pequeno vilarejo italiano cercado de paisagens exuberantes da praia e da natureza. E foi inspirado em paisagens de tirar o fôlego, que o Piazza Del Mare foi projetado.\n\nO mar de Balneário Piçarras foi emoldurado em uma vista única, que pode ser apreciada de dentro do seu próprio apartamento.\n\nE até mesmo o Zico, nosso eterno camisa 10, resolveu descer para Santa Catarina e fazer deste belo empreendimento, a sua próxima jogada.',
     apartmentsOptions: 'Apartamentos com opções de 3 e 2 suítes',
+    planText: 'Torre única / 19 andares / 45 apartamentos / 3 por andar\n15 aptos tipo 1 com 123,61m² privativos / 3 suítes\n15 aptos tipo 3 com 100,14 m² / 1 suíte e 2 demi-suítes\n15 aptos tipo 3 com 100,52 m² privativos / 1 suíte e 2 demi-suítes\nEspaço gourmet no apartamento\nSacada com churrasqueira a carvão\nAmbientes integrados nos apartamentos\nOpção de segunda vaga de garagem\nInfraestrutura para sistema de segurança\n2 elevadores\nEntrega prevista para: Julho/2025',
     photos: [
       '/images/piazza-del-mare/incorporadora-campos-piazza-del-mare-academia.jpg',
       '/images/piazza-del-mare/incorporadora-campos-piazza-del-mare-apartamento-interno-1.jpg',
@@ -147,9 +146,10 @@ export const enterprises = [
     }
   },
   {
+    hideSections: ['planOptions'],
     logo: '/',
     thumb: '/images/piazza-della-liberta/LIBERTA-card-home.png',
-    image: '/images/della-liberta.jpg',
+    image: '/images/dellaliberta_800x800px.png',
     banner: '/images/piazza-della-liberta/piazza-della-liberta-salao-de-festas.jpg',
     name: 'Piazza Della Libertá',
     slug: 'piazza-della-liberta',
@@ -202,6 +202,7 @@ export const enterprises = [
     }
   },
   {
+    hideSections: ['planOptions'],
     logo: '/',
     thumb: '/images/piazza-san-carlo/piazzasancarlo-card-home.png',
     image: '/images/PREDIO_SAN_CARLO.png',
@@ -250,9 +251,10 @@ export const enterprises = [
     }
   },
   {
+    hideSections: ['details','planOptions'],
     logo: '/',
     thumb: '/images/piazza-san-marco/SAN-MARCO-card-home.png',
-    image: '/images',
+    image: '/images/SanMarco_800x800px.png',
     banner: '/images/piazza-del-mare/incorporadora-campos-piazza-del-mare-lounge-1.jpg',
     name: 'Piazza San Marco',
     slug: 'piazza-san-marco',
