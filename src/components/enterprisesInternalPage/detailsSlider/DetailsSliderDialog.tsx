@@ -137,7 +137,7 @@ export default function FullScreenDialog({ open, handleClose, images }) {
             </IconButton> 
           </Toolbar>
         </AppBar>
-        <Box sx={{ height: '100%' }}>
+        <Box sx={{ height: '100%', overflowX: 'hidden' }}>
           <Slider images={images} />
         </Box>
       </Dialog>
