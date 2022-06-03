@@ -120,6 +120,7 @@ export default function FullScreenDialog({ open, handleClose, images }) {
         open={open}
         onClose={handleClose}
         TransitionComponent={Transition}
+        sx={{ display: 'flex', flexDirection: 'column' }}
       >
         <AppBar sx={{ position: 'relative' }}>
           <Toolbar>
