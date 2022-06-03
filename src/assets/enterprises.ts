@@ -2,7 +2,7 @@ export const enterprises = [
   {
     logo: '/vectors/piazza-san-pietro.svg',
     thumb: '/images/piazza-san-pietro/SAN-PIETRO-card-home.png',
-    image: '/images/piazza-san-pietro-empreendimentos.jpg',
+    image: '/images/THUMB_SAN_PIETRO_INICIAL_800x800px.png',
     banner: '/images/campos-incorporadora-san-pietro.jpg',
     pageTitle: 'Inspirado na praça de São Pedro, na cidade do Vaticano:',
     pageText: 'A Piazza San Pietro, localizada no Vaticano aos pés da Basílica de São Pedro, é uma das maiores e mais impressionantes praças do mundo.\n\nInspirado nessa obra-prima, a Campos traz para Joinville o empreendimento Piazza San Pietro.\n\nLocalizado no coração do bairro América, ele traz com todo o conforto e requinte que você e sua família merecem. Veja mais detalhes e permita-se ser surpreendido.',
@@ -78,7 +78,7 @@ export const enterprises = [
   {
     logo: '/images/DEL_MARE.png',
     thumb: '/images/piazza-del-mare/del-mare-card-home.png',
-    image: '/images/piazza-del-mare.jpeg',
+    image: '/images/PREDIO_DEL_MARE_NOTURNO.png',
     banner: '/images/piazza-del-mare/incorporadora-campos-piazza-del-mare-lounge-1.jpg',
     name: 'Piazza Del Mare',
     slug: 'piazza-del-mare',
