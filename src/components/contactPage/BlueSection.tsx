@@ -21,7 +21,7 @@ export const BlueSection = () => {
             <a href='tel:47 9 99138-2244' style={{ width: 'fit-content' }}>              
               <Typography sx={sxBold} >LIGUE PARA NÓS: 47 9 99138-2244</Typography>
             </a>
-            <Typography><strong>Atendimento</strong>: Segunda-feira à Sexta-feira</Typography>
+            <Typography><strong>Atendimento</strong>: Segunda à Sexta, das 08h30 às 18h</Typography>
             <a href='mailto:vendas@camposincorporadora.com.br'>
               <Typography><strong>E-mail</strong>: vendas@camposincorporadora.com.br</Typography> 
             </a> 

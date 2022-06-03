@@ -15,7 +15,7 @@ export const DifferentialsSections = ({ enterpriseData }) => {
               <Stack alignItems='center' spacing={3}>                
                 <Box sx={{ position: 'relative', width: '100%', maxWidth: '7rem', aspectRatio: '1 / 1' }}>
                   <Image
-                    src={`/vectors/differentials/${differential}.svg`}
+                    src={`/images/differentials/${differential}.png`}
                     alt={differentials[differential]}
                     layout='fill'
                   />
