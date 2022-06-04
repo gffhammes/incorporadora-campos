@@ -60,7 +60,7 @@ const slides = [
               objectFit='contain'
             />
           </Box>
-          <Typography fontSize={21} letterSpacing={4} textAlign='center' sx={{ color: 'white', mt: 'auto', mb: 2 }} >LANÇAMENTO EM PIÇARRAS</Typography>
+          <Typography fontSize={21} letterSpacing={4} textAlign='center' sx={{ color: 'white', mt: 'auto', mb: 2 }} >PRÉ LANÇAMENTO EM PIÇARRAS</Typography>
           <Link href='/empreendimentos/piazza-del-mare' passHref >
             <a>
               <OutlinedWhiteButton>SAIBA MAIS</OutlinedWhiteButton>

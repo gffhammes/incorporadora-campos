@@ -4,7 +4,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import { FollowUs } from '../FollowUs';
+import { FollowUs, FollowUsIcons } from '../FollowUs';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { facebookUrl, instagramUrl, linkedinUrl, whatsappUrl } from '../../../constants/socialLinks';
 
@@ -13,21 +13,17 @@ export const TopBar = () => {
   const sizeSm = useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
-    <Box bgcolor='#0d235e' sx={{ color: 'white', py: 1 }}>
+    <Box bgcolor='#0d235e' sx={{ color: 'white', py: .75 }}>
       <Container>
         <Stack direction='row' justifyContent='space-between' alignItems='center' spacing={2} >
           {sizeSm
             ? <FollowUs /> 
-            : <Stack direction='row' spacing={1} alignItems='center'>
-                <a href={linkedinUrl} target='_blank' rel="noreferrer" ><LinkedInIcon /></a>
-                <a href={instagramUrl} target='_blank' rel="noreferrer" ><InstagramIcon /></a>
-                <a href={facebookUrl} target='_blank' rel="noreferrer" ><FacebookIcon /></a>
-              </Stack>           
+            : <FollowUsIcons />
           }
           <a href={whatsappUrl} target='_blank' rel="noreferrer" >
-            <Stack direction='row' alignItems='center' spacing={2}> 
-              <WhatsAppIcon />
-              <Typography>47 9 99138-2244</Typography>
+            <Stack direction='row' alignItems='center' spacing={1}> 
+              <WhatsAppIcon sx={{ fontSize: 18 }} />
+              <Typography fontSize={12}>47 9 99138-2244</Typography>
             </Stack>
           </a>
         </Stack>

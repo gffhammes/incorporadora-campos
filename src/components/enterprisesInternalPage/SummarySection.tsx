@@ -35,7 +35,7 @@ export const SummarySection = ({ enterpriseData }) => {
       <Container sx={{ py: 10 }}>
         <Box sx={sxGrid} >
           <Box sx={{ gridArea: 'a' }}>
-            <Box sx={{ position: 'relative', height: { xs: '20rem', md: '100%' }, width: '100%' }}>
+            <Box sx={{ position: 'relative', height: { xs: 'unset', md: '100%' }, width: '100%', aspectRatio: { xs: '1 / 1', md: 'unset' } }}>
               <Image
                 src={enterpriseData.image}
                 alt={enterpriseData.name}

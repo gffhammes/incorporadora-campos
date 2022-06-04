@@ -65,36 +65,36 @@ const sxInfos = {
 
 export const EnterpriseCard = ({ enterprise }) => {
   return (
-    <Box sx={{ height: 'fit-content', width: '100%', boxShadow: 20 }}>
-      <Stack direction={{ xs: 'column', md: 'row' }} sx={{ height: '100%' }}>                  
-        <Box sx={sxImage}>
-          <Image
-            src={enterprise.image}
-            alt={enterprise.name}
-            objectFit='cover'
-            width="100%"
-            height="100%"
-            layout="fill"
-            objectPosition='left bottom'
-          />
-        </Box>
-        <Box sx={sxInfos}>
-          <Typography {...enterpriseNameProps}>{enterprise.name.toUpperCase()}</Typography>
-          <Typography fontSize={16} fontWeight={500}>{enterprise.district} | {enterprise.city}</Typography>
-          <Typography fontSize={14}>
-            {getEnterpriseDetailsString(enterprise.slug)}
-          </Typography>
-          <Typography fontSize={14} fontWeight={400} sx={{ mt: '1rem', whiteSpace: 'pre-wrap' }} >{enterprise.description}</Typography>
-          <Link href={`/empreendimentos/${enterprise.slug}`} passHref>
-            <Box component='a' sx={{ mt: { xs: '1rem', md: 'auto' }, width: 'fit-content' }}>
-              <Typography fontSize={15} fontWeight={700}  sx={{ width: 'fit-content', color: '#1a47bc', borderBottom: '1px solid #1A47BC', }} >SAIBA MAIS</Typography>
+    <Link href={`/empreendimentos/${enterprise.slug}`} passHref>
+      <a>
+        <Box sx={{ height: 'fit-content', width: '100%', boxShadow: 20 }}>
+          <Stack direction={{ xs: 'column', md: 'row' }} sx={{ height: '100%' }}>                  
+            <Box sx={sxImage}>
+              <Image
+                src={enterprise.image}
+                alt={enterprise.name}
+                objectFit='cover'
+                width="100%"
+                height="100%"
+                layout="fill"
+                objectPosition='left bottom'
+              />
             </Box>
-          </Link>
-          <Box bgcolor='primary.main' sx={sxStatus}>
-            <Typography fontSize={13} letterSpacing={3}>{enterprise.status.toUpperCase()}</Typography>
-          </Box>
+            <Box sx={sxInfos}>
+              <Typography {...enterpriseNameProps}>{enterprise.name.toUpperCase()}</Typography>
+              <Typography fontSize={16} fontWeight={500}>{enterprise.district} | {enterprise.city}</Typography>
+              <Typography fontSize={14}>
+                {getEnterpriseDetailsString(enterprise.slug)}
+              </Typography>
+              <Typography fontSize={14} fontWeight={400} sx={{ mt: '1rem', whiteSpace: 'pre-wrap' }} >{enterprise.description}</Typography>
+              <Typography fontSize={15} fontWeight={700}  sx={{ mt: { xs: '1rem', md: 'auto' }, width: 'fit-content', color: '#1a47bc', borderBottom: '1px solid #1A47BC', }} >SAIBA MAIS</Typography>
+              <Box bgcolor='primary.main' sx={sxStatus}>
+                <Typography fontSize={13} letterSpacing={3}>{enterprise.status.toUpperCase()}</Typography>
+              </Box>
+            </Box>
+          </Stack>
         </Box>
-      </Stack>
-    </Box>
+      </a>
+    </Link>
   )
 }
