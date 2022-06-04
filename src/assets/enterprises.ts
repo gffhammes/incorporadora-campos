@@ -66,6 +66,8 @@ export const enterprises = [
         <li>Infraestrutura para refrigeração em todos os cômodos</li>
         <li>Porcelanato na cozinha, sala e áreas molhadas</li>
       </ul>
+      <br/>
+      <strong style="color: #1A47BC; text-decoration: underline;">ENTREGA PREVISTA MAIO 2024</strong>
     `,
     plans: [
       {

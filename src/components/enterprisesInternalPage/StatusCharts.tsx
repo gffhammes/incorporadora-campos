@@ -2,6 +2,7 @@ import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { Box, Grid, Stack, Typography } from '@mui/material';
+import { getAverageEnterpriseStatus } from '../../helpers/getAverageEnterpriseStatus';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -69,18 +70,13 @@ const StatusBar = ({ title, value }) => {
 }
 
 export function StatusCharts({ data }) {
-  const generalStatus = () => {
-    const total = data.infrastructure + data.masonry + data.installations + data.coating;
-
-    return total / 4;
-  }
 
   return (
     <Grid container spacing={10}>
       <Grid item xs={12} md={4}>        
         <Stack spacing={10} alignItems={{ xs: 'center', md: 'flex-start' }}>
           <Typography fontSize={28} fontWeight={500} letterSpacing={2} sx={{ color: '#0E1E42', whiteSpace: 'nowrap' }}>STATUS DA OBRA</Typography>      
-          <GeneralStatus status={generalStatus()} />
+          <GeneralStatus status={getAverageEnterpriseStatus(data)} />
         </Stack>
       </Grid>
       <Grid item xs={12} md={8}>

@@ -44,7 +44,7 @@ export const Footer = () => {
               <Typography fontSize={14} fontWeight='bold'>47 9 99138-2244</Typography>
               <Typography fontSize={14}>vendas@camposincorporadora.com.br</Typography>
               <Typography fontSize={14}>Rua Pará, 276 - América<br/>Joinville/SC - 89204-420</Typography>
-              <FollowUs sx={{ mt: 'auto!important' }} />
+              <FollowUs />
             </Stack>
           </Stack>
         </Container>
