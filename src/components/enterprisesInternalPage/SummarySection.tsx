@@ -11,11 +11,11 @@ const sxGrid = {
       'a'
       'c'
     `,
+    // md: `
+    //   'b c'
+    //   'a c'
+    // `,
     md: `
-      'b c'
-      'a c'
-    `,
-    lg: `
       'a b'
       'a c'
     `

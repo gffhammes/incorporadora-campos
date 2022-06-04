@@ -19,7 +19,8 @@ const enterpriseNameProps = {
 
 const sxImage = {
   position: 'relative',
-  height: { xs: '22rem', sm: '30rem', md: '22rem'},
+  height: { xs: 'unset', sm: 'unset', md: '22rem'},
+  aspectRatio: { xs: '1 / 1', md: 'unset'},
   width: '100%',
   overflow: 'hidden',
   maxWidth: { xs: 'unset', md: '22rem' }
