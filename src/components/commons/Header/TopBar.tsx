@@ -6,11 +6,13 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { FollowUs, FollowUsIcons } from '../FollowUs';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { facebookUrl, instagramUrl, linkedinUrl, whatsappUrl } from '../../../constants/socialLinks';
+import { facebookUrl, instagramUrl, linkedinUrl } from '../../../constants/socialLinks';
+import { useWhatsappLink } from '../../../hooks/useWhatsappLink';
 
 export const TopBar = () => {
   const theme = useTheme();
   const sizeSm = useMediaQuery(theme.breakpoints.up('sm'));
+  const whatsappLink = useWhatsappLink();
 
   return (
     <Box bgcolor='#0d235e' sx={{ color: 'white', py: .75 }}>
@@ -20,7 +22,7 @@ export const TopBar = () => {
             ? <FollowUs /> 
             : <FollowUsIcons />
           }
-          <a href={whatsappUrl} target='_blank' rel="noreferrer" >
+          <a href={whatsappLink} target='_blank' rel="noreferrer" >
             <Stack direction='row' alignItems='center' spacing={1}> 
               <WhatsAppIcon sx={{ fontSize: 18 }} />
               <Typography fontSize={12}>47 9 99138-2244</Typography>

@@ -22,10 +22,7 @@ const Enterprise = () => {
   const currentEnterprise = getEnterpriseBySlug(name);
   if (!currentEnterprise) return null
 
-
   const avgEnterpriseStatus = getAverageEnterpriseStatus(currentEnterprise.detailedStatus)
-
-  console.log(avgEnterpriseStatus)
 
   return (
     <main style={{ height: '100%' }}>

@@ -22,9 +22,9 @@ export const Copyright = () => {
           {texts.map((text, index) => (
             index === texts.length - 1
               ? <a key={index} href='https://www.instagram.com/siga.simple/' target='_blank' rel="noreferrer">
-                  <Typography  fontSize={12} letterSpacing={1.5} sx={{ color: '#969696' }}>{text.toUpperCase()}</Typography>
+                  <Typography  fontSize={10} letterSpacing={1.5} sx={{ color: '#969696' }}>{text.toUpperCase()}</Typography>
                 </a>
-              : <Typography key={index} fontSize={12} letterSpacing={1.5} sx={{ color: '#969696' }}>{text.toUpperCase()}</Typography>
+              : <Typography key={index} fontSize={10} letterSpacing={1.5} sx={{ color: '#969696' }}>{text.toUpperCase()}</Typography>
 
           ))}
         </Stack>
