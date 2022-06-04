@@ -11,10 +11,6 @@ const sxGrid = {
       'a'
       'c'
     `,
-    // md: `
-    //   'b c'
-    //   'a c'
-    // `,
     md: `
       'a b'
       'a c'
