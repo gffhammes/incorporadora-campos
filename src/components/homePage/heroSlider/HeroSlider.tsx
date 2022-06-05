@@ -1,75 +1,26 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
-import { Box, Container, IconButton, Skeleton, Stack, Typography } from '@mui/material'
-import Image from 'next/image'
+import { Box, Stack } from '@mui/material'
 import { defaultSvgProps } from '../../../constants/defaultSvgProps'
-import { PrimaryGradientCover } from '../../commons/PrimaryGradientCover'
-import { OutlinedWhiteButton } from '../../commons/Button'
-import PizzaSanPietro from '../../../../public/vectors/piazza-san-pietro.svg'
-import Link from 'next/link'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { Slide } from './Slide'
 
 const slides = [
-  <Box key={1} sx={{ position: 'relative', zIndex: 500, height: '100%', }}>
-    <Box
-      sx={{
-        position: 'absolute',
-        height: '100%',
-        width: '100%',
-        backgroundImage: 'url("/images/campos-incorporadora-san-pietro.jpg")',
-        backgroundSize: 'cover',
-      }}
-    />
-    <PrimaryGradientCover />
-    <Box sx={{ position: 'absolute', width: '100%', height: '100%', zIndex: 500, display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
-      <Container sx={{ display: 'flex', height: '50%', mb: 10 }}>  
-        <Stack sx={{ mx: 'auto' }} alignItems='center' justifyContent='flex-start' >
-          <Box sx={{ minHeight: '4rem', height: '25vw', maxHeight: '8rem', width: '100%' }} >                           
-            <PizzaSanPietro  width='100%' height='100%' />
-          </Box>
-          <Typography fontSize={21} letterSpacing={4} textAlign='center' sx={{ color: 'white', mt: 'auto', mb: 2 }} >LANÇAMENTO NO AMÉRICA</Typography>
-          <Link href='/empreendimentos/piazza-san-pietro' passHref >
-            <a>
-              <OutlinedWhiteButton>SAIBA MAIS</OutlinedWhiteButton>
-            </a>
-          </Link>
-        </Stack>
-      </Container>
-    </Box>
-  </Box>,
-  <Box key={2} sx={{ position: 'relative', zIndex: 500, height: '100%', }}>
-    <Box
-      sx={{
-        position: 'absolute',
-        height: '100%',
-        width: '100%',
-        backgroundImage: 'url("/images/piazza-del-mare/incorporadora-campos-piazza-del-mare-lounge-1.jpg")',
-        backgroundSize: 'cover',
-      }}
-    />
-    <PrimaryGradientCover />
-    <Box sx={{ position: 'absolute', width: '100%', height: '100%', zIndex: 500, display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
-      <Container sx={{ display: 'flex', height: { xs:'60%' , md: '60%' }, mb: 10 }}>  
-        <Stack sx={{ mx: 'auto' }} alignItems='center' justifyContent='flex-start' >
-          <Box sx={{ position: 'relative', minHeight: '12rem', height: '35vw', maxHeight: '20rem', width: '100%' }} >
-            <Image
-              src='/images/DEL_MARE.png'
-              alt='Piazza Del Mare'
-              layout='fill'
-              objectFit='contain'
-            />
-          </Box>
-          <Typography fontSize={21} letterSpacing={4} textAlign='center' sx={{ color: 'white', mt: 'auto', mb: 2 }} >PRÉ LANÇAMENTO EM PIÇARRAS</Typography>
-          <Link href='/empreendimentos/piazza-del-mare' passHref >
-            <a>
-              <OutlinedWhiteButton>SAIBA MAIS</OutlinedWhiteButton>
-            </a>
-          </Link>
-        </Stack>
-      </Container>
-    </Box>
-  </Box>
+  {
+    bgImage: '/images/piazza-san-pietro/BANNER_SAN_PIETRO.jpg',
+    logo: '/images/PIAZZA-SAN-PIETRO.png',
+    enterpriseName: 'Piazza San Pietro',
+    text: 'LANÇAMENTO NO AMÉRICA',
+    href: '/empreendimentos/piazza-san-pietro',
+  },
+  {
+    bgImage: '/images/piazza-del-mare/BANNER_DEL_MARE.jpg',
+    logo: '/images/DEL_MARE.png',
+    enterpriseName: 'Piazza Del Mare',
+    text: 'PRÉ LANÇAMENTO EM PIÇARRAS',
+    href: '/empreendimentos/piazza-del-mare',
+  },
 ]
 
 const defaultButtonProps = {
@@ -161,7 +112,13 @@ export const HeroSlider = () => {
             <Box sx={sxEmblaContainer}>
               {slides.map((slide, index) => (
                 <Box sx={sxEmblaSlide} key={index} >
-                  {slide}
+                  <Slide
+                    bgImage={slide.bgImage}
+                    logo={slide.logo}
+                    enterpriseName={slide.enterpriseName}
+                    text={slide.text}
+                    href={slide.href}
+                  />
                 </Box>
               ))}
             </Box>
@@ -173,7 +130,7 @@ export const HeroSlider = () => {
       </Box>
       <Box sx={{ position: 'absolute', display: 'flex', bottom: '0', left: '50%', transform: 'translate(-50%, -2rem)', gap: '1rem' }}>
         {dots.map((dot, index) => (
-          <Box onClick={() => changeSelectedSlide(index)} bgcolor='white' key={index} sx={{ height: '.5rem', width: '.5rem', borderRadius: '1rem', cursor: 'pointer', filter: dot.active ?  'opacity(.8)' : 'opacity(.25)' }} />
+          <Box onClick={() => changeSelectedSlide(index)} bgcolor='white' key={index} sx={{ transition: '.2s ease all', height: '.5rem', width: '.5rem', borderRadius: '1rem', cursor: 'pointer', filter: dot.active ?  'opacity(.8)' : 'opacity(.25)' }} />
         ))}
       </Box>
     </Stack>
