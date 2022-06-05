@@ -97,7 +97,7 @@ export const PlanSlider = ({ plans }) => {
                   <Box sx={sxImage}>
                     <Image
                       src={plan.image}
-                      alt='image'
+                      alt='plan.label'
                       layout='fill'
                       objectFit='contain'
                     />

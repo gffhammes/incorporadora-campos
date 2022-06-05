@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Box, Button, Container, Grid, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -64,11 +64,23 @@ const sxInfos = {
   position: 'relative',
 }
 
+const boxShadow = '0px 10px 13px -6px rgb(26 71 188 / 20%), 0px 20px 31px 3px rgb(26 71 188 / 14%), 0px 8px 38px 7px rgb(26 71 188 / 12%)'
+
 export const EnterpriseCard = ({ enterprise }) => {
+
+  const statusBgColorMemo = useMemo(() => {
+    switch (enterprise.status) {
+      case 'Pré Lançamento':
+        return 'rgb(26, 71, 188)'
+      default:
+        return 'primary.main'
+    }
+  }, [])
+
   return (
     <Link href={`/empreendimentos/${enterprise.slug}`} passHref>
       <a>
-        <Box sx={{ height: 'fit-content', width: '100%', boxShadow: 20 }}>
+        <Box sx={{ height: 'fit-content', width: '100%', boxShadow }}>
           <Stack direction={{ xs: 'column', md: 'row' }} sx={{ height: '100%' }}>                  
             <Box sx={sxImage}>
               <Image
@@ -89,7 +101,7 @@ export const EnterpriseCard = ({ enterprise }) => {
               </Typography>
               <Typography fontSize={14} fontWeight={400} sx={{ mt: '1rem', whiteSpace: 'pre-wrap' }} >{enterprise.description}</Typography>
               <Typography fontSize={15} fontWeight={700}  sx={{ mt: { xs: '1rem', md: 'auto' }, width: 'fit-content', color: '#1a47bc', borderBottom: '1px solid #1A47BC', }} >SAIBA MAIS</Typography>
-              <Box bgcolor='primary.main' sx={sxStatus}>
+              <Box bgcolor={statusBgColorMemo} sx={sxStatus}>
                 <Typography fontSize={13} letterSpacing={3}>{enterprise.status.toUpperCase()}</Typography>
               </Box>
             </Box>

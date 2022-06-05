@@ -72,15 +72,19 @@ export const enterprises = [
     plans: [
       {
         label: 'Apartamento Tipo 1',
-        image: '/images/piazza-del-mare/incorporadora-campos-piazza-del-mare-planta-1.jpg',
+        image: '/images/piazza-san-pietro/plantas/PLANTA  APTO TIPO 01.jpg',
       },
       {
         label: 'Apartamento Tipo 2',
-        image: '/images/piazza-del-mare/incorporadora-campos-piazza-del-mare-planta-2.jpg',
+        image: '/images/piazza-san-pietro/plantas/PLANTA APTO TIPO 02.jpg',
       },
       {
         label: 'Apartamento Tipo 3',
-        image: '/images/piazza-del-mare/incorporadora-campos-piazza-del-mare-planta-3.jpg',
+        image: '/images/piazza-san-pietro/plantas/PLANTA JOÃO PESSOA Tipo AP03.jpg',
+      },
+      {
+        label: 'Planta',
+        image: '/images/piazza-san-pietro/plantas/PLANTA TIPO op08',
       },
     ],
     detailedStatus: {
@@ -106,7 +110,7 @@ export const enterprises = [
     floorsQty: 19,
     apartmentsTotal: 48,
     apartmentsPerFloor: 3,
-    status: 'Lançamento',
+    status: 'Pré Lançamento',
     description: `Área privativa de 99 a 123 m²\n3 suítes ou 1 suíte e 2 demi-suítes`,
     pageTitle: 'INSPIRADO NA PRAÇA DEL MARE, EM RODI GARGANICO:',
     pageText: 'Rodi Garganico é um pequeno vilarejo italiano cercado de paisagens exuberantes da praia e da natureza. E foi inspirado em paisagens de tirar o fôlego, que o Piazza Del Mare foi projetado.\n\nO mar de Balneário Piçarras foi emoldurado em uma vista única, que pode ser apreciada de dentro do seu próprio apartamento.\n\nE até mesmo o Zico, nosso eterno camisa 10, resolveu descer para Santa Catarina e fazer deste belo empreendimento, a sua próxima jogada.',

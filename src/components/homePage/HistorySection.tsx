@@ -40,11 +40,13 @@ export const HistorySection = () => {
               />
             </Box>
             <Box sx={imageStyle}>
-              <Image
+              <Box
+                component={Image}
                 src='/images/logo_millebier.png'
                 layout='fill'
                 alt='Mille Bier'
                 objectFit='contain'
+                sx={{ transition: '.3s ease all', filter: 'saturate(0)', '&:hover': { filter: 'saturate(1)' } }}
               />
             </Box>
           </Stack>

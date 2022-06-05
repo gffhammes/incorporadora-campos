@@ -20,7 +20,7 @@ const CssTextField = styled(TextField)({
     borderRadius: '20rem',
     '& .MuiOutlinedInput-input': {
       color: 'white',
-      padding: '1rem 2rem',
+      padding: '.75rem 1.5rem',
     },
     '& fieldset': {
       borderColor: 'white',
@@ -40,7 +40,7 @@ const CssTextFieldGrey = styled(TextField)({
     borderRadius: '2rem',
     '& .MuiOutlinedInput-input': {
       color: '#000',
-      padding: '1rem 2rem',
+      padding: '.75rem 1.5rem',
     },
     '& fieldset': {
       borderColor: '#CDCDCD',

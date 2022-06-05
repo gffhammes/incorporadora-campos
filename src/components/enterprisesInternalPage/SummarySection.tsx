@@ -20,7 +20,7 @@ const sxGrid = {
     xs: '1fr',
     md: '1fr 1fr',
   },
-  gridTemplateRows: 'min-content 1fr',
+  gridTemplateRows: 'auto',
   columnGap: '5rem',
   rowGap: '2rem',
 }
@@ -31,7 +31,7 @@ export const SummarySection = ({ enterpriseData }) => {
       <Container sx={{ py: 10 }}>
         <Box sx={sxGrid} >
           <Box sx={{ gridArea: 'a' }}>
-            <Box sx={{ position: 'relative', height: { xs: 'unset', md: '100%' }, width: '100%', aspectRatio: { xs: '1 / 1', md: 'unset' } }}>
+            <Box sx={{ position: 'relative', height: { xs: 'unset', md: '100%' }, width: '100%', aspectRatio: '1 / 1' }}>
               <Image
                 src={enterpriseData.image}
                 alt={enterpriseData.name}
@@ -41,8 +41,8 @@ export const SummarySection = ({ enterpriseData }) => {
               />
             </Box>
           </Box>
-          <Box sx={{ gridArea: 'b' }}>      
-              <Typography fontSize={32} fontWeight={500} letterSpacing={1} sx={{ color: '#1a47bc' }}>{enterpriseData.pageTitle.toUpperCase()}</Typography>
+          <Box sx={{ gridArea: 'b', alignSelf: 'flex-end' }}>      
+              <Typography fontSize={25} fontWeight={500} letterSpacing={1} sx={{ color: '#1a47bc' }}>{enterpriseData.pageTitle.toUpperCase()}</Typography>
           </Box>
           <Box sx={{ gridArea: 'c' }}>      
             <Typography sx={{ whiteSpace: 'pre-wrap' }}>{enterpriseData.pageText}</Typography>

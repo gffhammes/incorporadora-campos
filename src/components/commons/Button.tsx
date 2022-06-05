@@ -21,7 +21,8 @@ export const ContainedWhiteButton = styled(ButtonBase)(({ theme }) => ({
   backgroundColor: '#fff',  
   color: '#1A47BC',  
   '&:hover': {
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    backgroundColor: '#1A47BC',
+    color: '#fff',  
   }
 }));
 
@@ -30,7 +31,7 @@ export const ContainedPrimaryButton = styled(ButtonBase)(({ theme }) => ({
   backgroundColor: '#0E1E42',
   color: 'white',
   '&:hover': {
-    backgroundColor: '#060e1f',
+    backgroundColor: '#1A47BC',
   }
 }));
 
