@@ -84,7 +84,7 @@ export const enterprises = [
       },
       {
         label: 'Planta',
-        image: '/images/piazza-san-pietro/plantas/PLANTA TIPO op08',
+        image: '/images/piazza-san-pietro/plantas/PLANTA TIPO op08.jpg',
       },
     ],
     detailedStatus: {
