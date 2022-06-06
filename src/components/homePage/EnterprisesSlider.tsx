@@ -54,7 +54,7 @@ export const EnterprisesSlider = () => {
                     </Box>
                     <Stack sx={{ mt: 2 }} direction='row' justifyContent='space-between' alignItems='center' >                              
                       <Typography fontSize={13} fontWeight={600} sx={{ color: 'secondary.main', textDecoration: 'underline' }} >{enterprise.name.toUpperCase()}</Typography>
-                      <Typography fontSize={10}>{enterprise.status.toUpperCase()}</Typography>
+                      <Typography fontSize={10} fontWeight={600}>{enterprise.status.toUpperCase()}</Typography>
                     </Stack>
                     <Stack sx={{ mt: 2, fontSize: 14 }} spacing={.5} >
                       <Typography>{enterprise.district} - {enterprise.city}</Typography>
