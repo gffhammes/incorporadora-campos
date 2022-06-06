@@ -5,7 +5,7 @@ import { EnterpriseCard } from './EnterpriseCard'
 
 export const EnterprisesSection = ({ enterprises }) => {
   return (
-    <Box>
+    <Box id='enterprises'>
       <Container sx={{ py: 10, maxWidth: '1100px' }} maxWidth={false}>
         <Grid container spacing={10}>
           {enterprises.map((enterprise, index) => (

@@ -1,5 +1,6 @@
 import { Box, Container, Typography } from '@mui/material'
 import React from 'react'
+import { FloatingDownArrowScroll } from '../commons/FloatingDownArrowScroll'
 import { SectionTitle } from '../commons/SectionTitle'
 
 export const HeroSection = () => {
@@ -31,6 +32,7 @@ export const HeroSection = () => {
           <SectionTitle theme='light'>NOSSOS EMPREENDIMENTOS</SectionTitle>          
         </Container>
       </Box>
+      <FloatingDownArrowScroll targetId='enterprises'/>
     </Box>
   )
 }

@@ -10,6 +10,9 @@ const sxPlanSlider = {
   width: '100%',
 }
 
+const boxShadow = '0px 10px 13px -6px rgb(26 71 188 / 20%), 0px 20px 31px 3px rgb(26 71 188 / 14%), 0px 8px 38px 7px rgb(26 71 188 / 12%)'
+
+
 export const PlanOptionsSection = ({ enterpriseData }) => {
   return (
     <Box id='plan-options'>
@@ -44,7 +47,7 @@ export const PlanOptionsSection = ({ enterpriseData }) => {
             />
           </Box>
           <Box gridArea='c' justifySelf='center' sx={sxPlanSlider} >
-            <Box bgcolor='white' sx={{ height: '100%', width: '100%', boxShadow: 20, p: 4 }}>
+            <Box bgcolor='white' sx={{ height: '100%', width: '100%', boxShadow, p: 4 }}>
               <PlanSlider plans={enterpriseData.plans} />
             </Box>
           </Box>
