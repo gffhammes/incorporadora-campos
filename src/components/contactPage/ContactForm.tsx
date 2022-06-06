@@ -1,6 +1,6 @@
-import { Box, Container, Grid, Typography } from '@mui/material'
+import { Alert, Box, Container, Grid, Snackbar, Typography } from '@mui/material'
 import React, { useState } from 'react'
-import { ContainedSecondaryButton } from '../commons/Button'
+import { ContainedSecondaryButton, LoadingButton } from '../commons/Button'
 import { Input } from '../commons/Input'
 
 const boxShadow = '0px 10px 13px -6px rgb(26 71 188 / 20%), 0px 20px 31px 3px rgb(26 71 188 / 14%), 0px 8px 38px 7px rgb(26 71 188/ 12%);'
@@ -23,6 +23,12 @@ export const ContactForm = () => {
     subject: '',
     message: '',
   })
+  const [loading, setLoading] = useState(false)
+  const [openSnackbar, setOpenSnackbar] = useState(false)
+  
+  const handleSnackbarClose = () => {
+    setOpenSnackbar(false)
+  }
 
   const handleChange = (e) => {
     setContactData(currentData => ({
@@ -31,8 +37,10 @@ export const ContactForm = () => {
     }))
   }
 
+
   const handleSubmit = (e) => { 
     e.preventDefault()
+    setLoading(true)
     let data = {
       email: contactData.email,
       subject: contactData.subject,
@@ -66,7 +74,9 @@ export const ContactForm = () => {
           message: '',
         })
       }
-    })
+      setOpenSnackbar(true)
+      setLoading(false)
+    }).catch(() => setLoading(false))
   }
 
   return (
@@ -91,12 +101,15 @@ export const ContactForm = () => {
                 <Input sx={{ height: '10rem' }} multiline id='message' value={contactData.message} handleChange={handleChange} placeholder='Mensagem' required={true} color='grey' />
               </Grid>
               <Grid item xs={12} sx={{ display: 'flex' }}>
-                <ContainedSecondaryButton type='submit' sx={{ mx: 'auto' }} >ENVIAR</ContainedSecondaryButton>
+                <LoadingButton loading={loading} type='submit' color='secondary' sx={{ mx: 'auto' }} >ENVIAR</LoadingButton>
               </Grid>
             </Grid>
           </Box>
         </Box>
       </Container>
+      <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleSnackbarClose}>
+        <Alert severity="success" variant="filled" onClose={handleSnackbarClose}>Mensagem enviada com sucesso!</Alert>
+      </Snackbar>
     </Box>
   )
 }

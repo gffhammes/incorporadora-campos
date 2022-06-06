@@ -69,7 +69,7 @@ export const Slide = ({
             <Typography fontSize={21} letterSpacing={4} textAlign='center' sx={{ color: 'white', mt: 'auto', mb: 2 }} >{text}</Typography>
             <Link href={href} passHref >
               <a>
-                <OutlinedWhiteButton>SAIBA MAIS</OutlinedWhiteButton>
+                <OutlinedWhiteButton sx={{ width: 'fit-content' }}>SAIBA MAIS</OutlinedWhiteButton>
               </a>
             </Link>
           </Stack>

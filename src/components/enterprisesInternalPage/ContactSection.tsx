@@ -1,6 +1,6 @@
-import { Box, Container, Grid, Stack, Typography } from '@mui/material'
+import { Alert, Box, Container, Grid, Snackbar, Stack, Typography } from '@mui/material'
 import React, { useState } from 'react'
-import { ContainedSecondaryButton } from '../commons/Button'
+import { LoadingButton } from '../commons/Button'
 import { Input } from '../commons/Input'
 import { useRouter } from 'next/router'
 import { getEnterpriseBySlug } from '../../helpers/getEnterpriseBySlug'
@@ -11,6 +11,12 @@ export const ContactSection = ({ enterpriseData }) => {
     phone: '',
     email: '',
   })
+  const [loading, setLoading] = useState(false)
+  const [openSnackbar, setOpenSnackbar] = useState(false)
+  
+  const handleSnackbarClose = () => {
+    setOpenSnackbar(false)
+  }
 
   let { asPath } = useRouter();
   asPath = asPath.split('/').pop()
@@ -26,6 +32,7 @@ export const ContactSection = ({ enterpriseData }) => {
   
   const handleSubmit = (e) => { 
     e.preventDefault()
+    setLoading(true)
     let data = {
       email: contactData.email,
       subject: `Contato para o empreendimento ${enterpriseName}`,
@@ -53,7 +60,9 @@ export const ContactSection = ({ enterpriseData }) => {
           email: '',
         })
       }
-    })
+      setOpenSnackbar(true)
+      setLoading(false)
+    }).catch(() => setLoading(false))
   }
 
   return (
@@ -78,7 +87,7 @@ export const ContactSection = ({ enterpriseData }) => {
                 </Grid>
                 <Grid item xs={12} lg={4}>
                   <Box sx={{ height: '100%' }}>                    
-                    <ContainedSecondaryButton sx={{ width: '100%', height: '100%' }} type='submit' >ENVIAR</ContainedSecondaryButton>
+                    <LoadingButton loading={loading} sx={{ width: '100%', height: '100%' }} type='submit' color='secondary' >ENVIAR</LoadingButton>
                   </Box>
                 </Grid>
               </Grid>
@@ -86,6 +95,9 @@ export const ContactSection = ({ enterpriseData }) => {
           </div>
         </Stack>
       </Container>
+      <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleSnackbarClose}>
+        <Alert severity="success" variant="filled" onClose={handleSnackbarClose}>Mensagem enviada com sucesso!</Alert>
+      </Snackbar>
     </Box>
   )
 }

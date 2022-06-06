@@ -1,12 +1,18 @@
-import { Box, Button, Container, Stack, SvgIcon, TextField, Typography } from '@mui/material'
+import { Alert, Box, Button, Container, formLabelClasses, Snackbar, Stack, SvgIcon, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
-import { ContainedWhiteButton } from '../Button'
+import { ContainedWhiteButton, LoadingButton } from '../Button'
 import { Input } from '../Input'
 import { useRouter } from 'next/router'
 
 export const Subscribe = () => {
   const [email, setEmail] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [openSnackbar, setOpenSnackbar] = useState(false)
   const router = useRouter();
+  
+  const handleSnackbarClose = () => {
+    setOpenSnackbar(false)
+  }
 
   const handleEmailChange = (e: any) => {
     setEmail(e.target.value)
@@ -15,6 +21,7 @@ export const Subscribe = () => {
   
   const handleSubmit = (e) => { 
     e.preventDefault()
+    setLoading(true)
     let data = {
       email,
       message: `Um novo contato se inscreveu para a news letter: ${email}`,
@@ -29,10 +36,11 @@ export const Subscribe = () => {
       body: JSON.stringify(data)
     }).then((res) => {
       if (res.status === 200) {
-        router.push('/obrigado')
         setEmail('')
       }
-    })
+      setOpenSnackbar(true)
+      setLoading(false)
+    }).catch(() => setLoading(false))
   }
 
   return (
@@ -54,11 +62,14 @@ export const Subscribe = () => {
           <Stack component='form' noValidate onSubmit={handleSubmit} direction={{ xs: 'column', sm: 'row' }} alignItems='stretch' spacing={2} sx={{ width: '100%' }}>
             <Input value={email} handleChange={handleEmailChange} type='email' placeholder='Seu e-mail...'  />
             <Box>
-              <ContainedWhiteButton type='submit' sx={{ height: '100%', width: '100%' }}>CADASTRAR</ContainedWhiteButton>
+              <LoadingButton type='submit' loading={loading} sx={{ height: '100%', width: { xs: '100%', md: '12rem' } }} color='primary'>CADASTRAR</LoadingButton>
             </Box>
           </Stack>
         </Stack>
       </Container>
+      <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleSnackbarClose}>
+        <Alert severity="success" variant="filled" onClose={handleSnackbarClose}>Email cadastrado com sucesso!</Alert>
+      </Snackbar>
     </Box>
   )
 }
