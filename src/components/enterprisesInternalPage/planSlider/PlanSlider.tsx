@@ -24,7 +24,7 @@ const sxButton = (position: 'left' | 'right') => {
     height: 'fit-content',
     color: '#1A47BC',
     position: 'absolute',
-    zIndex: 200,
+    zIndex: 400,
     top: '50%',
     transform: 'translateY(-50%)',
     cursor: 'pointer',

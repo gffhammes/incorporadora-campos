@@ -1,20 +1,38 @@
 import { Box, Button, Container, Stack, SvgIcon, TextField, Typography } from '@mui/material'
-import Link from 'next/link'
 import React, { useState } from 'react'
-import { footerLinks } from '../../../constants/footerAssets'
-import { pages } from '../../../constants/pages'
-import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
-import { FollowUs } from '../FollowUs'
-import LogoHorizontal from '../../../../public/vectors/logo-horizontal.svg'
-import { ContainedPrimaryButton, ContainedWhiteButton } from '../Button'
+import { ContainedWhiteButton } from '../Button'
 import { Input } from '../Input'
-import { defaultLinkHoverProps } from '../../../constants/defaultLinkHover'
+import { useRouter } from 'next/router'
 
 export const Subscribe = () => {
   const [email, setEmail] = useState('')
+  const router = useRouter();
 
   const handleEmailChange = (e: any) => {
     setEmail(e.target.value)
+  }
+
+  
+  const handleSubmit = (e) => { 
+    e.preventDefault()
+    let data = {
+      email,
+      message: `Um novo contato se inscreveu para a news letter: ${email}`,
+      subject: 'Novo Contato News Letter'
+    }
+    fetch('/api/mail', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }).then((res) => {
+      if (res.status === 200) {
+        router.push('/obrigado')
+        setEmail('')
+      }
+    })
   }
 
   return (
@@ -33,10 +51,10 @@ export const Subscribe = () => {
 
             <Typography fontWeight={500} sx={{ whiteSpace: { xs: 'normal', md: 'nowrap'} }}>CADASTRE SEU E-MAIL E FIQUE POR DENTRO DAS NOVIDADES</Typography>
           </Stack>
-          <Stack direction={{ xs: 'column', sm: 'row' }} alignItems='stretch' spacing={2} sx={{ width: '100%' }}>
+          <Stack component='form' noValidate onSubmit={handleSubmit} direction={{ xs: 'column', sm: 'row' }} alignItems='stretch' spacing={2} sx={{ width: '100%' }}>
             <Input value={email} handleChange={handleEmailChange} type='email' placeholder='Seu e-mail...'  />
             <Box>
-              <ContainedWhiteButton sx={{ height: '100%', width: '100%' }}>CADASTRAR</ContainedWhiteButton>
+              <ContainedWhiteButton type='submit' sx={{ height: '100%', width: '100%' }}>CADASTRAR</ContainedWhiteButton>
             </Box>
           </Stack>
         </Stack>

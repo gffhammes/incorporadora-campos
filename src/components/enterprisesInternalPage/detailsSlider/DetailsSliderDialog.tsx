@@ -45,7 +45,7 @@ const sxEmblaContainer = {
   aspectRatio: '2 / 1',
 }
 
-const defaultButtonProps = {
+const defaultButtonSx = {
   zIndex: 500,
   backgroundColor: 'transparent',
   border: 0,
@@ -58,6 +58,14 @@ const defaultButtonProps = {
   borderRadius: '20rem',
   cursor: 'pointer',
   position: 'absolute',
+}
+
+const buttonProps = {
+  ...defaultSvgProps,
+  sx: {
+    filter: 'drop-shadow(0px 0px 5px rgba(0, 0, 0, .9))',
+    color: 'white',
+  }
 }
 
 export const Slider = ({ images }) => {
@@ -84,8 +92,8 @@ export const Slider = ({ images }) => {
 
   return (
     <Stack direction='row' alignItems='center' sx={{ height: '100%', width: '100%' }}>
-      <Box sx={{ ...defaultButtonProps, marginLeft: '10vw', left: 0 }} onClick={scrollPrev}>        
-        <ArrowBackIosIcon {...defaultSvgProps} sx={{ color: 'white' }} />
+      <Box sx={{ ...defaultButtonSx, marginLeft: '10vw', left: 0 }} onClick={scrollPrev}>        
+        <ArrowBackIosIcon {...buttonProps} />
       </Box>
       <Box sx={{ width: '100%', height: '100%'}}>
         <Box sx={sxEmbla}>
@@ -106,8 +114,8 @@ export const Slider = ({ images }) => {
           </Box>
         </Box>
       </Box>
-      <Box sx={{ ...defaultButtonProps, marginRight: '10vw', right: 0 }} onClick={scrollNext}>        
-        <ArrowForwardIosIcon {...defaultSvgProps} sx={{ color: 'white' }} />
+      <Box sx={{ ...defaultButtonSx, marginRight: '10vw', right: 0 }} onClick={scrollNext}>        
+        <ArrowForwardIosIcon {...buttonProps} />
       </Box>
     </Stack>
   )

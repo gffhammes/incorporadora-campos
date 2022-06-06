@@ -7,6 +7,11 @@ export const MapsSection = ({ enterpriseData }) => {
 
   return (
     <Box id='localization'>
+      <Box>
+        <Container sx={{ py: 5 }}>
+          <Typography fontSize={20} letterSpacing={1} textAlign='center' sx={{ width: 'fit-content', mx: 'auto' }}>{enterpriseData.fullAddress}</Typography>
+        </Container>
+      </Box>
       <iframe
         src={`https://maps.google.com/maps?q=${address}&t=&z=13&ie=UTF8&iwloc=&output=embed`}
         width="100%"
@@ -17,11 +22,6 @@ export const MapsSection = ({ enterpriseData }) => {
         referrerPolicy="no-referrer-when-downgrade"
       >
       </iframe>
-      <Box>
-        <Container sx={{ py: 5 }}>
-          <Typography fontSize={20} letterSpacing={1} textAlign='center' sx={{ width: 'fit-content', mx: 'auto' }}>{enterpriseData.fullAddress}</Typography>
-        </Container>
-      </Box>
     </Box>
   )
 }

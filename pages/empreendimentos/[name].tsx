@@ -32,7 +32,7 @@ const Enterprise = () => {
       {currentEnterprise.hideSections?.includes('details') ? null : <DetailsSection enterpriseData={currentEnterprise} />}
       <DifferentialsSections enterpriseData={currentEnterprise} />
       {currentEnterprise.hideSections?.includes('planOptions') ? null : <PlanOptionsSection enterpriseData={currentEnterprise} />}      
-      <ContactSection enterpriseData={currentEnterprise} />
+      {currentEnterprise.hideSections?.includes('contact') ? null : <ContactSection enterpriseData={currentEnterprise} />}
       {avgEnterpriseStatus > 0 && <ConstructionStatusSection enterpriseData={currentEnterprise} />}
       <MapsSection enterpriseData={currentEnterprise} />
       <SimulatorsSection />

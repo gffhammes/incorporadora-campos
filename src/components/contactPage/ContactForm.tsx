@@ -29,9 +29,42 @@ export const ContactForm = () => {
     }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) => { 
     e.preventDefault()
-    console.log(e)
+    let data = {
+      email: contactData.email,
+      subject: contactData.subject,
+      message: `
+        <div>${contactData.message}</div>
+        <br/>
+        <br/>
+        <br/>
+        <ul>
+          <li>Nome: ${contactData.name}</li>
+          <li>Email: ${contactData.email}</li>
+          <li>Telefone: ${contactData.phone}</li>
+        </ul>
+      `,
+    }
+    fetch('/api/mail', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }).then((res) => {
+      if (res.status === 200) {
+        // router.push('/obrigado')
+        setContactData({
+          name: '',
+          phone: '',
+          email: '',
+          subject: '',
+          message: '',
+        })
+      }
+    })
   }
 
   return (

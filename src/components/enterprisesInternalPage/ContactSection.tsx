@@ -2,6 +2,8 @@ import { Box, Container, Grid, Stack, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { ContainedSecondaryButton } from '../commons/Button'
 import { Input } from '../commons/Input'
+import { useRouter } from 'next/router'
+import { getEnterpriseBySlug } from '../../helpers/getEnterpriseBySlug'
 
 export const ContactSection = ({ enterpriseData }) => {
   const [contactData, setContactData] = useState({
@@ -10,6 +12,10 @@ export const ContactSection = ({ enterpriseData }) => {
     email: '',
   })
 
+  let { asPath } = useRouter();
+  asPath = asPath.split('/').pop()
+  const { name: enterpriseName } = getEnterpriseBySlug(asPath)
+
   const handleChange = (e) => {
     setContactData(currentData => ({
       ...currentData,
@@ -17,9 +23,37 @@ export const ContactSection = ({ enterpriseData }) => {
     }))
   }
 
-  const handleSubmit = (e) => {
+  
+  const handleSubmit = (e) => { 
     e.preventDefault()
-    console.log(e)
+    let data = {
+      email: contactData.email,
+      subject: `Contato para o empreendimento ${enterpriseName}`,
+      message: `
+        <ul>
+          <li>Nome: ${contactData.name}</li>
+          <li>Email: ${contactData.email}</li>
+          <li>Telefone: ${contactData.phone}</li>
+        </ul>
+      `,
+    }
+    fetch('/api/mail', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }).then((res) => {
+      if (res.status === 200) {
+        // router.push('/obrigado')
+        setContactData({
+          name: '',
+          phone: '',
+          email: '',
+        })
+      }
+    })
   }
 
   return (
@@ -31,7 +65,7 @@ export const ContactSection = ({ enterpriseData }) => {
             <Typography fontSize={18} sx={{ whiteSpace: { xs: 'normal', lg: 'nowrap'} }}>Preencha seus dados e entraremos em contato com você!</Typography>
           </Stack>
           <div>
-            <form noValidate onSubmit={e => handleSubmit(e)}>              
+            <form noValidate onSubmit={ handleSubmit}>              
               <Grid container spacing={2} alignItems='stretch'>
                 <Grid item xs={12}>
                   <Input id='name' value={contactData.name} handleChange={handleChange} placeholder='Nome Completo' required={true} />

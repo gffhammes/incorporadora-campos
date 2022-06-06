@@ -163,15 +163,23 @@ export const enterprises = [
     plans: [
       {
         label: 'Apartamento Tipo 1',
-        image: '/images/piazza-del-mare/incorporadora-campos-piazza-del-mare-planta-1.jpg',
+        image: '/images/piazza-del-mare/plantas/PLANTA APTO TIPO 01.jpg',
       },
       {
         label: 'Apartamento Tipo 2',
-        image: '/images/piazza-del-mare/incorporadora-campos-piazza-del-mare-planta-2.jpg',
+        image: '/images/piazza-del-mare/plantas/PLANTA APTO TIPO 02.jpg',
       },
       {
         label: 'Apartamento Tipo 3',
-        image: '/images/piazza-del-mare/incorporadora-campos-piazza-del-mare-planta-3.jpg',
+        image: '/images/piazza-del-mare/plantas/PLANTA APTO TIPO 03.jpg',
+      },
+      {
+        label: 'Planta Geral',
+        image: '/images/piazza-del-mare/plantas/PLANTA GERAL.jpg',
+      },
+      {
+        label: 'Rooftop',
+        image: '/images/piazza-del-mare/plantas/PLANTA ROOFTOP.jpg',
       },
     ],
     detailedStatus: {
@@ -182,7 +190,7 @@ export const enterprises = [
     }
   },
   {
-    hideSections: ['planOptions'],
+    hideSections: ['planOptions', 'contact'],
     logo: '/',
     thumb: '/images/piazza-della-liberta/LIBERTA-card-home.png',
     image: '/images/dellaliberta_800x800px.png',
@@ -233,7 +241,7 @@ export const enterprises = [
     }
   },
   {
-    hideSections: ['planOptions'],
+    hideSections: ['planOptions', 'contact'],
     logo: '/',
     thumb: '/images/piazza-san-carlo/piazzasancarlo-card-home.png',
     image: '/images/PREDIO_SAN_CARLO.png',
@@ -277,7 +285,7 @@ export const enterprises = [
     }
   },
   {
-    hideSections: ['details','planOptions'],
+    hideSections: ['details','planOptions', 'contact'],
     logo: '/',
     thumb: '/images/piazza-san-marco/SAN-MARCO-card-home.png',
     image: '/images/SanMarco_800x800px.png',

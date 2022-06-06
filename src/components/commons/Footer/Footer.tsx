@@ -12,7 +12,6 @@ import { Copyright } from './Copyright'
 const defaultSpacing = 1.5;
 
 export const Footer = () => {
-
   return (
     <Box component='footer'>
       <Subscribe />
