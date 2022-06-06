@@ -54,7 +54,7 @@ const CssTextFieldGrey = styled(TextField)({
   },
 });
 
-export const Input: FC<InputProps> = ({ id, label, placeholder, type, required, value, handleChange, color, sx, multiline }) => {
+export const Input: FC<InputProps> = ({ id, label, placeholder, type, required, value, handleChange, color, sx, multiline = false }) => {
   const checkColor = color ? color : 'white';
   const textFieldProps = {
     id: id,
@@ -65,13 +65,12 @@ export const Input: FC<InputProps> = ({ id, label, placeholder, type, required, 
     required: required,
     onChange: handleChange,
     type: type,
-    // multiline: multiline,
     sx: { ...sx }
   }
 
   return (
     checkColor === 'white'
       ? <CssTextField inputProps={textFieldProps} />
-      : <CssTextFieldGrey inputProps={textFieldProps} />
+      : <CssTextFieldGrey inputProps={textFieldProps} multiline={multiline} rows={6} />
   )
 }

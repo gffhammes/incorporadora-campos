@@ -98,7 +98,7 @@ export const ContactForm = () => {
                 <Input id='subject' value={contactData.subject} handleChange={handleChange} placeholder='Assunto' required={true} color='grey' />
               </Grid>
               <Grid item xs={12}>
-                <Input sx={{ height: '10rem' }} multiline id='message' value={contactData.message} handleChange={handleChange} placeholder='Mensagem' required={true} color='grey' />
+                <Input sx={{ height: '10rem' }} multiline={true} id='message' value={contactData.message} handleChange={handleChange} placeholder='Mensagem' required={true} color='grey' />
               </Grid>
               <Grid item xs={12} sx={{ display: 'flex' }}>
                 <LoadingButton loading={loading} type='submit' color='secondary' sx={{ mx: 'auto' }} >ENVIAR</LoadingButton>
