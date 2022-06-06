@@ -2,7 +2,6 @@ export default async function handler(req, res) {
   require('dotenv').config()
 
   const email = 'contatos.sites@hotmail.com';
-  const recipientMail = 'gffhammes@gmail.com';
 
   let nodemailer = require('nodemailer')
   const transporter = nodemailer.createTransport({
@@ -18,7 +17,7 @@ export default async function handler(req, res) {
   })
   const mailData = {
     from: email,
-    to: recipientMail,
+    to: process.env.recipient_mail,
     subject: req.body.subject,
     text: req.body.message + " | Sent from: " + req.body.email,
     html: `<div>${req.body.message}</div>`
