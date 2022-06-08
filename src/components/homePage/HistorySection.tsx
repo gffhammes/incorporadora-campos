@@ -51,7 +51,7 @@ export const HistorySection = () => {
             </Box>
           </Stack>
           <Box sx={{ display: 'flex' }}>
-            <Link href='contato' passHref>
+            <Link href='/contato' passHref>
               <Box component='a' sx={{ width: 'fit-content', mx: 'auto' }}>                
                 <ContainedWhiteButton>SAIBA MAIS</ContainedWhiteButton>
               </Box>
