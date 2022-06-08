@@ -5,6 +5,9 @@ import { WhatsAppFloatButton } from '../src/components/commons/WhatsAppFloatButt
 import { PageTitle } from '../src/components/commons/PageTitle';
 import TagManager from 'react-gtm-module'
 import { useEffect } from 'react';
+import Router from "next/router"
+import NProgress from "nprogress"
+import Head from 'next/head';
 
 const theme = createTheme({
   typography: {
@@ -15,6 +18,14 @@ const theme = createTheme({
     secondary: { main: '#1A47BC' },
   }
 })
+
+Router.events.on('routeChangeStart', url => {
+  NProgress.start()
+})
+
+Router.events.on('routeChangeComplete', () => NProgress.done())
+
+Router.events.on('routeChangeError', () => NProgress.done()) 
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
