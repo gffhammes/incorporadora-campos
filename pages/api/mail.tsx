@@ -27,6 +27,7 @@ export default async function handler(req, res) {
     await transporter.sendMail(mailData)
     res.status(200).end();
   } catch(error) {
+    console.log(error)
     res.json(error);
     res.status(405).end();
   }

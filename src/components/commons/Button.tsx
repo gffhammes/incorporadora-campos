@@ -82,13 +82,13 @@ export const LoadingButton = ({ loading, children, color, ...props }: ILoadingBu
 
   if (isPrimary) {
     return (
-      <ContainedPrimaryButton {...props}>
+      <ContainedPrimaryButton focusRipple {...props}>
         {childrenMemo}
       </ContainedPrimaryButton>
     )
   } else {
     return (
-      <ContainedSecondaryButton {...props}>
+      <ContainedSecondaryButton focusRipple {...props}>
         {childrenMemo}
       </ContainedSecondaryButton>
     )

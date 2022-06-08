@@ -4,13 +4,16 @@ import { LoadingButton } from '../commons/Button'
 import { Input } from '../commons/Input'
 import { useRouter } from 'next/router'
 import { getEnterpriseBySlug } from '../../helpers/getEnterpriseBySlug'
+import { Formik } from 'formik'
+import { sendMail } from '../../services/sendMail'
+
+interface IContactData {
+  name: string;
+  phone: string;
+  email: string;
+}
 
 export const ContactSection = ({ enterpriseData }) => {
-  const [contactData, setContactData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-  })
   const [loading, setLoading] = useState(false)
   const [openSnackbar, setOpenSnackbar] = useState(false)
   
@@ -21,46 +24,38 @@ export const ContactSection = ({ enterpriseData }) => {
   let { asPath } = useRouter();
   asPath = asPath.split('/').pop()
   const { name: enterpriseName } = getEnterpriseBySlug(asPath)
-
-  const handleChange = (e) => {
-    setContactData(currentData => ({
-      ...currentData,
-      [e.target.id]: e.target.value
-    }))
-  }
-
   
-  const handleSubmit = (e) => { 
-    e.preventDefault()
+  const validate = (values: IContactData) => {
+    const errors: { name?: string, phone?: string, email?: string } = {};
+  
+    if (!values.name) errors.name = 'Obrigatório';
+
+    if (!values.phone) errors.phone = 'Obrigatório';
+    
+    if (!values.email) {
+      errors.email = 'Obrigatório';
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+      errors.email = 'Email inválido';
+    }
+    
+    return errors;
+  };
+  
+  const handleSubmit = async (values: IContactData) => { 
     setLoading(true)
     let data = {
-      email: contactData.email,
+      email: values.email,
       subject: `Contato para o empreendimento ${enterpriseName}`,
       message: `
         <ul>
-          <li>Nome: ${contactData.name}</li>
-          <li>Email: ${contactData.email}</li>
-          <li>Telefone: ${contactData.phone}</li>
+          <li>Nome: ${values.name}</li>
+          <li>Email: ${values.email}</li>
+          <li>Telefone: ${values.phone}</li>
         </ul>
       `,
     }
-    fetch('/api/mail', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    }).then((res) => {
-      if (res.status === 200) {
-        // router.push('/obrigado')
-        setContactData({
-          name: '',
-          phone: '',
-          email: '',
-        })
-      }
-      setOpenSnackbar(true)
+    await sendMail(data).then((res) => {
+      if (res.status === 200) setOpenSnackbar(true)
       setLoading(false)
     }).catch(() => setLoading(false))
   }
@@ -74,24 +69,39 @@ export const ContactSection = ({ enterpriseData }) => {
             <Typography fontSize={18} sx={{ whiteSpace: { xs: 'normal', lg: 'nowrap'} }}>Preencha seus dados e entraremos em contato com você!</Typography>
           </Stack>
           <div>
-            <form noValidate onSubmit={ handleSubmit}>              
-              <Grid container spacing={2} alignItems='stretch'>
-                <Grid item xs={12}>
-                  <Input id='name' value={contactData.name} handleChange={handleChange} placeholder='Nome Completo' required={true} />
+          <Formik
+            initialValues={{
+              name: '',
+              phone: '',
+              email: '',
+            }}
+            validate={validate}
+            onSubmit={async (values, { resetForm }) => {
+              await handleSubmit(values);
+              resetForm();
+            }}
+          >
+            {(props) => (              
+              <form noValidate onSubmit={props.handleSubmit}>              
+                <Grid container spacing={2} alignItems='stretch'>
+                  <Grid item xs={12}>
+                    <Input id='name' name='name' placeholder='Nome Completo' required={true} />
+                  </Grid>
+                  <Grid item xs={12} md={6} lg={4}>
+                    <Input id='phone' name='phone' placeholder='Telefone' required={true} />
+                  </Grid>
+                  <Grid item xs={12} md={6} lg={4}>
+                    <Input id='email' name='email' placeholder='E-mail' required={true} />
+                  </Grid>
+                  <Grid item xs={12} lg={4}>
+                    <Box sx={{ height: '100%' }}>                    
+                      <LoadingButton loading={loading} sx={{ width: '100%', height: '100%' }} type='submit' color='secondary' >ENVIAR</LoadingButton>
+                    </Box>
+                  </Grid>
                 </Grid>
-                <Grid item xs={12} md={6} lg={4}>
-                  <Input id='phone' value={contactData.phone} handleChange={handleChange} placeholder='Telefone' required={true} />
-                </Grid>
-                <Grid item xs={12} md={6} lg={4}>
-                  <Input id='email' value={contactData.email} handleChange={handleChange} placeholder='E-mail' required={true} />
-                </Grid>
-                <Grid item xs={12} lg={4}>
-                  <Box sx={{ height: '100%' }}>                    
-                    <LoadingButton loading={loading} sx={{ width: '100%', height: '100%' }} type='submit' color='secondary' >ENVIAR</LoadingButton>
-                  </Box>
-                </Grid>
-              </Grid>
-            </form>
+              </form>
+            )}
+          </Formik>
           </div>
         </Stack>
       </Container>

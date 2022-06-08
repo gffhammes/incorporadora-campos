@@ -1,5 +1,7 @@
 import { Alert, Box, Container, Grid, Snackbar, Typography } from '@mui/material'
+import { Formik } from 'formik'
 import React, { useState } from 'react'
+import { sendMail } from '../../services/sendMail'
 import { ContainedSecondaryButton, LoadingButton } from '../commons/Button'
 import { Input } from '../commons/Input'
 
@@ -16,13 +18,6 @@ const sxFormWrapper = {
 }
 
 export const ContactForm = () => {
-  const [contactData, setContactData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    subject: '',
-    message: '',
-  })
   const [loading, setLoading] = useState(false)
   const [openSnackbar, setOpenSnackbar] = useState(false)
   
@@ -30,51 +25,50 @@ export const ContactForm = () => {
     setOpenSnackbar(false)
   }
 
-  const handleChange = (e) => {
-    setContactData(currentData => ({
-      ...currentData,
-      [e.target.id]: e.target.value
-    }))
-  }
+  const validate = (values) => {
+    const errors: {
+      name?: string,
+      phone?: string,
+      email?: string,
+      subject?: string,
+      message?: string,
+    } = {};
+  
+    if (!values.name) errors.name = 'Obrigatório';
+    if (!values.phone) errors.phone = 'Obrigatório';
+    if (!values.subject) errors.subject = 'Obrigatório';
+    if (!values.message) errors.message = 'Obrigatório';
+    
+    if (!values.email) {
+      errors.email = 'Obrigatório';
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+      errors.email = 'Email inválido';
+    }
+    
+    return errors;
+  };
 
-
-  const handleSubmit = (e) => { 
-    e.preventDefault()
+  const handleSubmit = async (values) => { 
     setLoading(true)
     let data = {
-      email: contactData.email,
-      subject: contactData.subject,
+      email: values.email,
+      subject: values.subject,
       message: `
-        <div>${contactData.message}</div>
+        <div>${values.message}</div>
         <br/>
         <br/>
         <br/>
         <ul>
-          <li>Nome: ${contactData.name}</li>
-          <li>Email: ${contactData.email}</li>
-          <li>Telefone: ${contactData.phone}</li>
+          <li>Nome: ${values.name}</li>
+          <li>Email: ${values.email}</li>
+          <li>Telefone: ${values.phone}</li>
         </ul>
       `,
     }
-    fetch('/api/mail', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    }).then((res) => {
+    await sendMail(data).then((res) => {
       if (res.status === 200) {
-        // router.push('/obrigado')
-        setContactData({
-          name: '',
-          phone: '',
-          email: '',
-          subject: '',
-          message: '',
-        })
+        setOpenSnackbar(true)
       }
-      setOpenSnackbar(true)
       setLoading(false)
     }).catch(() => setLoading(false))
   }
@@ -83,28 +77,45 @@ export const ContactForm = () => {
     <Box>
       <Container maxWidth='md'>
         <Box sx={sxFormWrapper}>
-          <Box component='form' noValidate onSubmit={e => handleSubmit(e)} sx={{ px: 2, mx: 'auto', maxWidth: 'sm' }}>
-            <Grid container spacing={2} alignItems='center'>
-              <Grid item xs={12}>
-                <Input id='name' value={contactData.name} handleChange={handleChange} placeholder='Nome Completo' required={true} color='grey' />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Input id='phone' value={contactData.phone} handleChange={handleChange} placeholder='Telefone' required={true} color='grey' />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Input id='email' value={contactData.email} handleChange={handleChange} placeholder='E-mail' required={true} color='grey' />
-              </Grid>
-              <Grid item xs={12}>
-                <Input id='subject' value={contactData.subject} handleChange={handleChange} placeholder='Assunto' required={true} color='grey' />
-              </Grid>
-              <Grid item xs={12}>
-                <Input sx={{ height: '10rem' }} multiline={true} id='message' value={contactData.message} handleChange={handleChange} placeholder='Mensagem' required={true} color='grey' />
-              </Grid>
-              <Grid item xs={12} sx={{ display: 'flex' }}>
-                <LoadingButton loading={loading} type='submit' color='secondary' sx={{ mx: 'auto' }} >ENVIAR</LoadingButton>
-              </Grid>
-            </Grid>
-          </Box>
+          <Formik
+            initialValues={{
+              name: '',
+              phone: '',
+              email: '',
+              subject: '',
+              message: '',
+            }}
+            validate={validate}
+            onSubmit={async (values, { resetForm }) => {
+              await handleSubmit(values);
+              resetForm();
+            }}
+          >
+            {(props) => (              
+              <Box component='form' noValidate onSubmit={props.handleSubmit} sx={{ px: 2, mx: 'auto', maxWidth: 'sm' }}>
+                <Grid container spacing={2} alignItems='center'>
+                  <Grid item xs={12}>
+                    <Input id='name' name='name'  placeholder='Nome Completo' required={true} color='grey' />
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                    <Input id='phone' name='phone'  placeholder='Telefone' required={true} color='grey' />
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                    <Input id='email' name='email' placeholder='E-mail' required={true} color='grey' />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Input id='subject' name='subject' placeholder='Assunto' required={true} color='grey' />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Input sx={{ height: '10rem' }} multiline={true} id='message' name='message' placeholder='Mensagem' required={true} color='grey' />
+                  </Grid>
+                  <Grid item xs={12} sx={{ display: 'flex' }}>
+                    <LoadingButton loading={loading} type='submit' color='secondary' sx={{ mx: 'auto' }} >ENVIAR</LoadingButton>
+                  </Grid>
+                </Grid>
+              </Box>
+            )}
+          </Formik>
         </Box>
       </Container>
       <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleSnackbarClose}>

@@ -1,8 +1,10 @@
 import { styled, SxProps, TextField, Theme } from '@mui/material'
-import React, { FC } from 'react'
+import { useField } from 'formik';
+import React, { FC, useMemo } from 'react'
 
 interface InputProps {
   id?: string;
+  name?: string;
   label?: string;
   placeholder?: string;
   type?: string;
@@ -10,8 +12,6 @@ interface InputProps {
   color?: 'grey' | 'white';
   sx?: SxProps;
   multiline?: boolean;
-  value: string;
-  handleChange(e: any): void;
 }
 
 const CssTextField = styled(TextField)({
@@ -54,23 +54,29 @@ const CssTextFieldGrey = styled(TextField)({
   },
 });
 
-export const Input: FC<InputProps> = ({ id, label, placeholder, type, required, value, handleChange, color, sx, multiline = false }) => {
+export const Input: FC<InputProps> = ({ id, label, placeholder, type, required, color, sx, name, multiline = false }) => {  
+  const [field, meta, helpers] = useField({ name });
+
   const checkColor = color ? color : 'white';
   const textFieldProps = {
     id: id,
     label: label,
     placeholder: placeholder,
     variant: "outlined",
-    value: value,
     required: required,
-    onChange: handleChange,
     type: type,
     sx: { ...sx }
   }
 
+  const helperTextMemo = useMemo(() => {
+    return meta.error && meta.touched ? meta.error : null;
+  }, [meta.error, meta.touched])
+
   return (
     checkColor === 'white'
-      ? <CssTextField inputProps={textFieldProps} />
-      : <CssTextFieldGrey inputProps={textFieldProps} multiline={multiline} rows={6} />
+      ? <>
+          <CssTextField inputProps={textFieldProps} multiline={multiline} {...field} helperText={helperTextMemo} error={!!helperTextMemo}  />
+        </>
+      : <CssTextFieldGrey inputProps={textFieldProps} multiline={multiline} rows={6} {...field} helperText={helperTextMemo} error={!!helperTextMemo}  />
   )
 }

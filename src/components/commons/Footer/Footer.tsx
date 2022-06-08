@@ -6,7 +6,7 @@ import { pages } from '../../../constants/pages'
 import { FollowUs } from '../FollowUs'
 import LogoHorizontal from '../../../../public/vectors/logo-horizontal.svg'
 import { defaultLinkHoverProps } from '../../../constants/defaultLinkHover'
-import { Subscribe } from './Subscribe'
+import { Subscribe } from './Subscribe/Subscribe'
 import { Copyright } from './Copyright'
 
 const defaultSpacing = 1.5;
