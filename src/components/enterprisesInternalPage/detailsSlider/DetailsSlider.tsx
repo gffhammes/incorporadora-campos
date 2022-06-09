@@ -5,7 +5,7 @@ import Image from 'next/image'
 import LeftArrow from '../../../../public/vectors/arrows/left-arrow.svg'
 import RightArrow from '../../../../public/vectors/arrows/right-arrow.svg'
 import { defaultSvgProps } from '../../../constants/defaultSvgProps'
-import FullScreenDialog from './DetailsSliderDialog'
+import FullScreenSliderDialog from '../FullScreenSliderDialog'
 
 const defaultButtonProps = {
   zIndex: 500,
@@ -112,7 +112,7 @@ export const DetailsSlider = ({ images }) => {
           <RightArrow {...defaultSvgProps} />
         </Box>
       </Stack>
-      <FullScreenDialog
+      <FullScreenSliderDialog
         open={open}
         handleClose={handleClose}
         images={images}

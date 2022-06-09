@@ -4,7 +4,7 @@ import { Box, IconButton, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import FullScreenDialog from '../detailsSlider/DetailsSliderDialog';
+import FullScreenSliderDialog from '../FullScreenSliderDialog';
 
 const sxButton = (position: 'left' | 'right') => {
 
@@ -112,7 +112,7 @@ export const PlanSlider = ({ plans }) => {
       <Box sx={sxButton('right')} onClick={scrollNext}>
         <ArrowForwardIosIcon />
       </Box>
-      <FullScreenDialog
+      <FullScreenSliderDialog
         open={open}
         handleClose={handleClose}
         images={plans.map(plan => plan.image)}

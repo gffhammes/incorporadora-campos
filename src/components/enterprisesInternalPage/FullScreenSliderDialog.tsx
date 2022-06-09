@@ -10,7 +10,7 @@ import { TransitionProps } from '@mui/material/transitions';
 import { Box, Stack } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { defaultSvgProps } from '../../../constants/defaultSvgProps';
+import { defaultSvgProps } from '../../constants/defaultSvgProps';
 import useEmblaCarousel from 'embla-carousel-react'
 import Image from 'next/image';
 
@@ -58,6 +58,9 @@ const defaultButtonSx = {
   borderRadius: '20rem',
   cursor: 'pointer',
   position: 'absolute',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 }
 
 const buttonProps = {
@@ -68,7 +71,7 @@ const buttonProps = {
   }
 }
 
-export const Slider = ({ images }) => {
+const Slider = ({ images }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
   const [selectedSlide, setSelectedSlide] = useState(0)
 
@@ -121,7 +124,7 @@ export const Slider = ({ images }) => {
   )
 }
 
-export default function FullScreenDialog({ open, handleClose, images }) {
+export default function FullScreenSliderDialog({ open, handleClose, images }) {
   return (
       <Dialog
         fullScreen
