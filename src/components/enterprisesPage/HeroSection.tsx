@@ -2,8 +2,14 @@ import { Box, Container, Typography } from '@mui/material'
 import React from 'react'
 import { FloatingDownArrowScroll } from '../commons/FloatingDownArrowScroll'
 import { SectionTitle } from '../commons/SectionTitle'
+import Filters from './Filters'
 
-export const HeroSection = () => {
+interface IProps {
+  enterprises: any;
+  handleFilter({city, district, buildingStatus}: {city: string, district: string, buildingStatus: string}): void;
+}
+
+export const HeroSection = ({ enterprises, handleFilter }: IProps) => {
   return (
     <Box sx={{ height: '100%', display: 'flex', position: 'relative' }} >
       <Box
@@ -32,7 +38,8 @@ export const HeroSection = () => {
           <SectionTitle theme='light'>NOSSOS EMPREENDIMENTOS</SectionTitle>          
         </Container>
       </Box>
-      <FloatingDownArrowScroll targetId='enterprises'/>
+      <Filters enterprises={enterprises} handleFilter={handleFilter} />
+      {/* <FloatingDownArrowScroll targetId='enterprises'/> */}
     </Box>
   )
 }
