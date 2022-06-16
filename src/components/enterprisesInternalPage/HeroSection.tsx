@@ -1,7 +1,7 @@
 import { Box, Container, Stack, SxProps, Theme } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
-import { PrimaryGradientCover } from '../commons/PrimaryGradientCover';
+import { PrimaryGradientCover } from '../commons/GradientCover';
 import { SectionTitle } from '../commons/SectionTitle';
 import { FloatingDownArrowScroll } from '../commons/FloatingDownArrowScroll';
 

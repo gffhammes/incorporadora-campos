@@ -2,10 +2,10 @@ import { Box, Typography } from '@mui/material'
 import React, { FC } from 'react'
 
 interface SectionTitleProps {
+  children: any;
   theme?: 'light' | 'dark';
   textAlign?: 'left' | 'center' | 'right';
   marginBottom?: boolean;
-  children: any;
 }
 
 
