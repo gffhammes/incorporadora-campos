@@ -15,10 +15,10 @@ const PartnersSection = (props: Props) => {
   return (
     <Box bgcolor='#1B3781'>
       <Container sx={{ py: 8 }}>
-        <Stack direction={{ xs: 'column', md: 'row' }} spacing={20} alignItems='center' justifyContent='space-between'>
-          <Typography sx={{ color: 'white' }} fontSize={28} letterSpacing={8} fontWeight={400}>NOSSOS PARCEIROS</Typography>
+        <Stack direction={{ xs: 'column', lg: 'row' }} spacing={10} alignItems='center' justifyContent='space-between'>
+          <Typography sx={{ color: 'white' }} textAlign={{ xs: 'center', lg: 'left' }} fontSize={28} letterSpacing={8} fontWeight={400}>NOSSOS PARCEIROS</Typography>
           
-          <Stack direction={{ xs: 'column', sm: 'row' }} sx={{ flex: 'max-content' }} spacing={8} alignItems='center'>
+          <Stack direction={{ xs: 'column', sm: 'row' }} sx={{ flex: 'max-content', width: { xs: '70%',lg: '100%'}, ml: { xs: 0, lg: '10rem!important' } }} spacing={8} alignItems='center'>
             <Box sx={imageStyle}>
               <Image
                 src='/images/logo-bolshoi.png'

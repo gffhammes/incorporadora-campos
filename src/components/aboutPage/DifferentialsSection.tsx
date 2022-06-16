@@ -26,8 +26,8 @@ const DifferentialsSection = (props: Props) => {
         <SectionTitle>DIFERENCIAIS</SectionTitle>
         <Grid container spacing={2}>
           {differentials.map(({title, text}) => (
-            <Grid item key={title} xs={4}>
-              <Box bgcolor='secondary.main' sx={{ color: 'white', p: 8, boxShadow: '15px 31px 82px rgba(18, 50, 131, .12)' }}>
+            <Grid item key={title} xs={12} lg={4}>
+              <Box bgcolor='secondary.main' sx={{ color: 'white', p: 8, boxShadow: '15px 31px 82px rgba(18, 50, 131, .12)', maxWidth: '40ch', mx: 'auto!important'  }}>
                 <Typography textAlign='center' fontSize={24} fontWeight={600} letterSpacing={4} sx={{ mb: 5 }}>{title}</Typography>
                 <Typography textAlign='center'>{text}</Typography>
               </Box>

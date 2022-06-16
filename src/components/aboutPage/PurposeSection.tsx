@@ -35,7 +35,7 @@ const PurposeSection = (props: Props) => {
         </Stack>
         <Grid container alignItems='center' justifyContent='center' spacing={10}>
           {icons.map(({image, title, text}) => (
-            <Grid item xs={4} key={title}>
+            <Grid item key={title} xs={12} md={6} lg={4} >
               <Stack spacing={3}>                
                 <Box sx={{ position: 'relative', width: '10rem', height: '10rem', mx: 'auto', mb: 2 }}>
                   <Image
@@ -45,7 +45,7 @@ const PurposeSection = (props: Props) => {
                   />
                 </Box>
                 <Typography textAlign='center' fontSize={23} letterSpacing={3} fontWeight={500} lineHeight={1}>{title}</Typography>
-                <Typography textAlign='center' fontSize={15} fontWeight={500}>{text}</Typography>
+                <Typography textAlign='center' fontSize={15} fontWeight={500} sx={{ maxWidth: '40ch', mx: 'auto!important' }}>{text}</Typography>
               </Stack>
             </Grid>
           ))}

@@ -4,24 +4,25 @@ import { defaultSectionPadding } from '../../constants/defaultSectionPadding'
 
 type Props = {}
 
-const text = `Campos Incorporadora tem em seu DNA a inspiração.
+const text = `<strong>Campos Incorporadora tem em seu DNA a inspiração.</strong>
 
 Nasceu inspirada na conexão entre amigos motivados pelo desejo de crescer, buscar algo novo e empreender. 
 
 Seus empreendimentos foram cuidadosamente nominados com praças italianas. Que denota robustez, imponência, características arquitetônicas marcantes, planejamento dos espaços, convergência e centralidade.
 
-Muito bem ancorados em seu propósito, o crescimento da Campos Incorporadora acontece de forma acelerada. Entendendo que mais pessoas podem fazer parte dessa construção, surge dessa forma o sistema de Sócios Investidores, um projeto inovador que permite que seus parceiros possam fazer parte desse movimento de forma especial.
+<strong>Muito bem ancorados em seu propósito, o crescimento da Campos Incorporadora acontece de forma acelerada.</strong> Entendendo que mais pessoas podem fazer parte dessa construção, surge dessa forma o sistema de Sócios Investidores, um projeto inovador que permite que seus parceiros possam fazer parte desse movimento de forma especial.
 
 Parcerias com grandes nomes reforçam a solidez e o momento especial da empresa. O eterno camisa 10, o craque Zico, marca mais um gol de placa e assina o residencial Del Mare.`
 
 const DescriptionSection = (props: Props) => {
   return (
     <Box id='description'>
-      <Container sx={{ py: 20 }}>
-        <Stack direction={{ xs: 'column', md: 'row' }} spacing={10} alignItems='center' justifyContent='center'>
-          <Box sx={{ height: '28rem', aspectRatio: '1.25 / 1' }}>
+      <Container sx={{ py: { xs: 10, lg: 20} }}>
+        <Stack direction={{ xs: 'column', lg: 'row' }} spacing={10} alignItems='center' justifyContent='center'>
+          <Box sx={{ height: { xs: 'unset', sm: '25rem' }, width: { xs: '100%', sm: 'unset' }, aspectRatio: '1.35 / 1', position: 'relative', boxShadow: '15px 31px 82px rgba(18, 50, 131, .48)' }}>
             <Box
               sx={{
+                position: 'absolute',
                 width: '100%',
                 height: '100%',
                 backgroundImage: 'url(/images/sobre-nos-campos.jpg)',
@@ -30,9 +31,40 @@ const DescriptionSection = (props: Props) => {
                 backgroundPosition: '100%'
               }}
             />
+            <Box
+              sx={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                backgroundColor: 'rgba(26, 71, 188, .87)'
+              }}
+            />
+            <Stack
+              sx={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                color: 'white',
+                p: { xs: 5, sm: 10 }
+              }}
+              justifyContent='center'
+            >
+              <Typography fontSize={{ xs: 16, sm: 32 }} fontWeight={300} letterSpacing={5} lineHeight={2.25}>
+                MAIS DO QUE<br/>
+                EMPREENDIMENTOS,<br/>
+                <strong style={{ fontWeight: 500 }}>
+                  VERDADEIRAS<br/>
+                  CONEXÕES
+                </strong>
+              </Typography>
+            </Stack>
           </Box>
           <Box>
-            <Typography fontSize={15} sx={{ whiteSpace: 'pre-wrap', maxWidth: '46ch' }}>{text}</Typography>
+            <Box
+              component='p'
+              dangerouslySetInnerHTML={{ __html: text }}
+              sx={{ whiteSpace: 'pre-wrap', maxWidth: '46ch', fontSize: 15 }}
+            />
           </Box>
         </Stack>
       </Container>  
