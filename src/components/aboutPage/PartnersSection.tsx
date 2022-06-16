@@ -18,7 +18,7 @@ const PartnersSection = (props: Props) => {
         <Stack direction={{ xs: 'column', lg: 'row' }} spacing={10} alignItems='center' justifyContent='space-between'>
           <Typography sx={{ color: 'white' }} textAlign={{ xs: 'center', lg: 'left' }} fontSize={28} letterSpacing={8} fontWeight={400}>NOSSOS PARCEIROS</Typography>
           
-          <Stack direction={{ xs: 'column', sm: 'row' }} sx={{ flex: 'max-content', width: { xs: '70%',lg: '100%'}, ml: { xs: 0, lg: '10rem!important' } }} spacing={8} alignItems='center'>
+          <Stack direction={{ xs: 'column', sm: 'row' }} sx={{ flex: 'max-content', width: { xs: '100%', sm: '70%', lg: '100%'}, ml: { xs: 0, lg: '10rem!important' } }} spacing={8} alignItems='center'>
             <Box sx={imageStyle}>
               <Image
                 src='/images/logo-bolshoi.png'
