@@ -4,14 +4,14 @@ import { defaultSectionPadding } from '../../constants/defaultSectionPadding'
 
 type Props = {}
 
-const text = `<strong>A Campos Incorporadora tem em seu DNA a inspiração.</strong>
+const text = `<strong>SÓCIOS INVESTIDORES</strong>
 
-Nasceu inspirada na conexão entre amigos motivados pelo desejo de crescer, buscar algo novo e empreender. O que era desejo se tornou realidade através da formação de um grupo de investimentos. Grupo este que olha para o futuro, que busca o resultado através da relação "ganha-ganha" e que preza pela qualidade de vida dos seus parceiros.
+Muito bem ancorados em seu propósito, o crescimento da Campos Incorporadora acontece de forma acelerada. Entendendo que mais pessoas podem fazer parte dessa construção, surge dessa forma o sistema de Sócios Investidores, um projeto inovador que permite que seus parceiros possam fazer parte desse movimento de forma especial. Hoje possuímos mais de 250 sócios ativos nesta categoria de negócios.
 
-Seus empreendimentos foram cuidadosamente nominados com praças italianas. Que denota robustez, imponência, características arquitetônicas marcantes, planejamento dos espaços, convergência e centralidade.
+<strong style="color: #1A47BC; text-decoration: underline;">Venha fazer parte da nossa história</strong>
 `
 
-const DescriptionSection = (props: Props) => {
+const InvestorSection = (props: Props) => {
   return (
     <Box id='description'>
       <Container sx={{ py: { xs: 10, lg: 20} }}>
@@ -81,4 +81,4 @@ const DescriptionSection = (props: Props) => {
   )
 }
 
-export default DescriptionSection
+export default InvestorSection

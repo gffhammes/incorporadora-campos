@@ -30,7 +30,7 @@ const PurposeSection = (props: Props) => {
         <SectionTitle marginBottom={false}>PROPÓSITO</SectionTitle>
         <Stack sx={{ mt: 5, mb: 8 }}>          
           <Typography textAlign='center' sx={{ maxWidth: '55ch', mx: 'auto' }} fontWeight={500} >
-            Nononono nonono nonononono nonono nononono nono nononono nonononon non ononono nono no no nonononon non ononono  nono no nononono Nononono nonono nonononono nonono nononono nono nononono nonononon
+            Estar na vanguarda com os empreendimentos imobiliários, criar conexões com seus sócios, clientes e comunidade nos impulsiona, nos move.
           </Typography>
         </Stack>
         <Grid container alignItems='center' justifyContent='center' spacing={10}>
