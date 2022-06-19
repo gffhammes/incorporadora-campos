@@ -19,7 +19,7 @@ export const HeroSection = () => {
           position: 'absolute',
           width: '100%',
           height: '100%',
-          backgroundImage: 'url(/images/BANNER-CONTATO.jpg)',
+          backgroundImage: 'url(/images/BANNER_CENTRAL_DE_VENDAS.jpg)',
           backgroundPosition: 'bottom',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'auto 100%',
@@ -28,7 +28,7 @@ export const HeroSection = () => {
       />
       <Box sx={{ height: 'fit-content', width: '100%', my: 'auto', mt: '50vh', position: 'absolute', zIndex: 300 }}>
         <Container>
-          <SectionTitle theme='light'>FALE CONOSCO</SectionTitle>          
+          <SectionTitle theme='light'>CENTRAL DE VENDAS</SectionTitle>          
         </Container>
       </Box>
     </Box>
