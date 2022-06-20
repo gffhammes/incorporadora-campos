@@ -1,4 +1,4 @@
-import { Alert, Box, Button, Container, formLabelClasses, Snackbar, Stack, SvgIcon, TextField, Typography } from '@mui/material'
+import { Alert, Box, Button, Container, formLabelClasses, Grid, Snackbar, Stack, SvgIcon, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { ContainedWhiteButton, LoadingButton } from '../commons/Button'
 import { Input } from '../commons/Input'
@@ -49,7 +49,7 @@ export const ContactForm = () => {
     <Box sx={{ background: 'linear-gradient(#fff 50%, #E4E2E7 50%)' }}>      
       <Container>
         <Box  bgcolor='primary.main'>        
-          <Stack direction={{ xs: 'column', md: 'row' }} justifyContent='space-between' alignItems='center' spacing={6} sx={{ color: '#fff', py: 5, px: 5 }} >
+          <Stack direction={{ xs: 'column', lg: 'row' }} justifyContent='space-between' alignItems='center' spacing={6} sx={{ color: '#fff', py: 5, px: 5 }} >
             <Typography fontWeight={500} fontSize={20} letterSpacing={2} sx={{ whiteSpace: { xs: 'normal', md: 'nowrap'} }}>LIGAMOS PRA VOCÊ</Typography>
 
             <Formik
@@ -62,11 +62,24 @@ export const ContactForm = () => {
               }}
             >
               {(props) => (                  
-                <Stack component='form' noValidate onSubmit={props.handleSubmit} direction={{ xs: 'column', sm: 'row' }} alignItems='stretch' spacing={2} sx={{ width: '100%' }}>
-                  <Input name='name' placeholder='Nome completo' />
-                  <Input name='phone' placeholder='Telefone' />
-                  <LoadingButton type='submit' loading={loading} sx={{ height: '100%', width: { xs: '100%', md: '12rem' } }} color='secondary'>CADASTRAR</LoadingButton>
-                </Stack>
+                <Grid
+                  container
+                  component='form'
+                  noValidate
+                  onSubmit={props.handleSubmit}
+                  spacing={2}
+                  sx={{ width: '100%' }}
+                >
+                  <Grid item xs={12} md={6}>
+                    <Input name='name' placeholder='Nome completo' />
+                  </Grid>
+                  <Grid item xs={12} md={3}>
+                    <Input name='phone' placeholder='Telefone' />
+                  </Grid>
+                  <Grid item xs={12} md={3}>
+                    <LoadingButton type='submit' loading={loading} sx={{ height: 'fit-content', width: { xs: '100%' } }} color='secondary'>CADASTRAR</LoadingButton>
+                  </Grid>
+                 </Grid>
               )}
             </Formik>
           </Stack>

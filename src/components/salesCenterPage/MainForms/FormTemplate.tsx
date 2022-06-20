@@ -20,7 +20,7 @@ const FormTitle = ({ children }: IFormTitleProps) => {
 const FormTemplate = ({ children, title, ...props }: IFormTemplateProps) => {
   const bgcolor = props.bgcolor === 'grey' ? '#E4E2E7' : '#fff'
   return (
-    <Stack bgcolor={bgcolor} alignItems='center' spacing={5} sx={{ py: 4, px: 6 }}>      
+    <Stack bgcolor={bgcolor} alignItems='center' spacing={5} sx={{ py: 5, px: 8, flex: 1 }}>      
       <FormTitle>{title}</FormTitle>
       {children}
     </Stack>

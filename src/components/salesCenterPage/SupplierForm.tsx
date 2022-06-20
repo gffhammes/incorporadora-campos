@@ -86,23 +86,23 @@ export const SupplierForm = (props: Props) => {
         {(props) => (
           <Box component='form' noValidate onSubmit={props.handleSubmit} sx={{ px: 2, mx: 'auto', maxWidth: 'md' }}>
             <Grid container spacing={2} alignItems='flex-start'>
-              <Grid item xs={12} md={6}>
-                <Input name='name' placeholder='Nome Completo' required={true} color='grey' />
+              <Grid item xs={12} sm={6}>
+                <Input name='name' color='white-contained' placeholder='Nome Completo' required={true} />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <Input name='companyName' color='white-contained' placeholder='Nome da Empresa' required={true} />
               </Grid>
               <Grid item xs={12} md={6}>
-                <Input name='companyName' placeholder='Nome da Empresa' required={true} color='grey' />
+                <Input name='companyAddress' color='white-contained' placeholder='Endereço da Empresa' required={true} />
               </Grid>
-              <Grid item xs={12} md={6}>
-                <Input name='companyAddress' placeholder='Endereço da Empresa' required={true} color='grey' />
+              <Grid item xs={12} sm={6} md={3}>
+                <Input name='phone' color='white-contained' placeholder='Telefone' required={true} />
               </Grid>
-              <Grid item xs={12} md={3}>
-                <Input name='phone' placeholder='Telefone' required={true} color='grey' />
-              </Grid>
-              <Grid item xs={12} md={3}>
-                <Input name='email' placeholder='Email' required={true} color='grey' />
+              <Grid item xs={12} sm={6} md={3}>
+                <Input name='email' color='white-contained' placeholder='Email' required={true} />
               </Grid>
               <Grid item xs={12}>
-                <Input sx={{ height: '10rem' }} multiline={true} name='product' placeholder='Com que produto você trabalha?' required={true} color='grey' />
+                <Input sx={{ height: '10rem' }} multiline={true} name='product' color='white-contained' placeholder='Com que produto você trabalha?' required={true} />
               </Grid>
               <Grid item xs={12} sx={{ display: 'flex' }}>
                 <LoadingButton loading={loading} type='submit' color='primary' sx={{ mx: 'auto' }} >ENVIAR</LoadingButton>

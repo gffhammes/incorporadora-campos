@@ -11,7 +11,7 @@ const CheckBox = ({ label, name }: ICheckBoxProps) => {
   const [field, meta, helpers] = useField({ name })
 
   return (
-    <FormControlLabel  {...field} control={<Checkbox checked={!!field.value} />} label={label}/>
+    <FormControlLabel {...field} control={<Checkbox checked={!!field.value} color='secondary' />} label={label}/>
   )
 }
 

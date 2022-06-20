@@ -20,48 +20,9 @@ export const MainForms = () => {
   return (
     <Box>
       <Container>
-        <Stack direction='row' sx={sxFormWrapper}>
+        <Stack direction={{ xs: 'column', md: 'row'}} sx={sxFormWrapper}>
           <RealStateAgentForm />
-          <GroundOfferForm />
-          {/* <Formik
-            initialValues={{
-              name: '',
-              phone: '',
-              email: '',
-              subject: '',
-              message: '',
-            }}
-            validate={validate}
-            onSubmit={async (values, { resetForm }) => {
-              await handleSubmit(values);
-              resetForm();
-            }}
-          >
-            {(props) => (              
-              <Box component='form' noValidate onSubmit={props.handleSubmit} sx={{ px: 2, mx: 'auto', maxWidth: 'sm' }}>
-                <Grid container spacing={2} alignItems='center'>
-                  <Grid item xs={12}>
-                    <Input id='name' name='name'  placeholder='Nome Completo' required={true} color='grey' />
-                  </Grid>
-                  <Grid item xs={12} md={6}>
-                    <Input id='phone' name='phone'  placeholder='Telefone' required={true} color='grey' />
-                  </Grid>
-                  <Grid item xs={12} md={6}>
-                    <Input id='email' name='email' placeholder='E-mail' required={true} color='grey' />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Input id='subject' name='subject' placeholder='Assunto' required={true} color='grey' />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Input sx={{ height: '10rem' }} multiline={true} id='message' name='message' placeholder='Mensagem' required={true} color='grey' />
-                  </Grid>
-                  <Grid item xs={12} sx={{ display: 'flex' }}>
-                    <LoadingButton loading={loading} type='submit' color='secondary' sx={{ mx: 'auto' }} >ENVIAR</LoadingButton>
-                  </Grid>
-                </Grid>
-              </Box>
-            )}
-          </Formik> */}
+          <GroundOfferForm />        
         </Stack>
       </Container>
       {/* <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleSnackbarClose}>
