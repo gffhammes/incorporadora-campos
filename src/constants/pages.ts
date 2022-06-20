@@ -16,6 +16,10 @@ export const pages = [
   //   name: 'Blog'
   // },
   {
+    route: '/central-de-vendas',
+    name: 'Central de Vendas'
+  },
+  {
     route: '/contato',
     name: 'Contato'
   },
