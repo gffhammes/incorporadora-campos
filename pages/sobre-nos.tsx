@@ -14,9 +14,9 @@ export default function About() {
       <HeroSection />
       <DescriptionSection />
       <OurHistorySection />
-      <PartnersSection />
       <FutureProjectsSection />
       <PurposeSection />
+      <PartnersSection />
       <InvestorSection />
       <Footer />
     </main>
