@@ -63,8 +63,8 @@ export const ContactForm = () => {
             >
               {(props) => (                  
                 <Stack component='form' noValidate onSubmit={props.handleSubmit} direction={{ xs: 'column', sm: 'row' }} alignItems='stretch' spacing={2} sx={{ width: '100%' }}>
-                  <Input name='name' placeholder='Nome completo'  />
-                  <Input name='phone'  placeholder='Telefone'  />
+                  <Input name='name' placeholder='Nome completo' />
+                  <Input name='phone' placeholder='Telefone' />
                   <LoadingButton type='submit' loading={loading} sx={{ height: '100%', width: { xs: '100%', md: '12rem' } }} color='secondary'>CADASTRAR</LoadingButton>
                 </Stack>
               )}

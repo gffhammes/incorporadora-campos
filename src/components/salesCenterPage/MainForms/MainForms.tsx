@@ -10,7 +10,8 @@ const sxFormWrapper = {
   position: 'relative',
   width: '100%',
   backgroundColor: 'white',
-  transform: 'translateY(-20vh)',
+  transform: 'translateY(-30vh)',
+  marginBottom: '-20vh',
   zIndex: '500',
   boxShadow,
 }
