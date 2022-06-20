@@ -1,4 +1,4 @@
-import { Stack, Typography } from '@mui/material'
+import { Box, Stack, Typography } from '@mui/material'
 import React from 'react'
 
 interface IFormTitleProps {
@@ -20,10 +20,12 @@ const FormTitle = ({ children }: IFormTitleProps) => {
 const FormTemplate = ({ children, title, ...props }: IFormTemplateProps) => {
   const bgcolor = props.bgcolor === 'grey' ? '#E4E2E7' : '#fff'
   return (
-    <Stack bgcolor={bgcolor} alignItems='center' spacing={5} sx={{ py: 5, px: 8, flex: 1 }}>      
-      <FormTitle>{title}</FormTitle>
-      {children}
-    </Stack>
+    <Box bgcolor={bgcolor} sx={{ flex: 1 }}>      
+      <Stack  alignItems='center' spacing={5} sx={{ px: 2, py: 4, maxWidth: '450px', mx: 'auto' }}>
+        <FormTitle>{title}</FormTitle>
+        {children}
+      </Stack>
+    </Box>
   )
 }
 

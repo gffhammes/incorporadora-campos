@@ -1,11 +1,21 @@
 import { Box, Container, Grid } from '@mui/material'
 import { Formik } from 'formik'
 import React, { useState } from 'react'
+import { sendMail } from '../../services/sendMail'
 import { LoadingButton } from '../commons/Button'
 import { Input } from '../commons/Input'
 import { SectionTitle } from '../commons/SectionTitle'
 
 type Props = {}
+
+interface IFormValues {
+  name: string;
+  companyName: string;
+  companyAddress: string;
+  phone: string;
+  email: string;
+  product: string;
+}
 
 export const SupplierForm = (props: Props) => {
   const [loading, setLoading] = useState<boolean>(false)
@@ -36,31 +46,28 @@ export const SupplierForm = (props: Props) => {
     return errors;
   };
 
-  const handleSubmit = async (values) => { 
-    console.log(values)
-    // setLoading(true)
-    // let data = {
-    //   email: values.email,
-    //   subject: 'Novo contato para "Falar com corretor"',
-    //   message: `
-    //     <div>${values.message}</div>
-    //     <br/>
-    //     <br/>
-    //     <br/>
-    //     <ul>
-    //       <li>Nome: ${values.name}</li>
-    //       <li>Email: ${values.email}</li>
-    //       <li>Telefone: ${values.phone}</li>
-    //       <li>Cidade/Estado: ${values.city}</li>
-    //     </ul>
-    //   `,
-    // }
-    // await sendMail(data).then((res) => {
-    //   if (res.status === 200) {
-    //     setOpenSnackbar(true)
-    //   }
-    //   setLoading(false)
-    // }).catch(() => setLoading(false))
+  const handleSubmit = async (values: IFormValues) => {
+    setLoading(true)
+    let data = {
+      email: values.email,
+      subject: 'Novo contato para "Seja um fornecedor"',
+      message: `
+        <ul>
+          <li>Nome: ${values.name}</li>
+          <li>Nome da empresa: ${values.companyName}</li>
+          <li>Endereço da empresa: ${values.companyAddress}</li>
+          <li>Telefone: ${values.phone}</li>
+          <li>Email: ${values.email}</li>
+          <li>Com que produto você trabalha? ${values.product}</li>
+        </ul>
+      `,
+    }
+    await sendMail(data).then((res) => {
+      // if (res.status === 200) {
+      //   setOpenSnackbar(true)
+      // }
+      setLoading(false)
+    }).catch(() => setLoading(false))
   }
 
   return (
