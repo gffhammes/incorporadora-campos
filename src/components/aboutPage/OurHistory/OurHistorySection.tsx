@@ -1,13 +1,16 @@
 import { Box, Container } from '@mui/material'
 import React from 'react'
+import { SectionTitle } from '../../commons/SectionTitle'
+import OurHistorySlider from './OurHistorySlider'
 
 type Props = {}
 
 const OurHistorySection = (props: Props) => {
   return (
-    <Box>
+    <Box bgcolor='#E4E2E7'>
       <Container sx={{ py: 10 }}>
-        Nossa historia
+        <SectionTitle>NOSSA HISTÓRIA</SectionTitle>
+        <OurHistorySlider />
       </Container>
     </Box>
   )

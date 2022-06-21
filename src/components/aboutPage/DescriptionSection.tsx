@@ -35,12 +35,12 @@ const DescriptionSection = (props: Props) => {
                 height: '100%',
                 backgroundColor: 'transparent',
                 transition: '300ms ease all',
+                boxShadow: '15px 31px 82px rgba(18, 50, 131, .48)',
                 '& > div': {
                   color: 'transparent',
                 },
                 '&:hover': {
                   backgroundColor: 'rgba(26, 71, 188, .87)',
-                  boxShadow: '15px 31px 82px rgba(18, 50, 131, .48)',
                   '& > div': {
                     color: 'white',
                   },

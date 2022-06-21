@@ -5,7 +5,7 @@ export const pages = [
   },
   {
     route: '/sobre-nos',
-    name: 'Sobre nós'
+    name: 'Sobre Nós'
   },
   {
     route: '/empreendimentos',
