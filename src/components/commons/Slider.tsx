@@ -23,11 +23,7 @@ const sxEmblaContainer: SxProps<Theme> = {
   position: 'relative',
   flex: '0 0 100%',
   marginRight: 5,  
-  transitionProperty: 'filter, box-shadow',
-  transitionDuration: '1s',
-  transitionTimingFunction: 'ease',
   width: '100%',
-  aspectRatio: '2 / 1',
 }
 
 export const Slider = ({ slides, selectedSlide, setSelectedSlide }: IHeroSliderProps) => {

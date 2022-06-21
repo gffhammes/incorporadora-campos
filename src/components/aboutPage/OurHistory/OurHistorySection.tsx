@@ -9,7 +9,7 @@ const OurHistorySection = (props: Props) => {
   return (
     <Box bgcolor='#E4E2E7' sx={{ py: 10 }}>
       <Container>
-        <SectionTitle>NOSSA HISTÓRIA</SectionTitle>
+        <SectionTitle divider={false}>NOSSA HISTÓRIA</SectionTitle>
       </Container>
         <OurHistorySlider />
     </Box>
