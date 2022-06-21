@@ -31,7 +31,7 @@ const sxEmblaContainer: SxProps<Theme> = {
 }
 
 export const Slider = ({ slides, selectedSlide, setSelectedSlide }: IHeroSliderProps) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false })
 
   useEffect(() => {
     emblaApi?.scrollTo(selectedSlide)

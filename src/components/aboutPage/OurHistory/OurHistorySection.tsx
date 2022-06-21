@@ -7,11 +7,11 @@ type Props = {}
 
 const OurHistorySection = (props: Props) => {
   return (
-    <Box bgcolor='#E4E2E7'>
-      <Container sx={{ py: 10 }}>
+    <Box bgcolor='#E4E2E7' sx={{ py: 10 }}>
+      <Container>
         <SectionTitle>NOSSA HISTÓRIA</SectionTitle>
-        <OurHistorySlider />
       </Container>
+        <OurHistorySlider />
     </Box>
   )
 }

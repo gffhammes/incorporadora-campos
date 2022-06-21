@@ -1,4 +1,4 @@
-import { Box, Divider, Stack, SxProps, Theme, Typography } from '@mui/material'
+import { Box, Container, Divider, Stack, SxProps, Theme, Typography } from '@mui/material'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { Slider } from '../../commons/Slider'
@@ -41,7 +41,8 @@ const slides = [
 const sxSlide: SxProps<Theme> = {
   height: '20rem',
   backgroundColor: 'white',
-  width: '100%'
+  width: '100%',
+  boxShadow: '15px 31px 82px rgba(18, 50, 131, .12)'
 }
 
 const OurHistorySlider = (props: Props) => {
@@ -53,33 +54,55 @@ const OurHistorySlider = (props: Props) => {
 
   const slidesElements = slides.map((slide, index) => {
     return (
-      <Box key={index} sx={sxSlide}>
-        <Stack direction='row' spacing={4} alignItems='center' justifyContent='center' sx={{ height: '100%', width: 'fit-content', mx: 'auto', px: 10, py: 5 }}>          
-          <Typography fontSize={21} sx={{ maxWidth: '28ch' }}>{slide.text}</Typography>
-          <Stack
-            alignItems='center'
-            justifyContent='center'
-            sx={{
-              backgroundColor: 'secondary.main',
-              width: '8rem!important',
-              height: '8rem!important',
-              borderRadius: '8rem',
-              color: 'white',
-              p: 2,
-              flex: '8rem'
-            }}
-          >
-            <Typography fontSize={25} textAlign='center' letterSpacing={2}>{slide.year}</Typography>
+      <Box key={index} sx={{ position: 'relative' }} >        
+        <Container sx={sxSlide}>
+          <Stack direction='row' spacing={4} alignItems='center' justifyContent='center' sx={{ height: '100%', width: 'fit-content', mx: 'auto', px: 10, py: 5 }}>          
+            <Typography fontSize={21} sx={{ maxWidth: '28ch' }}>{slide.text}</Typography>
+            <Stack
+              alignItems='center'
+              justifyContent='center'
+              sx={{
+                backgroundColor: 'secondary.main',
+                width: '8rem!important',
+                height: '8rem!important',
+                borderRadius: '8rem',
+                color: 'white',
+                p: 2,
+                flex: '8rem',
+                position: 'relative',
+                zIndex: 200
+              }}
+            >
+              <Typography fontSize={25} textAlign='center' letterSpacing={2}>{slide.year}</Typography>
+            </Stack>
+              <Box
+                sx={{
+                  position: 'relative',
+                  width: '25rem',
+                  height: '16rem',
+                  zIndex: 200
+                }}
+              >
+                <Image
+                  src={`/images/nossa-historia/${slide.image}.webp`}
+                  alt={slide.year}
+                  layout='fill'
+                  objectFit='contain'
+                />
+              </Box>
           </Stack>
-            <Box sx={{ position: 'relative', width: '25rem', height: '16rem' }}>
-              <Image
-                src={`/images/nossa-historia/${slide.image}.webp`}
-                alt={slide.year}
-                layout='fill'
-                objectFit='contain'
-              />
-            </Box>
-        </Stack>
+        </Container>
+        {index !== slides.length - 1 &&        
+          <Box
+            sx={{
+              position: 'absolute',
+              borderBottom: '3px dashed #0E1E42',
+              width: '75%',
+              top: '50%',
+              left: '50%',
+            }}
+          />
+        }
       </Box>
     )
   })
