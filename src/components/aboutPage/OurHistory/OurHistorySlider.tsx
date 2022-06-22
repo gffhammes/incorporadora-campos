@@ -1,9 +1,10 @@
-import { Box, Container, Divider, Stack, SxProps, Theme, Typography } from '@mui/material'
+import { Box, Container, Divider, Stack, SxProps, Theme, Typography, useTheme } from '@mui/material'
 import Image from 'next/image'
 import React, { useMemo, useState } from 'react'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Slider } from '../../commons/Slider'
 import OurHistorySlide from './OurHistorySlide';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 type Props = {}
 
@@ -42,6 +43,8 @@ const slides = [
 
 const OurHistorySlider = (props: Props) => {
   const [selectedSlide, setSelectedSlide] = useState(0)
+  const theme = useTheme();
+  const smSize = useMediaQuery(theme.breakpoints.up('sm'));
 
   const handleYearClick = (e: any) => {
     setSelectedSlide(parseInt(e.target.id))
@@ -61,7 +64,7 @@ const OurHistorySlider = (props: Props) => {
 
   return (
     <Box>
-      <Stack
+      {smSize && <Stack
         component='ul'
         direction='row'
         justifyContent='center'
@@ -79,7 +82,7 @@ const OurHistorySlider = (props: Props) => {
         {slides.map(({ year }, index) => (
           <Box key={index} component='li' onClick={handleYearClick} id={index.toString()} sx={{ transition: '300ms all ease', cursor: 'pointer', fontWeight: 600, color: selectedSlide === index ? 'secondary.main' : 'primary.main' }}>{year}</Box>
         ))}
-      </Stack>
+      </Stack>}
       <Box>
         <Slider slides={slidesElements} selectedSlide={selectedSlide} setSelectedSlide={setSelectedSlide} />
       </Box>
