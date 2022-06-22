@@ -77,7 +77,7 @@ const OurHistorySlider = (props: Props) => {
             sx={{ borderColor: 'primary.main' }}
           />
         } 
-        sx={{ listStyle: 'none', mt: 5, mb: 8 }}
+        sx={{ listStyle: 'none', mb: 8 }}
       >
         {slides.map(({ year }, index) => (
           <Box key={index} component='li' onClick={handleYearClick} id={index.toString()} sx={{ transition: '300ms all ease', cursor: 'pointer', fontWeight: 600, color: selectedSlide === index ? 'secondary.main' : 'primary.main' }}>{year}</Box>
