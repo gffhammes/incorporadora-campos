@@ -112,7 +112,7 @@ export const enterprises = [
     bedrooms: '3 suítes ou 1 suíte e 2 demi-suítes',
     buildingsQty: 1,
     floorsQty: 19,
-    apartmentsTotal: 48,
+    apartmentsTotal: 45,
     apartmentsPerFloor: 3,
     status: 'Pré Lançamento',
     description: `Área privativa de 99 a 123 m²\n3 suítes ou 1 suíte e 2 demi-suítes`,
@@ -133,7 +133,7 @@ export const enterprises = [
         <li>2 elevadores</li>
       </ul>
       <br/>
-      <strong style="color: #1A47BC; text-decoration: underline;">ENTREGA PREVISTA JULHO 2025</strong>
+      <strong style="color: #1A47BC; text-decoration: underline;">ENTREGA PREVISTA DEZEMBRO 2025</strong>
     `,
     photos: [
       '/images/piazza-del-mare/galeria/ACADEMIA/ACADEMIA__001__PIAZZA-DEL-MARE__CAMPOS.jpg',
