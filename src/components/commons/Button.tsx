@@ -6,9 +6,8 @@ import React, { useMemo } from 'react';
 const commonProps = {
   width: '10rem',
   minWidth: 'fit-content',
-  height: 'fit-content',
   borderRadius: '20rem',
-  padding: '.75rem 2rem',
+  padding: '.5rem 2rem',
   fontWeight: 600,
   fontSize: 15,
   fontFamily: 'Satoshi, sans-serif',

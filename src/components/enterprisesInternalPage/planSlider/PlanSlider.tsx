@@ -5,6 +5,7 @@ import Image from 'next/image'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import FullScreenSliderDialog from '../FullScreenSliderDialog';
+import InnerImageZoom from 'react-inner-image-zoom';
 
 const sxButton = (position: 'left' | 'right') => {
 
@@ -92,15 +93,17 @@ export const PlanSlider = ({ plans }) => {
                     justifyContent: 'center',
                     cursor: 'pointer'
                   }}
-                  onClick={handleClickOpen}
+                  // onClick={handleClickOpen}
                 >                  
                   <Box sx={sxImage}>
-                    <Image
+                    
+                  <InnerImageZoom src={plan.image} zoomSrc={plan.image} />
+                    {/* <Image
                       src={plan.image}
                       alt={plan.label}
                       layout='fill'
                       objectFit='contain'
-                    />
+                    /> */}
                   </Box>
                   <Typography textAlign='center' sx={{ mt: 3 }} fontSize={18} fontWeight={500}>{plan.label}</Typography>
                 </Box>

@@ -3,7 +3,7 @@ export const differentials = {
   'adult-pool': 'Piscina Adulto',
   'kids-pool': 'Piscina Infantil',
   'dry-deck': 'Deck Seco',
-  'wet-deck': 'Deck Molhado',
+  'wet-deck': 'Deck Piscina',
   'party-hall': 'Salão de Festas',
   'playground': 'Playground',
   'playroom': 'Brinquedoteca',

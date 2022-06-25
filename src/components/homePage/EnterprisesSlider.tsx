@@ -68,12 +68,6 @@ export const EnterprisesSlider = () => {
           ))}
         </div>
       </div>
-      {/* <button className="embla__prev" onClick={scrollPrev}>
-        Prev
-      </button>
-      <button className="embla__next" onClick={scrollNext}>
-        Next
-      </button> */}
     </div>
   )
 }

@@ -24,7 +24,8 @@
     "react-chartjs-2": "^4.1.0",
     "react-dom": "18.1.0",
     "react-facebook-pixel": "^1.0.4",
-    "react-gtm-module": "^2.0.11"
+    "react-gtm-module": "^2.0.11",
+    "react-inner-image-zoom": "^3.0.1"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.2.1",
