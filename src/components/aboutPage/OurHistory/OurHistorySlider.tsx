@@ -20,8 +20,13 @@ const slides = [
     image: '/images/.'
   },
   {
-    year: '2016 e 2018',
-    text: 'Logo em seguida, o Piazza San Carlo e o Piazza Della Libertá, ganham vida e conquistam os moradores do Bairro Costa e Silva em Joinville.',
+    year: '2016',
+    text: 'Logo em seguida, o Piazza San Carlo ganha vida e conquista os moradores do Bairro Costa e Silva em Joinville.',
+    image: '/images/.'
+  },
+  {
+    year: '2018',
+    text: 'Em 2018, o Piazza Della Libertá nasce para conquistar os moradores do Bairro Costa e Silva.',
     image: '/images/.'
   },
   {
