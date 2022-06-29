@@ -93,11 +93,11 @@ export const PlanSlider = ({ plans }) => {
                     justifyContent: 'center',
                     cursor: 'pointer'
                   }}
-                  // onClick={handleClickOpen}
+                  onClick={handleClickOpen}
                 >                  
                   <Box sx={sxImage}>
                     
-                  <InnerImageZoom src={plan.image} zoomSrc={plan.image} />
+                  <InnerImageZoom src={plan.image} zoomSrc={plan.image} zoomType='hover' hideHint={true} hasSpacer={true} />
                     {/* <Image
                       src={plan.image}
                       alt={plan.label}
