@@ -22,7 +22,7 @@ export const TopBar = () => {
             ? <FollowUs /> 
             : <FollowUsIcons />
           }
-          <a href={whatsappLink} target='_blank' rel="noreferrer" className='whatsapp-header' >
+          <a href={whatsappLink} target='_blank' rel="noreferrer" className='whatsapp-header'>
             <Stack direction='row' alignItems='center' spacing={1}> 
               <WhatsAppIcon sx={{ fontSize: 18 }} />
               <Typography fontSize={12}>47 9 99138-2244</Typography>
