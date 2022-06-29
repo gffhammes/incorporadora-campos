@@ -97,7 +97,12 @@ export const PlanSlider = ({ plans }) => {
                 >                  
                   <Box sx={sxImage}>
                     
-                  <InnerImageZoom src={plan.image} zoomSrc={plan.image} zoomType='hover' hideHint={true} hasSpacer={true} />
+                  <InnerImageZoom
+                    src={plan.image}
+                    zoomSrc={plan.image}
+                    zoomType='hover'
+                    hideHint={true}
+                  />
                     {/* <Image
                       src={plan.image}
                       alt={plan.label}

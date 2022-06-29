@@ -1,6 +1,6 @@
 import { Box, Container, IconButton, Stack, Typography, useTheme } from '@mui/material'
 import Link from 'next/link'
-import React, { FC, useMemo, useState } from 'react'
+import React, { FC, useEffect, useMemo, useState } from 'react'
 import LogoHorizontal from '../../../../public/vectors/logo-horizontal.svg';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { pages } from '../../../constants/pages';
@@ -11,7 +11,7 @@ import { useScroll } from '../../../hooks/useScroll';
 
 const sxLogo = {
   height: '100%',
-  width: '50vw',
+  width: '40vw',
   maxWidth: '15rem',
   minWidth: '7rem',
 }
