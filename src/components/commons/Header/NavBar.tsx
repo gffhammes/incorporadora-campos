@@ -11,7 +11,7 @@ import { useScroll } from '../../../hooks/useScroll';
 
 const sxLogo = {
   height: '100%',
-  width: '40vw',
+  width: '35vw',
   maxWidth: '15rem',
   minWidth: '7rem',
 }
