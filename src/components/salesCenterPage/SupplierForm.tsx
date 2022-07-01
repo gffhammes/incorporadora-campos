@@ -1,5 +1,6 @@
 import { Box, Container, Grid } from '@mui/material'
 import { Formik } from 'formik'
+import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { sendMail } from '../../services/sendMail'
 import { LoadingButton } from '../commons/Button'
@@ -19,6 +20,7 @@ interface IFormValues {
 
 export const SupplierForm = (props: Props) => {
   const [loading, setLoading] = useState<boolean>(false)
+  const router = useRouter();
   
   const validate = (values) => {
     const errors: {
@@ -63,9 +65,9 @@ export const SupplierForm = (props: Props) => {
       `,
     }
     await sendMail(data).then((res) => {
-      // if (res.status === 200) {
-      //   setOpenSnackbar(true)
-      // }
+      if (res.status === 200) {
+        router.push('/confirmacao/fornecedor')
+      }
       setLoading(false)
     }).catch(() => setLoading(false))
   }
