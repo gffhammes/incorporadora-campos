@@ -17,7 +17,7 @@ export const PageTitle = () => {
   if (slashCount === 1) {
     const currentPage = pages.find(page => page.route === path)
     title = currentPage?.name === 'Home' || !currentPage ? 'Campos Incorporadora' : `${currentPage.name} | Campos Incorporadora`;
-  } else {
+  } else if (path.includes('empreendimentos')) {
     let enterprisePath = path.split('/').pop();
     enterprisePath = enterprisePath.split('#')[0];
 
@@ -27,6 +27,8 @@ export const PageTitle = () => {
       const enterpriseName = enterprises.find(enterprise => enterprise.slug === enterprisePath)?.name;
       title = `${enterpriseName} | Campos Incorporadora`
     }
+  } else if (path.includes('confirmacao')) {
+    title = "Obrigado | Campos Incorporadora"
   }
 
   return (

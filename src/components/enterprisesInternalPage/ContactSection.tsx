@@ -16,6 +16,7 @@ interface IContactData {
 export const ContactSection = ({ enterpriseData }) => {
   const [loading, setLoading] = useState(false)
   const [openSnackbar, setOpenSnackbar] = useState(false)
+  const router = useRouter();
   
   const handleSnackbarClose = () => {
     setOpenSnackbar(false)
@@ -55,7 +56,7 @@ export const ContactSection = ({ enterpriseData }) => {
       `,
     }
     await sendMail(data).then((res) => {
-      if (res.status === 200) setOpenSnackbar(true)
+      router.push('/confirmacao/empreendimento')
       setLoading(false)
     }).catch(() => setLoading(false))
   }
