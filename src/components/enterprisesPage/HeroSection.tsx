@@ -33,13 +33,12 @@ export const HeroSection = ({ enterprises, handleFilter }: IProps) => {
           zIndex: 100
         }}
       />
-      <Box sx={{ height: 'fit-content', width: '100%', my: 'auto', mt: '50vh', position: 'absolute', zIndex: 300 }}>
+      <Box sx={{ height: 'fit-content', width: '100%', my: 'auto', mt: '50vh', transform: 'translateY(-50%)',position: 'absolute', zIndex: 300 }}>
         <Container>
-          <SectionTitle theme='light'>NOSSOS EMPREENDIMENTOS</SectionTitle>          
+          <SectionTitle theme='light'>NOSSOS EMPREENDIMENTOS</SectionTitle>  
+          <Filters enterprises={enterprises} handleFilter={handleFilter} />        
         </Container>
       </Box>
-      <Filters enterprises={enterprises} handleFilter={handleFilter} />
-      {/* <FloatingDownArrowScroll targetId='enterprises'/> */}
     </Box>
   )
 }

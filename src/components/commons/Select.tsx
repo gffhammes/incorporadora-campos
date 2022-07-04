@@ -37,7 +37,7 @@ interface IProps {
 export const Select = ({ label, name, options, value, handleChange, width }: IProps) => {
 
   return (
-    <FormControl>      
+    <FormControl sx={{width: width || '100%'}}>      
       <InputLabel
         sx={{
           color: 'white',
@@ -47,7 +47,7 @@ export const Select = ({ label, name, options, value, handleChange, width }: IPr
           },
         }}
       >{label}</InputLabel>
-      <StyledSelect value={value} onChange={handleChange} label={label} MenuProps={{ disableScrollLock: true }} sx={{ width: width || '15rem' }}>
+      <StyledSelect value={value} onChange={handleChange} label={label} MenuProps={{ disableScrollLock: true }} sx={{ width: width || '100%' }}>
         {options.map((option, index) => (
           <MenuItem key={index} value={option}>{option}</MenuItem>
         ))}
