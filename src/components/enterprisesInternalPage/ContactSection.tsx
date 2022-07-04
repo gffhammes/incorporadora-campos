@@ -65,7 +65,7 @@ export const ContactSection = ({ enterpriseData }) => {
   }
 
   return (
-    <Box bgcolor='secondary.main' sx={{ position: 'fixed', transform: showContact ? 'translateY(0)' : 'translateY(100%)', bottom: 0, zIndex: 999, width: '100%', transition: '.3s ease all' }}>
+    <Box bgcolor='secondary.main' sx={{ position: 'fixed', /**transform: showContact ? 'translateY(0)' : 'translateY(100%)', */ bottom: 0, zIndex: 999, width: '100%', transition: '.3s ease all' }}>
       <Container sx={{ py: 3 }}>
         <Stack direction={{ xs: 'column', sm: 'row' }} spacing={{ xs: 5, lg: 15 }} alignItems='center'>          
           <Stack spacing={2} sx={{ color: 'white' }}>
