@@ -8,6 +8,8 @@ interface IProps {
   handleFilter({city, district, buildingStatus}: {city: string, district: string, buildingStatus: string}): void;
 }
 
+const selectAll = 'Todas as opções'
+
 const Filters = ({ enterprises, handleFilter }: IProps) => {
   const [city, setCity] = useState<string>('')
   const [district, setDistrict] = useState<string>('')
@@ -25,7 +27,7 @@ const Filters = ({ enterprises, handleFilter }: IProps) => {
       }
     })
 
-    return districts
+    return [ selectAll, ...districts]
   }, [])
 
   useEffect(() => {    
@@ -35,15 +37,27 @@ const Filters = ({ enterprises, handleFilter }: IProps) => {
   }, [city, enterprises, getDistrictsOptions])
 
   const handleCityChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setCity(e.target.value)
+    if (e.target.value === selectAll) {
+      setCity('');
+      return;
+    }
+    setCity(e.target.value);
   }
 
   const handleDistrictChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.value === 'Selecione uma cidade') return;
+    if (e.target.value === selectAll) {
+      setDistrict('');
+      return;
+    }
     setDistrict(e.target.value)
   }
 
   const handleStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value === selectAll) {
+      setBuildingStatus('');
+      return;
+    }
     setBuildingStatus(e.target.value)
   }
 
@@ -52,14 +66,18 @@ const Filters = ({ enterprises, handleFilter }: IProps) => {
     if (!statusOptions.includes(enterprise.status)) statusOptions.push(enterprise.status)   
   })
 
+  const addClearOptionToOptions = (options) => {
+    return [ selectAll, ...options ]
+  }
+
   return (
     <Box sx={{ position: 'absolute', zIndex: '1500', height: 'fit-content', width: '100%', bottom: 0, mb: 20 }}>
       <Container>
         <Stack direction='row' spacing={5} justifyContent='center' alignItems='center'>          
           <Typography sx={{ color: 'white' }}>FILTROS</Typography>
-          <Select label='Cidade' name='city' options={cities} value={city} handleChange={handleCityChange} width='12rem' />
+          <Select label='Cidade' name='city' options={addClearOptionToOptions(cities)} value={city} handleChange={handleCityChange} width='12rem' />
           <Select label='Bairro' name='district' options={districtsOptions} value={district} handleChange={handleDistrictChange} width='12rem' />
-          <Select label='Fase da Obra' name='buildingStatus' options={statusOptions} value={buildingStatus} handleChange={handleStatusChange} />
+          <Select label='Fase da Obra' name='buildingStatus' options={addClearOptionToOptions(statusOptions)} value={buildingStatus} handleChange={handleStatusChange} />
           <ContainedWhiteButton onClick={() => handleFilter({ city, district, buildingStatus })} >BUSCAR</ContainedWhiteButton>
         </Stack>
       </Container>
