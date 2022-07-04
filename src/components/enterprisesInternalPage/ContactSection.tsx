@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import { getEnterpriseBySlug } from '../../helpers/getEnterpriseBySlug'
 import { Formik } from 'formik'
 import { sendMail } from '../../services/sendMail'
+import { useScroll } from '../../hooks/useScroll'
 
 interface IContactData {
   name: string;
@@ -16,6 +17,9 @@ interface IContactData {
 export const ContactSection = ({ enterpriseData }) => {
   const [loading, setLoading] = useState(false)
   const [openSnackbar, setOpenSnackbar] = useState(false)
+  const scroll = useScroll();
+  
+  const showContact = scroll > 60;
   
   const handleSnackbarClose = () => {
     setOpenSnackbar(false)
@@ -61,7 +65,7 @@ export const ContactSection = ({ enterpriseData }) => {
   }
 
   return (
-    <Box bgcolor='#0E1E42'>
+    <Box bgcolor='secondary.main' sx={{ position: 'fixed', transform: showContact ? 'translateY(0)' : 'translateY(100%)', bottom: 0, zIndex: 999, width: '100%', transition: '.3s ease all' }}>
       <Container sx={{ py: 3 }}>
         <Stack direction={{ xs: 'column', sm: 'row' }} spacing={{ xs: 5, lg: 15 }} alignItems='center'>          
           <Stack spacing={2} sx={{ color: 'white' }}>
@@ -95,7 +99,7 @@ export const ContactSection = ({ enterpriseData }) => {
                   </Grid>
                   <Grid item xs={12} lg={4}>
                     <Box sx={{ height: '100%' }}>                    
-                      <LoadingButton loading={loading} sx={{ width: '100%', height: '100%' }} type='submit' color='secondary' >ENVIAR</LoadingButton>
+                      <LoadingButton loading={loading} sx={{ width: '100%', height: '100%' }} type='submit' color='primary' >ENVIAR</LoadingButton>
                     </Box>
                   </Grid>
                 </Grid>

@@ -43,7 +43,7 @@ export const HeroSection = ({ enterpriseData }) => {
       <Box sx={sxBanner}/>
       <PrimaryGradientCover />
       <Box sx={sxContent}>
-        {/* <Container sx={{ display: 'flex', height: '100%', pb: 10, pt: 20 }}>  
+        <Container sx={{ display: 'flex', height: '100%', pb: 10, pt: 20 }}>  
           <Stack direction={{ xs: 'column', md: 'row' }} spacing={10} sx={{ height: '100%', width: '100%' }} alignItems='center' justifyContent='center'>
             <Box>              
               {enterpriseData.logo
@@ -59,10 +59,7 @@ export const HeroSection = ({ enterpriseData }) => {
               }
             </Box>
           </Stack>
-        </Container> */}
-        {enterpriseData.hideSections?.includes('contact')
-          ?? <ContactForm logo={enterpriseData.logo} name={enterpriseData.name} />
-        }
+        </Container>
         <FloatingDownArrowScroll targetId='internal-scroll-menu' />
       </Box>
     </Box>
