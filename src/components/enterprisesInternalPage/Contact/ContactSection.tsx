@@ -1,12 +1,13 @@
 import { Alert, Box, Container, Grid, Snackbar, Stack, Typography } from '@mui/material'
 import React, { useState } from 'react'
-import { LoadingButton } from '../commons/Button'
-import { Input } from '../commons/Input'
+import { LoadingButton } from '../../commons/Button'
+import { Input } from '../../commons/Input'
 import { useRouter } from 'next/router'
-import { getEnterpriseBySlug } from '../../helpers/getEnterpriseBySlug'
+import { getEnterpriseBySlug } from '../../../helpers/getEnterpriseBySlug'
 import { Formik } from 'formik'
-import { sendMail } from '../../services/sendMail'
-import { useScroll } from '../../hooks/useScroll'
+import { sendMail } from '../../../services/sendMail'
+import { useScroll } from '../../../hooks/useScroll'
+import { useWindowSize } from '../../../hooks/useWindowSize'
 
 interface IContactData {
   name: string;
@@ -18,8 +19,9 @@ export const ContactSection = ({ enterpriseData }) => {
   const [loading, setLoading] = useState(false)
   const [openSnackbar, setOpenSnackbar] = useState(false)
   const scroll = useScroll();
+  const { width } = useWindowSize();
   
-  const showContact = scroll > 60;
+  const hideContact = scroll + window.innerHeight + 400 > document.getElementById('__next').scrollHeight
   
   const handleSnackbarClose = () => {
     setOpenSnackbar(false)
@@ -64,8 +66,10 @@ export const ContactSection = ({ enterpriseData }) => {
     }).catch(() => setLoading(false))
   }
 
+  const fixContact = width > 1200;
+
   return (
-    <Box bgcolor='secondary.main' sx={{ position: 'fixed', /**transform: showContact ? 'translateY(0)' : 'translateY(100%)', */ bottom: 0, zIndex: 999, width: '100%', transition: '.3s ease all' }}>
+    <Box bgcolor='secondary.main' sx={{ position: fixContact ? 'fixed' : 'relative', transform: hideContact && fixContact ? 'translateY(100%)' : 'translateY(0)',  bottom: 0, zIndex: 500, width: '100%', transition: '.3s ease all' }}>
       <Container sx={{ py: 3 }}>
         <Stack direction={{ xs: 'column', sm: 'row' }} spacing={{ xs: 5, lg: 15 }} alignItems='center'>          
           <Stack spacing={2} sx={{ color: 'white' }}>

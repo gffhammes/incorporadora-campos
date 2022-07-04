@@ -25,6 +25,7 @@ interface IEnterprise {
   plans: { label: string; image: string; }[];
   detailedStatus: {
     infrastructure: number;
+    foundation: number;
     masonry: number;
     installations: number;
     coating: number;
@@ -125,6 +126,7 @@ const piazzaSanPietro: IEnterprise = {
   ],
   detailedStatus: {
     infrastructure: 1,
+    foundation: .8,
     masonry: 0.1,
     installations: 0,
     coating: 0,
@@ -224,6 +226,7 @@ const piazzaDelMare: IEnterprise = {
   ],
   detailedStatus: {
     infrastructure: 0,
+    foundation: 0,
     masonry: 0,
     installations: 0,
     coating: 0,
@@ -276,6 +279,7 @@ const piazzaDellaLiberta: IEnterprise = {
   ],
   detailedStatus: {
     infrastructure: 1,
+    foundation: 1,
     masonry: 1,
     installations: 1,
     coating: 1,
@@ -321,6 +325,7 @@ const piazzaSanCarlo: IEnterprise = {
   ],
   detailedStatus: {
     infrastructure: 1,
+    foundation: 1,
     masonry: 1,
     installations: 1,
     coating: 1,
@@ -362,6 +367,7 @@ const piazzaSanMarco: IEnterprise = {
   ],
   detailedStatus: {
     infrastructure: 1,
+    foundation: 1,
     masonry: 1,
     installations: 1,
     coating: 1,

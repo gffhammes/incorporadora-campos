@@ -10,7 +10,7 @@ import { DetailsSection } from '../../src/components/enterprisesInternalPage/Det
 import { DifferentialsSections } from '../../src/components/enterprisesInternalPage/DifferentialsSections'
 import { PlanOptionsSection } from '../../src/components/enterprisesInternalPage/PlanOptionsSection'
 import { ConstructionStatusSection } from '../../src/components/enterprisesInternalPage/ConstructionStatusSection'
-import { ContactSection } from '../../src/components/enterprisesInternalPage/ContactSection'
+import { ContactSection } from '../../src/components/enterprisesInternalPage/Contact/ContactSection'
 import { MapsSection } from '../../src/components/enterprisesInternalPage/MapsSection'
 import { SimulatorsSection } from '../../src/components/enterprisesInternalPage/SimulatorsSection'
 import { getAverageEnterpriseStatus } from '../../src/helpers/getAverageEnterpriseStatus'
@@ -27,12 +27,12 @@ const Enterprise = () => {
   return (
     <main style={{ height: '100%' }}>
       <HeroSection enterpriseData={currentEnterprise} />   
-      {currentEnterprise.hideSections?.includes('contact') ? null : <ContactSection enterpriseData={currentEnterprise} />}
       <ScrollMenu />
       <SummarySection enterpriseData={currentEnterprise} />
       {currentEnterprise.hideSections?.includes('details') ? null : <DetailsSection enterpriseData={currentEnterprise} />}
       <DifferentialsSections enterpriseData={currentEnterprise} />
       {currentEnterprise.hideSections?.includes('planOptions') ? null : <PlanOptionsSection enterpriseData={currentEnterprise} />}   
+      {currentEnterprise.hideSections?.includes('contact') ? null : <ContactSection enterpriseData={currentEnterprise} />}
       {avgEnterpriseStatus > 0 && <ConstructionStatusSection enterpriseData={currentEnterprise} />}
       <MapsSection enterpriseData={currentEnterprise} />
       <SimulatorsSection />
