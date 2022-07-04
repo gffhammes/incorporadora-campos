@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { Footer } from '../../src/components/commons/Footer/Footer'
 import { Box } from '@mui/material'
 import { getEnterpriseBySlug } from '../../src/helpers/getEnterpriseBySlug'
-import { HeroSection } from '../../src/components/enterprisesInternalPage/HeroSection'
+import { HeroSection } from '../../src/components/enterprisesInternalPage/HeroSection/HeroSection'
 import { ScrollMenu } from '../../src/components/enterprisesInternalPage/ScrollMenu'
 import { SummarySection } from '../../src/components/enterprisesInternalPage/SummarySection'
 import { DetailsSection } from '../../src/components/enterprisesInternalPage/DetailsSection'
@@ -32,7 +32,7 @@ const Enterprise = () => {
       {currentEnterprise.hideSections?.includes('details') ? null : <DetailsSection enterpriseData={currentEnterprise} />}
       <DifferentialsSections enterpriseData={currentEnterprise} />
       {currentEnterprise.hideSections?.includes('planOptions') ? null : <PlanOptionsSection enterpriseData={currentEnterprise} />}      
-      {currentEnterprise.hideSections?.includes('contact') ? null : <ContactSection enterpriseData={currentEnterprise} />}
+      {/* {currentEnterprise.hideSections?.includes('contact') ? null : <ContactSection enterpriseData={currentEnterprise} />} */}
       {avgEnterpriseStatus > 0 && <ConstructionStatusSection enterpriseData={currentEnterprise} />}
       <MapsSection enterpriseData={currentEnterprise} />
       <SimulatorsSection />
