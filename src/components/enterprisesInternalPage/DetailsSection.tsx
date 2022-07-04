@@ -5,7 +5,7 @@ import { DetailsSlider } from './detailsSlider/DetailsSlider'
 
 export const DetailsSection = ({ enterpriseData }) => {
   return (
-    <Box bgcolor='#f2f2f2' sx={{ py: 10, overflowX: 'hidden' }}>
+    <Box bgcolor='#f2f2f2' sx={{ py: 7, overflowX: 'hidden' }}>
       <Container>
         <SectionTitle>CONHEÇA MAIS DETALHES</SectionTitle>
       </Container>

@@ -8,8 +8,8 @@ import { EnterprisesSlider } from './EnterprisesSlider'
 export const EnterprisesSection = () => {
   return (
     <Box bgcolor='#f2f2f2' >
-      <Container sx={{ py: 10 }}>        
-        <SectionTitle theme='dark'>NOSSOS EMPREENDIMENTOS</SectionTitle>
+      <Container sx={{ py: 7 }}>        
+        <SectionTitle theme='dark' marginBottom={false} >NOSSOS EMPREENDIMENTOS</SectionTitle>
         <EnterprisesSlider />
         <Box sx={{ display: 'flex', mt: 6 }}>
           <Link href='/empreendimentos' passHref>

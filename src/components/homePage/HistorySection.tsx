@@ -14,7 +14,7 @@ const imageStyle = {
 export const HistorySection = () => {
   return (
     <Box bgcolor='primary.main' >
-      <Container maxWidth={false} sx={{ py: 10, maxWidth: '700px' }}>
+      <Container maxWidth={false} sx={{ py: 7, maxWidth: '700px' }}>
         <Stack spacing={{ xs: 8, md: 4 }}>          
           <Box sx={{ color: 'white', textAlign: 'center' }} >
             <SectionTitle theme='light'>{('Mais que empreendimentos criamos conexões').toUpperCase()}</SectionTitle>

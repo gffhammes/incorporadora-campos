@@ -61,7 +61,7 @@ const Slide = ({ image, selectedSlide, index }) => {
 }
 
 export const DetailsSlider = ({ images }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, draggable: false })
   const [selectedSlide, setSelectedSlide] = useState(0)
   const [open, setOpen] = useState(false);
 

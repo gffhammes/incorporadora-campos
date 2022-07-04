@@ -103,7 +103,7 @@ const piazzaSanPietro: IEnterprise = {
       <li>Porcelanato na cozinha, sala e áreas molhadas</li>
     </ul>
     <br/>
-    <strong style="color: #1A47BC; text-decoration: underline;">ENTREGA PREVISTA MAIO 2024</strong>
+    <strong style="color: #1A47BC;">📅 ENTREGA PREVISTA MAIO 2024</strong>
   `,
   plans: [
     {
@@ -166,7 +166,7 @@ const piazzaDelMare: IEnterprise = {
       <li>2 elevadores</li>
     </ul>
     <br/>
-    <strong style="color: #1A47BC; text-decoration: underline;">ENTREGA PREVISTA DEZEMBRO 2025</strong>
+    <strong style="color: #1A47BC;">📅 ENTREGA PREVISTA DEZEMBRO 2025</strong>
   `,
   photos: [
     '/images/piazza-del-mare/galeria/ACADEMIA/ACADEMIA__001__PIAZZA-DEL-MARE__CAMPOS.jpg',

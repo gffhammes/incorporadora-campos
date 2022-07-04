@@ -1,9 +1,12 @@
-import { Box, Container, Stack, SxProps, Theme } from '@mui/material'
+import { Box, Container, Grid, Paper, Stack, SxProps, Theme, Typography } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
 import { PrimaryGradientCover } from '../commons/PrimaryGradientCover';
 import { SectionTitle } from '../commons/SectionTitle';
 import { FloatingDownArrowScroll } from '../commons/FloatingDownArrowScroll';
+import { Input } from '../commons/Input';
+import { LoadingButton } from '../commons/Button';
+import { Formik } from 'formik';
 
 
 const sxContent: SxProps<Theme> = {
@@ -18,39 +21,78 @@ const sxContent: SxProps<Theme> = {
 
 const sxLogo: SxProps<Theme> = {
   position: 'relative',
-  height: '100%',
+  height: '10rem',
   width: '16vw',
   minWidth: '10rem',
   maxWidth: '13rem',
 }
 
 export const HeroSection = ({ enterpriseData }) => {
+
+  const sxBanner: SxProps<Theme> = {
+    position: 'absolute',
+    height: '100%',
+    width: '100%',
+    backgroundImage: `url(${enterpriseData.banner})`,
+    backgroundSize: 'cover',
+  }
+  
   return (
     <Box sx={{ position: 'relative', zIndex: 500, height: '100%', }}>
-      <Box
-        sx={{
-          position: 'absolute',
-          height: '100%',
-          width: '100%',
-          backgroundImage: `url(${enterpriseData.banner})`,
-          backgroundSize: 'cover',
-        }}
-      />
+      <Box sx={sxBanner}/>
       <PrimaryGradientCover />
       <Box sx={sxContent}>
         <Container sx={{ display: 'flex', height: '100%', pb: 10, pt: 20 }}>  
-          <Stack sx={{ mx: 'auto' }} alignItems='center' justifyContent='center' >
-          {enterpriseData.logo
-              ? <Box sx={sxLogo} >                           
-                  <Image
-                    src={enterpriseData.logo}
-                    alt={enterpriseData.name}
-                    layout='fill'
-                    objectFit='contain'
-                  />
-                </Box>
-              : <SectionTitle theme='light'>{enterpriseData.name.toUpperCase()}</SectionTitle>
-            }
+          <Stack direction={{ xs: 'column', md: 'row' }} spacing={10} sx={{ height: '100%', width: '100%' }} alignItems='center' justifyContent='center'>
+            <Box>              
+              {enterpriseData.logo
+                ? <Box sx={sxLogo} >                           
+                    <Image
+                      src={enterpriseData.logo}
+                      alt={enterpriseData.name}
+                      layout='fill'
+                      objectFit='contain'
+                    />
+                  </Box>
+                : <SectionTitle theme='light'>{enterpriseData.name.toUpperCase()}</SectionTitle>
+              }
+            </Box>
+            {enterpriseData.hideSections?.includes('contact') ?? <Box bgcolor='primary.main' sx={{ p: 4, borderRadius: 2, maxWidth: '25rem' }}>
+              <Typography variant='h6' fontSize={20} textAlign='center' sx={{ color: 'white', mb: 5 }}>TEM INTERESSE NO EMPREENDIMENTO?</Typography>
+              <Formik
+                initialValues={{
+                  name: '',
+                  phone: '',
+                  email: '',
+                }}
+                // validate={validate}
+                onSubmit={async (values, { resetForm }) => {
+                  // await handleSubmit(values);
+                  resetForm();
+                }}
+              >
+                {(props) => (              
+                  <form noValidate onSubmit={props.handleSubmit}>              
+                    <Grid container spacing={4} alignItems='stretch'>
+                      <Grid item xs={12}>
+                        <Input id='name' name='name' placeholder='Nome Completo' required={true} />
+                      </Grid>
+                      <Grid item xs={12} >
+                        <Input id='phone' name='phone' placeholder='Telefone' required={true} />
+                      </Grid>
+                      <Grid item xs={12} >
+                        <Input id='email' name='email' placeholder='E-mail' required={true} />
+                      </Grid>
+                      <Grid item xs={12} >
+                        <Box sx={{ height: '100%' }}>                    
+                          <LoadingButton loading={/*loading */false} sx={{ width: '100%', height: '100%' }} type='submit' color='secondary' >ENVIAR</LoadingButton>
+                        </Box>
+                      </Grid>
+                    </Grid>
+                  </form>
+                )}
+              </Formik>
+            </Box>}
           </Stack>
         </Container>
         <FloatingDownArrowScroll targetId='internal-scroll-menu' />

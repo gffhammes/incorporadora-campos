@@ -62,9 +62,9 @@ export const ContactSection = ({ enterpriseData }) => {
 
   return (
     <Box bgcolor='#0E1E42'>
-      <Container sx={{ py: 5 }}>
+      <Container sx={{ py: 3 }}>
         <Stack direction={{ xs: 'column', sm: 'row' }} spacing={{ xs: 5, lg: 15 }} alignItems='center'>          
-          <Stack spacing={4} sx={{ color: 'white' }}>
+          <Stack spacing={2} sx={{ color: 'white' }}>
             <Typography fontSize={22} fontWeight={500} letterSpacing={1} sx={{ whiteSpace: { xs: 'normal', lg: 'nowrap'} }}>TEM INTERESSE NO EMPREENDIMENTO?</Typography>
             <Typography fontSize={18} sx={{ whiteSpace: { xs: 'normal', lg: 'nowrap'} }}>Preencha seus dados e entraremos em contato com você!</Typography>
           </Stack>

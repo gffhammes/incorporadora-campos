@@ -16,7 +16,7 @@ const boxShadow = '0px 10px 13px -6px rgb(26 71 188 / 20%), 0px 20px 31px 3px rg
 export const PlanOptionsSection = ({ enterpriseData }) => {
   return (
     <Box id='plan-options'>
-      <Container sx={{ py: 10 }}>
+      <Container sx={{ py: 7 }}>
         <Box
           display="grid"
           gridTemplateAreas={{

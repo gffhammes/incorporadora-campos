@@ -8,7 +8,7 @@ export const MapsSection = ({ enterpriseData }) => {
   return (
     <Box id='localization'>
       <Box>
-        <Container sx={{ py: 5 }}>
+        <Container sx={{ py: 3 }}>
           <Typography fontSize={20} letterSpacing={1} textAlign='center' sx={{ width: 'fit-content', mx: 'auto' }}>{enterpriseData.fullAddress}</Typography>
         </Container>
       </Box>

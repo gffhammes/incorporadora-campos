@@ -43,7 +43,7 @@ const sxImage = {
 }
 
 export const PlanSlider = ({ plans }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, draggable: false })
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {

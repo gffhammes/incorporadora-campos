@@ -7,9 +7,9 @@ import { SectionTitle } from '../commons/SectionTitle'
 export const DifferentialsSections = ({ enterpriseData }) => {
   return (
     <Box bgcolor='#f2f2f2' id='differentials'>
-      <Container sx={{ py: 10 }}>
+      <Container sx={{ py: 7 }}>
         <SectionTitle>DIFERENCIAIS</SectionTitle>
-        <Grid container rowSpacing={8} columnSpacing={4} columns={10} alignItems='flex-start' justifyContent='center'>
+        <Grid container rowSpacing={{ xs: 8, md: 5 }} columnSpacing={4} columns={10} alignItems='flex-start' justifyContent='center'>
           {enterpriseData.differentials.map((differential, index) => (
             <Grid item xs={5} sm={4} md={3} lg={2} key={index}>
               <Stack alignItems='center' spacing={3}>                

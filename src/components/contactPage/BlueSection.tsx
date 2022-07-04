@@ -15,7 +15,7 @@ const sxBold: SxProps = {
 export const BlueSection = () => {
   return (
     <Box bgcolor='#1B3781'>
-      <Container sx={{ py: 10, color:'white' }}>
+      <Container sx={{ py: 7, color:'white' }}>
         <Stack direction={{ xs: 'column', md: 'row' }} justifyContent='space-between' alignItems='flex-start' spacing={5} sx={{ width: 'fit-content', mx: 'auto' }}>
           <Stack spacing={.5}>
             <a href='tel:47 9 99138-2244' style={{ width: 'fit-content' }}>              

@@ -28,7 +28,7 @@ const sxGrid = {
 export const SummarySection = ({ enterpriseData }) => {
   return (
     <Box id='the-enterprise'>
-      <Container sx={{ py: 10 }}>
+      <Container sx={{ py: 7 }}>
         <Box sx={sxGrid} >
           <Box sx={{ gridArea: 'a' }}>
             <Box sx={{ position: 'relative', height: { xs: 'unset', md: '100%' }, width: '100%', aspectRatio: '1 / 1' }}>

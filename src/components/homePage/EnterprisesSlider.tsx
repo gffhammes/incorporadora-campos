@@ -9,22 +9,11 @@ const sxImage = {
   position: 'relative',
   width: 'calc(100% + 32px)',
   ml: '-16px',
-  height: {
-    xs: '30rem',
-    sm: '35rem',
-    md: '30rem',
-    lg: '25rem',
-  }
+  aspectRatio: '1 / 1.45'
 }
 
 export const EnterprisesSlider = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: 'start'  })
-
-  useEffect(() => {
-    if (emblaApi) {
-      // Embla API is ready
-    }
-  }, [emblaApi])
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev()
@@ -35,14 +24,14 @@ export const EnterprisesSlider = () => {
   }, [emblaApi])
 
   return (
-    <div className="embla">
+    <Box className="embla" sx={{ mt: { xs: 0, md: 5 } }}>
       <div className="embla__viewport"  ref={emblaRef}>
         <div className="embla__container">
           {enterprises.map((enterprise, index) => (
             <Box className="embla__slide" key={index}>
               <Link href={`/empreendimentos/${enterprise.slug}`} passHref>
                 <a>
-                  <Box sx={{ width: '100%', height: 'fit-content', backgroundImage: 'linear-gradient(transparent 40%, #e4e2e7 40%)', p: 2 }}>
+                  <Box sx={{ width: { xs: '80%', md: '100%' }, height: 'fit-content', backgroundImage: 'linear-gradient(transparent 50%, #e4e2e7 50%)', p: 2, m: 'auto' }}>
                     <Box sx={sxImage}>
                       <Image
                         src={enterprise.thumb}
@@ -68,6 +57,6 @@ export const EnterprisesSlider = () => {
           ))}
         </div>
       </div>
-    </div>
+    </Box>
   )
 }

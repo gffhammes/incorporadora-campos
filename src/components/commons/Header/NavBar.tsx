@@ -11,7 +11,7 @@ import { useScroll } from '../../../hooks/useScroll';
 
 const sxLogo = {
   height: '100%',
-  width: '35vw',
+  width: '20vw',
   maxWidth: '15rem',
   minWidth: '7rem',
 }
@@ -23,6 +23,8 @@ const sxNavLink = {
     color: '#ffffff'
   }
 }
+
+
 
 
 export const NavBar = () => {  
@@ -65,10 +67,27 @@ export const NavBar = () => {
     )
   }, [currentRoute])
 
+  
+  const sxNav = {
+    transition: '.2s ease all',
+    position: isMenuScroll && !sizeMd ? 'fixed' : 'relative',
+    width: '100%',
+    backgroundColor: isMenuScroll && !sizeMd ? 'primary.main' : 'none',
+    boxShadow: isMenuScroll && !sizeMd ? 20 : 0,
+    top: isMenuScroll ? 0 : 'unset'
+  }
+
+  const sxNavItems = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    py: isMenuScroll && !sizeMd ? 1 : 5
+  }
+
   return(
-    <Box component='nav' sx={{ transition: '.2s ease all', position: isMenuScroll && !sizeMd ? 'fixed' : 'relative', width: '100%', backgroundColor: isMenuScroll && !sizeMd ? 'primary.main' : 'none', boxShadow: isMenuScroll && !sizeMd ? 20 : 0, top: isMenuScroll ? 0 : 'unset' }}>
+    <Box component='nav' sx={sxNav}>
       <Container>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', py: isMenuScroll && !sizeMd ? 2 : 5 }}>
+        <Box sx={sxNavItems}>
           <Box component={Link} href='/' passHref>
             <a style={sxLogo} >
               <LogoHorizontal width='100%' height='100%' />
@@ -79,7 +98,7 @@ export const NavBar = () => {
                 {pagesMemo}
               </Stack>
             : <>
-                <IconButton sx={{ fontSize: 30, color: 'white', zIndex: 999 }} onClick={handleMenuToggle}>
+                <IconButton sx={{ fontSize: 20, color: 'white', zIndex: 999 }} onClick={handleMenuToggle}>
                   {open ? <CloseIcon fontSize='inherit' /> : <MenuIcon fontSize='inherit' />}
                 </IconButton>
                 <Box

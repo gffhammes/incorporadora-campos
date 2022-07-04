@@ -15,7 +15,7 @@ export const Footer = () => {
   return (
     <Box component='footer'>
       <Subscribe />
-      <Box bgcolor='primary.main' sx={{ color: '#fff', py: 10 }}>
+      <Box bgcolor='primary.main' sx={{ color: '#fff', py: 7 }}>
         <Container>
           <Stack direction={{ xs: 'column', md: 'row' }} spacing={4} justifyContent='space-between'>
             <Box sx={{ width: '25vw', minWidth: '15rem', maxWidth: '20rem', height: '100%' }} >

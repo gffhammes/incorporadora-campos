@@ -72,7 +72,7 @@ export const SupplierForm = (props: Props) => {
 
   return (
     <Box bgcolor='#E4E2E7'>
-      <Container sx={{ py: 10 }}>
+      <Container sx={{ py: 7 }}>
         <SectionTitle>SEJA UM FORNECEDOR</SectionTitle>
         <Formik
         initialValues={{
