@@ -65,7 +65,7 @@ interface ILoadingButtonProps {
   children: any;
   color: string;
   type: "button" | "submit" | "reset";
-  sx: SxProps;
+  sx?: SxProps;
   loading?: boolean;
 }
 

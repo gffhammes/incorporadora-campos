@@ -1,4 +1,5 @@
 import { Box, Button, Container, Grid, Stack, Typography } from '@mui/material'
+import Image from 'next/image'
 import React from 'react'
 import { EnterpriseCard } from './EnterpriseCard'
 
@@ -6,14 +7,30 @@ import { EnterpriseCard } from './EnterpriseCard'
 export const EnterprisesSection = ({ enterprises }) => {
   return (
     <Box id='enterprises'>
-      <Container sx={{ py: 7, maxWidth: '1100px' }} maxWidth={false}>
-        <Grid container spacing={10}>
+      <Container sx={{ py: 10, maxWidth: '1100px' }} maxWidth={false}>
+        {enterprises.length > 0 && <Grid container spacing={10}>
           {enterprises.map((enterprise, index) => (
             <Grid item key={index} xs={12}>
               <EnterpriseCard enterprise={enterprise} />
             </Grid>
           ))}
-        </Grid>
+        </Grid>}
+        {enterprises.length === 0
+          &&  <Stack direction={{ xs: 'column', md: 'row' }} alignItems='center' justifyContent='center' spacing={5}>
+                <Box sx={{ position: 'relative', width: '20rem', height: '10rem' }}>
+                  <Image
+                    src='/vectors/undraw_house_searching_re_stk8.svg'
+                    alt='Não encontrado'
+                    layout='fill'
+                    objectFit='contain'
+                  />
+                </Box>
+                <Box>                    
+                  <Typography variant='h5'>Nenhum empreendimento encontrado</Typography>
+                  <Typography>Se você fez algum filtro, tente refazê-lo</Typography>
+                </Box>
+              </Stack>          
+        }
       </Container>
     </Box>
   )
