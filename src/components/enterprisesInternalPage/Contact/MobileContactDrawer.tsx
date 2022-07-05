@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import ContactForm from './ContactForm';
 
 const drawerBleeding = 56;
 
@@ -17,10 +18,10 @@ interface Props {
    * You won't need it on your project.
    */
   window?: () => Window;
+  enterpriseName: string;
 }
 
 const Root = styled('div')(({ theme }) => ({
-  height: '100%',
   backgroundColor:
     theme.palette.mode === 'light' ? grey[100] : theme.palette.background.default,
 }));
@@ -31,7 +32,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
 
 const Puller = styled(Box)(({ theme }) => ({
   width: 30,
-  height: 6,
+  height: 2,
   backgroundColor: theme.palette.mode === 'light' ? grey[300] : grey[900],
   borderRadius: 3,
   position: 'absolute',
@@ -39,8 +40,7 @@ const Puller = styled(Box)(({ theme }) => ({
   left: 'calc(50% - 15px)',
 }));
 
-export default function SwipeableEdgeDrawer(props: Props) {
-  const { window } = props;
+export const SwipeableEdgeDrawer = ({ enterpriseName, window }: Props) => {
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
@@ -60,10 +60,7 @@ export default function SwipeableEdgeDrawer(props: Props) {
             overflow: 'visible',
           },
         }}
-      />
-      <Box sx={{ textAlign: 'center', pt: 1 }}>
-        <Button onClick={toggleDrawer(true)}>Open</Button>
-      </Box>
+      />  
       <SwipeableDrawer
         container={container}
         anchor="bottom"
@@ -78,6 +75,8 @@ export default function SwipeableEdgeDrawer(props: Props) {
       >
         <StyledBox
           sx={{
+            backgroundColor: 'secondary.main',
+            color: 'white',
             position: 'absolute',
             top: -drawerBleeding,
             borderTopLeftRadius: 8,
@@ -88,17 +87,17 @@ export default function SwipeableEdgeDrawer(props: Props) {
           }}
         >
           <Puller />
-          <Typography sx={{ p: 2, color: 'text.secondary' }}>51 results</Typography>
+          <Typography textAlign='center' sx={{ p: 2 }}>TEM INTERESSE NO EMPREENDIMENTO?</Typography>
         </StyledBox>
         <StyledBox
           sx={{
-            px: 2,
-            pb: 2,
+            p: 2,
             height: '100%',
             overflow: 'auto',
+            backgroundColor: 'secondary.main',
           }}
         >
-          <Skeleton variant="rectangular" height="100%" />
+          <ContactForm enterpriseName={enterpriseName} />
         </StyledBox>
       </SwipeableDrawer>
     </Root>

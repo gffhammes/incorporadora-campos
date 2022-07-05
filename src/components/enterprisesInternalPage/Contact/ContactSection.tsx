@@ -8,6 +8,8 @@ import { Formik } from 'formik'
 import { sendMail } from '../../../services/sendMail'
 import { useScroll } from '../../../hooks/useScroll'
 import { useWindowSize } from '../../../hooks/useWindowSize'
+import { SwipeableEdgeDrawer } from './MobileContactDrawer'
+import ContactForm from './ContactForm'
 
 interface IContactData {
   name: string;
@@ -22,100 +24,33 @@ export const ContactSection = ({ enterpriseData }) => {
   const { width } = useWindowSize();
   
   const hideContact = scroll + window.innerHeight + 400 > document.getElementById('__next').scrollHeight
-  
-  const handleSnackbarClose = () => {
-    setOpenSnackbar(false)
-  }
-
+  const fixContact = width > 1200;
   let { asPath } = useRouter();
   asPath = asPath.split('/').pop()
   const { name: enterpriseName } = getEnterpriseBySlug(asPath)
   
-  const validate = (values: IContactData) => {
-    const errors: { name?: string, phone?: string, email?: string } = {};
-  
-    if (!values.name) errors.name = 'Obrigatório';
-
-    if (!values.phone) errors.phone = 'Obrigatório';
-    
-    if (!values.email) {
-      errors.email = 'Obrigatório';
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-      errors.email = 'Email inválido';
-    }
-    
-    return errors;
-  };
-  
-  const handleSubmit = async (values: IContactData) => { 
-    setLoading(true)
-    let data = {
-      email: values.email,
-      subject: `Contato para o empreendimento ${enterpriseName}`,
-      message: `
-        <ul>
-          <li>Nome: ${values.name}</li>
-          <li>Email: ${values.email}</li>
-          <li>Telefone: ${values.phone}</li>
-        </ul>
-      `,
-    }
-    await sendMail(data).then((res) => {
-      if (res.status === 200) setOpenSnackbar(true)
-      setLoading(false)
-    }).catch(() => setLoading(false))
+  const handleSnackbarClose = () => {
+    setOpenSnackbar(false)
   }
-
-  const fixContact = width > 1200;
+  
 
   return (
-    <Box bgcolor='secondary.main' sx={{ position: fixContact ? 'fixed' : 'relative', transform: hideContact && fixContact ? 'translateY(100%)' : 'translateY(0)',  bottom: 0, zIndex: 500, width: '100%', transition: '.3s ease all' }}>
-      <Container sx={{ py: 3 }}>
-        <Stack direction={{ xs: 'column', sm: 'row' }} spacing={{ xs: 5, lg: 15 }} alignItems='center'>          
-          <Stack spacing={2} sx={{ color: 'white' }}>
-            <Typography fontSize={22} fontWeight={500} letterSpacing={1} sx={{ whiteSpace: { xs: 'normal', lg: 'nowrap'} }}>TEM INTERESSE NO EMPREENDIMENTO?</Typography>
-            <Typography fontSize={18} sx={{ whiteSpace: { xs: 'normal', lg: 'nowrap'} }}>Preencha seus dados e entraremos em contato com você!</Typography>
+    <>    
+      {!fixContact && <SwipeableEdgeDrawer enterpriseName={enterpriseName} />}
+      {fixContact && <Box bgcolor='secondary.main' sx={{ position: 'fixed', transform: hideContact && fixContact ? 'translateY(100%)' : 'translateY(0)',  bottom: 0, zIndex: 500, width: '100%', transition: '.3s ease all' }}>
+        <Container sx={{ py: 3 }}>
+          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={{ xs: 5, lg: 15 }} alignItems='center'>          
+            <Stack spacing={2} sx={{ color: 'white' }}>
+              <Typography fontSize={22} fontWeight={500} letterSpacing={1} sx={{ whiteSpace: { xs: 'normal', lg: 'nowrap'} }}>TEM INTERESSE NO EMPREENDIMENTO?</Typography>
+              <Typography fontSize={18} sx={{ whiteSpace: { xs: 'normal', lg: 'nowrap'} }}>Preencha seus dados e entraremos em contato com você!</Typography>
+            </Stack>
+            <ContactForm enterpriseName={enterpriseName} />
           </Stack>
-          <div>
-          <Formik
-            initialValues={{
-              name: '',
-              phone: '',
-              email: '',
-            }}
-            validate={validate}
-            onSubmit={async (values, { resetForm }) => {
-              await handleSubmit(values);
-              resetForm();
-            }}
-          >
-            {(props) => (              
-              <form noValidate onSubmit={props.handleSubmit}>              
-                <Grid container spacing={2} alignItems='stretch'>
-                  <Grid item xs={12}>
-                    <Input id='name' name='name' placeholder='Nome Completo' required={true} />
-                  </Grid>
-                  <Grid item xs={12} md={6} lg={4}>
-                    <Input id='phone' name='phone' placeholder='Telefone' required={true} />
-                  </Grid>
-                  <Grid item xs={12} md={6} lg={4}>
-                    <Input id='email' name='email' placeholder='E-mail' required={true} />
-                  </Grid>
-                  <Grid item xs={12} lg={4}>
-                    <Box sx={{ height: '100%' }}>                    
-                      <LoadingButton loading={loading} sx={{ width: '100%', height: '100%' }} type='submit' color='primary' >ENVIAR</LoadingButton>
-                    </Box>
-                  </Grid>
-                </Grid>
-              </form>
-            )}
-          </Formik>
-          </div>
-        </Stack>
-      </Container>
-      <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleSnackbarClose}>
-        <Alert severity="success" variant="filled" onClose={handleSnackbarClose}>Mensagem enviada com sucesso!</Alert>
-      </Snackbar>
-    </Box>
+        </Container>
+        <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleSnackbarClose}>
+          <Alert severity="success" variant="filled" onClose={handleSnackbarClose}>Mensagem enviada com sucesso!</Alert>
+        </Snackbar>
+      </Box>}
+    </>
   )
 }

@@ -22,7 +22,7 @@ export const WhatsAppFloatButton = () => {
   const whatsappLink = useWhatsappLink();
 
   return (
-    <Box sx={{ ...buttonStyle, top: sizeSm ? '60%' : '80%' }}>
+    <Box sx={{ ...buttonStyle, top: '60%' }}>
       <a href={whatsappLink} target='_blank' rel="noreferrer" >        
         <Stack alignItems='center' spacing={1} sx={{ p: 2 }} >        
           <WhatsAppIcon sx={{ fontSize: 40 }} />
