@@ -375,7 +375,7 @@ const piazzaSanMarco: IEnterprise = {
 }
 
 const piazzaSanMarcoPraia: IEnterprise = {
-  hideSections: ['details','planOptions', 'contact'],
+  hideSections: ['details','planOptions', 'contact', 'differentials', 'status'],
   logo: null,
   thumb: '/images/piazza-san-marco-praia/piazza-san-marco-praia.jpg',
   image: '/images/piazza-san-marco-praia/piazza-san-marco-praia.jpg',
@@ -393,8 +393,8 @@ const piazzaSanMarcoPraia: IEnterprise = {
   apartmentsPerFloor: 3,
   status: 'Pré Lançamento',
   description: `Área privativa de 150 a 180m²\n1 suíte com 1 ou 2 dormitórios`,
-  pageTitle: 'INSPIRADO NA PRAÇA SAN MARCO, DE VENEZA:',
-  pageText: 'A praça de San Marco, construída no século IX, está localizada no coração de Veneza, juntamente com os edifícios mais representativos da cidade.\n\nEla não só é uma das mais bonitas da Itália, como também uma das mais bonitas do mundo. Napoleão a definiu como “o salão mais bonito da Europa”.\n\nA Piazza San Marco, foi a grande inspiração para a construção deste residencial.',
+  pageTitle: 'UMA FRASE SOBRE O MAR E A PRAIA:',
+  pageText: 'Frente mar - Torre Única\n\nPlantas de 150m² a 180m² privativos\n\n2 ou 3 vagas de garagem',
   apartmentsOptions: 'Apartamentos com opções de 3 e 2 suítes',
   photos: [
   ],
@@ -417,7 +417,7 @@ const piazzaSanMarcoPraia: IEnterprise = {
 }
 
 const bolshoiBrasil: IEnterprise = {
-  hideSections: ['details','planOptions', 'contact'],
+  hideSections: ['details','planOptions', 'contact', 'differentials', 'status'],
   logo: null,
   thumb: '/images/bolshoi-brasil/bolshoi-brasil.jpg',
   image: '/images/bolshoi-brasil/bolshoi-brasil.jpg',
@@ -459,7 +459,7 @@ const bolshoiBrasil: IEnterprise = {
 }
 
 const piazzaDiSpagna: IEnterprise = {
-  hideSections: ['details','planOptions', 'contact'],
+  hideSections: ['details','planOptions', 'contact', 'differentials', 'status'],
   logo: null,
   thumb: '/images/piazza-di-spagna/piazza-di-spagna.jpg',
   image: '/images/piazza-di-spagna/piazza-di-spagna.jpg',
