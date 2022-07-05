@@ -46,7 +46,7 @@ export const ContactForm = () => {
   }
 
   return (
-    <Box sx={{ background: 'linear-gradient(#fff 50%, #E4E2E7 50%)' }}>      
+    <Box sx={{ mb: 7 }}>      
       <Container>
         <Box  bgcolor='primary.main'>        
           <Stack
