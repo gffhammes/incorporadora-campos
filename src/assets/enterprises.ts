@@ -375,7 +375,7 @@ const piazzaSanMarco: IEnterprise = {
 }
 
 const piazzaSanMarcoPraia: IEnterprise = {
-  hideSections: ['details','planOptions', 'contact', 'differentials', 'status'],
+  hideSections: ['menu', 'details','planOptions', 'contact', 'differentials', 'status', 'maps'],
   logo: null,
   thumb: '/images/piazza-san-marco-praia/piazza-san-marco-praia.jpg',
   image: '/images/piazza-san-marco-praia/piazza-san-marco-praia.jpg',
@@ -393,7 +393,7 @@ const piazzaSanMarcoPraia: IEnterprise = {
   apartmentsPerFloor: 3,
   status: 'Pré Lançamento',
   description: `Área privativa de 150 a 180m²\n1 suíte com 1 ou 2 dormitórios`,
-  pageTitle: 'UMA FRASE SOBRE O MAR E A PRAIA:',
+  pageTitle: 'A BELEZA DO MAR VISTA DO SEU LAR!',
   pageText: 'Frente mar - Torre Única\n\nPlantas de 150m² a 180m² privativos\n\n2 ou 3 vagas de garagem',
   apartmentsOptions: 'Apartamentos com opções de 3 e 2 suítes',
   photos: [
@@ -417,11 +417,11 @@ const piazzaSanMarcoPraia: IEnterprise = {
 }
 
 const bolshoiBrasil: IEnterprise = {
-  hideSections: ['details','planOptions', 'contact', 'differentials', 'status'],
+  hideSections: ['menu', 'details','planOptions', 'contact', 'differentials', 'status', 'maps'],
   logo: null,
-  thumb: '/images/bolshoi-brasil/bolshoi-brasil.jpg',
-  image: '/images/bolshoi-brasil/bolshoi-brasil.jpg',
-  banner: '/images/bolshoi-brasil/bolshoi-brasil.jpg',
+  thumb: '/images/bolshoi-brasil/edificiobolshoibrasil_800x800px.png',
+  image: '/images/bolshoi-brasil/edificiobolshoibrasil_800x800px.png',
+  banner: '/images/bolshoi-brasil/capa_bailarina.png',
   name: 'Bolshoi Brasil',
   slug: 'bolshoi-brasil',
   district: 'América',
@@ -459,7 +459,7 @@ const bolshoiBrasil: IEnterprise = {
 }
 
 const piazzaDiSpagna: IEnterprise = {
-  hideSections: ['details','planOptions', 'contact', 'differentials', 'status'],
+  hideSections: ['menu', 'details','planOptions', 'contact', 'differentials', 'status', 'maps'],
   logo: null,
   thumb: '/images/piazza-di-spagna/piazza-di-spagna.jpg',
   image: '/images/piazza-di-spagna/piazza-di-spagna.jpg',
@@ -477,8 +477,8 @@ const piazzaDiSpagna: IEnterprise = {
   apartmentsPerFloor: 3,
   status: 'Pré Lançamento',
   description: `Plantas de 110 a 125m²`,
-  pageTitle: 'INSPIRADO NA PRAÇA SAN MARCO, DE VENEZA:',
-  pageText: 'A praça de San Marco, construída no século IX, está localizada no coração de Veneza, juntamente com os edifícios mais representativos da cidade.\n\nEla não só é uma das mais bonitas da Itália, como também uma das mais bonitas do mundo. Napoleão a definiu como “o salão mais bonito da Europa”.\n\nA Piazza San Marco, foi a grande inspiração para a construção deste residencial.',
+  pageTitle: 'Inspirada na Piazza di Spagna, no coração de Roma',  
+  pageText: 'A Praça di Spagna é um famoso símbolo de Roma, foi fundada em 1585 pelo pontífice Sisto V.\n\nEla possui um charme natural e une história e beleza!\n\nAguarde.',
   apartmentsOptions: 'Apartamentos com opções de 3 e 2 suítes',
   photos: [
   ],

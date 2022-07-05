@@ -27,14 +27,14 @@ const Enterprise = () => {
   return (
     <main style={{ height: '100%' }}>
       <HeroSection enterpriseData={currentEnterprise} />   
-      <ScrollMenu />
+      {currentEnterprise.hideSections?.includes('menu') ? null : <ScrollMenu />}      
       <SummarySection enterpriseData={currentEnterprise} />
       {currentEnterprise.hideSections?.includes('details') ? null : <DetailsSection enterpriseData={currentEnterprise} />}
       {currentEnterprise.hideSections?.includes('differentials') ? null : <DifferentialsSections enterpriseData={currentEnterprise} />}
       {currentEnterprise.hideSections?.includes('planOptions') ? null : <PlanOptionsSection enterpriseData={currentEnterprise} />}   
       {currentEnterprise.hideSections?.includes('contact') ? null : <ContactSection enterpriseData={currentEnterprise} />}
       {(avgEnterpriseStatus > 0 && !currentEnterprise.hideSections?.includes('status')) && <ConstructionStatusSection enterpriseData={currentEnterprise} />}
-      <MapsSection enterpriseData={currentEnterprise} />
+      {currentEnterprise.hideSections?.includes('maps') ? null : <MapsSection enterpriseData={currentEnterprise} />}      
       <SimulatorsSection />
       <Footer />
     </main>

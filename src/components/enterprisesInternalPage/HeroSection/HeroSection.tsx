@@ -60,7 +60,7 @@ export const HeroSection = ({ enterpriseData }) => {
             </Box>
           </Stack>
         </Container>
-        <FloatingDownArrowScroll targetId='internal-scroll-menu' />
+        <FloatingDownArrowScroll targetId={enterpriseData.hideSections.includes('menu') ? 'summary' : 'internal-scroll-menu'} />
       </Box>
     </Box>
   )
