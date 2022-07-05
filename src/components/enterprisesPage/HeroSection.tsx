@@ -1,4 +1,4 @@
-import { Box, Container, Typography } from '@mui/material'
+import { Box, Container, Stack, Typography } from '@mui/material'
 import React from 'react'
 import { FloatingDownArrowScroll } from '../commons/FloatingDownArrowScroll'
 import { SectionTitle } from '../commons/SectionTitle'
@@ -33,10 +33,16 @@ export const HeroSection = ({ enterprises, handleFilter }: IProps) => {
           zIndex: 100
         }}
       />
-      <Box sx={{ height: 'fit-content', width: '100%', my: 'auto', mt: '50vh', transform: 'translateY(-50%)',position: 'absolute', zIndex: 300 }}>
+      <Box sx={{ height: 'fit-content', width: '100%', my: 'auto', top: '60%', transform: 'translateY(-50%)',position: 'absolute', zIndex: 300 }}>
         <Container>
-          <SectionTitle theme='light'>NOSSOS EMPREENDIMENTOS</SectionTitle>  
-          <Filters enterprises={enterprises} handleFilter={handleFilter} />        
+          <Stack spacing={{ xs: 3, lg: 8}}>            
+            <Box>
+              <SectionTitle theme='light'>NOSSOS EMPREENDIMENTOS</SectionTitle>  
+            </Box>
+            <Box>              
+              <Filters enterprises={enterprises} handleFilter={handleFilter} />
+            </Box>
+          </Stack>
         </Container>
       </Box>
     </Box>

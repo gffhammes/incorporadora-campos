@@ -3,6 +3,7 @@ import { EnterprisesSection } from "../../src/components/enterprisesPage/Enterpr
 import { Footer } from "../../src/components/commons/Footer/Footer";
 import { enterprises } from "../../src/assets/enterprises";
 import { useState } from "react";
+import { scrollToTarget } from "../../src/helpers/scrollToTarget";
 
 export default function Home() {
   const [filteredEnterprises, setFilteredEnterprises] = useState(enterprises)
@@ -20,6 +21,7 @@ export default function Home() {
       )
     })
     setFilteredEnterprises(filtered)
+    scrollToTarget('enterprises')
   }
 
   return (

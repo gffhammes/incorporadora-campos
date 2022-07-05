@@ -71,17 +71,17 @@ const Filters = ({ enterprises, handleFilter }: IProps) => {
   }
 
   return (
-    <Grid container spacing={{ xs: 2, lg: 5 }}>
-      <Grid item xs={12} lg={1}>
-        <Typography textAlign={{ xs: 'center', lg: 'left' }} sx={{ color: 'white' }}>FILTROS</Typography>
+    <Grid container spacing={{ xs: 2, lg: 5 }} alignItems='center'>
+      <Grid item xs={12} lg={1} sx={{ display: 'flex' }}>
+        <Typography textAlign={{ xs: 'center', lg: 'left' }} sx={{ color: 'white', mx: 'auto' }}>FILTROS</Typography>
       </Grid>
-      <Grid item xs={12} lg={3}>
+      <Grid item xs={12} lg={3} sx={{ display: 'flex' }}>
         <Select label='Cidade' name='city' options={addClearOptionToOptions(cities)} value={city} handleChange={handleCityChange} width='100%' />
       </Grid>
-      <Grid item xs={12} lg={3}>
+      <Grid item xs={12} lg={3} sx={{ display: 'flex' }}>
         <Select label='Bairro' name='district' options={districtsOptions} value={district} handleChange={handleDistrictChange} width='100%' />
       </Grid>
-      <Grid item xs={12} lg={3}>
+      <Grid item xs={12} lg={3} sx={{ display: 'flex' }}>
         <Select label='Fase da Obra' name='buildingStatus' options={addClearOptionToOptions(statusOptions)} value={buildingStatus} handleChange={handleStatusChange} />
       </Grid>
       <Grid item xs={12} lg={2} sx={{ display: 'flex' }}>

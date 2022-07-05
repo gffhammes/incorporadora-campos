@@ -16,8 +16,8 @@ export const EnterprisesSection = ({ enterprises }) => {
           ))}
         </Grid>}
         {enterprises.length === 0
-          &&  <Stack direction={{ xs: 'column', md: 'row' }} alignItems='center' justifyContent='center' spacing={5}>
-                <Box sx={{ position: 'relative', width: '20rem', height: '10rem' }}>
+          &&  <Stack direction={{ xs: 'column', md: 'row' }} sx={{ minHeight: '60vh'}} alignItems='center' justifyContent='center' spacing={5}>
+                <Box sx={{ position: 'relative', width: '100%', maxWidth: '20rem', height: '10rem' }}>
                   <Image
                     src='/vectors/undraw_house_searching_re_stk8.svg'
                     alt='Não encontrado'
@@ -26,8 +26,8 @@ export const EnterprisesSection = ({ enterprises }) => {
                   />
                 </Box>
                 <Box>                    
-                  <Typography variant='h5'>Nenhum empreendimento encontrado</Typography>
-                  <Typography>Se você fez algum filtro, tente refazê-lo</Typography>
+                  <Typography textAlign={{ xs: 'center', md: 'left' }} variant='h5'>Nenhum empreendimento encontrado</Typography>
+                  <Typography textAlign={{ xs: 'center', md: 'left' }} >Se você fez algum filtro, tente refazê-lo</Typography>
                 </Box>
               </Stack>          
         }
