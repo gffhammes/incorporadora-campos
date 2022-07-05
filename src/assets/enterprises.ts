@@ -374,10 +374,139 @@ const piazzaSanMarco: IEnterprise = {
   }
 }
 
+const piazzaSanMarcoPraia: IEnterprise = {
+  hideSections: ['details','planOptions', 'contact'],
+  logo: null,
+  thumb: '/images/piazza-san-marco/SAN-MARCO-card-home.png',
+  image: '/images/SanMarco_800x800px.png',
+  banner: '/images/SanMarco_800x800px.png',
+  name: 'Piazza San Marco Praia',
+  slug: 'piazza-san-marco-praia',
+  district: 'Costa e Silva',
+  city: 'Itajuba',
+  fullAddress: 'Rua Professor Humberto Rohden 241, Costa e Silva - Joinville/SC',
+  area: 'Área privativa de 150 a 180m²',
+  bedrooms: '1 suíte com 1 ou 2 dormitórios',
+  buildingsQty: 1,
+  floorsQty: 5,
+  apartmentsTotal: 14,
+  apartmentsPerFloor: 3,
+  status: 'Pré Lançamento',
+  description: `Área privativa de 150 a 180m²\n1 suíte com 1 ou 2 dormitórios`,
+  pageTitle: 'INSPIRADO NA PRAÇA SAN MARCO, DE VENEZA:',
+  pageText: 'A praça de San Marco, construída no século IX, está localizada no coração de Veneza, juntamente com os edifícios mais representativos da cidade.\n\nEla não só é uma das mais bonitas da Itália, como também uma das mais bonitas do mundo. Napoleão a definiu como “o salão mais bonito da Europa”.\n\nA Piazza San Marco, foi a grande inspiração para a construção deste residencial.',
+  apartmentsOptions: 'Apartamentos com opções de 3 e 2 suítes',
+  photos: [
+  ],
+  differentials: [
+    'grill',
+    'party-hall',
+    'playground',
+    'decorated-hall',
+    'garage',
+  ],
+  plans: [
+  ],
+  detailedStatus: {
+    infrastructure: 1,
+    foundation: 1,
+    masonry: 1,
+    installations: 1,
+    coating: 1,
+  }
+}
+
+const bolshoiBrasil: IEnterprise = {
+  hideSections: ['details','planOptions', 'contact'],
+  logo: null,
+  thumb: '/images/piazza-san-marco/SAN-MARCO-card-home.png',
+  image: '/images/SanMarco_800x800px.png',
+  banner: '/images/SanMarco_800x800px.png',
+  name: 'Bolshoi Brasil',
+  slug: 'bolshoi-brasil',
+  district: 'América',
+  city: 'Joinville',
+  fullAddress: 'Rua Pará, 276 - América - Joinville/SC',
+  area: 'Área privativa de 178 a 360m²',
+  bedrooms: '1 suíte com 1 ou 2 dormitórios',
+  buildingsQty: 1,
+  floorsQty: 5,
+  apartmentsTotal: 14,
+  apartmentsPerFloor: 3,
+  status: 'Pré Lançamento',
+  description: `Plantas de 178m² privativos\nDuas coberturas com 360m² privativos`,
+  pageTitle: 'INSPIRADO NA PRAÇA SAN MARCO, DE VENEZA:',
+  pageText: 'A praça de San Marco, construída no século IX, está localizada no coração de Veneza, juntamente com os edifícios mais representativos da cidade.\n\nEla não só é uma das mais bonitas da Itália, como também uma das mais bonitas do mundo. Napoleão a definiu como “o salão mais bonito da Europa”.\n\nA Piazza San Marco, foi a grande inspiração para a construção deste residencial.',
+  apartmentsOptions: 'Apartamentos com opções de 3 e 2 suítes',
+  photos: [
+  ],
+  differentials: [
+    'grill',
+    'party-hall',
+    'playground',
+    'decorated-hall',
+    'garage',
+  ],
+  plans: [
+  ],
+  detailedStatus: {
+    infrastructure: 1,
+    foundation: 1,
+    masonry: 1,
+    installations: 1,
+    coating: 1,
+  }
+}
+
+const piazzaDiSpagna: IEnterprise = {
+  hideSections: ['details','planOptions', 'contact'],
+  logo: null,
+  thumb: '/images/piazza-san-marco/SAN-MARCO-card-home.png',
+  image: '/images/SanMarco_800x800px.png',
+  banner: '/images/SanMarco_800x800px.png',
+  name: 'Piazza Di Spagna',
+  slug: 'piazza-di-spagna',
+  district: 'América',
+  city: 'Joinville',
+  fullAddress: 'Rua Visconde de Mauá - América - Joinville/SC',
+  area: 'Área privativa de 110 a 125m²',
+  bedrooms: '1 suíte com 1 ou 2 dormitórios',
+  buildingsQty: 1,
+  floorsQty: 5,
+  apartmentsTotal: 14,
+  apartmentsPerFloor: 3,
+  status: 'Pré Lançamento',
+  description: `Plantas de 110 a 125m²`,
+  pageTitle: 'INSPIRADO NA PRAÇA SAN MARCO, DE VENEZA:',
+  pageText: 'A praça de San Marco, construída no século IX, está localizada no coração de Veneza, juntamente com os edifícios mais representativos da cidade.\n\nEla não só é uma das mais bonitas da Itália, como também uma das mais bonitas do mundo. Napoleão a definiu como “o salão mais bonito da Europa”.\n\nA Piazza San Marco, foi a grande inspiração para a construção deste residencial.',
+  apartmentsOptions: 'Apartamentos com opções de 3 e 2 suítes',
+  photos: [
+  ],
+  differentials: [
+    'grill',
+    'party-hall',
+    'playground',
+    'decorated-hall',
+    'garage',
+  ],
+  plans: [
+  ],
+  detailedStatus: {
+    infrastructure: 1,
+    foundation: 1,
+    masonry: 1,
+    installations: 1,
+    coating: 1,
+  }
+}
+
 export const enterprises:IEnterprise [] = [
   piazzaSanPietro,
   piazzaDelMare,
   piazzaDellaLiberta,
   piazzaSanCarlo,
   piazzaSanMarco,
+  piazzaSanMarcoPraia,
+  bolshoiBrasil,
+  piazzaDiSpagna,
 ]
