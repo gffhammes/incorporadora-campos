@@ -11,7 +11,7 @@ interface IProps {
 
 export const HeroSection = ({ enterprises, handleFilter }: IProps) => {
   return (
-    <Box sx={{ height: '100%', display: 'flex', position: 'relative' }} >
+    <Box sx={{ height: '80%', minHeight: '600px', display: 'flex', position: 'relative' }} >
       <Box
         sx={{
           position: 'absolute',
@@ -29,12 +29,12 @@ export const HeroSection = ({ enterprises, handleFilter }: IProps) => {
           backgroundImage: 'url(/images/empreendimentos-banner.png)',
           backgroundPosition: 'bottom',
           backgroundRepeat: 'no-repeat',
-          backgroundSize: 'auto 100%',
+          backgroundSize: 'cover',
           zIndex: 100
         }}
       />
-      <Box sx={{ height: 'fit-content', width: '100%', my: 'auto', top: '60%', transform: 'translateY(-50%)',position: 'absolute', zIndex: 300 }}>
-        <Container>
+      <Box sx={{ height: '100%', width: '100%', my: 'auto', display: 'flex', pt: '10rem', position: 'absolute', zIndex: 300 }}>
+        <Container sx={{ my: 'auto' }}>
           <Stack spacing={{ xs: 3, lg: 8}}>            
             <Box>
               <SectionTitle theme='light'>NOSSOS EMPREENDIMENTOS</SectionTitle>  

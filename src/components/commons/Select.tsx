@@ -40,7 +40,7 @@ interface IProps {
 export const Select = ({ label, name, options, value, handleChange, width, maxWidth }: IProps) => {
 
   return (
-    <FormControl sx={{width: width || '100%', mx: 'auto', maxWidth: maxWidth || '20rem'}}>      
+    <FormControl sx={{width: width || '100%', mx: 'auto', maxWidth: maxWidth }}>      
       <InputLabel
         sx={{
           color: 'rgba(255, 255, 255, 0.5)',
