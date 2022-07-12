@@ -64,15 +64,15 @@ export const SwipeableEdgeDrawer = ({ enterpriseName, window }: Props) => {
       <SwipeableDrawer
         // container={container}
         anchor="bottom"
-        open={true}
+        open={open}
         onClose={toggleDrawer(false)}
         onOpen={toggleDrawer(true)}
         swipeAreaWidth={drawerBleeding}
         // disableSwipeToOpen={false}
         disableDiscovery
-        ModalProps={{
-          keepMounted: true,
-        }}
+        // ModalProps={{
+        //   keepMounted: true,
+        // }}
       >
         <StyledBox
           sx={{
