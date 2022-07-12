@@ -1,6 +1,6 @@
 import { Box, Container, Grid, Paper, Stack, SxProps, Theme, Typography } from '@mui/material'
 import Image from 'next/image'
-import React from 'react'
+import React, { useCallback, useMemo } from 'react'
 import { PrimaryGradientCover } from '../../commons/PrimaryGradientCover';
 import { SectionTitle } from '../../commons/SectionTitle';
 import { FloatingDownArrowScroll } from '../../commons/FloatingDownArrowScroll';
@@ -38,6 +38,35 @@ export const HeroSection = ({ enterpriseData }) => {
     backgroundSize: 'cover',
   }
   
+  const getLogo = useCallback(() => {
+    if (enterpriseData.logo) {
+      return (
+        <Box sx={sxLogo} >                           
+          <Image
+            src={enterpriseData.logo}
+            alt={enterpriseData.name}
+            layout='fill'
+            objectFit='contain'
+          />
+        </Box>
+      )
+    }
+    return <SectionTitle theme='light'>{enterpriseData.name.toUpperCase()}</SectionTitle>
+  }, [enterpriseData])
+
+  const contentMemo = useMemo(() => {
+    if (enterpriseData.status === 'Pré Lançamento') {
+      return (
+        <>
+          <Typography textAlign='center' fontSize={12} letterSpacing={5} sx={{ color: 'rgba(255, 255, 255, .8)', mb: 3 }}>{enterpriseData.status.toUpperCase()}</Typography>
+          {getLogo()}
+        </>
+      )
+    }
+    
+    return getLogo()
+  }, [enterpriseData.status, getLogo])
+  
   return (
     <Box sx={{ position: 'relative', zIndex: 500, height: '100%', }}>
       <Box sx={sxBanner}/>
@@ -46,17 +75,7 @@ export const HeroSection = ({ enterpriseData }) => {
         <Container sx={{ display: 'flex', height: '100%', pb: 10, pt: 20 }}>  
           <Stack direction={{ xs: 'column', md: 'row' }} spacing={10} sx={{ height: '100%', width: '100%' }} alignItems='center' justifyContent='center'>
             <Box>              
-              {enterpriseData.logo
-                ? <Box sx={sxLogo} >                           
-                    <Image
-                      src={enterpriseData.logo}
-                      alt={enterpriseData.name}
-                      layout='fill'
-                      objectFit='contain'
-                    />
-                  </Box>
-                : <SectionTitle theme='light'>{enterpriseData.name.toUpperCase()}</SectionTitle>
-              }
+              {contentMemo}
             </Box>
           </Stack>
         </Container>
