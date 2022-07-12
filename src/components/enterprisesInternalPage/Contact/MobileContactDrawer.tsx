@@ -13,11 +13,6 @@ import ContactForm from './ContactForm';
 const drawerBleeding = 56;
 
 interface Props {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window?: () => Window;
   enterpriseName: string;
 }
 
@@ -40,15 +35,13 @@ const Puller = styled(Box)(({ theme }) => ({
   left: 'calc(50% - 15px)',
 }));
 
-export const SwipeableEdgeDrawer = ({ enterpriseName, window }: Props) => {
+export const SwipeableEdgeDrawer = ({ enterpriseName }: Props) => {
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
 
-  // This is used only for the example
-  const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
     <Root>
@@ -62,17 +55,16 @@ export const SwipeableEdgeDrawer = ({ enterpriseName, window }: Props) => {
         }}
       />  
       <SwipeableDrawer
-        // container={container}
         anchor="bottom"
         open={open}
         onClose={toggleDrawer(false)}
         onOpen={toggleDrawer(true)}
-        swipeAreaWidth={drawerBleeding}
-        // disableSwipeToOpen={false}
-        disableDiscovery
-        // ModalProps={{
-        //   keepMounted: true,
-        // }}
+        // swipeAreaWidth={drawerBleeding}
+        disableSwipeToOpen={false}
+        disableDiscovery={true}
+        ModalProps={{
+          keepMounted: true,
+        }}
       >
         <StyledBox
           sx={{
