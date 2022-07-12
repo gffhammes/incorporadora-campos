@@ -56,7 +56,7 @@ export const SwipeableEdgeDrawer = ({ enterpriseName, window }: Props) => {
       <Global
         styles={{
           '.MuiDrawer-root > .MuiPaper-root': {
-            height: `calc(50% - ${drawerBleeding}px)`,
+            height: `calc(90% - ${drawerBleeding}px)`,
             overflow: 'visible',
           },
         }}
@@ -64,7 +64,7 @@ export const SwipeableEdgeDrawer = ({ enterpriseName, window }: Props) => {
       <SwipeableDrawer
         // container={container}
         anchor="bottom"
-        open={open}
+        open={true}
         onClose={toggleDrawer(false)}
         onOpen={toggleDrawer(true)}
         swipeAreaWidth={drawerBleeding}
