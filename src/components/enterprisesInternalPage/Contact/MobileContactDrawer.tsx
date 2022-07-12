@@ -62,7 +62,7 @@ export const SwipeableEdgeDrawer = ({ enterpriseName, window }: Props) => {
         }}
       />  
       <SwipeableDrawer
-        container={container}
+        // container={container}
         anchor="bottom"
         open={open}
         onClose={toggleDrawer(false)}
