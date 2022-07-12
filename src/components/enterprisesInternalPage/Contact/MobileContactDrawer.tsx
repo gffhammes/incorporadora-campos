@@ -49,7 +49,7 @@ export const SwipeableEdgeDrawer = ({ enterpriseName }: Props) => {
       <Global
         styles={{
           '.MuiDrawer-root > .MuiPaper-root': {
-            height: `calc(90% - ${drawerBleeding}px)`,
+            height: `calc(50% - ${drawerBleeding}px)`,
             overflow: 'visible',
           },
         }}
