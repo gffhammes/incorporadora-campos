@@ -15,9 +15,8 @@ const Slide = ({ image, label }: Props) => {
         zoomSrc={image}
         zoomType='hover'
         hideHint={true}
-        height='100%'
-        width='100%'
-        // zoomScale={.3}
+        // height='100%'
+        // width='100%'
       />
       <Typography textAlign='center' sx={{ mt: 3 }} fontSize={18} fontWeight={500}>{label}</Typography>
     </Stack>

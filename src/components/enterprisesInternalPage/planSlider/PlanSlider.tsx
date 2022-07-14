@@ -43,7 +43,17 @@ export const PlanSlider = ({ slides }) => {
   }, [emblaApi])
 
   return (
-    <Stack direction='row' alignItems='center' sx={{ height: '100%', width: '30rem', maxWidth: '100%', position: 'relative', m: 'auto' }}>
+    <Stack
+      direction='row'
+      alignItems='center'
+      sx={{
+        height: '100%',
+        // minWidth: '20rem',
+        maxWidth: '30rem',
+        position: 'relative',
+        m: 'auto'
+      }}
+    >
       <Box sx={{ ...defaultButtonProps, marginLeft: '-1rem', left: 0 }} onClick={scrollPrev}>        
         <ArrowBackIosIcon {...defaultSvgProps} sx={{ color: 'secondary.main' }} />
       </Box>
