@@ -93,15 +93,13 @@ const piazzaSanPietro: IEnterprise = {
       <li>Torre única | 8 andares | 17 aptos. | 3 por andar</li>
       <li>7 Aptos. tipo 1 com 126m² privativos | 3 suítes</li>
       <li>10 Aptos. tipo 2 e 3 com 108m² privativos | 2 suítes e 1 dormitório</li>
-      <li>1 cobertura plana com 168m²</li>
-      <li>1 cobertura plana com 173m²</li>
+      <li>1 cobertura plana com 168m² privativos</li>
+      <li>1 cobertura plana com 173m² privativos</li>
       <li>Sacada com churrasqueira a carvão</li>
       <li>Duas vagas de garagem</li>
-      <li>Opção para a terceira vaga de garagem</li>
       <li>Ambientes integrados nos apartamentos</li>
       <li>Infraestrutura para sistema de segurança</li>
       <li>Infraestrutura para refrigeração em todos os cômodos</li>
-      <li>Porcelanato na cozinha, sala e áreas molhadas</li>
     </ul>
     <br/>
     <strong style="color: #1A47BC;">📅 ENTREGA PREVISTA MAIO 2024</strong>
@@ -157,9 +155,9 @@ const piazzaDelMare: IEnterprise = {
   planText: `
     <ul style="list-style-position: inside;">
       <li>Torre única / 19 andares / 45 apartamentos / 3 por andar</li>
-      <li>15 aptos tipo 1 com 123,61m² privativos / 3 suítes</li>
-      <li>15 aptos tipo 3 com 100,14 m² / 1 suíte e 2 demi-suítes</li>
-      <li>15 aptos tipo 3 com 100,52 m² privativos / 1 suíte e 2 demi-suítes</li>
+      <li>Plantas tipo 1: 123,96m² privativos</li>
+      <li>Plantas tipo 2: 99,90m² privativos</li>
+      <li>Plantas tipo 3: 99,98m² privativos</li>
       <li>Espaço gourmet no apartamento</li>
       <li>Sacada com churrasqueira a carvão</li>
       <li>Ambientes integrados nos apartamentos</li>  
