@@ -204,24 +204,40 @@ const piazzaDelMare: IEnterprise = {
   ],
   plans: [
     {
-      label: 'Apartamento Tipo 1',
-      image: '/images/piazza-del-mare/plantas/PLANTA APTO TIPO 01.jpg',
+      label: 'Planta geral Tipo - Com áreas',
+      image: '/images/piazza-del-mare/plantas/Planta geral Tipo - Com áreas.png',
     },
     {
-      label: 'Apartamento Tipo 2',
-      image: '/images/piazza-del-mare/plantas/PLANTA APTO TIPO 02.jpg',
+      label: 'Planta geral Tipo',
+      image: '/images/piazza-del-mare/plantas/Planta geral Tipo.png',
     },
     {
-      label: 'Apartamento Tipo 3',
-      image: '/images/piazza-del-mare/plantas/PLANTA APTO TIPO 03.jpg',
+      label: 'Planta Rooftop',
+      image: '/images/piazza-del-mare/plantas/Planta Rooftop.jpg',
     },
     {
-      label: 'Planta Geral',
-      image: '/images/piazza-del-mare/plantas/PLANTA GERAL.jpg',
+      label: 'Planta Tipo 1 - Com áreas',
+      image: '/images/piazza-del-mare/plantas/Planta Tipo 1 - Com áreas.png',
     },
     {
-      label: 'Rooftop',
-      image: '/images/piazza-del-mare/plantas/PLANTA ROOFTOP.jpg',
+      label: 'Planta Tipo 1',
+      image: '/images/piazza-del-mare/plantas/Planta Tipo 1.png',
+    },
+    {
+      label: 'Planta Tipo 2 - Com áreas',
+      image: '/images/piazza-del-mare/plantas/Planta Tipo 2 - Com áreas.png',
+    },
+    {
+      label: 'Planta Tipo 2',
+      image: '/images/piazza-del-mare/plantas/Planta Tipo 2.png',
+    },
+    {
+      label: 'Planta Tipo 3 - Com áreas',
+      image: '/images/piazza-del-mare/plantas/Planta Tipo 3 - Com áreas.png',
+    },
+    {
+      label: 'Planta Tipo 3',
+      image: '/images/piazza-del-mare/plantas/Planta Tipo 3.png',
     },
   ],
   detailedStatus: {
