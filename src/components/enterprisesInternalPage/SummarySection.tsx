@@ -46,7 +46,7 @@ export const SummarySection = ({ enterpriseData }) => {
           </Box>
           <Box sx={{ gridArea: 'c' }}>      
             <Typography sx={{ whiteSpace: 'pre-wrap' }}>{enterpriseData.pageText}</Typography>
-            <Typography fontSize={20} fontWeight={600} letterSpacing={1} sx={{ color: '#1a47bc', mt: 4 }}>{getEnterpriseDetailsString(enterpriseData.slug)}</Typography>
+            <Typography fontSize={20} fontWeight={600} letterSpacing={1} sx={{ color: '#1a47bc', mt: 4 }}>{enterpriseData.summaryText}</Typography>
             <Typography fontSize={20} fontWeight={600} letterSpacing={1} sx={{ color: '#1a47bc' }}>Plantas com opções de {enterpriseData.bedrooms}</Typography>
           </Box>
         </Box>

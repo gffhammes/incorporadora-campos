@@ -21,6 +21,7 @@ interface IEnterprise {
   description: string;
   photos: string[];
   differentials: string[];
+  summaryText: string;
   planText?: string;
   plans: { label: string; image: string; }[];
   detailedStatus: {
@@ -128,7 +129,8 @@ const piazzaSanPietro: IEnterprise = {
     masonry: 0.1,
     installations: 0,
     coating: 0,
-  }
+  },
+  summaryText: 'Torre única | 8 andares | 17 apartamentos | 02 Coberturas | Ambientes integrados nos apartamentos | Infraestrutura para sistema de segurança | Infraestrutura para refrigeração em todos os cômodos',
 }
 
 const piazzaDelMare: IEnterprise = {
@@ -244,7 +246,8 @@ const piazzaDelMare: IEnterprise = {
     masonry: 0,
     installations: 0,
     coating: 0,
-  }
+  },
+  summaryText: 'Torre única | 19 andares | 45 apartamentos | Opção de segunda vaga de garagem | Infraestrutura para sistema de segurança | 2 elevadores',
 }
 
 const piazzaDellaLiberta: IEnterprise = {
@@ -297,7 +300,8 @@ const piazzaDellaLiberta: IEnterprise = {
     masonry: 1,
     installations: 1,
     coating: 1,
-  }
+  },
+  summaryText: 'Torre única | 8 andares | 23 apartamentos',
 }
 
 const piazzaSanCarlo: IEnterprise = {
@@ -343,7 +347,8 @@ const piazzaSanCarlo: IEnterprise = {
     masonry: 1,
     installations: 1,
     coating: 1,
-  }
+  },
+  summaryText: 'Torre única | 5 andares | 17 apartamentos',
 }
 
 const piazzaSanMarco: IEnterprise = {
@@ -385,7 +390,8 @@ const piazzaSanMarco: IEnterprise = {
     masonry: 1,
     installations: 1,
     coating: 1,
-  }
+  },
+  summaryText: 'Torre única | 5 andares | 14 apartamentos',
 }
 
 const piazzaSanMarcoPraia: IEnterprise = {
@@ -427,7 +433,8 @@ const piazzaSanMarcoPraia: IEnterprise = {
     masonry: 1,
     installations: 1,
     coating: 1,
-  }
+  },
+  summaryText: 'Torre única | 5 andares | 14 apartamentos',
 }
 
 const bolshoiBrasil: IEnterprise = {
@@ -469,7 +476,8 @@ const bolshoiBrasil: IEnterprise = {
     masonry: 1,
     installations: 1,
     coating: 1,
-  }
+  },
+  summaryText: 'Torre única | 5 andares | 14 apartamentos',
 }
 
 const piazzaDiSpagna: IEnterprise = {
@@ -511,7 +519,8 @@ const piazzaDiSpagna: IEnterprise = {
     masonry: 1,
     installations: 1,
     coating: 1,
-  }
+  },
+  summaryText: 'Torre única | 5 andares | 14 apartamentos',
 }
 
 export const enterprises:IEnterprise [] = [
