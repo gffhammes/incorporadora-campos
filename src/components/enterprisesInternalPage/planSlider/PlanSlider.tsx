@@ -5,6 +5,7 @@ import { defaultSvgProps } from '../../../constants/defaultSvgProps'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Slide from './Slide';
+import FullScreenPlanSlider from './FullScreenPlanSlider';
 
 const defaultButtonProps = {
   zIndex: 500,
@@ -32,7 +33,17 @@ const sxEmblaContainer = {
 }
 
 export const PlanSlider = ({ slides }) => {
+  const [selectedSlide, setSelectedSlide] = useState<number>(0);
+  const [fullScreen, setFullScreen] = useState<boolean>(false);
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
+
+  const handleOpenFullScreen = () => {
+    setFullScreen(true);
+  }
+
+  const handleExitFullScreen = () => {
+    setFullScreen(false);
+  }
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev()
@@ -41,38 +52,44 @@ export const PlanSlider = ({ slides }) => {
   const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext()
   }, [emblaApi])
+  
+  emblaApi?.on('select', () => {
+    setSelectedSlide(emblaApi.selectedScrollSnap())
+  })
 
   return (
-    <Stack
-      direction='row'
-      alignItems='center'
-      sx={{
-        height: '100%',
-        // minWidth: '20rem',
-        maxWidth: '30rem',
-        position: 'relative',
-        m: 'auto'
-      }}
-    >
-      <Box sx={{ ...defaultButtonProps, marginLeft: '-1rem', left: 0 }} onClick={scrollPrev}>        
-        <ArrowBackIosIcon {...defaultSvgProps} sx={{ color: 'secondary.main' }} />
-      </Box>
-      <Box sx={{ width: '100%', height: '100%'}}>
-        <Box sx={sxEmbla}>
-          <Box sx={{ height: '100%' }} ref={emblaRef}>
-            <Box sx={sxEmblaContainer}>
-              {slides.map((slide, index) => (
-                <Box sx={sxEmblaSlide} key={index} >
-                  <Slide image={slide.image} label={slide.label} />
-                </Box>
-              ))}
+    <>    
+      <Stack
+        direction='row'
+        alignItems='center'
+        sx={{
+          height: '100%',
+          maxWidth: '30rem',
+          position: 'relative',
+          m: 'auto'
+        }}
+      >
+        <Box sx={{ ...defaultButtonProps, marginLeft: '-1rem', left: 0 }} onClick={scrollPrev}>        
+          <ArrowBackIosIcon {...defaultSvgProps} sx={{ color: 'secondary.main' }} />
+        </Box>
+        <Box sx={{ width: '100%', height: '100%'}}>
+          <Box sx={sxEmbla}>
+            <Box sx={{ height: '100%' }} ref={emblaRef}>
+              <Box sx={sxEmblaContainer}>
+                {slides.map((slide, index) => (
+                  <Box sx={sxEmblaSlide} key={index} >
+                    <Slide image={slide.image} label={slide.label} handleOpenFullScreen={handleOpenFullScreen} />
+                  </Box>
+                ))}
+              </Box>
             </Box>
           </Box>
         </Box>
-      </Box>
-      <Box sx={{ ...defaultButtonProps, marginRight: '-1rem', right: 0 }} onClick={scrollNext}>        
-        <ArrowForwardIosIcon {...defaultSvgProps} sx={{ color: 'secondary.main' }} />
-      </Box>
-    </Stack>
+        <Box sx={{ ...defaultButtonProps, marginRight: '-1rem', right: 0 }} onClick={scrollNext}>        
+          <ArrowForwardIosIcon {...defaultSvgProps} sx={{ color: 'secondary.main' }} />
+        </Box>
+      </Stack>
+      <FullScreenPlanSlider open={fullScreen} handleClose={handleExitFullScreen} images={slides} startIndex={selectedSlide} />
+    </>
   )
 }
