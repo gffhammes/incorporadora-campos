@@ -14,6 +14,7 @@ import { SimulatorsSection } from '../../src/components/enterprisesInternalPage/
 import { getAverageEnterpriseStatus } from '../../src/helpers/getAverageEnterpriseStatus'
 import { HeroSection } from '../../src/components/enterprisesInternalPage/HeroSection/HeroSection'
 import { ContactSection } from '../../src/components/enterprisesInternalPage/Contact/ContactSection'
+import VideoZico from '../../src/components/enterprisesInternalPage/delMare/VideoZico'
 
 const Enterprise = () => {
   const router = useRouter()
@@ -29,6 +30,7 @@ const Enterprise = () => {
       <HeroSection enterpriseData={currentEnterprise} />   
       {currentEnterprise.hideSections?.includes('menu') ? null : <ScrollMenu />}      
       <SummarySection enterpriseData={currentEnterprise} />
+      {currentEnterprise.slug === 'piazza-del-mare' && <VideoZico />}
       {currentEnterprise.hideSections?.includes('details') ? null : <DetailsSection enterpriseData={currentEnterprise} />}
       {currentEnterprise.hideSections?.includes('differentials') ? null : <DifferentialsSections enterpriseData={currentEnterprise} />}
       {currentEnterprise.hideSections?.includes('planOptions') ? null : <PlanOptionsSection enterpriseData={currentEnterprise} />}   
