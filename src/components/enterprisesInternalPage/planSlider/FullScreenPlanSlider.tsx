@@ -145,7 +145,7 @@ export default function FullScreenPlanSlider({ open, handleClose, images, startI
             </IconButton> 
           </Toolbar>
         </AppBar>
-        <Box sx={{ height: '100%', overflowX: 'hidden' }}>
+        <Box sx={{ height: '100%', overflowX: 'hidden', py: 5 }}>
           <Slider images={images} startIndex={startIndex} handleSelectedSlideChange={handleSelectedSlideChange} />
         </Box>
       </Dialog>

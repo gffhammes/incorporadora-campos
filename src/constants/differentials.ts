@@ -6,7 +6,7 @@ export const differentials = {
   'wet-deck': 'Deck Piscina',
   'party-hall': 'Salão de Festas',
   'playground': 'Playground',
-  'playroom': 'Brinquedoteca',
+  'playroom': 'Sala de Jogos',
   'zen-lounge': 'Espaço Zen',
   'noble-area': 'Região Nobre',
   'rooftop': 'Rooftop',

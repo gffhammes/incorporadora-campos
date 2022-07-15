@@ -88,6 +88,7 @@ const piazzaSanPietro: IEnterprise = {
     'kids-room',
     'zen-lounge',
     'noble-area',
+    'playroom',
   ],
   planText: `
     <ul style="list-style-position: inside;">
