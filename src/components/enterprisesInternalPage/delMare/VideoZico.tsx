@@ -12,6 +12,7 @@ const VideoZico = (props: Props) => {
           width='100%'
           autoPlay
           controls
+          muted
         />
       </Container>
     </Box>
