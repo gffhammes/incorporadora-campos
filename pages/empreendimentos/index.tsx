@@ -1,11 +1,11 @@
 import { HeroSection } from "../../src/components/enterprisesPage/HeroSection";
 import { EnterprisesSection } from "../../src/components/enterprisesPage/EnterprisesSection";
 import { Footer } from "../../src/components/commons/Footer/Footer";
-import { enterprises } from "../../src/assets/enterprises";
+// import { enterprises } from "../../src/assets/enterprises";
 import { useState } from "react";
 import { scrollToTarget } from "../../src/helpers/scrollToTarget";
 
-export default function Home() {
+export default function Home({ enterprises }) {
   const [filteredEnterprises, setFilteredEnterprises] = useState(enterprises)
   
   const handleFilter = (values: {
@@ -24,11 +24,26 @@ export default function Home() {
     scrollToTarget('enterprises')
   }
 
+  console.log(enterprises)
+
   return (
     <main style={{ height: '100%' }}>
-      <HeroSection enterprises={enterprises} handleFilter={handleFilter} />
+      {/* <HeroSection enterprises={enterprises} handleFilter={handleFilter} /> */}
       <EnterprisesSection enterprises={filteredEnterprises} />
       <Footer />
     </main>
   )
+}
+
+export async function getServerSideProps() {
+  const { API_URL } = process.env;
+
+  const res = await fetch(`${API_URL}/api/empreendimentos?populate=*`);
+  const data = await res.json();
+
+  return {
+    props: {
+      enterprises: data.data,
+    }
+  }
 }
