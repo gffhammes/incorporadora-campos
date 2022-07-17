@@ -5,7 +5,7 @@ import Image from 'next/image'
 import LeftArrow from '../../../../public/vectors/arrows/left-arrow.svg'
 import RightArrow from '../../../../public/vectors/arrows/right-arrow.svg'
 import { defaultSvgProps } from '../../../constants/defaultSvgProps'
-import FullScreenSliderDialog from '../FullScreenSliderDialog'
+import FullScreenSliderDialog from './FullScreenSliderDialog'
 
 const defaultButtonProps = {
   zIndex: 500,
@@ -62,21 +62,15 @@ const Slide = ({ image, selectedSlide, index }) => {
 
 export const DetailsSlider = ({ images }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, draggable: false })
-  const [selectedSlide, setSelectedSlide] = useState(0)
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    if (emblaApi) {
-      // Embla API is ready
-    }
-  }, [emblaApi])
+  const [selectedSlide, setSelectedSlide] = useState<number>(0);
+  const [fullScreen, setFullScreen] = useState<boolean>(false);
 
   const handleClickOpen = () => {
-    setOpen(true);
+    setFullScreen(true);
   };
 
   const handleClose = () => {
-    setOpen(false);
+    setFullScreen(false);
   };
 
   const scrollPrev = useCallback(() => {
@@ -113,9 +107,10 @@ export const DetailsSlider = ({ images }) => {
         </Box>
       </Stack>
       <FullScreenSliderDialog
-        open={open}
+        open={fullScreen}
         handleClose={handleClose}
         images={images}
+        selectedSlide={selectedSlide}
       />
     </>
   )
