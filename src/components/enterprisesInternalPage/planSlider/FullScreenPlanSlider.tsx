@@ -68,6 +68,7 @@ const buttonProps = {
 }
 
 const Slider = ({ images, startIndex, handleSelectedSlideChange }) => {
+  const { API_URL } = process.env;
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, startIndex })
 
   const scrollPrev = useCallback(() => {
@@ -94,8 +95,8 @@ const Slider = ({ images, startIndex, handleSelectedSlideChange }) => {
               {images.map((image, index) => (
                 <Box bgcolor='#fff' sx={sxEmblaSlide} key={index} >
                   <InnerImageZoom
-                    src={image.image}
-                    zoomSrc={image.image}
+                    src={API_URL + image.Foto.data.attributes.url}
+                    zoomSrc={API_URL + image.Foto.data.attributes.url}
                     zoomType='click'
                     hideHint={true}
                     zoomScale={2}
@@ -133,7 +134,7 @@ export default function FullScreenPlanSlider({ open, handleClose, images, startI
         <AppBar sx={{ position: 'relative' }}>
           <Toolbar>
             <Typography sx={{ flex: 1 }} variant="h6" component="div">
-              {images[selectedSlide].label}
+              {images[selectedSlide].Titulo}
             </Typography>
             <IconButton
               edge="end"

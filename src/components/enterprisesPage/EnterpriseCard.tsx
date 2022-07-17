@@ -1,9 +1,8 @@
 
 import React, { useMemo } from 'react'
-import { Box, Button, Container, Grid, Stack, Typography } from '@mui/material'
+import { Box, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
-import { getEnterpriseDetailsString } from '../../helpers/getEnterpriseDetailsString'
 
 const enterpriseNameProps = {
   fontSize: 19,
@@ -79,7 +78,7 @@ export const EnterpriseCard = ({ enterprise }) => {
   }, [enterprise.Status])
 
   return (
-    <Link href={`/empreendimentos/${enterprise.Slug}`} passHref>
+    <Link href="/empreendimentos/[slug]" as={`/empreendimentos/${enterprise.Slug}`} passHref>
       <a>
         <Box sx={{ height: 'fit-content', width: '100%', boxShadow }}>
           <Stack direction={{ xs: 'column', md: 'row' }} sx={{ height: '100%' }}>                  

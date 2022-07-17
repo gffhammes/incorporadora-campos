@@ -84,11 +84,11 @@ export function StatusCharts({ data }) {
       </Grid>
       <Grid item xs={12} md={8}>
         <Stack spacing={2} justifyContent='space-between' sx={{ height: '100%' }}>          
-          <StatusBar title='INFRAESTRUTURA' value={data.infrastructure} />
-          <StatusBar title='ESTRUTURA' value={data.foundation} />
-          <StatusBar title='ALVENARIAS' value={data.masonry} />
-          <StatusBar title='INSTALAÇÕES' value={data.installations} />
-          <StatusBar title='REVESTIMENTOS' value={data.coating} />
+          <StatusBar title='INFRAESTRUTURA' value={data.Infraestrutura / 100} />
+          <StatusBar title='ESTRUTURA' value={data.Fundacao / 100} />
+          <StatusBar title='ALVENARIAS' value={data.Alvenaria / 100} />
+          <StatusBar title='INSTALAÇÕES' value={data.Instalacoes / 100} />
+          <StatusBar title='REVESTIMENTOS' value={data.Revestimentos / 100} />
         </Stack>
       </Grid>
     </Grid>

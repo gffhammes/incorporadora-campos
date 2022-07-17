@@ -4,6 +4,7 @@ import { Footer } from "../../src/components/commons/Footer/Footer";
 // import { enterprises } from "../../src/assets/enterprises";
 import { useState } from "react";
 import { scrollToTarget } from "../../src/helpers/scrollToTarget";
+import fetch from 'isomorphic-unfetch'
 
 export default function Home({ enterprises }) {
   const [filteredEnterprises, setFilteredEnterprises] = useState(enterprises)
@@ -23,8 +24,6 @@ export default function Home({ enterprises }) {
     setFilteredEnterprises(filtered)
     scrollToTarget('enterprises')
   }
-
-  console.log(enterprises)
 
   return (
     <main style={{ height: '100%' }}>

@@ -3,13 +3,15 @@ import React from 'react'
 
 export const MapsSection = ({ enterpriseData }) => {
 
-  const address = encodeURI(enterpriseData.fullAddress)
+  const fullAddress = `${enterpriseData.Rua}, ${enterpriseData.Numero} - ${enterpriseData.Bairro}, ${enterpriseData.Cidade}`
+
+  const address = encodeURI(fullAddress)
 
   return (
     <Box id='localization'>
       <Box>
         <Container sx={{ py: 3 }}>
-          <Typography fontSize={20} letterSpacing={1} textAlign='center' sx={{ width: 'fit-content', mx: 'auto' }}>{enterpriseData.fullAddress}</Typography>
+          <Typography fontSize={20} letterSpacing={1} textAlign='center' sx={{ width: 'fit-content', mx: 'auto' }}>{fullAddress}</Typography>
         </Container>
       </Box>
       <iframe
