@@ -25,6 +25,8 @@ export default function Home({ enterprises }) {
     scrollToTarget('enterprises')
   }
 
+  console.log(enterprises)
+
   return (
     <main style={{ height: '100%' }}>
       {/* <HeroSection enterprises={enterprises} handleFilter={handleFilter} /> */}
