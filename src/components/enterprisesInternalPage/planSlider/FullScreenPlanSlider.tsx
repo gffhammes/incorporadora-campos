@@ -68,7 +68,6 @@ const buttonProps = {
 }
 
 const Slider = ({ images, startIndex, handleSelectedSlideChange }) => {
-  const { API_URL } = process.env;
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, startIndex })
 
   const scrollPrev = useCallback(() => {
@@ -95,8 +94,8 @@ const Slider = ({ images, startIndex, handleSelectedSlideChange }) => {
               {images.map((image, index) => (
                 <Box bgcolor='#fff' sx={sxEmblaSlide} key={index} >
                   <InnerImageZoom
-                    src={API_URL + image.Foto.data.attributes.url}
-                    zoomSrc={API_URL + image.Foto.data.attributes.url}
+                    src={image.Foto.data.attributes.url}
+                    zoomSrc={image.Foto.data.attributes.url}
                     zoomType='click'
                     hideHint={true}
                     zoomScale={2}

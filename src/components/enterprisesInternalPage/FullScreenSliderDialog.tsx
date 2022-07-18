@@ -106,7 +106,7 @@ const Slider = ({ images }) => {
               {images.map((image, index) => (
                 <Box bgcolor='#000' sx={sxEmblaSlide} key={index} >
                   <Image
-                    src={API_URL + image.attributes.url}
+                    src={image.attributes.url}
                     alt='Image'
                     layout='fill'
                     objectFit='contain'

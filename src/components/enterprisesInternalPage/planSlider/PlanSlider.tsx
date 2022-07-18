@@ -33,7 +33,6 @@ const sxEmblaContainer = {
 }
 
 export const PlanSlider = ({ slides }) => {
-  const { API_URL } = process.env;
   const [selectedSlide, setSelectedSlide] = useState<number>(0);
   const [fullScreen, setFullScreen] = useState<boolean>(false);
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
@@ -79,7 +78,7 @@ export const PlanSlider = ({ slides }) => {
               <Box sx={sxEmblaContainer}>
                 {slides.map((slide, index) => (
                   <Box sx={sxEmblaSlide} key={index} >
-                    <Slide image={API_URL + slide.Foto.data.attributes.url} label={slide.Titulo} handleOpenFullScreen={handleOpenFullScreen} />
+                    <Slide image={slide.Foto.data.attributes.url} label={slide.Titulo} handleOpenFullScreen={handleOpenFullScreen} />
                   </Box>
                 ))}
               </Box>

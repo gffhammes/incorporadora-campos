@@ -29,13 +29,11 @@ const sxLogo: SxProps<Theme> = {
 }
 
 export const HeroSection = ({ enterpriseData }) => {
-  const { API_URL } = process.env;
-
   const sxBanner: SxProps<Theme> = {
     position: 'absolute',
     height: '100%',
     width: '100%',
-    backgroundImage: `url(${API_URL + enterpriseData.Banner.data.attributes.url})`,
+    backgroundImage: `url(${enterpriseData.Banner.data.attributes.url})`,
     backgroundSize: 'cover',
   }
   
@@ -44,7 +42,7 @@ export const HeroSection = ({ enterpriseData }) => {
       return (
         <Box sx={sxLogo} >                           
           <Image
-            src={API_URL + enterpriseData.Logo.data.attributes.url}
+            src={enterpriseData.Logo.data.attributes.url}
             alt={enterpriseData.Nome}
             layout='fill'
             objectFit='contain'
@@ -53,7 +51,7 @@ export const HeroSection = ({ enterpriseData }) => {
       )
     }
     return <SectionTitle theme='light'>{enterpriseData.Nome.toUpperCase()}</SectionTitle>
-  }, [API_URL, enterpriseData.Logo, enterpriseData.Nome])
+  }, [enterpriseData.Logo, enterpriseData.Nome])
 
   const contentMemo = useMemo(() => {
     if (enterpriseData.Status === 'Pré Lançamento') {

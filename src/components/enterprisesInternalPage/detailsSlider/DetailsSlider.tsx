@@ -26,7 +26,6 @@ const boxShadow = '0px 10px 13px -6px rgb(26 71 188 / 20%), 0px 20px 31px 3px rg
 
 
 const Slide = ({ image, selectedSlide, index }) => {
-  const { API_URL } = process.env;
   const [loading, setLoading] = useState(true)
 
   const isSelected = useMemo(() => selectedSlide === index, [index, selectedSlide])
@@ -51,7 +50,7 @@ const Slide = ({ image, selectedSlide, index }) => {
     >
       {loading && <Box bgcolor='#e2e2e2' sx={{ width: '100%', height: '100%', display: 'flex',alignItems: 'center', justifyContent: 'center' }}>loading...</Box>}
       <Image
-        src={API_URL + image.attributes.url}
+        src={image.attributes.url}
         alt='image'
         layout='fill'
         objectFit='cover'

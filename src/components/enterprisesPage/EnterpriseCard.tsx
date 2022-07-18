@@ -66,7 +66,6 @@ const sxInfos = {
 const boxShadow = '0px 10px 13px -6px rgb(26 71 188 / 20%), 0px 20px 31px 3px rgb(26 71 188 / 14%), 0px 8px 38px 7px rgb(26 71 188 / 12%)'
 
 export const EnterpriseCard = ({ enterprise }) => {
-  const { API_URL } = process.env;
 
   const statusBgColorMemo = useMemo(() => {
     switch (enterprise.Status) {
@@ -84,7 +83,7 @@ export const EnterpriseCard = ({ enterprise }) => {
           <Stack direction={{ xs: 'column', md: 'row' }} sx={{ height: '100%' }}>                  
             <Box sx={sxImage}>
               <Image
-                src={`${API_URL}${enterprise.Thumb.data.attributes.url}`}
+                src={enterprise.Thumb.data.attributes.url}
                 alt={enterprise.Nome}
                 objectFit='cover'
                 width="100%"

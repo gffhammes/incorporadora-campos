@@ -17,7 +17,7 @@ export const DifferentialsSections = ({ enterpriseData }) => {
               <Stack alignItems='center' spacing={3}>                
                 <Box sx={{ position: 'relative', width: '100%', maxWidth: '7rem', aspectRatio: '1 / 1' }}>
                   <Image
-                    src={API_URL + differential.attributes.Imagem.data.attributes.url}
+                    src={differential.attributes.Imagem.data.attributes.url}
                     alt={differential.attributes.Titulo}
                     layout='fill'
                   />

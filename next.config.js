@@ -14,7 +14,7 @@ const nextConfig = {
     API_URL: process.env.API_URL,
   },
   images: {
-    domains: ['localhost', 'evening-lowlands-86540.herokuapp.com'],
+    domains: ['localhost', 'evening-lowlands-86540.herokuapp.com', 'res.cloudinary.com'],
   },
 }
 

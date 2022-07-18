@@ -25,8 +25,6 @@ const sxGrid = {
 }
 
 export const SummarySection = ({ enterpriseData }) => {
-  const { API_URL } = process.env;
-
   return (
     <Box id='summary'>
       <Container sx={{ py: 7 }}>
@@ -34,7 +32,7 @@ export const SummarySection = ({ enterpriseData }) => {
           <Box sx={{ gridArea: 'a' }}>
             <Box sx={{ position: 'relative', height: { xs: 'unset', md: '100%' }, width: '100%', aspectRatio: '1 / 1' }}>
               <Image
-                src={API_URL + enterpriseData.Thumb.data.attributes.url}
+                src={enterpriseData.Thumb.data.attributes.url}
                 alt={enterpriseData.Nome}
                 layout='fill'
                 objectFit='cover'

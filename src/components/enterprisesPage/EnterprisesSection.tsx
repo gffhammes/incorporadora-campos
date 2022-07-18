@@ -5,7 +5,6 @@ import { EnterpriseCard } from './EnterpriseCard'
 
 
 export const EnterprisesSection = ({ enterprises }) => {
-  console.log(enterprises);
   return (
     <Box id='enterprises'>
       <Container sx={{ py: 10, maxWidth: '1100px' }} maxWidth={false}>
