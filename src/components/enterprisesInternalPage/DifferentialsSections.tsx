@@ -22,7 +22,7 @@ export const DifferentialsSections = ({ enterpriseData }) => {
                     layout='fill'
                   />
                 </Box>
-                <Typography letterSpacing={1} textAlign='center' fontSize={{ xs: 15, md: 18 }} >{differential.attributes.Titulo}</Typography>
+                <Typography letterSpacing={1} textAlign='center' fontSize={{ xs: 15, md: 18 }} >{differential.attributes.Titulo?.toUpperCase()}</Typography>
               </Stack>
             </Grid>
           ))}

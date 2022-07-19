@@ -20,33 +20,32 @@ import * as qs from 'qs'
 
 const Enterprise = ({ enterprise }) => {
   const router = useRouter()
-  const { slug } = router.query
 
-  const avgEnterpriseStatus = getAverageEnterpriseStatus(enterprise.attributes.StatusDetalhado)
+  const { Seccoes } = enterprise.attributes;
+
+  console.log(enterprise)
 
   return (
     <main style={{ height: '100%' }}>
       <HeroSection enterpriseData={enterprise.attributes} />   
-      {/* {currentEnterprise.hideSections?.includes('menu') ? null : <ScrollMenu />}       */}
+
+      {enterprise.attributes.Seccoes.Menu && <ScrollMenu />}
+
       <SummarySection enterpriseData={enterprise.attributes} />
-      {enterprise.attributes.slug === 'piazza-del-mare' && <VideoZico />}
 
-      {/* {currentEnterprise.hideSections?.includes('details') ? null : <DetailsSection enterpriseData={currentEnterprise} />} */}
-      <DetailsSection enterpriseData={enterprise.attributes} />
+      {enterprise.attributes.Slug === 'piazza-del-mare' && <VideoZico />}
+
+      {Seccoes.Detalhes && <DetailsSection enterpriseData={enterprise.attributes} />}
       
-      {/* {currentEnterprise.hideSections?.includes('differentials') ? null : <DifferentialsSections enterpriseData={currentEnterprise} />} */}
-      <DifferentialsSections enterpriseData={enterprise.attributes} />
+      {Seccoes.Diferenciais && <DifferentialsSections enterpriseData={enterprise.attributes} />}
 
-      {/* {currentEnterprise.hideSections?.includes('planOptions') ? null : <PlanOptionsSection enterpriseData={currentEnterprise} />}    */}
-      <PlanOptionsSection enterpriseData={enterprise.attributes} />
+      {Seccoes.Plantas && <PlanOptionsSection enterpriseData={enterprise.attributes} />}
 
       {/* {currentEnterprise.hideSections?.includes('contact') ? null : <ContactSection enterpriseData={currentEnterprise} />} */}
 
-      {/* {(avgEnterpriseStatus > 0 && !currentEnterprise.hideSections?.includes('status')) && <ConstructionStatusSection enterpriseData={currentEnterprise} />} */}
-      <ConstructionStatusSection enterpriseData={enterprise.attributes} />
+      {Seccoes.Status && <ConstructionStatusSection enterpriseData={enterprise.attributes} />}
 
-      {/* {currentEnterprise.hideSections?.includes('maps') ? null : <MapsSection enterpriseData={currentEnterprise} />}       */}
-      <MapsSection enterpriseData={enterprise.attributes} />
+      {Seccoes.Mapa && <MapsSection enterpriseData={enterprise.attributes} />}
 
       <SimulatorsSection />
       <Footer />
@@ -70,6 +69,8 @@ export async function getServerSideProps(context) {
       'Banner',
       'Thumb',
       'Galeria',
+      'Endereco',
+      'Seccoes',
       'StatusDetalhado',
       'diferenciais',
       'diferenciais.Imagem',

@@ -3,7 +3,9 @@ import React from 'react'
 
 export const MapsSection = ({ enterpriseData }) => {
 
-  const fullAddress = `${enterpriseData.Rua}, ${enterpriseData.Numero} - ${enterpriseData.Bairro}, ${enterpriseData.Cidade}`
+  const { Rua, Numero, Bairro, Cidade, UF } = enterpriseData.Endereco;
+
+  const fullAddress = `${Rua}, ${Numero} - ${Bairro}, ${Cidade}/${UF}`
 
   const address = encodeURI(fullAddress)
 

@@ -54,7 +54,7 @@ const sxStatus = {
 const sxInfos = {
   p: {
     xs: '5rem 2rem 2rem 2rem',
-    sm: 6,
+    sm: '3rem 12rem 3rem 3rem',
   },
   display: 'flex',
   flexDirection: 'column',
@@ -94,7 +94,7 @@ export const EnterpriseCard = ({ enterprise }) => {
             </Box>
             <Box sx={sxInfos}>
               <Typography {...enterpriseNameProps}>{enterprise.Nome.toUpperCase()}</Typography>
-              <Typography fontSize={16} fontWeight={500}>{enterprise.Bairro} | {enterprise.Cidade}</Typography>
+              <Typography fontSize={16} fontWeight={500}>{enterprise.Endereco?.Bairro} | {enterprise.Endereco?.Cidade}</Typography>
               <Typography fontSize={14}>{enterprise.TextoResumo}</Typography>
               <Typography fontSize={14} fontWeight={400} sx={{ mt: '1rem', whiteSpace: 'pre-wrap' }} >{enterprise.DescricaoCard}</Typography>
               <Typography fontSize={15} fontWeight={700}  sx={{ mt: { xs: '1rem', md: 'auto' }, width: 'fit-content', color: '#1a47bc', borderBottom: '1px solid #1A47BC', }} >SAIBA MAIS</Typography>
