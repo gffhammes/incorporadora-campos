@@ -11,45 +11,37 @@ import { PlanOptionsSection } from '../../src/components/enterprisesInternalPage
 import { ConstructionStatusSection } from '../../src/components/enterprisesInternalPage/ConstructionStatusSection'
 import { MapsSection } from '../../src/components/enterprisesInternalPage/MapsSection'
 import { SimulatorsSection } from '../../src/components/enterprisesInternalPage/SimulatorsSection'
-import { getAverageEnterpriseStatus } from '../../src/helpers/getAverageEnterpriseStatus'
 import { HeroSection } from '../../src/components/enterprisesInternalPage/HeroSection/HeroSection'
 import { ContactSection } from '../../src/components/enterprisesInternalPage/Contact/ContactSection'
 import VideoZico from '../../src/components/enterprisesInternalPage/delMare/VideoZico'
 import fetch from 'isomorphic-unfetch'
 import * as qs from 'qs'
+import Head from 'next/head'
 
 const Enterprise = ({ enterprise }) => {
-  const router = useRouter()
 
   const { Seccoes } = enterprise.attributes;
 
-  console.log(enterprise)
-
   return (
-    <main style={{ height: '100%' }}>
-      <HeroSection enterpriseData={enterprise.attributes} />   
-
-      {enterprise.attributes.Seccoes.Menu && <ScrollMenu />}
-
-      <SummarySection enterpriseData={enterprise.attributes} />
-
-      {enterprise.attributes.Slug === 'piazza-del-mare' && <VideoZico />}
-
-      {Seccoes.Detalhes && <DetailsSection enterpriseData={enterprise.attributes} />}
-      
-      {Seccoes.Diferenciais && <DifferentialsSections enterpriseData={enterprise.attributes} />}
-
-      {Seccoes.Plantas && <PlanOptionsSection enterpriseData={enterprise.attributes} />}
-
-      {/* {currentEnterprise.hideSections?.includes('contact') ? null : <ContactSection enterpriseData={currentEnterprise} />} */}
-
-      {Seccoes.Status && <ConstructionStatusSection enterpriseData={enterprise.attributes} />}
-
-      {Seccoes.Mapa && <MapsSection enterpriseData={enterprise.attributes} />}
-
-      <SimulatorsSection />
-      <Footer />
-    </main>
+    <>    
+      <Head>
+        <title>{enterprise.attributes.Nome + ' | Campos Incorporadora'}</title>
+      </Head>
+      <main style={{ height: '100%' }}>
+        <HeroSection enterpriseData={enterprise.attributes} />
+        {Seccoes.Menu && <ScrollMenu />}
+        <SummarySection enterpriseData={enterprise.attributes} />
+        {enterprise.attributes.Slug === 'piazza-del-mare' && <VideoZico />}
+        {Seccoes.Detalhes && <DetailsSection enterpriseData={enterprise.attributes} />}      
+        {Seccoes.Diferenciais && <DifferentialsSections enterpriseData={enterprise.attributes} />}
+        {Seccoes.Plantas && <PlanOptionsSection enterpriseData={enterprise.attributes} />}
+        {/* {currentEnterprise.hideSections?.includes('contact') ? null : <ContactSection enterpriseData={currentEnterprise} />} */}
+        {Seccoes.Status && <ConstructionStatusSection enterpriseData={enterprise.attributes} />}
+        {Seccoes.Mapa && <MapsSection enterpriseData={enterprise.attributes} />}
+        <SimulatorsSection />
+        <Footer />
+      </main>
+    </>
   )
 }
 

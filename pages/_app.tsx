@@ -34,20 +34,6 @@ function MyApp({ Component, pageProps }) {
     TagManager.initialize({ gtmId: 'GTM-NZV49Z7' });
   }, []);
 
-  // useEffect(() => {
-  //   import('react-facebook-pixel')
-  //     .then((x) => x.default)
-  //     .then((ReactPixel) => {
-  //       ReactPixel.init('judrkaywuvzux703ez2d1cpv31tqrm') // facebookPixelId
-  //       ReactPixel.pageView()
-
-  //       router.events.on('routeChangeComplete', () => {
-  //         ReactPixel.pageView()
-  //       })
-  //     })
-  // }, [router.events])
-
-
   return (    
     <ThemeProvider theme={theme}>
       <PageTitle />

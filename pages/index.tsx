@@ -20,7 +20,7 @@ export default function Home({ enterprises }) {
 export async function getServerSideProps() {
   const { API_URL } = process.env;
 
-  const res = await fetch(`${API_URL}/api/empreendimentos?populate=*`);
+  const res = await fetch(`${API_URL}/api/empreendimentos?sort=id&populate=*`);
   const data = await res.json();
 
   return {
