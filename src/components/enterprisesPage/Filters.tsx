@@ -26,8 +26,8 @@ const Filters = ({ enterprises, handleFilter }: IProps) => {
     const districts = []
 
     enterprises.forEach((enterprise) => {
-      if (enterprise.city === city) {
-        if (!districts.includes(enterprise.district)) districts.push(enterprise.district)
+      if (enterprise.attributes.Endereco.Cidade === city) {
+        if (!districts.includes(enterprise.attributes.Endereco.Bairro)) districts.push(enterprise.attributes.Endereco.Bairro)
       }
     })
 
@@ -66,8 +66,8 @@ const Filters = ({ enterprises, handleFilter }: IProps) => {
   }
 
   enterprises.forEach((enterprise) => {
-    if (!cities.includes(enterprise.city)) cities.push(enterprise.city)
-    if (!statusOptions.includes(enterprise.status)) statusOptions.push(enterprise.status)   
+    if (!cities.includes(enterprise.attributes.Endereco.Cidade)) cities.push(enterprise.attributes.Endereco.Cidade)
+    if (!statusOptions.includes(enterprise.attributes.Status)) statusOptions.push(enterprise.attributes.Status)   
   })
 
   const addClearOptionToOptions = (options) => {

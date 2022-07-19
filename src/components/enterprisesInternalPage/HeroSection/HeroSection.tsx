@@ -38,7 +38,7 @@ export const HeroSection = ({ enterpriseData }) => {
   }
   
   const getLogo = useCallback(() => {
-    if (enterpriseData.Logo) {
+    if (enterpriseData.Logo.data) {
       return (
         <Box sx={sxLogo} >                           
           <Image

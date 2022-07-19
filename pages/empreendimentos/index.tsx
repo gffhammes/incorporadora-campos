@@ -1,7 +1,6 @@
 import { HeroSection } from "../../src/components/enterprisesPage/HeroSection";
 import { EnterprisesSection } from "../../src/components/enterprisesPage/EnterprisesSection";
 import { Footer } from "../../src/components/commons/Footer/Footer";
-// import { enterprises } from "../../src/assets/enterprises";
 import { useState } from "react";
 import { scrollToTarget } from "../../src/helpers/scrollToTarget";
 import fetch from 'isomorphic-unfetch'
@@ -16,9 +15,9 @@ export default function Home({ enterprises }) {
   }) => {
     const filtered = enterprises.filter(enterprise => {
       return (
-        (values.city !== '' ? enterprise.city === values.city : true)
-        && (values.district !== '' ? enterprise.district === values.district : true)
-        && (values.buildingStatus !== '' ? enterprise.status === values.buildingStatus : true)
+        (values.city !== '' ? enterprise.attributes.Endereco.Cidade === values.city : true)
+        && (values.district !== '' ? enterprise.attributes.Endereco.Bairro === values.district : true)
+        && (values.buildingStatus !== '' ? enterprise.attributes.Status === values.buildingStatus : true)
       )
     })
     setFilteredEnterprises(filtered)
@@ -29,7 +28,7 @@ export default function Home({ enterprises }) {
 
   return (
     <main style={{ height: '100%' }}>
-      {/* <HeroSection enterprises={enterprises} handleFilter={handleFilter} /> */}
+      <HeroSection enterprises={enterprises} handleFilter={handleFilter} />
       <EnterprisesSection enterprises={filteredEnterprises} />
       <Footer />
     </main>
