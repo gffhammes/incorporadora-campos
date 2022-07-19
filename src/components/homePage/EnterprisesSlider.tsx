@@ -22,8 +22,6 @@ export const EnterprisesSlider = ({ enterprises }) => {
     if (emblaApi) emblaApi.scrollNext()
   }, [emblaApi])
 
-  console.log(enterprises)
-
   return (
     <Box className="embla" sx={{ mt: { xs: 0, md: 5 } }}>
       <div className="embla__viewport"  ref={emblaRef}>
