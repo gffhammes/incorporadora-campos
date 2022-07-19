@@ -23,9 +23,7 @@ export default function Home({ enterprises }) {
     setFilteredEnterprises(filtered)
     scrollToTarget('enterprises')
   }
-
-  console.log(enterprises)
-
+  
   return (
     <main style={{ height: '100%' }}>
       <HeroSection enterprises={enterprises} handleFilter={handleFilter} />
