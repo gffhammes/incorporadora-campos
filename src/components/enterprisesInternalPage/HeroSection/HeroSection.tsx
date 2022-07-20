@@ -4,10 +4,6 @@ import React, { useCallback, useMemo } from 'react'
 import { PrimaryGradientCover } from '../../commons/PrimaryGradientCover';
 import { SectionTitle } from '../../commons/SectionTitle';
 import { FloatingDownArrowScroll } from '../../commons/FloatingDownArrowScroll';
-import { Input } from '../../commons/Input';
-import { LoadingButton } from '../../commons/Button';
-import { Formik } from 'formik';
-import ContactForm from './ContactForm';
 
 
 const sxContent: SxProps<Theme> = {
@@ -54,7 +50,7 @@ export const HeroSection = ({ enterpriseData }) => {
   }, [enterpriseData.Logo, enterpriseData.Nome])
 
   const contentMemo = useMemo(() => {
-    if (enterpriseData.Status === 'Pré Lançamento') {
+    if (enterpriseData.Status.toUpperCase() === 'PRÉ LANÇAMENTO') {
       return (
         <>
           <Typography textAlign='center' fontSize={12} letterSpacing={5} sx={{ color: 'rgba(255, 255, 255, .8)', mb: 3 }}>{enterpriseData.Status.toUpperCase()}</Typography>
@@ -78,7 +74,7 @@ export const HeroSection = ({ enterpriseData }) => {
             </Box>
           </Stack>
         </Container>
-        {/* <FloatingDownArrowScroll targetId={enterpriseData.hideSections?.includes('menu') ? 'summary' : 'internal-scroll-menu'} /> */}
+        <FloatingDownArrowScroll targetId={enterpriseData.Seccoes.Menu ? 'internal-scroll-menu' : 'the-enterprise'} />
       </Box>
     </Box>
   )
