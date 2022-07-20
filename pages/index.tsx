@@ -5,12 +5,12 @@ import { Footer } from '../src/components/commons/Footer/Footer'
 import { HeroSlider } from '../src/components/homePage/heroSlider/HeroSlider'
 import * as qs from 'qs'
 
-export default function Home({ enterprises, banners }) {
+export default function Home({ banners }) {
   return (
     <main style={{ height: '100%' }}>
       <HeroSlider banners={banners} />
       <HistorySection />
-      <EnterprisesSection enterprises={enterprises}/>
+      <EnterprisesSection />
       {/* <BlogSection /> */}
       <Footer />
     </main>
@@ -20,10 +20,6 @@ export default function Home({ enterprises, banners }) {
 
 export async function getServerSideProps() {
   const { API_URL } = process.env;
-
-  const enterprisesResponse = await fetch(`${API_URL}/api/empreendimentos?sort=id&populate=*`);
-  const enterprisesData = await enterprisesResponse.json();
-
   
   const bannersQuery = qs.stringify({
     populate: [
@@ -32,7 +28,7 @@ export async function getServerSideProps() {
       'empreendimento.Logo',
     ]
   }, {
-    encodeValuesOnly: true, // prettify URL
+    encodeValuesOnly: true, 
   });
   
   const bannersResponse = await fetch(`${API_URL}/api/banners?${bannersQuery}`);
@@ -40,7 +36,6 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      enterprises: enterprisesData.data,
       banners: bannersData.data,
     }
   }

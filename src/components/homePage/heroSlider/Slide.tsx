@@ -69,7 +69,7 @@ export const Slide = ({
               />
             </Box>
             <Typography fontSize={21} letterSpacing={4} textAlign='center' sx={{ color: 'white', mt: 'auto', mb: 2 }} >{text}</Typography>
-            <Link href={href} passHref >
+            <Link href='/empreendimentos/[slug]' as={'/empreendimentos/' + href} passHref >
               <a>
                 <OutlinedWhiteButton sx={{ width: 'fit-content' }}>{buttonText}</OutlinedWhiteButton>
               </a>
