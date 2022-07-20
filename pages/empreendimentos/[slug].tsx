@@ -35,7 +35,7 @@ const Enterprise = ({ enterprise }) => {
         {Seccoes.Detalhes && <DetailsSection enterpriseData={enterprise.attributes} />}      
         {Seccoes.Diferenciais && <DifferentialsSections enterpriseData={enterprise.attributes} />}
         {Seccoes.Plantas && <PlanOptionsSection enterpriseData={enterprise.attributes} />}
-        {/* {currentEnterprise.hideSections?.includes('contact') ? null : <ContactSection enterpriseData={currentEnterprise} />} */}
+        {Seccoes.Contato && <ContactSection enterpriseData={enterprise.attributes} />}
         {Seccoes.Status && <ConstructionStatusSection enterpriseData={enterprise.attributes} />}
         {Seccoes.Mapa && <MapsSection enterpriseData={enterprise.attributes} />}
         <SimulatorsSection />
