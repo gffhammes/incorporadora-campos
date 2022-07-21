@@ -10,7 +10,7 @@ import { TransitionProps } from '@mui/material/transitions';
 import { Box, Stack } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { defaultSvgProps } from '../../constants/defaultSvgProps';
+import { defaultSvgProps } from '../../../constants/defaultSvgProps';
 import useEmblaCarousel from 'embla-carousel-react'
 import Image from 'next/image';
 
@@ -71,16 +71,8 @@ const buttonProps = {
   }
 }
 
-const Slider = ({ images }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
-  const [selectedSlide, setSelectedSlide] = useState(0)
-  const { API_URL } = process.env;
-
-  useEffect(() => {
-    if (emblaApi) {
-      // Embla API is ready
-    }    
-  }, [emblaApi])
+const Slider = ({ images, startIndex }) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, startIndex })
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev()
@@ -90,9 +82,9 @@ const Slider = ({ images }) => {
     if (emblaApi) emblaApi.scrollNext()
   }, [emblaApi])
 
-  emblaApi?.on('select', () => {
-    setSelectedSlide(emblaApi.selectedScrollSnap())
-  })
+  // emblaApi?.on('select', () => {
+  //   setSelectedSlide(emblaApi.selectedScrollSnap())
+  // })
 
   return (
     <Stack direction='row' alignItems='center' sx={{ height: '100%', width: '100%' }}>
@@ -104,7 +96,7 @@ const Slider = ({ images }) => {
           <Box sx={{ height: '100%' }} ref={emblaRef}>
             <Box sx={sxEmblaContainer}>
               {images.map((image, index) => (
-                <Box bgcolor='#000' sx={sxEmblaSlide} key={index} >
+                <Box bgcolor='#fff' sx={sxEmblaSlide} key={index} >
                   <Image
                     src={image.attributes.url}
                     alt='Image'
@@ -125,7 +117,7 @@ const Slider = ({ images }) => {
   )
 }
 
-export default function FullScreenSliderDialog({ open, handleClose, images }) {
+export default function FullScreenSliderDialog({ open, handleClose, images, selectedSlide }) {
   return (
       <Dialog
         fullScreen
@@ -150,7 +142,7 @@ export default function FullScreenSliderDialog({ open, handleClose, images }) {
           </Toolbar>
         </AppBar>
         <Box sx={{ height: '100%', overflowX: 'hidden' }}>
-          <Slider images={images} />
+          <Slider images={images} startIndex={selectedSlide} />
         </Box>
       </Dialog>
   )
