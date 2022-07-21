@@ -41,14 +41,13 @@ export const PlanOptionsSection = ({ enterpriseData }) => {
           </Box>
           <Box gridArea='b' alignSelf='flex-start' justifySelf={{ xs: 'center', md: 'flex-start' }}  >
             <Box
-              component='p'
-              dangerouslySetInnerHTML={{ __html: enterpriseData.planText }}
+              dangerouslySetInnerHTML={{ __html: enterpriseData.TextoPlanta }}
               sx={{ lineHeight: 1.75 }}
             />
           </Box>
           <Box gridArea='c' justifySelf='center' sx={sxPlanSlider} >
             <Box bgcolor='white' sx={{ height: '100%', boxShadow, p: 4 }}>
-              <PlanSlider slides={enterpriseData.plans} />
+              <PlanSlider slides={enterpriseData.Plantas} />
             </Box>
           </Box>
 

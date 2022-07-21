@@ -78,7 +78,7 @@ export const PlanSlider = ({ slides }) => {
               <Box sx={sxEmblaContainer}>
                 {slides.map((slide, index) => (
                   <Box sx={sxEmblaSlide} key={index} >
-                    <Slide image={slide.image} label={slide.label} handleOpenFullScreen={handleOpenFullScreen} />
+                    <Slide image={slide.Foto.data.attributes.url} label={slide.Titulo} handleOpenFullScreen={handleOpenFullScreen} />
                   </Box>
                 ))}
               </Box>

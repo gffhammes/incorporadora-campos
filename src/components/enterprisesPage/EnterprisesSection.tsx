@@ -11,7 +11,7 @@ export const EnterprisesSection = ({ enterprises }) => {
         {enterprises.length > 0 && <Grid container spacing={10}>
           {enterprises.map((enterprise, index) => (
             <Grid item key={index} xs={12}>
-              <EnterpriseCard enterprise={enterprise} />
+              <EnterpriseCard enterprise={enterprise.attributes} />
             </Grid>
           ))}
         </Grid>}

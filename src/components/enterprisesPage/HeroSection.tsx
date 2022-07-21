@@ -1,6 +1,5 @@
 import { Box, Container, Stack, Typography } from '@mui/material'
 import React from 'react'
-import { FloatingDownArrowScroll } from '../commons/FloatingDownArrowScroll'
 import { SectionTitle } from '../commons/SectionTitle'
 import Filters from './Filters'
 

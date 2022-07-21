@@ -4,10 +4,6 @@ import React, { useCallback, useMemo } from 'react'
 import { PrimaryGradientCover } from '../../commons/PrimaryGradientCover';
 import { SectionTitle } from '../../commons/SectionTitle';
 import { FloatingDownArrowScroll } from '../../commons/FloatingDownArrowScroll';
-import { Input } from '../../commons/Input';
-import { LoadingButton } from '../../commons/Button';
-import { Formik } from 'formik';
-import ContactForm from './ContactForm';
 
 
 const sxContent: SxProps<Theme> = {
@@ -29,43 +25,42 @@ const sxLogo: SxProps<Theme> = {
 }
 
 export const HeroSection = ({ enterpriseData }) => {
-
   const sxBanner: SxProps<Theme> = {
     position: 'absolute',
     height: '100%',
     width: '100%',
-    backgroundImage: `url(${enterpriseData.banner})`,
+    backgroundImage: `url(${enterpriseData.Banner.data.attributes.url})`,
     backgroundSize: 'cover',
   }
   
   const getLogo = useCallback(() => {
-    if (enterpriseData.logo) {
+    if (enterpriseData.Logo.data) {
       return (
         <Box sx={sxLogo} >                           
           <Image
-            src={enterpriseData.logo}
-            alt={enterpriseData.name}
+            src={enterpriseData.Logo.data.attributes.url}
+            alt={enterpriseData.Nome}
             layout='fill'
             objectFit='contain'
           />
         </Box>
       )
     }
-    return <SectionTitle theme='light'>{enterpriseData.name.toUpperCase()}</SectionTitle>
-  }, [enterpriseData])
+    return <SectionTitle theme='light'>{enterpriseData.Nome.toUpperCase()}</SectionTitle>
+  }, [enterpriseData.Logo, enterpriseData.Nome])
 
   const contentMemo = useMemo(() => {
-    if (enterpriseData.status === 'Pré Lançamento') {
+    if (enterpriseData.Status.toUpperCase() === 'PRÉ LANÇAMENTO') {
       return (
         <>
-          <Typography textAlign='center' fontSize={12} letterSpacing={5} sx={{ color: 'rgba(255, 255, 255, .8)', mb: 3 }}>{enterpriseData.status.toUpperCase()}</Typography>
+          <Typography textAlign='center' fontSize={12} letterSpacing={5} sx={{ color: 'rgba(255, 255, 255, .8)', mb: 3 }}>{enterpriseData.Status.toUpperCase()}</Typography>
           {getLogo()}
         </>
       )
     }
     
     return getLogo()
-  }, [enterpriseData.status, getLogo])
+  }, [enterpriseData.Status, getLogo])
   
   return (
     <Box sx={{ position: 'relative', zIndex: 500, height: '100%', }}>
@@ -79,7 +74,7 @@ export const HeroSection = ({ enterpriseData }) => {
             </Box>
           </Stack>
         </Container>
-        <FloatingDownArrowScroll targetId={enterpriseData.hideSections?.includes('menu') ? 'summary' : 'internal-scroll-menu'} />
+        <FloatingDownArrowScroll targetId={enterpriseData.Seccoes.Menu ? 'internal-scroll-menu' : 'the-enterprise'} />
       </Box>
     </Box>
   )
