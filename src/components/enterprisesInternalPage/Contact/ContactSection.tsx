@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { LoadingButton } from '../../commons/Button'
 import { Input } from '../../commons/Input'
 import { useRouter } from 'next/router'
-import { getEnterpriseBySlug } from '../../../helpers/getEnterpriseBySlug'
 import { Formik } from 'formik'
 import { sendMail } from '../../../services/sendMail'
 import { useScroll } from '../../../hooks/useScroll'
@@ -18,22 +17,17 @@ interface IContactData {
 }
 
 export const ContactSection = ({ enterpriseData }) => {
-  const [loading, setLoading] = useState(false)
   const [openSnackbar, setOpenSnackbar] = useState(false)
   const scroll = useScroll();
   const { width } = useWindowSize();
   
-  const hideContact = scroll + window.innerHeight + 400 > document.getElementById('__next').scrollHeight
+  const hideContact = typeof window !== 'undefined' ? scroll + window.innerHeight + 400 > document.getElementById('__next').scrollHeight : false;
   const fixedContact = width > 1200;
-  // let { asPath } = useRouter();
-  // asPath = asPath.split('/').pop()
-  // const { name: enterpriseName } = getEnterpriseBySlug(asPath)
   
   const handleSnackbarClose = () => {
     setOpenSnackbar(false)
   }
   
-
   return (
     <>    
       {!fixedContact && <SwipeableEdgeDrawer enterpriseName={enterpriseData.Nome} />}
