@@ -49,19 +49,13 @@ export const HeroSlider = ({ banners }) => {
   const [dots, setDots] = useState([])
 
   useEffect(() => {
-    if (emblaApi) {
-      // Embla API is ready
-    }    
-  }, [emblaApi])
-
-  useEffect(() => {
     const arr = [];
     for (let i = 0; i < banners.length; i++) {
       arr.push({ active: false })
     }
     arr[0].active = true;
     setDots(arr);
-  }, [])
+  }, [banners])
 
   useEffect(() => {
     setDots((dots): any[] => dots.map((dot, index) => index === selectedSlide ? { active: true } : { active: false } ))

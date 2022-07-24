@@ -14,14 +14,6 @@ import { defaultSvgProps } from '../../../constants/defaultSvgProps';
 import useEmblaCarousel from 'embla-carousel-react'
 import Image from 'next/image';
 
-const Transition = React.forwardRef(function Transition(
-  props: TransitionProps & {
-    children: React.ReactElement;
-  },
-  ref: React.Ref<unknown>,
-) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
 
 const sxEmbla = {
   overflowX: 'hidden',
@@ -37,12 +29,12 @@ const sxEmblaContainer = {
  const sxEmblaSlide = {
   position: 'relative',
   flex: '0 0 100%',
-  marginRight: 0,  
+  marginRight: 4,  
   transitionProperty: 'filter, box-shadow',
   transitionDuration: '1s',
   transitionTimingFunction: 'ease',
   width: '100%',
-  aspectRatio: '2 / 1',
+  // aspectRatio: '2 / 1',
 }
 
 const defaultButtonSx = {
@@ -71,7 +63,8 @@ const buttonProps = {
   }
 }
 
-const Slider = ({ images, startIndex }) => {
+
+export const Slider = ({ images, startIndex }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, startIndex })
 
   const scrollPrev = useCallback(() => {
@@ -96,7 +89,7 @@ const Slider = ({ images, startIndex }) => {
           <Box sx={{ height: '100%' }} ref={emblaRef}>
             <Box sx={sxEmblaContainer}>
               {images.map((image, index) => (
-                <Box bgcolor='#fff' sx={sxEmblaSlide} key={index} >
+                <Box sx={sxEmblaSlide} key={index} >
                   <Image
                     src={image.attributes.url}
                     alt='Image'
@@ -114,36 +107,5 @@ const Slider = ({ images, startIndex }) => {
         <ArrowForwardIosIcon {...buttonProps} />
       </Box>
     </Stack>
-  )
-}
-
-export default function FullScreenSliderDialog({ open, handleClose, images, selectedSlide }) {
-  return (
-      <Dialog
-        fullScreen
-        open={open}
-        onClose={handleClose}
-        TransitionComponent={Transition}
-        sx={{ display: 'flex', flexDirection: 'column' }}
-      >
-        <AppBar sx={{ position: 'relative' }}>
-          <Toolbar>
-            <Typography sx={{ flex: 1 }} variant="h6" component="div">
-              Galeria
-            </Typography>
-            <IconButton
-              edge="end"
-              color="inherit"
-              onClick={handleClose}
-              aria-label="close"
-            >
-              <CloseIcon />
-            </IconButton> 
-          </Toolbar>
-        </AppBar>
-        <Box sx={{ height: '100%', overflowX: 'hidden' }}>
-          <Slider images={images} startIndex={selectedSlide} />
-        </Box>
-      </Dialog>
   )
 }

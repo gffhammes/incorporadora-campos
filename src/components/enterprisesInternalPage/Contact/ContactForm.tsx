@@ -1,5 +1,5 @@
 import { Alert, Box, Container, Grid, Paper, Snackbar, Stack, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { LoadingButton } from '../../commons/Button'
 import { Input } from '../../commons/Input'
 import { useRouter } from 'next/router'
@@ -19,18 +19,6 @@ interface Props {
   open: boolean;
 }
 
-const sxFormWrapper = {
-  position: 'fixed',
-  zIndex: 1200,
-  right: '1rem',
-  transition: '.5s ease-out all',
-  backgroundColor: 'secondary.main',
-  p: 2,
-  width: 'calc(100% - 2rem)',
-  maxWidth: '25rem',
-  borderRadius: '1rem',
-  color: 'white'
-}
 
 const initialValues = {
   name: '',
@@ -74,9 +62,24 @@ const ContactForm = ({ enterpriseName, open }: Props) => {
       setLoading(false)
     }).catch(() => setLoading(false))
   }
+  
+  const sxFormWrapper = useMemo(() => ({
+    position: 'fixed',
+    zIndex: 999,
+    right: '1rem',
+    transition: 'opacity .5s, all 1s',
+    backgroundColor: 'secondary.main',
+    p: 2,
+    width: 'calc(100% - 2rem)',
+    maxWidth: '25rem',
+    borderRadius: '1rem',
+    color: 'white',
+    bottom: open ? '6rem' : '-100%',
+    opacity: open ? 1 : 0,
+  }), [open])
 
   return (
-    <Paper elevation={24} sx={{ ...sxFormWrapper, bottom: open ? '6rem' : 0, opacity: open ? 1 : 0 }}>
+    <Paper elevation={24} sx={sxFormWrapper}>
       <Formik
         initialValues={initialValues}
         validate={validate}

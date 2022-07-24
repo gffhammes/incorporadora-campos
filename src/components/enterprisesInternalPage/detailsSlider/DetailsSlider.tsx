@@ -81,12 +81,6 @@ export const DetailsSlider = ({ images }) => {
         handleClose={handleClose}
         selectedSlide={selectedSlide}
       />
-      {/* <FullScreenSliderDialog
-        open={fullScreen}
-        handleClose={handleClose}
-        images={images}
-        selectedSlide={selectedSlide}
-      /> */}
     </>
   )
 }

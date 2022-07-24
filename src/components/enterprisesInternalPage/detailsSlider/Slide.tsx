@@ -22,7 +22,7 @@ export const Slide = ({ image, selectedSlide, index, handleClickOpen }) => {
         transitionDuration: '1s',
         transitionTimingFunction: 'ease',
         width: '100%',
-        aspectRatio: '2 / 1',
+        aspectRatio: '2 / .9',
         filter: isSelected ? 'opacity(1)' : 'opacity(.25)',
         cursor: isSelected ? 'pointer' : 'unset',
       }}
