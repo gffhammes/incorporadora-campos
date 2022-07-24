@@ -11,7 +11,6 @@ import { ConstructionStatusSection } from '../../src/components/enterprisesInter
 import { MapsSection } from '../../src/components/enterprisesInternalPage/MapsSection'
 import { SimulatorsSection } from '../../src/components/enterprisesInternalPage/SimulatorsSection'
 import { HeroSection } from '../../src/components/enterprisesInternalPage/HeroSection'
-import { ContactSection } from '../../src/components/enterprisesInternalPage/Contact/oldContactSection'
 import VideoZico from '../../src/components/enterprisesInternalPage/delMare/VideoZico'
 import fetch from 'isomorphic-unfetch'
 import * as qs from 'qs'
