@@ -50,16 +50,12 @@ export const HeroSection = ({ enterpriseData }) => {
   }, [enterpriseData.Logo, enterpriseData.Nome])
 
   const contentMemo = useMemo(() => {
-    if (enterpriseData.Status.toUpperCase() === 'PRÉ LANÇAMENTO') {
-      return (
-        <>
-          <Typography textAlign='center' fontSize={12} letterSpacing={5} sx={{ color: 'rgba(255, 255, 255, .8)', mb: 3 }}>{enterpriseData.Status.toUpperCase()}</Typography>
-          {getLogo()}
-        </>
-      )
-    }
-    
-    return getLogo()
+    return (
+      <>
+        <Typography textAlign='center' fontSize={12} letterSpacing={5} sx={{ color: 'rgba(255, 255, 255, .8)', mb: 3 }}>{enterpriseData.Status.toUpperCase()}</Typography>
+        {getLogo()}
+      </>
+    )
   }, [enterpriseData.Status, getLogo])
   
   return (
