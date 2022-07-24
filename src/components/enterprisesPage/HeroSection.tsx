@@ -16,7 +16,7 @@ export const HeroSection = ({ enterprises, handleFilter }: IProps) => {
           position: 'absolute',
           width: '100%',
           height: '100%',
-          background: 'linear-gradient(#0E1E42, #1A50BC  50%  , rgba(1, 74, 220, .87) 80%)',
+          background: 'linear-gradient(#0E1E42, #1A50BC 35%, rgba(1, 74, 220, .87) 80%)',
           zIndex: 200
         }}
       />
