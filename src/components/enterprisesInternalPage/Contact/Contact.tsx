@@ -7,7 +7,7 @@ interface IProps {
 }
 
 const Contact = ({ enterpriseData }: IProps) => {
-  const [open, setOpen] = useState<boolean>(false);
+  const [open, setOpen] = useState<boolean>(true);
 
   const handleToggle = () => {
     setOpen(open => !open);
