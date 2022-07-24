@@ -10,12 +10,13 @@ import { PlanOptionsSection } from '../../src/components/enterprisesInternalPage
 import { ConstructionStatusSection } from '../../src/components/enterprisesInternalPage/ConstructionStatusSection'
 import { MapsSection } from '../../src/components/enterprisesInternalPage/MapsSection'
 import { SimulatorsSection } from '../../src/components/enterprisesInternalPage/SimulatorsSection'
-import { HeroSection } from '../../src/components/enterprisesInternalPage/HeroSection/HeroSection'
-import { ContactSection } from '../../src/components/enterprisesInternalPage/Contact/ContactSection'
+import { HeroSection } from '../../src/components/enterprisesInternalPage/HeroSection'
+import { ContactSection } from '../../src/components/enterprisesInternalPage/Contact/oldContactSection'
 import VideoZico from '../../src/components/enterprisesInternalPage/delMare/VideoZico'
 import fetch from 'isomorphic-unfetch'
 import * as qs from 'qs'
 import Head from 'next/head'
+import Contact from '../../src/components/enterprisesInternalPage/Contact/Contact'
 
 const Enterprise = ({ enterprise }) => {
 
@@ -27,6 +28,7 @@ const Enterprise = ({ enterprise }) => {
         <title>{enterprise.attributes.Nome + ' | Campos Incorporadora'}</title>
       </Head>
       <main style={{ height: '100%' }}>
+        {Seccoes.Contato && <Contact enterpriseData={enterprise.attributes} />}
         <HeroSection enterpriseData={enterprise.attributes} />
         {Seccoes.Menu && <ScrollMenu />}
         <SummarySection enterpriseData={enterprise.attributes} />
@@ -34,7 +36,6 @@ const Enterprise = ({ enterprise }) => {
         {Seccoes.Detalhes && <DetailsSection enterpriseData={enterprise.attributes} />}      
         {Seccoes.Diferenciais && <DifferentialsSections enterpriseData={enterprise.attributes} />}
         {Seccoes.Plantas && <PlanOptionsSection enterpriseData={enterprise.attributes} />}
-        {Seccoes.Contato && <ContactSection enterpriseData={enterprise.attributes} />}
         {Seccoes.Status && <ConstructionStatusSection enterpriseData={enterprise.attributes} />}
         {Seccoes.Mapa && <MapsSection enterpriseData={enterprise.attributes} />}
         <SimulatorsSection />

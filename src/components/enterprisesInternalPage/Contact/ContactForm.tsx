@@ -1,13 +1,10 @@
-import { Alert, Box, Container, Grid, Snackbar, Stack, Typography } from '@mui/material'
+import { Alert, Box, Container, Grid, Paper, Snackbar, Stack, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { LoadingButton } from '../../commons/Button'
 import { Input } from '../../commons/Input'
 import { useRouter } from 'next/router'
 import { Formik } from 'formik'
 import { sendMail } from '../../../services/sendMail'
-import { useScroll } from '../../../hooks/useScroll'
-import { useWindowSize } from '../../../hooks/useWindowSize'
-import { SwipeableEdgeDrawer } from './MobileContactDrawer'
 
 
 interface IContactData {
@@ -17,11 +14,31 @@ interface IContactData {
 }
 
 
-type Props = {
+interface Props {
   enterpriseName: string;
+  open: boolean;
 }
 
-const ContactForm = ({ enterpriseName }: Props) => {
+const sxFormWrapper = {
+  position: 'fixed',
+  zIndex: 1200,
+  right: '1rem',
+  transition: '.5s ease-out all',
+  backgroundColor: 'secondary.main',
+  p: 2,
+  width: 'calc(100% - 2rem)',
+  maxWidth: '25rem',
+  borderRadius: '1rem',
+  color: 'white'
+}
+
+const initialValues = {
+  name: '',
+  phone: '',
+  email: '',
+}
+
+const ContactForm = ({ enterpriseName, open }: Props) => {
   const [loading, setLoading] = useState(false)
   
   const validate = (values: IContactData) => {
@@ -59,41 +76,40 @@ const ContactForm = ({ enterpriseName }: Props) => {
   }
 
   return (
-    <div>
-         <Formik
-            initialValues={{
-              name: '',
-              phone: '',
-              email: '',
-            }}
-            validate={validate}
-            onSubmit={async (values, { resetForm }) => {
-              await handleSubmit(values);
-              resetForm();
-            }}
-          >
-            {(props) => (              
-              <form noValidate onSubmit={props.handleSubmit}>              
-                <Grid container spacing={2} alignItems='stretch'>
-                  <Grid item xs={12}>
-                    <Input id='name' name='name' placeholder='Nome Completo' required={true} />
-                  </Grid>
-                  <Grid item xs={12} md={6} lg={4}>
-                    <Input id='phone' name='phone' placeholder='Telefone' required={true} />
-                  </Grid>
-                  <Grid item xs={12} md={6} lg={4}>
-                    <Input id='email' name='email' placeholder='E-mail' required={true} />
-                  </Grid>
-                  <Grid item xs={12} lg={4}>
-                    <Box sx={{ height: '100%' }}>                    
-                      <LoadingButton loading={loading} sx={{ width: '100%', height: '100%' }} type='submit' color='primary' >ENVIAR</LoadingButton>
-                    </Box>
-                  </Grid>
-                </Grid>
-              </form>
-            )}
-          </Formik>
-          </div>
+    <Paper elevation={24} sx={{ ...sxFormWrapper, bottom: open ? '6rem' : 0, opacity: open ? 1 : 0 }}>
+      <Formik
+        initialValues={initialValues}
+        validate={validate}
+        onSubmit={async (values, { resetForm }) => {
+          await handleSubmit(values);
+          resetForm();
+        }}
+      >
+        {(props) => (
+          <form noValidate onSubmit={props.handleSubmit}>              
+            <Grid container spacing={2} alignItems='stretch'>
+              <Grid item xs={12}>
+                <Typography>Por favor, preencha o formulário abaixo e retornaremos seu contato assim que possível.</Typography>
+              </Grid>
+              <Grid item xs={12}>
+                <Input id='name' name='name' placeholder='Nome Completo' required={true} />
+              </Grid>
+              <Grid item xs={12} >
+                <Input id='phone' name='phone' placeholder='Telefone' required={true} />
+              </Grid>
+              <Grid item xs={12} >
+                <Input id='email' name='email' placeholder='E-mail' required={true} />
+              </Grid>
+              <Grid item xs={12} >
+                <Box sx={{ height: '100%' }}>                    
+                  <LoadingButton loading={loading} sx={{ width: '100%', height: '100%' }} type='submit' color='primary' >ENVIAR</LoadingButton>
+                </Box>
+              </Grid>
+            </Grid>
+          </form>
+        )}
+      </Formik>
+    </Paper>
   )
 }
 

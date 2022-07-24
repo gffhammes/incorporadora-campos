@@ -1,9 +1,9 @@
 import { Box, Container, Grid, Paper, Stack, SxProps, Theme, Typography } from '@mui/material'
 import Image from 'next/image'
 import React, { useCallback, useMemo } from 'react'
-import { PrimaryGradientCover } from '../../commons/PrimaryGradientCover';
-import { SectionTitle } from '../../commons/SectionTitle';
-import { FloatingDownArrowScroll } from '../../commons/FloatingDownArrowScroll';
+import { PrimaryGradientCover } from '../commons/PrimaryGradientCover';
+import { SectionTitle } from '../commons/SectionTitle';
+import { FloatingDownArrowScroll } from '../commons/FloatingDownArrowScroll';
 
 
 const sxContent: SxProps<Theme> = {
