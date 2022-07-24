@@ -21,6 +21,8 @@ const FullScreenSlider = ({ open, handleClose, slides, selectedSlide }: IProps) 
     width: 'calc(100% - 20vw)',
     height: sizeSm ? 'calc(100% - 20vh)' : 'calc(100% - 50vh)',
     bgcolor: 'transparent',
+    border: 'none',
+    outline: 'none',
   };
 
   

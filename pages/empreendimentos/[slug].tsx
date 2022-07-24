@@ -29,7 +29,7 @@ const Enterprise = ({ enterprise }) => {
       <main style={{ height: '100%' }}>
         {Seccoes.Contato && <Contact enterpriseData={enterprise.attributes} />}
         <HeroSection enterpriseData={enterprise.attributes} />
-        {Seccoes.Menu && <ScrollMenu />}
+        {Seccoes.Menu && <ScrollMenu enterpriseData={enterprise.attributes} />}
         <SummarySection enterpriseData={enterprise.attributes} />
         {enterprise.attributes.Slug === 'piazza-del-mare' && <VideoZico />}
         {Seccoes.Detalhes && <DetailsSection enterpriseData={enterprise.attributes} />}      

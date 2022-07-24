@@ -6,10 +6,10 @@ type Props = {}
 const VideoZico = (props: Props) => {
   return (
     <Box>
-      <Container sx={{ pb: 5 }}>
+      <Container sx={{ pb: 5, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <video
           src='/videos/VT CAMPOS INCORPORADORA ALT3.mp4'
-          width='100%'
+          width='60%'
           autoPlay
           controls
           muted
