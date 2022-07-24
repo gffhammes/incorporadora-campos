@@ -10,10 +10,10 @@ const buttonStyle = {
   height: 'fit-content',
   width: 'fit-content',
   backgroundColor: '#51c33a',
-  right: 0,
+  left: 0,
   boxShadow: 10,
   color: '#fff',
-  borderRadius: '1rem 0 0 1rem',
+  borderRadius: '0 1rem 1rem 0',
 }
 
 export const WhatsAppFloatButton = () => {
