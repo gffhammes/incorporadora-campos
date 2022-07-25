@@ -6,7 +6,7 @@ import { useWhatsappLink } from '../../hooks/useWhatsappLink';
 
 const sxButton: SxProps<Theme> = {
   position: 'fixed',
-  zIndex: 999,
+  zIndex: 500,
   height: 'fit-content',
   width: 'fit-content',
   backgroundColor: '#51c33a',
@@ -14,7 +14,7 @@ const sxButton: SxProps<Theme> = {
   boxShadow: 10,
   color: '#fff',
   borderRadius: '0 1rem 1rem 0',
-  top: '60%'
+  bottom: '20%'
 }
 
 export const WhatsAppFloatButton = () => {
