@@ -12,7 +12,7 @@ const sxImage = {
 }
 
 export const EnterprisesSlider = ({ enterprises }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 0 })
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
   const [selectedSlide, setSelectedSlide] = useState(0)
   const [dots, setDots] = useState([])
 

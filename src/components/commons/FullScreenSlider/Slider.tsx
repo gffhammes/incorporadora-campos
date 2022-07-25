@@ -75,10 +75,6 @@ export const Slider = ({ images, startIndex }) => {
     if (emblaApi) emblaApi.scrollNext()
   }, [emblaApi])
 
-  // emblaApi?.on('select', () => {
-  //   setSelectedSlide(emblaApi.selectedScrollSnap())
-  // })
-
   return (
     <Stack direction='row' alignItems='center' sx={{ height: '100%', width: '100%' }}>
       <Box sx={{ ...defaultButtonSx, marginLeft: '10vw', left: 0 }} onClick={scrollPrev}>        
