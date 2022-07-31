@@ -1,12 +1,15 @@
 import { Box, IconButton, Modal, Typography, useMediaQuery, useTheme } from '@mui/material'
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useMemo } from 'react'
 import { Slider } from './Slider';
 import CloseIcon from '@mui/icons-material/Close';
 
 interface IProps {
   open: boolean;
   selectedSlide: number;
-  slides: string[];
+  slides: {
+    imageSrc: string;
+    title?: string;
+  }[];
   handleClose: () => void;
 }
 
@@ -26,7 +29,6 @@ const FullScreenSlider = ({ open, handleClose, slides, selectedSlide }: IProps) 
     outline: 'none',
     p: sizeLg ? 10 : 2
   };
-
   
   return (
     <Modal
@@ -37,7 +39,7 @@ const FullScreenSlider = ({ open, handleClose, slides, selectedSlide }: IProps) 
         <IconButton onClick={handleClose} sx={{ position: 'absolute', zIndex: 1500, right: sizeLg ? '2rem' : '1rem', top: '2rem', color: 'white' }}>
           <CloseIcon />
         </IconButton>
-        <Slider images={slides} startIndex={selectedSlide} />
+        <Slider slides={slides} startIndex={selectedSlide} />
       </Box>
     </Modal>
   )

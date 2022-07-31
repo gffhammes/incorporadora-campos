@@ -6,6 +6,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Slide from './Slide';
 import FullScreenPlanSlider from './FullScreenPlanSlider';
+import FullScreenSlider from '../../commons/FullScreenSlider/FullScreenSlider';
 
 const defaultButtonProps = {
   zIndex: 500,
@@ -57,6 +58,11 @@ export const PlanSlider = ({ slides }) => {
     setSelectedSlide(emblaApi.selectedScrollSnap())
   })
 
+  const fullScreenSlides = slides.map(slide => ({
+    imageSrc: slide.Foto.data.attributes.url,
+    title: slide.Titulo
+  }))
+
   return (
     <>    
       <Stack
@@ -89,7 +95,12 @@ export const PlanSlider = ({ slides }) => {
           <ArrowForwardIosIcon {...defaultSvgProps} sx={{ color: 'secondary.main' }} />
         </Box>
       </Stack>
-      <FullScreenPlanSlider open={fullScreen} handleClose={handleExitFullScreen} images={slides} startIndex={selectedSlide} />
+      <FullScreenSlider
+        open={fullScreen}
+        handleClose={handleExitFullScreen}
+        slides={fullScreenSlides}
+        selectedSlide={selectedSlide}
+      />
     </>
   )
 }

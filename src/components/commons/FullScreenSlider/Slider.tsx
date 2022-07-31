@@ -1,19 +1,18 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import Dialog from '@mui/material/Dialog';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import CloseIcon from '@mui/icons-material/Close';
-import Slide from '@mui/material/Slide';
-import { TransitionProps } from '@mui/material/transitions';
 import { Box, Stack } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { defaultSvgProps } from '../../../constants/defaultSvgProps';
 import useEmblaCarousel from 'embla-carousel-react'
-import Image from 'next/image';
+import { Slide } from './Slide'
 
+interface ISliderProps {
+  slides: {
+    imageSrc: string;
+    title?: string;
+  }[];
+  startIndex: number;
+}
 
 const sxEmbla = {
   overflowX: 'hidden',
@@ -24,17 +23,6 @@ const sxEmbla = {
 const sxEmblaContainer = {
   display: 'flex',
   height: '100%'
-}
-
- const sxEmblaSlide = {
-  position: 'relative',
-  flex: '0 0 100%',
-  marginRight: 4,  
-  transitionProperty: 'filter, box-shadow',
-  transitionDuration: '1s',
-  transitionTimingFunction: 'ease',
-  width: '100%',
-  // aspectRatio: '2 / 1',
 }
 
 const defaultButtonSx = {
@@ -63,8 +51,7 @@ const buttonProps = {
   }
 }
 
-
-export const Slider = ({ images, startIndex }) => {
+export const Slider = ({ slides, startIndex }: ISliderProps) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, startIndex })
 
   const scrollPrev = useCallback(() => {
@@ -84,16 +71,12 @@ export const Slider = ({ images, startIndex }) => {
         <Box sx={sxEmbla}>
           <Box sx={{ height: '100%' }} ref={emblaRef}>
             <Box sx={sxEmblaContainer}>
-              {images.map((image, index) => (
-                <Box sx={sxEmblaSlide} key={index} >
-                  <Image
-                    src={image.attributes.url}
-                    alt='Image'
-                    layout='fill'
-                    objectFit='contain'
-                    priority
-                  />
-                </Box>
+              {slides.map((slide, index) => (
+                <Slide
+                  key={index}
+                  imageSrc={slide.imageSrc}
+                  title={slide.title}
+                />
               ))}
             </Box>
           </Box>

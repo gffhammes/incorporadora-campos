@@ -48,6 +48,10 @@ export const DetailsSlider = ({ images }) => {
     setSelectedSlide(emblaApi.selectedScrollSnap())
   })
 
+  const fullScreenSlides = images.map((image) => ({
+    imageSrc: image.attributes.url,
+  }))
+
   return (
     <>
       <Stack direction='row' alignItems='center' sx={{ height: '100%', width: '100%' }}>
@@ -77,7 +81,7 @@ export const DetailsSlider = ({ images }) => {
       </Stack>
       <FullScreenSlider
         open={openFullScreen}
-        slides={images}
+        slides={fullScreenSlides}
         handleClose={handleClose}
         selectedSlide={selectedSlide}
       />
