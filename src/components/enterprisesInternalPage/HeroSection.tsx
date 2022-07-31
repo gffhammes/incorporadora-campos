@@ -5,7 +5,6 @@ import { PrimaryGradientCover } from '../commons/PrimaryGradientCover';
 import { SectionTitle } from '../commons/SectionTitle';
 import { FloatingDownArrowScroll } from '../commons/FloatingDownArrowScroll';
 
-
 const sxContent: SxProps<Theme> = {
   position: 'absolute',
   width: '100%',

@@ -4,6 +4,7 @@ import { Box, Stack } from '@mui/material'
 import { defaultSvgProps } from '../../../constants/defaultSvgProps'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import Autoplay from 'embla-carousel-autoplay'
 import { Slide } from './Slide'
 
 const defaultButtonProps = {
@@ -44,7 +45,8 @@ const sxEmblaContainer = {
 }
 
 export const HeroSlider = ({ banners }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
+  const autoplay = Autoplay({ delay: 5000 })
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [autoplay])
   const [selectedSlide, setSelectedSlide] = useState(0)
   const [dots, setDots] = useState([])
 

@@ -5,7 +5,6 @@ import { defaultSvgProps } from '../../../constants/defaultSvgProps'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Slide from './Slide';
-import FullScreenPlanSlider from './FullScreenPlanSlider';
 import FullScreenSlider from '../../commons/FullScreenSlider/FullScreenSlider';
 
 const defaultButtonProps = {
