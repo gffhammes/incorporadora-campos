@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import React from 'react'
 import { OutlinedWhiteButton } from '../../commons/Button';
-import { PrimaryGradientCover } from '../../commons/PrimaryGradientCover'
+import { PrimaryGradientCover } from '../../commons/GradientCover'
 
 interface IProps {
   bgImage: string;

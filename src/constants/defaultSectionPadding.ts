@@ -1,0 +1,1 @@
+export const defaultSectionPadding: number = 10

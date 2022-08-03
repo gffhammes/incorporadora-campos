@@ -1,15 +1,17 @@
-import { Box, Typography } from '@mui/material'
+import { Box, SxProps, Typography } from '@mui/material'
 import React, { FC } from 'react'
 
 interface SectionTitleProps {
+  children: any;
   theme?: 'light' | 'dark';
   textAlign?: 'left' | 'center' | 'right';
   marginBottom?: boolean;
-  children: any;
+  divider?: boolean;
+  sx?: SxProps;
 }
 
 
-export const SectionTitle: FC<SectionTitleProps> = ({ theme, textAlign, marginBottom, children }) => {
+export const SectionTitle: FC<SectionTitleProps> = ({ theme, textAlign, marginBottom, children, divider = true, sx }) => {
   const textColor = theme === 'light' ? '#fff' : '#0E1E42';
   const borderColor = theme === 'light' ? '#fff' : '#c6c6c6';
 
@@ -24,12 +26,13 @@ export const SectionTitle: FC<SectionTitleProps> = ({ theme, textAlign, marginBo
         sx={{
           color: textColor,
           width: 'fit-content',
-          mx: textAlign ? '' : 'auto'
+          mx: textAlign ? '' : 'auto',
+          ...sx,
         }} 
       >
         {children}
       </Typography>
-      <Box
+      {divider && <Box
         bgcolor={borderColor}
         sx={{
           width: '100%',
@@ -39,7 +42,7 @@ export const SectionTitle: FC<SectionTitleProps> = ({ theme, textAlign, marginBo
           mt: 4,
           mb: marginBottom !== undefined ? (!marginBottom ? 0 : 5) : 5
         }}
-      />
+      />}
     </>    
   )
 }

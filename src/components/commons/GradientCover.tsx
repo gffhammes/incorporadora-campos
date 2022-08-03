@@ -13,3 +13,16 @@ export const PrimaryGradientCover = () => {
     />
   )
 }
+
+export const AboutGradientCover = () => {
+  return (    
+    <Box
+      sx={{
+        position: 'absolute',
+        height: '100%',
+        width: '100%',
+        backgroundImage: 'linear-gradient(#0E1E42, rgba(1, 1, 3, .04) 50%)',
+      }}
+    />
+  )
+}

@@ -3,10 +3,10 @@ export const pages = [
     route: '/',
     name: 'Home'
   },
-  // {
-  //   route: '/sobre-nos',
-  //   name: 'Sobre nós'
-  // },
+  {
+    route: '/sobre-nos',
+    name: 'Sobre Nós'
+  },
   {
     route: '/empreendimentos',
     name: 'Empreendimentos'
