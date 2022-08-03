@@ -36,7 +36,7 @@ const slides = [
   },
   {
     year: '2022',
-    text: 'O eterno camisa 10,o craque Zico, marca mais um gol de placa e assina o nosso Residencial Del Mare, em Balneário Piçarras.',
+    text: 'O eterno camisa 10, o craque Zico, marca mais um gol de placa e assina o nosso Residencial Del Mare, em Balneário Piçarras.',
     image: 'zico.webp'
   },
   {
