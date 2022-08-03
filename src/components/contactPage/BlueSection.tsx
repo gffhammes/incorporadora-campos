@@ -18,8 +18,8 @@ export const BlueSection = () => {
       <Container sx={{ py: 7, color:'white' }}>
         <Stack direction={{ xs: 'column', md: 'row' }} justifyContent='space-between' alignItems='flex-start' spacing={5} sx={{ width: 'fit-content', mx: 'auto' }}>
           <Stack spacing={.5}>
-            <a href='tel:47 9 99138-2244' style={{ width: 'fit-content' }}>              
-              <Typography sx={sxBold} >LIGUE PARA NÓS: 47 9 99138-2244</Typography>
+            <a href='tel:47 9 9138-2244' style={{ width: 'fit-content' }}>              
+              <Typography sx={sxBold} >LIGUE PARA NÓS: 47 9 9138-2244</Typography>
             </a>
             <Typography><strong>Atendimento</strong>: Segunda à Sexta, das 08h às 18h</Typography>
             <a href='mailto:vendas@camposincorporadora.com.br'>

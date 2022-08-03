@@ -43,7 +43,13 @@ export const EnterprisesSlider = ({ enterprises }) => {
     setSelectedSlide(emblaApi.selectedScrollSnap())
   })
 
-  console.log(dots)
+  const getLocationString = useCallback((enterprise) => {
+    if (!enterprise.attributes.Endereco.Bairro) {
+      return enterprise.attributes.Endereco.Cidade;
+    }
+
+    return `${enterprise.attributes.Endereco.Bairro} - ${enterprise.attributes.Endereco.Cidade}`;
+  }, [])
 
 
   return (
@@ -70,7 +76,7 @@ export const EnterprisesSlider = ({ enterprises }) => {
                         <Typography fontSize={10} fontWeight={600}>{enterprise.attributes.Status.toUpperCase()}</Typography>
                       </Stack>
                       <Stack sx={{ mt: 2, fontSize: 14 }} spacing={.5} >
-                        <Typography>{enterprise.attributes.Endereco.Bairro} - {enterprise.attributes.Endereco.Cidade}</Typography>
+                        <Typography>{getLocationString(enterprise)}</Typography>
                         <Typography>{enterprise.attributes.Area}</Typography>
                         <Typography>{enterprise.attributes.Quartos}</Typography>
                       </Stack>
