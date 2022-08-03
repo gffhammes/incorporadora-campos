@@ -22,7 +22,7 @@ const DescriptionSection = (props: Props) => {
                 position: 'absolute',
                 width: '100%',
                 height: '100%',
-                backgroundImage: 'url(/images/sobre-nos-campos.jpg)',
+                backgroundImage: 'url(/images/sobre-nos-campos.png)',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: '100%'
