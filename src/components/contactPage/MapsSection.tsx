@@ -6,7 +6,7 @@ const iframeSrc = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.46
 export const MapsSection = () => {
   return (
     <Box>
-      <Container sx={{ py: 5}}>
+      <Container sx={{ py: 3}}>
         <Typography fontSize={20} fontWeight={500} letterSpacing={2} textAlign='center'>Rua Pará, 276 - América - Joinville/SC - 89204-420</Typography>
       </Container>
       <iframe

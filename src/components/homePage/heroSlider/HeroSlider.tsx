@@ -4,24 +4,8 @@ import { Box, Stack } from '@mui/material'
 import { defaultSvgProps } from '../../../constants/defaultSvgProps'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import Autoplay from 'embla-carousel-autoplay'
 import { Slide } from './Slide'
-
-const slides = [
-  {
-    bgImage: '/images/piazza-san-pietro/BANNER_SAN_PIETRO.jpg',
-    logo: '/images/PIAZZA-SAN-PIETRO.png',
-    enterpriseName: 'Piazza San Pietro',
-    text: 'LANÇAMENTO NO AMÉRICA',
-    href: '/empreendimentos/piazza-san-pietro',
-  },
-  {
-    bgImage: '/images/piazza-del-mare/BANNER_DEL_MARE.jpg',
-    logo: '/images/DEL_MARE.png',
-    enterpriseName: 'Piazza Del Mare',
-    text: 'PRÉ LANÇAMENTO EM PIÇARRAS',
-    href: '/empreendimentos/piazza-del-mare',
-  },
-]
 
 const defaultButtonProps = {
   zIndex: 500,
@@ -60,26 +44,20 @@ const sxEmblaContainer = {
   aspectRatio: '2 / 1',
 }
 
-export const HeroSlider = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
+export const HeroSlider = ({ banners }) => {
+  const autoplay = Autoplay({ delay: 5000 })
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [autoplay])
   const [selectedSlide, setSelectedSlide] = useState(0)
   const [dots, setDots] = useState([])
 
   useEffect(() => {
-    if (emblaApi) {
-      // Embla API is ready
-    }    
-  }, [emblaApi])
-
-
-  useEffect(() => {
     const arr = [];
-    for (let i = 0; i < slides.length; i++) {
+    for (let i = 0; i < banners.length; i++) {
       arr.push({ active: false })
     }
     arr[0].active = true;
     setDots(arr);
-  }, [])
+  }, [banners])
 
   useEffect(() => {
     setDots((dots): any[] => dots.map((dot, index) => index === selectedSlide ? { active: true } : { active: false } ))
@@ -110,14 +88,15 @@ export const HeroSlider = () => {
         <Box sx={sxEmbla}>
           <Box sx={{ height: '100%' }} ref={emblaRef}>
             <Box sx={sxEmblaContainer}>
-              {slides.map((slide, index) => (
+              {banners.map((slide, index) => (
                 <Box sx={sxEmblaSlide} key={index} >
                   <Slide
-                    bgImage={slide.bgImage}
-                    logo={slide.logo}
-                    enterpriseName={slide.enterpriseName}
-                    text={slide.text}
-                    href={slide.href}
+                    bgImage={slide.attributes.empreendimento.data.attributes.Banner.data.attributes.url}
+                    logo={slide.attributes.empreendimento.data.attributes.Logo.data.attributes.url}
+                    enterpriseName={slide.attributes.empreendimento.data.attributes.Nome}
+                    text={slide.attributes.Texto}
+                    buttonText={slide.attributes.TextoBotao}
+                    href={slide.attributes.empreendimento.data.attributes.Slug}
                   />
                 </Box>
               ))}

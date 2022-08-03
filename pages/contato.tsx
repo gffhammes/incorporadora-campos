@@ -4,6 +4,7 @@ import { BlueSection } from '../src/components/contactPage/BlueSection'
 import { ContactForm } from '../src/components/contactPage/ContactForm'
 import { HeroSection } from '../src/components/contactPage/HeroSection'
 import { MapsSection } from '../src/components/contactPage/MapsSection'
+import { SupplierForm } from '../src/components/contactPage/SupplierForm'
 
 function contact() {
   return (
@@ -11,6 +12,7 @@ function contact() {
       <HeroSection />
       <ContactForm />
       <BlueSection />
+      <SupplierForm />
       <MapsSection />
       <Footer />
     </main>

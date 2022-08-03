@@ -1,25 +1,38 @@
 import { useRouter } from 'next/router';
-import React from 'react'
-import { getEnterpriseBySlug } from '../helpers/getEnterpriseBySlug'
+import React, { useEffect, useState } from 'react'
 
 
 const whatsappNumber = '5547991382244'
 
 export const useWhatsappLink = () => {
   const { asPath: currentPath } = useRouter();
-  let text: string; 
+  const { API_URL } = process.env;
+  const [data, setData] = useState(null)
+  let text: string;
 
-  if (currentPath.includes('empreendimentos')) {
-    const enterpriseName = currentPath.split('/').pop();
+  useEffect(() => {
+    const slugArray = currentPath.split('/');
 
-    if (enterpriseName === 'empreendimentos') { 
-      text = 'Olá! Vim pelo site e gostaria de mais informações!';
-    } else {
-      text = `Olá! Vim pelo site e gostaria de mais informações sobre o empreendimento ${getEnterpriseBySlug(enterpriseName)?.name}!`;
+    if (slugArray.length !== 3) {
+      setData(null);
+      return;
     }
+
+    const enterpriseName = slugArray.pop();
+
+    fetch(`${API_URL}/api/empreendimentos?filters[Slug][$eq]=${enterpriseName}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data.data[0])
+      })
+  }, [API_URL, currentPath])
+
+  if (data) {
+    text = `Olá! Vim pelo site e gostaria de mais informações sobre o empreendimento ${data.attributes.Nome}!`;
   } else {
     text = 'Olá! Vim pelo site e gostaria de mais informações!';
   }
+
   const url = `https://api.whatsapp.com/send/?phone=${whatsappNumber}&text=${encodeURI(text)}&app_absent=0`
   return url;
 }

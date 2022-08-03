@@ -25,7 +25,7 @@ export const TopBar = () => {
           <a href={whatsappLink} target='_blank' rel="noreferrer" >
             <Stack direction='row' alignItems='center' spacing={1}> 
               <WhatsAppIcon sx={{ fontSize: 18 }} />
-              <Typography fontSize={12}>47 9 99138-2244</Typography>
+              <Typography fontSize={12}>47 9 9138-2244</Typography>
             </Stack>
           </a>
         </Stack>

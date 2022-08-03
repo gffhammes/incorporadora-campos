@@ -9,18 +9,22 @@ interface InputProps {
   placeholder?: string;
   type?: string;
   required?: boolean;
-  color?: 'grey' | 'white';
+  color?: 'grey' | 'white' | 'secondary' | 'white-contained';
   sx?: SxProps;
   multiline?: boolean;
+  rows?: number;
 }
+
+const padding = '.5rem 1.5rem';
+const borderRadius = '1.5rem';
 
 const CssTextField = styled(TextField)({
   width: '100%',
   '& .MuiOutlinedInput-root': {
-    borderRadius: '20rem',
+    borderRadius,
     '& .MuiOutlinedInput-input': {
       color: 'white',
-      padding: '.75rem 1.5rem',
+      padding,
     },
     '& fieldset': {
       borderColor: 'white',
@@ -37,10 +41,10 @@ const CssTextField = styled(TextField)({
 const CssTextFieldGrey = styled(TextField)({
   width: '100%',
   '& .MuiOutlinedInput-root': {
-    borderRadius: '2rem',
+    borderRadius,
     '& .MuiOutlinedInput-input': {
       color: '#000',
-      padding: '.75rem 1.5rem',
+      padding,
     },
     '& fieldset': {
       borderColor: '#CDCDCD',
@@ -54,10 +58,50 @@ const CssTextFieldGrey = styled(TextField)({
   },
 });
 
-export const Input: FC<InputProps> = ({ id, label, placeholder, type, required, color, sx, name, multiline = false }) => {  
+const SecondaryTextField = styled(TextField)({
+  width: '100%',
+  '& .MuiOutlinedInput-root': {
+    borderRadius,
+    '& .MuiOutlinedInput-input': {
+      color: '#000',
+      padding,
+    },
+    '& fieldset': {
+      borderColor: '#1A47BC',
+    },
+    '&:hover fieldset': {
+      borderColor: '#1A47BC',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: '#1A47BC',
+    },
+  },
+});
+
+const WhiteContainedTextField = styled(TextField)({
+  width: '100%',
+  '& .MuiOutlinedInput-root': {
+    borderRadius,
+    backgroundColor: '#fff',
+    '& .MuiOutlinedInput-input': {
+      color: '#000',
+      padding,
+    },
+    '& fieldset': {
+      borderColor: 'transparent',
+    },
+    '&:hover fieldset': {
+      borderColor: 'transparent',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: 'transparent',
+    },
+  },
+});
+
+export const Input: FC<InputProps> = ({ id, label, placeholder, type, required, color, sx, name, multiline = false, rows = 6 }) => {  
   const [field, meta, helpers] = useField({ name });
 
-  const checkColor = color ? color : 'white';
   const textFieldProps = {
     id: id,
     label: label,
@@ -72,11 +116,17 @@ export const Input: FC<InputProps> = ({ id, label, placeholder, type, required, 
     return meta.error && meta.touched ? meta.error : null;
   }, [meta.error, meta.touched])
 
-  return (
-    checkColor === 'white'
-      ? <>
-          <CssTextField inputProps={textFieldProps} multiline={multiline} {...field} helperText={helperTextMemo} error={!!helperTextMemo}  />
-        </>
-      : <CssTextFieldGrey inputProps={textFieldProps} multiline={multiline} rows={6} {...field} helperText={helperTextMemo} error={!!helperTextMemo}  />
-  )
+  switch (color) {
+    case 'grey':
+      return <CssTextFieldGrey inputProps={textFieldProps} multiline={multiline} rows={rows} {...field} helperText={helperTextMemo} error={!!helperTextMemo}  />
+
+    case 'secondary':
+      return <SecondaryTextField inputProps={textFieldProps} multiline={multiline} rows={rows} {...field} helperText={helperTextMemo} error={!!helperTextMemo}  />
+
+    case 'white-contained': 
+      return <WhiteContainedTextField inputProps={textFieldProps} multiline={multiline} rows={rows} {...field} helperText={helperTextMemo} error={!!helperTextMemo}  />
+
+    default:
+      return <CssTextField inputProps={textFieldProps} multiline={multiline} rows={rows} {...field} helperText={helperTextMemo} error={!!helperTextMemo}  />
+  }
 }

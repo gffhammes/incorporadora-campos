@@ -15,7 +15,7 @@ export const Footer = () => {
   return (
     <Box component='footer'>
       <Subscribe />
-      <Box bgcolor='primary.main' sx={{ color: '#fff', py: 10 }}>
+      <Box bgcolor='primary.main' sx={{ color: '#fff', py: 7 }}>
         <Container>
           <Stack direction={{ xs: 'column', md: 'row' }} spacing={4} justifyContent='space-between'>
             <Box sx={{ width: '25vw', minWidth: '15rem', maxWidth: '20rem', height: '100%' }} >
@@ -40,7 +40,7 @@ export const Footer = () => {
               ))}
             </Stack> */}
             <Stack spacing={1} >
-              <Typography fontSize={14} fontWeight='bold'>47 9 99138-2244</Typography>
+              <Typography fontSize={14} fontWeight='bold'>47 9 9138-2244</Typography>
               <Typography fontSize={14}>vendas@camposincorporadora.com.br</Typography>
               <Typography fontSize={14}>Rua Pará, 276 - América<br/>Joinville/SC - 89204-420</Typography>
               <FollowUs />

@@ -37,7 +37,7 @@ const hoverFilter = {
 export const SimulatorsSection = () => {
   return (
     <Box bgcolor='#f4f4f4'>
-      <Container sx={{ py: 5 }}>
+      <Container sx={{ py: 3 }}>
         <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 10, md: 20}} alignItems='center' justifyContent='space-between' sx={{ width: '100%' }}>
           <Typography fontSize={30} letterSpacing={1} sx={{ width: 'fit-content' }}>SIMULADORES</Typography>
           <div style={{ width: 'fit-content' }}>

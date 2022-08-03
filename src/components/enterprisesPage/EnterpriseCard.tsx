@@ -1,9 +1,8 @@
 
 import React, { useMemo } from 'react'
-import { Box, Button, Container, Grid, Stack, Typography } from '@mui/material'
+import { Box, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
-import { getEnterpriseDetailsString } from '../../helpers/getEnterpriseDetailsString'
 
 const enterpriseNameProps = {
   fontSize: 19,
@@ -55,7 +54,7 @@ const sxStatus = {
 const sxInfos = {
   p: {
     xs: '5rem 2rem 2rem 2rem',
-    sm: 6,
+    sm: '3rem 12rem 3rem 3rem',
   },
   display: 'flex',
   flexDirection: 'column',
@@ -69,23 +68,23 @@ const boxShadow = '0px 10px 13px -6px rgb(26 71 188 / 20%), 0px 20px 31px 3px rg
 export const EnterpriseCard = ({ enterprise }) => {
 
   const statusBgColorMemo = useMemo(() => {
-    switch (enterprise.status) {
+    switch (enterprise.Status) {
       case 'Pré Lançamento':
         return 'rgb(26, 71, 188)'
       default:
         return 'primary.main'
     }
-  }, [])
+  }, [enterprise.Status])
 
   return (
-    <Link href={`/empreendimentos/${enterprise.slug}`} passHref>
+    <Link href="/empreendimentos/[slug]" as={`/empreendimentos/${enterprise.Slug}`} passHref>
       <a>
         <Box sx={{ height: 'fit-content', width: '100%', boxShadow }}>
           <Stack direction={{ xs: 'column', md: 'row' }} sx={{ height: '100%' }}>                  
             <Box sx={sxImage}>
               <Image
-                src={enterprise.image}
-                alt={enterprise.name}
+                src={enterprise.Thumb.data.attributes.url}
+                alt={enterprise.Nome}
                 objectFit='cover'
                 width="100%"
                 height="100%"
@@ -94,15 +93,13 @@ export const EnterpriseCard = ({ enterprise }) => {
               />
             </Box>
             <Box sx={sxInfos}>
-              <Typography {...enterpriseNameProps}>{enterprise.name.toUpperCase()}</Typography>
-              <Typography fontSize={16} fontWeight={500}>{enterprise.district} | {enterprise.city}</Typography>
-              <Typography fontSize={14}>
-                {getEnterpriseDetailsString(enterprise.slug)}
-              </Typography>
-              <Typography fontSize={14} fontWeight={400} sx={{ mt: '1rem', whiteSpace: 'pre-wrap' }} >{enterprise.description}</Typography>
+              <Typography {...enterpriseNameProps}>{enterprise.Nome.toUpperCase()}</Typography>
+              <Typography fontSize={16} fontWeight={500}>{enterprise.Endereco?.Bairro} | {enterprise.Endereco?.Cidade}</Typography>
+              <Typography fontSize={14}>{enterprise.TextoResumo}</Typography>
+              <Typography fontSize={14} fontWeight={400} sx={{ mt: '1rem', whiteSpace: 'pre-wrap' }} >{enterprise.DescricaoCard}</Typography>
               <Typography fontSize={15} fontWeight={700}  sx={{ mt: { xs: '1rem', md: 'auto' }, width: 'fit-content', color: '#1a47bc', borderBottom: '1px solid #1A47BC', }} >SAIBA MAIS</Typography>
               <Box bgcolor={statusBgColorMemo} sx={sxStatus}>
-                <Typography fontSize={13} letterSpacing={3}>{enterprise.status.toUpperCase()}</Typography>
+                <Typography fontSize={13} letterSpacing={3}>{enterprise.Status.toUpperCase()}</Typography>
               </Box>
             </Box>
           </Stack>

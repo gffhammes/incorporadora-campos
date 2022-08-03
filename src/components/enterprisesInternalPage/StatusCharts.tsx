@@ -56,7 +56,7 @@ const GeneralStatus = ({ status }) => {
 const StatusBar = ({ title, value }) => {
   return (    
     <Stack direction='row' alignItems='center' justifyContent='space-between' spacing={4}>
-      <Box bgcolor='white' sx={{ width: '100%', height: '3.5rem', position: 'relative' }}>
+      <Box bgcolor='white' sx={{ width: '100%', height: '3rem', position: 'relative' }}>
         <Box bgcolor='secondary.main' sx={{ position: 'absolute', width: value, height: '100%', overflowX: 'hidden', display: 'flex', alignItems: 'center', zIndex: 15 }}>
           <Typography sx={{ color: 'white', ml: 4 }} fontSize={13} fontWeight={500} >{title}</Typography>
 
@@ -77,17 +77,18 @@ export function StatusCharts({ data }) {
   return (
     <Grid container spacing={10}>
       <Grid item xs={12} md={4}>        
-        <Stack spacing={10} alignItems={{ xs: 'center', md: 'flex-start' }}>
+        <Stack spacing={5} alignItems={{ xs: 'center', md: 'flex-start' }}>
           <Typography fontSize={28} fontWeight={500} letterSpacing={2} sx={{ color: '#0E1E42', whiteSpace: 'nowrap' }}>STATUS DA OBRA</Typography>      
           <GeneralStatus status={getAverageEnterpriseStatus(data)} />
         </Stack>
       </Grid>
       <Grid item xs={12} md={8}>
-        <Stack spacing={2} justifyContent='space-between' sx={{ height: '100%' }}>          
-          <StatusBar title='INFRAESTRUTURA - FUNDAÇÃO' value={data.infrastructure} />
-          <StatusBar title='ALVENARIAS' value={data.masonry} />
-          <StatusBar title='INSTALAÇÕES' value={data.installations} />
-          <StatusBar title='REVESTIMENTOS' value={data.coating} />
+        <Stack spacing={1} justifyContent='space-between' sx={{ height: '100%' }}>    
+          <StatusBar title='FUNDAÇÃO' value={data.Fundacao / 100} />      
+          <StatusBar title='ESTRUTURA' value={data.Infraestrutura / 100} />
+          <StatusBar title='ALVENARIA' value={data.Alvenaria / 100} />
+          <StatusBar title='INSTALAÇÕES' value={data.Instalacoes / 100} />
+          <StatusBar title='ACABAMENTOS' value={data.Revestimentos / 100} />
         </Stack>
       </Grid>
     </Grid>

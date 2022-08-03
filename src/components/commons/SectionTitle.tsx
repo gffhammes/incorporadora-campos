@@ -40,7 +40,7 @@ export const SectionTitle: FC<SectionTitleProps> = ({ theme, textAlign, marginBo
           height: '1px',
           mx: 'auto',
           mt: 4,
-          mb: marginBottom !== undefined ? (!marginBottom ? 0 : 10) : 10
+          mb: marginBottom !== undefined ? (!marginBottom ? 0 : 5) : 5
         }}
       />}
     </>    
