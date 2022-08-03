@@ -12,37 +12,37 @@ const slides = [
   {
     year: '2010',
     text: 'Nasce a Campos, inspirada na conexão entre amigos motivados pelo desejo de crescer, buscar algo novo e empreender.',
-    image: 'socios'
+    image: 'socios.webp'
   },
   {
     year: '2014',
     text: 'Nosso primeiro empreendimento sai do papel e se torna realidade. O Piazza San Marco, em Joinville.',
-    image: '/images/.'
+    image: 'SAN_MARCO.png'
   },
   {
     year: '2016',
     text: 'Logo em seguida, o Piazza San Carlo ganha vida e conquista os moradores do Bairro Costa e Silva em Joinville.',
-    image: '/images/.'
+    image: 'SAN_CARLO.png'
   },
   {
     year: '2018',
     text: 'Em 2018, o Piazza Della Libertá nasce para conquistar os moradores do Bairro Costa e Silva.',
-    image: '/images/.'
+    image: 'LIBERTA.png'
   },
   {
     year: '2020',
     text: 'O Piazza San Pietro, no coração do bairro América, vem para apresentar um novo padrão de conforto e requinte em Joinville.',
-    image: 'SAN_PIETRO'
+    image: 'SAN_PIETRO.webp'
   },
   {
     year: '2022',
     text: 'O eterno camisa 10,o craque Zico, marca mais um gol de placa e assina o nosso Residencial Del Mare, em Balneário Piçarras.',
-    image: 'zico'
+    image: 'zico.webp'
   },
   {
     year: '2022',
     text: 'Em uma parceria inédita no mundo, assinamos com a escola Bolshoi e iniciamos o planejamento do Edifício Bolshoi Brasil.',
-    image: 'BOLSHOI'
+    image: 'BOLSHOI.webp'
   },
 ]
 

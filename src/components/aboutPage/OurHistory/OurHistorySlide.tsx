@@ -82,7 +82,7 @@ const OurHistorySlide = ({ slide, index, lastSlideIndex }: Props) => {
                   }}
                 >
                   <Image
-                    src={`/images/nossa-historia/${slide.image}.webp`}
+                    src={`/images/nossa-historia/${slide.image}`}
                     alt={slide.year}
                     layout='fill'
                     objectFit='contain'
