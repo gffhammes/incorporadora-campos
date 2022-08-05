@@ -6,9 +6,8 @@ import React, { useMemo } from 'react';
 const commonProps = {
   width: '10rem',
   minWidth: 'fit-content',
-  height: 'fit-content',
   borderRadius: '20rem',
-  padding: '.75rem 2rem',
+  padding: '.5rem 2rem',
   fontWeight: 600,
   fontSize: 15,
   fontFamily: 'Satoshi, sans-serif',
@@ -57,7 +56,7 @@ export const OutlinedWhiteButton = styled(ButtonBase)(({ theme }) => ({
   boxSizing: 'content-box',
   '&:hover': {
     backgroundColor: '#1A47BC',
-    border: '1px solid rgba(255, 255, 255, 1)',
+    border: '1px solid transparent',
   },
   whiteSpace: 'nowrap'
 }));
@@ -66,7 +65,7 @@ interface ILoadingButtonProps {
   children: any;
   color: string;
   type: "button" | "submit" | "reset";
-  sx: SxProps;
+  sx?: SxProps;
   loading?: boolean;
 }
 

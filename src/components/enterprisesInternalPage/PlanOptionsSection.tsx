@@ -16,7 +16,7 @@ const boxShadow = '0px 10px 13px -6px rgb(26 71 188 / 20%), 0px 20px 31px 3px rg
 export const PlanOptionsSection = ({ enterpriseData }) => {
   return (
     <Box id='plan-options'>
-      <Container sx={{ py: 10 }}>
+      <Container sx={{ py: 7 }}>
         <Box
           display="grid"
           gridTemplateAreas={{
@@ -41,14 +41,13 @@ export const PlanOptionsSection = ({ enterpriseData }) => {
           </Box>
           <Box gridArea='b' alignSelf='flex-start' justifySelf={{ xs: 'center', md: 'flex-start' }}  >
             <Box
-              component='p'
-              dangerouslySetInnerHTML={{ __html: enterpriseData.planText }}
+              dangerouslySetInnerHTML={{ __html: enterpriseData.TextoPlanta }}
               sx={{ lineHeight: 1.75 }}
             />
           </Box>
           <Box gridArea='c' justifySelf='center' sx={sxPlanSlider} >
-            <Box bgcolor='white' sx={{ height: '100%', width: '100%', boxShadow, p: 4 }}>
-              <PlanSlider plans={enterpriseData.plans} />
+            <Box bgcolor='white' sx={{ height: '100%', boxShadow, p: 4 }}>
+              <PlanSlider slides={enterpriseData.Plantas} />
             </Box>
           </Box>
 

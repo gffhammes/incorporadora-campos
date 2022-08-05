@@ -10,6 +10,12 @@ const nextConfig = {
 
     return config
   },
+  env: {
+    API_URL: process.env.API_URL,
+  },
+  images: {
+    domains: ['localhost', 'evening-lowlands-86540.herokuapp.com', 'res.cloudinary.com'],
+  },
 }
 
 module.exports = nextConfig

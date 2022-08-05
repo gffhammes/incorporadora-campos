@@ -48,7 +48,7 @@ export const ContactForm = () => {
   }
 
   return (
-    <Box sx={{ background: 'linear-gradient(#fff 50%, #E4E2E7 50%)' }}>      
+    <Box sx={{ mb: 7 }}>      
       <Container>
         <Box  bgcolor='primary.main'>        
           <Stack
@@ -56,7 +56,7 @@ export const ContactForm = () => {
             justifyContent='space-between'
             alignItems='center'
             spacing={6}
-            sx={{ color: '#fff', py: 5, px: { xs: 2, md: 7 } }}
+            sx={{ color: '#fff', py: 3, px: { xs: 2, md: 7 } }}
           >
             <Typography fontWeight={500} fontSize={20} letterSpacing={2} sx={{ whiteSpace: { xs: 'normal', md: 'nowrap'} }}>LIGAMOS PRA VOCÊ</Typography>
 

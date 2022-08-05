@@ -14,10 +14,10 @@ const imageStyle = {
 export const HistorySection = () => {
   return (
     <Box bgcolor='primary.main' >
-      <Container maxWidth='sm' sx={{ py: 10 }}>
+      <Container maxWidth={false} sx={{ py: 7, maxWidth: '700px' }}>
         <Stack spacing={{ xs: 8, md: 4 }}>          
           <Box sx={{ color: 'white', textAlign: 'center' }} >
-            <SectionTitle theme='light'>UMA HISTÓRIA DE SUCESSO</SectionTitle>
+            <SectionTitle theme='light'>{('Mais que empreendimentos criamos conexões').toUpperCase()}</SectionTitle>
             <Typography fontSize={21} sx={{ mt: 5 }}>
             Estar na vanguarda dos empreendimentos imobiliários e criar conexões com nossos sócios, clientes e comunidade nos impulsiona todos os dias.
             </Typography>

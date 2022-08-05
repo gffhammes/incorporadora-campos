@@ -30,7 +30,7 @@ const articles = [
 export const BlogSection = () => {
   return (
     <Box>
-      <Container sx={{ py: 10 }}>
+      <Container sx={{ py: 7 }}>
         <SectionTitle theme='dark'>FIQUE POR DENTRO</SectionTitle>
         <Box sx={{ mt: 10 }}>
           <Grid container spacing={2}>

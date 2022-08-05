@@ -13,6 +13,7 @@ const sxFormWrapper = {
   width: '100%',
   backgroundColor: 'white',
   transform: 'translateY(-20vh)',
+  mb: 'calc(5rem - 20vh)',
   zIndex: '500',
   boxShadow,
   py: '4rem'

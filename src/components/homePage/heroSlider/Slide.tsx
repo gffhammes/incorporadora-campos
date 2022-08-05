@@ -3,13 +3,14 @@ import Image from 'next/image'
 import Link from 'next/link';
 import React from 'react'
 import { OutlinedWhiteButton } from '../../commons/Button';
-import { PrimaryGradientCover } from '../../commons/PrimaryGradientCover'
+import { PrimaryGradientCover } from '../../commons/GradientCover'
 
 interface IProps {
   bgImage: string;
   logo: string;
   enterpriseName: string;
   text: string;
+  buttonText: string;
   href: string;
 }
 
@@ -44,6 +45,7 @@ export const Slide = ({
   enterpriseName,
   text,
   href,
+  buttonText,
   ...props
 }: IProps) => {
   return (
@@ -67,9 +69,9 @@ export const Slide = ({
               />
             </Box>
             <Typography fontSize={21} letterSpacing={4} textAlign='center' sx={{ color: 'white', mt: 'auto', mb: 2 }} >{text}</Typography>
-            <Link href={href} passHref >
+            <Link href='/empreendimentos/[slug]' as={'/empreendimentos/' + href} passHref >
               <a>
-                <OutlinedWhiteButton sx={{ width: 'fit-content' }}>SAIBA MAIS</OutlinedWhiteButton>
+                <OutlinedWhiteButton sx={{ width: 'fit-content' }}>{buttonText}</OutlinedWhiteButton>
               </a>
             </Link>
           </Stack>

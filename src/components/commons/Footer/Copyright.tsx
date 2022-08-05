@@ -11,7 +11,7 @@ const texts = [
 export const Copyright = () => {
   return (
     <Box bgcolor='primary.main' sx={{ borderTop: '1px solid #656565' }} >
-      <Container sx={{ py: 2 }}>        
+      <Container sx={{ py: 3 }}>        
         <Stack
           direction={{ xs: 'column', md: 'row' }}
           justifyContent='center'
