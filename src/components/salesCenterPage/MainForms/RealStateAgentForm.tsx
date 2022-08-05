@@ -1,5 +1,6 @@
 import { Alert, Box, Container, Grid, Snackbar, Stack, Typography } from '@mui/material'
 import { Formik } from 'formik'
+import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { sendMail } from '../../../services/sendMail'
 import { ContainedSecondaryButton, LoadingButton } from '../../commons/Button'
@@ -11,6 +12,7 @@ type Props = {}
 const RealStateAgentForm = (props: Props) => {
   const [loading, setLoading] = useState(false)
   const [openSnackbar, setOpenSnackbar] = useState(false)
+  const router = useRouter();
   
   const handleSnackbarClose = () => {
     setOpenSnackbar(false)
@@ -59,7 +61,7 @@ const RealStateAgentForm = (props: Props) => {
     }
     await sendMail(data).then((res) => {
       if (res.status === 200) {
-        setOpenSnackbar(true)
+        router.push('/confirmacao/corretor')
       }
       setLoading(false)
     }).catch(() => setLoading(false))

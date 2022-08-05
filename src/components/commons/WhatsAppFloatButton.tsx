@@ -23,7 +23,7 @@ export const WhatsAppFloatButton = () => {
 
   return (
     <Box sx={sxButton}>
-      <a href={whatsappLink} target='_blank' rel="noreferrer" >        
+      <a href={whatsappLink} target='_blank' rel="noreferrer" className='whatsapp-button'>     
         <Stack alignItems='center' spacing={1} sx={{ p: 2 }} >        
           <WhatsAppIcon sx={{ fontSize: 40 }} />
           <Typography fontWeight={500} letterSpacing={1} fontSize={12} >WHATSAPP</Typography>

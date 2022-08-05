@@ -4,10 +4,12 @@ import { ContainedWhiteButton, LoadingButton } from '../commons/Button'
 import { Input } from '../commons/Input'
 import { Formik } from 'formik'
 import { sendMail } from '../../services/sendMail'
+import { useRouter } from 'next/router'
 
 export const ContactForm = () => {
   const [loading, setLoading] = useState(false)
   const [openSnackbar, setOpenSnackbar] = useState(false)
+  const router = useRouter();
 
   const validate = (values) => {
     const errors: {
@@ -39,7 +41,7 @@ export const ContactForm = () => {
     }
     await sendMail(data).then((res) => {
       if (res.status === 200) {
-        setOpenSnackbar(true)
+        router.push('/confirmacao/contato')
       }
       setLoading(false)
     }).catch(() => setLoading(false))

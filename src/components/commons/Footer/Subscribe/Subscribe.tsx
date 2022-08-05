@@ -10,6 +10,7 @@ import { sendMail } from '../../../../services/sendMail'
 export const Subscribe = () => {
   const [loading, setLoading] = useState(false)
   const [openSnackbar, setOpenSnackbar] = useState(false)
+  const router = useRouter();
 
   const validate = (values) => {
     const errors: { email?: string } = {};
@@ -36,7 +37,7 @@ export const Subscribe = () => {
     }
     await sendMail(data).then((res) => {
       if (res.status === 200) {
-        setOpenSnackbar(true)
+        router.push('/confirmacao/newsletter')
       }
       setLoading(false)
     }).catch(() => setLoading(false))
