@@ -81,7 +81,7 @@ export const EnterprisesSlider = ({ enterprises, loading }: IEnterprisesSliderPr
     if (loading) {
       return (
         [0, 1, 2, 3].map(item => (
-          <Skeleton key={item} variant='rectangular' className="embla__slide" sx={{ height: '20rem' }}  />
+          <Skeleton key={item} variant='rectangular' className="embla__slide" sx={{ height: '20rem', mt: 2 }}  />
         ))
       )
     }
