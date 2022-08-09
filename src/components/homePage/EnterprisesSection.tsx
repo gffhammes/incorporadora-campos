@@ -10,7 +10,7 @@ export const EnterprisesSection = () => {
   const [data, setData] = useState(null)
 
   useEffect(() => {
-    fetch(`${API_URL}/api/empreendimentos?sort=id&populate=*`)
+    fetch(`${API_URL}/api/empreendimentos?sort=Ordem&populate=*`)
       .then((res) => res.json())
       .then((data) => {
         setData(data.data)
