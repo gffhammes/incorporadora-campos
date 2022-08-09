@@ -10,7 +10,24 @@ const sxImage = {
   position: 'relative',
   width: 'calc(100% + 32px)',
   ml: '-16px',
-  aspectRatio: '1 / 1.45'
+  aspectRatio: '1 / 1.45',
+}
+
+const sxArrowWrapperCommon = {
+  position: 'absolute',
+  height: 'fit-content',
+  width: 'fit-content',
+  cursor: 'pointer',
+}
+
+const sxRightArrowWrapper = {
+  ...sxArrowWrapperCommon,
+  right: 'calc(1rem - 3vw)',
+}
+
+const sxLeftArrowWrapper = {
+  ...sxArrowWrapperCommon,
+  left: 'calc(1rem - 3vw)',
 }
 
 export const EnterprisesSlider = ({ enterprises }) => {
@@ -22,7 +39,7 @@ export const EnterprisesSlider = ({ enterprises }) => {
     const dotsArray = [];
     enterprises.forEach(() => dotsArray.push({ active: false }));
     dotsArray[0].active = true;
-    setDots(dotsArray)
+    setDots(dotsArray);
   }, [enterprises])
 
   useEffect(() => {
@@ -52,8 +69,6 @@ export const EnterprisesSlider = ({ enterprises }) => {
 
     return `${enterprise.attributes.Endereco.Bairro} - ${enterprise.attributes.Endereco.Cidade}`;
   }, [])
-
-
 
   return (
     <Stack sx={{ position: 'relative' }} spacing={4}>      
@@ -97,10 +112,10 @@ export const EnterprisesSlider = ({ enterprises }) => {
         ))}
       </Stack>
       <Stack direction='row' sx={{ position: 'absolute', height: '5rem', width: '100%', top: '50%', transform: 'translateY(-50%)' }}>
-        <Box sx={{ position: 'absolute', height: 'fit-content', width: 'fit-content', left: 'calc(1rem - 3vw)', cursor: 'pointer' }} onClick={scrollPrev}>
+        <Box sx={sxLeftArrowWrapper} onClick={scrollPrev}>
           <ArrowBackIosIcon sx={{ color: 'secondary.main' }} />
         </Box>
-        <Box sx={{ position: 'absolute', height: 'fit-content', width: 'fit-content', right: 'calc(1rem - 3vw)', cursor: 'pointer' }} onClick={scrollNext}>
+        <Box sx={sxRightArrowWrapper} onClick={scrollNext}>
           <ArrowForwardIosIcon sx={{ color: 'secondary.main' }} />
         </Box>
       </Stack>
