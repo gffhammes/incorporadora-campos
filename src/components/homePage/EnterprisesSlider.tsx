@@ -3,12 +3,31 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { Box, Stack, Typography } from '@mui/material'
 import Link from 'next/link'
 import Image from 'next/image'
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const sxImage = {
   position: 'relative',
   width: 'calc(100% + 32px)',
   ml: '-16px',
-  aspectRatio: '1 / 1.45'
+  aspectRatio: '1 / 1.45',
+}
+
+const sxArrowWrapperCommon = {
+  position: 'absolute',
+  height: 'fit-content',
+  width: 'fit-content',
+  cursor: 'pointer',
+}
+
+const sxRightArrowWrapper = {
+  ...sxArrowWrapperCommon,
+  right: 'calc(1rem - 3vw)',
+}
+
+const sxLeftArrowWrapper = {
+  ...sxArrowWrapperCommon,
+  left: 'calc(1rem - 3vw)',
 }
 
 export const EnterprisesSlider = ({ enterprises }) => {
@@ -20,7 +39,7 @@ export const EnterprisesSlider = ({ enterprises }) => {
     const dotsArray = [];
     enterprises.forEach(() => dotsArray.push({ active: false }));
     dotsArray[0].active = true;
-    setDots(dotsArray)
+    setDots(dotsArray);
   }, [enterprises])
 
   useEffect(() => {
@@ -51,9 +70,8 @@ export const EnterprisesSlider = ({ enterprises }) => {
     return `${enterprise.attributes.Endereco.Bairro} - ${enterprise.attributes.Endereco.Cidade}`;
   }, [])
 
-
   return (
-    <Stack sx={{ position: 'relative'}} spacing={4}>      
+    <Stack sx={{ position: 'relative' }} spacing={4}>      
       <Box className="embla" sx={{ mt: { xs: 0, md: 5 } }}>
         <div className="embla__viewport"  ref={emblaRef}>
           <div className="embla__container">
@@ -92,6 +110,14 @@ export const EnterprisesSlider = ({ enterprises }) => {
         {dots.map((dot, index) => (
           <Box onClick={() => changeSelectedSlide(index)} bgcolor='secondary.main' key={index} sx={{ transition: '.2s ease all', height: '.5rem', width: '.5rem', borderRadius: '1rem', cursor: 'pointer', filter: dot.active ?  'opacity(.8)' : 'opacity(.25)' }} />
         ))}
+      </Stack>
+      <Stack direction='row' sx={{ position: 'absolute', height: '5rem', width: '100%', top: '50%', transform: 'translateY(-50%)' }}>
+        <Box sx={sxLeftArrowWrapper} onClick={scrollPrev}>
+          <ArrowBackIosIcon sx={{ color: 'secondary.main' }} />
+        </Box>
+        <Box sx={sxRightArrowWrapper} onClick={scrollNext}>
+          <ArrowForwardIosIcon sx={{ color: 'secondary.main' }} />
+        </Box>
       </Stack>
     </Stack>
   )
