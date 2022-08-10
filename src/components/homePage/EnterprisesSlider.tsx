@@ -38,13 +38,15 @@ interface IEnterprisesSliderProps {
 
 export const EnterprisesSlider = ({ enterprises, loading }: IEnterprisesSliderProps) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: 0, containScroll: 'trimSnaps' });
-  const [scrollSnaps, setScrollSnaps] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
   const scrollTo = useCallback((index) => emblaApi && emblaApi.scrollTo(index), [emblaApi]);
 
+  const scrollPrevButtonActive = selectedIndex > 0;
+  const scrollNextButtonActive = selectedIndex < emblaApi?.scrollSnapList().length - 1;
+  
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
     setSelectedIndex(emblaApi.selectedScrollSnap());
@@ -53,14 +55,12 @@ export const EnterprisesSlider = ({ enterprises, loading }: IEnterprisesSliderPr
   useEffect(() => {
     if (!emblaApi) return;
     onSelect();
-    setScrollSnaps(emblaApi.scrollSnapList());
     emblaApi.on("select", onSelect);
-  }, [emblaApi, setScrollSnaps, onSelect]);
+  }, [emblaApi, onSelect]);
 
   useEffect(() => {
     if (!enterprises || !emblaApi) return;
     emblaApi.reInit();
-    setScrollSnaps(emblaApi.scrollSnapList());
   }, [emblaApi, enterprises])
 
   const getLocationString = useCallback((enterprise) => {
@@ -123,16 +123,16 @@ export const EnterprisesSlider = ({ enterprises, loading }: IEnterprisesSliderPr
 
       </Box>
       <Stack direction='row' alignItems='center' justifyContent='center' spacing={2}>
-        {scrollSnaps.map((dot, index) => (
+        {emblaApi?.scrollSnapList().map((dot, index) => (
           <Box onClick={() => scrollTo(index)} bgcolor='secondary.main' key={index} sx={{ transition: '.2s ease all', height: '.5rem', width: '.5rem', borderRadius: '1rem', cursor: 'pointer', filter: index === selectedIndex ?  'opacity(.8)' : 'opacity(.25)' }} />
         ))}
       </Stack>
       <Stack direction='row' sx={{ position: 'absolute', height: '5rem', width: '100%', top: '50%', transform: 'translateY(-50%)' }}>
         <Box sx={sxLeftArrowWrapper} onClick={scrollPrev}>
-          <ArrowBackIosIcon sx={{ color: 'secondary.main' }} />
+          <ArrowBackIosIcon sx={{ color: scrollPrevButtonActive ? 'secondary.main' : '#c6c6c6' }} />
         </Box>
         <Box sx={sxRightArrowWrapper} onClick={scrollNext}>
-          <ArrowForwardIosIcon sx={{ color: 'secondary.main' }} />
+          <ArrowForwardIosIcon sx={{ color: scrollNextButtonActive ? 'secondary.main' : '#c6c6c6' }} />
         </Box>
       </Stack>
     </Stack>
