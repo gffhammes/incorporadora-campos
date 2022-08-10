@@ -37,37 +37,31 @@ interface IEnterprisesSliderProps {
 }
 
 export const EnterprisesSlider = ({ enterprises, loading }: IEnterprisesSliderProps) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 0 })
-  const [selectedSlide, setSelectedSlide] = useState(0)
-  const [dots, setDots] = useState([])
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: 0, containScroll: 'trimSnaps' });
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
-  useEffect(() => {
-    if (!enterprises) return;
-    const dotsArray = [];
-    enterprises.forEach(() => dotsArray.push({ active: false }));
-    dotsArray[0].active = true;
-    setDots(dotsArray);
-  }, [enterprises])
+  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
+  const scrollTo = useCallback((index) => emblaApi && emblaApi.scrollTo(index), [emblaApi]);
 
-  useEffect(() => {
-    setDots((dots): any[] => dots.map((dot, index) => index === selectedSlide ? { active: true } : { active: false } ))
-  }, [selectedSlide])
-
-  const changeSelectedSlide = (newSlideIndex) => {
-    emblaApi.scrollTo(newSlideIndex)
-  }
+  const scrollPrevButtonActive = selectedIndex > 0;
+  const scrollNextButtonActive = selectedIndex < emblaApi?.scrollSnapList().length - 1;
   
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev()
-  }, [emblaApi])
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi, setSelectedIndex]);
 
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext()
-  }, [emblaApi])
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+  }, [emblaApi, onSelect]);
 
-  emblaApi?.on('select', () => {
-    setSelectedSlide(emblaApi.selectedScrollSnap())
-  })
+  useEffect(() => {
+    if (!enterprises || !emblaApi) return;
+    emblaApi.reInit();
+  }, [emblaApi, enterprises])
 
   const getLocationString = useCallback((enterprise) => {
     if (!enterprise.attributes.Endereco.Bairro) {
@@ -126,18 +120,19 @@ export const EnterprisesSlider = ({ enterprises, loading }: IEnterprisesSliderPr
             {slidesMemo}
           </div>
         </div>
+
       </Box>
       <Stack direction='row' alignItems='center' justifyContent='center' spacing={2}>
-        {dots.map((dot, index) => (
-          <Box onClick={() => changeSelectedSlide(index)} bgcolor='secondary.main' key={index} sx={{ transition: '.2s ease all', height: '.5rem', width: '.5rem', borderRadius: '1rem', cursor: 'pointer', filter: dot.active ?  'opacity(.8)' : 'opacity(.25)' }} />
+        {emblaApi?.scrollSnapList().map((dot, index) => (
+          <Box onClick={() => scrollTo(index)} bgcolor='secondary.main' key={index} sx={{ transition: '.2s ease all', height: '.5rem', width: '.5rem', borderRadius: '1rem', cursor: 'pointer', filter: index === selectedIndex ?  'opacity(.8)' : 'opacity(.25)' }} />
         ))}
       </Stack>
       <Stack direction='row' sx={{ position: 'absolute', height: '5rem', width: '100%', top: '50%', transform: 'translateY(-50%)' }}>
         <Box sx={sxLeftArrowWrapper} onClick={scrollPrev}>
-          <ArrowBackIosIcon sx={{ color: 'secondary.main' }} />
+          <ArrowBackIosIcon sx={{ color: scrollPrevButtonActive ? 'secondary.main' : '#c6c6c6' }} />
         </Box>
         <Box sx={sxRightArrowWrapper} onClick={scrollNext}>
-          <ArrowForwardIosIcon sx={{ color: 'secondary.main' }} />
+          <ArrowForwardIosIcon sx={{ color: scrollNextButtonActive ? 'secondary.main' : '#c6c6c6' }} />
         </Box>
       </Stack>
     </Stack>
