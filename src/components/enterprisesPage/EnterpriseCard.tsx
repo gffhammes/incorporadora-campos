@@ -68,8 +68,6 @@ const boxShadow = '0px 10px 13px -6px rgb(26 71 188 / 20%), 0px 20px 31px 3px rg
 
 export const EnterpriseCard = ({ enterprise }) => {
 
-  console.log(enterprise)
-
   const statusBgColorMemo = useMemo(() => {
     switch (enterprise.Status) {
       case 'Pré Lançamento':

@@ -25,7 +25,6 @@ const sxGrid = {
 }
 
 export const SummarySection = ({ enterpriseData }) => {
-  console.log(enterpriseData)
   return (
     <Box id='the-enterprise'>
       <Container sx={{ py: 7 }}>
