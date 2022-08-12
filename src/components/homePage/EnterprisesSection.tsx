@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { useFetch } from '../../hooks/useFetch'
 import { ContainedPrimaryButton } from '../commons/Button'
 import { SectionTitle } from '../commons/SectionTitle'
-import { EnterprisesSlider } from './EnterprisesSlider'
+import { EnterprisesSlider } from './EnterprisesSlider/EnterprisesSlider'
 
 export const EnterprisesSection = () => {
   const { API_URL } = process.env;

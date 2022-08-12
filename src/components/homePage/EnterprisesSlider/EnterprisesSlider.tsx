@@ -5,7 +5,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { LoadingButton } from '../commons/Button'
+import { LoadingButton } from '../../commons/Button'
+import { EnterpriseCard } from './EnterpriseCard'
+import { getLocationString } from '../../../helpers/getLocationString'
 
 const sxImage = {
   position: 'relative',
@@ -37,7 +39,7 @@ interface IEnterprisesSliderProps {
 }
 
 export const EnterprisesSlider = ({ enterprises, loading }: IEnterprisesSliderProps) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: 0, containScroll: 'trimSnaps' });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: 0, dragFree: true, containScroll: 'trimSnaps' });
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
@@ -63,13 +65,6 @@ export const EnterprisesSlider = ({ enterprises, loading }: IEnterprisesSliderPr
     emblaApi.reInit();
   }, [emblaApi, enterprises])
 
-  const getLocationString = useCallback((enterprise) => {
-    if (!enterprise.attributes.Endereco.Bairro) {
-      return enterprise.attributes.Endereco.Cidade;
-    }
-
-    return `${enterprise.attributes.Endereco.Bairro} - ${enterprise.attributes.Endereco.Cidade}`;
-  }, [])
 
   const slidesMemo = useMemo(() => {
     if (loading) {
@@ -82,35 +77,18 @@ export const EnterprisesSlider = ({ enterprises, loading }: IEnterprisesSliderPr
 
     return (
       enterprises.map((enterprise, index) => (
-        <Box className="embla__slide" key={index}>
-          <Link href="/empreendimentos/[slug]" as={`/empreendimentos/${enterprise.attributes.Slug}`} passHref>
-            <a>
-              <Box sx={{ width: { xs: '80%', md: '100%' }, height: 'fit-content', backgroundImage: 'linear-gradient(transparent 50%, #e4e2e7 50%)', p: 2, m: 'auto' }}>
-                <Box sx={sxImage}>
-                  <Image
-                    src={enterprise.attributes.FotoHome.data.attributes.url}
-                    alt={enterprise.attributes.Nome}
-                    layout='fill'
-                    objectFit='contain'
-                    objectPosition='bottom'
-                  />
-                </Box>
-                <Stack sx={{ mt: 2 }} direction='row' justifyContent='space-between' alignItems='center' >                              
-                  <Typography fontSize={13} fontWeight={600} sx={{ color: 'secondary.main', textDecoration: 'underline' }} >{enterprise.attributes.Nome.toUpperCase()}</Typography>
-                  <Typography fontSize={10} fontWeight={600}>{enterprise.attributes.Status.toUpperCase()}</Typography>
-                </Stack>
-                <Stack sx={{ mt: 2, fontSize: 14 }} spacing={.5} >
-                  <Typography>{getLocationString(enterprise)}</Typography>
-                  <Typography>{enterprise.attributes.Area}</Typography>
-                  <Typography>{enterprise.attributes.Quartos}</Typography>
-                </Stack>
-              </Box>
-            </a>
-          </Link>
-        </Box>
+        <EnterpriseCard
+          key={index}
+          slug={enterprise.attributes.Slug}
+          imageUrl={enterprise.attributes.FotoHome.data.attributes.url}
+          name={enterprise.attributes.Nome}
+          status={enterprise.attributes.Status}
+          description={enterprise.attributes.Descricao1}
+          location={getLocationString(enterprise.attributes)}        
+        />
       ))
     )
-  }, [enterprises, getLocationString, loading])
+  }, [enterprises, loading])
 
   return (
     <Stack sx={{ position: 'relative' }} spacing={4}>      

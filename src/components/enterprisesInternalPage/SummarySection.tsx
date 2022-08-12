@@ -45,8 +45,10 @@ export const SummarySection = ({ enterpriseData }) => {
           </Box>
           <Box sx={{ gridArea: 'c' }}>      
             <Typography sx={{ whiteSpace: 'pre-wrap' }}>{enterpriseData.TextoPagina}</Typography>
-            <Typography fontSize={20} fontWeight={600} letterSpacing={1} sx={{ color: '#1a47bc', mt: 4 }}>{enterpriseData.TextoResumo}</Typography>
-            <Typography fontSize={20} fontWeight={600} letterSpacing={1} sx={{ color: '#1a47bc' }}>Plantas com opções de {enterpriseData.Quartos}</Typography>
+            <Box sx={{ color: '#1a47bc', mt: 4 }}>
+              {enterpriseData.texoAzulPaginaInterna.Descricao2 && <Typography fontSize={enterpriseData.texoAzulPaginaInterna.tamanhoFonte} fontWeight={600} letterSpacing={1} sx={{ whiteSpace: 'pre-wrap' }}>{enterpriseData.Descricao2}</Typography>}
+              {enterpriseData.texoAzulPaginaInterna.Descricao1 && <Typography fontSize={enterpriseData.texoAzulPaginaInterna.tamanhoFonte} fontWeight={600} letterSpacing={1} sx={{ whiteSpace: 'pre-wrap' }}>{enterpriseData.Descricao1}</Typography>}
+            </Box>
           </Box>
         </Box>
       </Container>
