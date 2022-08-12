@@ -7,6 +7,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { LoadingButton } from '../../commons/Button'
 import { EnterpriseCard } from './EnterpriseCard'
+import { getLocationString } from '../../../helpers/getLocationString'
 
 const sxImage = {
   position: 'relative',
@@ -64,13 +65,6 @@ export const EnterprisesSlider = ({ enterprises, loading }: IEnterprisesSliderPr
     emblaApi.reInit();
   }, [emblaApi, enterprises])
 
-  const getLocationString = useCallback((enterprise) => {
-    if (!enterprise.attributes.Endereco.Bairro) {
-      return enterprise.attributes.Endereco.Cidade;
-    }
-
-    return `${enterprise.attributes.Endereco.Bairro} - ${enterprise.attributes.Endereco.Cidade}`;
-  }, [])
 
   const slidesMemo = useMemo(() => {
     if (loading) {
@@ -90,11 +84,11 @@ export const EnterprisesSlider = ({ enterprises, loading }: IEnterprisesSliderPr
           name={enterprise.attributes.Nome}
           status={enterprise.attributes.Status}
           description={enterprise.attributes.Descricao1}
-          location={getLocationString(enterprise)}        
+          location={getLocationString(enterprise.attributes)}        
         />
       ))
     )
-  }, [enterprises, getLocationString, loading])
+  }, [enterprises, loading])
 
   return (
     <Stack sx={{ position: 'relative' }} spacing={4}>      

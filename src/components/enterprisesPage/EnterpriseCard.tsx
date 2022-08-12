@@ -3,6 +3,7 @@ import React, { useMemo } from 'react'
 import { Box, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
+import { getLocationString } from '../../helpers/getLocationString'
 
 const enterpriseNameProps = {
   fontSize: 19,
@@ -96,7 +97,7 @@ export const EnterpriseCard = ({ enterprise }) => {
             </Box>
             <Box sx={sxInfos}>
               <Typography {...enterpriseNameProps}>{enterprise.Nome.toUpperCase()}</Typography>
-              <Typography fontSize={16} fontWeight={500}>{enterprise.Endereco?.Bairro} | {enterprise.Endereco?.Cidade}</Typography>
+              <Typography fontSize={16} fontWeight={500}>{getLocationString(enterprise)}</Typography>
               {enterprise.infosCardEmpreendimentos.Descricao2 && <Typography fontSize={14} sx={{ whiteSpace: 'pre-wrap' }}>{enterprise.Descricao2}</Typography>}
               {enterprise.infosCardEmpreendimentos.Descricao1 && <Typography fontSize={14} sx={{ mt: '1rem', whiteSpace: 'pre-wrap' }} >{enterprise.Descricao1}</Typography>}
               <Typography fontSize={15} fontWeight={700}  sx={{ mt: { xs: '1rem', md: 'auto' }, width: 'fit-content', color: '#1a47bc', borderBottom: '1px solid #1A47BC', }} >SAIBA MAIS</Typography>
