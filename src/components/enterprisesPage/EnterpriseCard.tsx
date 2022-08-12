@@ -67,6 +67,8 @@ const boxShadow = '0px 10px 13px -6px rgb(26 71 188 / 20%), 0px 20px 31px 3px rg
 
 export const EnterpriseCard = ({ enterprise }) => {
 
+  console.log(enterprise)
+
   const statusBgColorMemo = useMemo(() => {
     switch (enterprise.Status) {
       case 'Pré Lançamento':
@@ -95,8 +97,8 @@ export const EnterpriseCard = ({ enterprise }) => {
             <Box sx={sxInfos}>
               <Typography {...enterpriseNameProps}>{enterprise.Nome.toUpperCase()}</Typography>
               <Typography fontSize={16} fontWeight={500}>{enterprise.Endereco?.Bairro} | {enterprise.Endereco?.Cidade}</Typography>
-              <Typography fontSize={14}>{enterprise.TextoResumo}</Typography>
-              <Typography fontSize={14} fontWeight={400} sx={{ mt: '1rem', whiteSpace: 'pre-wrap' }} >{enterprise.DescricaoCard}</Typography>
+              {enterprise.infosCardEmpreendimentos.Descricao2 && <Typography fontSize={14} sx={{ whiteSpace: 'pre-wrap' }}>{enterprise.Descricao2}</Typography>}
+              {enterprise.infosCardEmpreendimentos.Descricao1 && <Typography fontSize={14} sx={{ mt: '1rem', whiteSpace: 'pre-wrap' }} >{enterprise.Descricao1}</Typography>}
               <Typography fontSize={15} fontWeight={700}  sx={{ mt: { xs: '1rem', md: 'auto' }, width: 'fit-content', color: '#1a47bc', borderBottom: '1px solid #1A47BC', }} >SAIBA MAIS</Typography>
               <Box bgcolor={statusBgColorMemo} sx={sxStatus}>
                 <Typography fontSize={13} letterSpacing={3}>{enterprise.Status.toUpperCase()}</Typography>

@@ -67,6 +67,7 @@ export async function getServerSideProps(context) {
       'diferenciais.Imagem',
       'Plantas',
       'Plantas.Foto',
+      'texoAzulPaginaInterna'
     ]
   }, {
     encodeValuesOnly: true, // prettify URL
