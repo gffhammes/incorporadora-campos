@@ -8,7 +8,7 @@ import { Box } from "@mui/material";
 
 export default function Home({ banners }) {
   return (
-    <Box component={"main"} sx={{ height: { xs: "60vw", md: "100%" } }}>
+    <Box component={"main"} sx={{ height: { xs: "70vw", md: "100%" } }}>
       <HeroSlider banners={banners} />
       <HistorySection />
       <EnterprisesSection />
