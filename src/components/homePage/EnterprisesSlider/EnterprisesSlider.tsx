@@ -40,8 +40,7 @@ export const EnterprisesSlider = ({
   enterprises,
   loading,
 }: IEnterprisesSliderProps) => {
-  const autoplay = Autoplay({ delay: 2000 });
-
+  const autoplay = Autoplay({ delay: 3000 });
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
@@ -83,7 +82,7 @@ export const EnterprisesSlider = ({
 
   const slidesMemo = useMemo(() => {
     if (loading) {
-      return [0, 1, 2, 3].map((item) => (
+      return [0, 1, 2, 3, 4, 5, 6, 7].map((item) => (
         <Skeleton
           key={item}
           variant="rectangular"
