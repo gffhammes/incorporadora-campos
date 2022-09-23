@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { Box, Stack } from "@mui/material";
+import { Box, Stack, useMediaQuery, useTheme } from "@mui/material";
 import { defaultSvgProps } from "../../../constants/defaultSvgProps";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
@@ -49,6 +49,8 @@ export const HeroSlider = ({ banners }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [autoplay]);
   const [selectedSlide, setSelectedSlide] = useState(0);
   const [dots, setDots] = useState([]);
+  const theme = useTheme();
+  const md = useMediaQuery(theme.breakpoints.up("md"));
 
   useEffect(() => {
     const arr = [];
@@ -129,32 +131,34 @@ export const HeroSlider = ({ banners }) => {
       >
         <ArrowForwardIosIcon {...defaultSvgProps} sx={{ color: "white" }} />
       </Box>
-      <Box
-        sx={{
-          position: "absolute",
-          display: "flex",
-          bottom: "0",
-          left: "50%",
-          transform: "translate(-50%, -2rem)",
-          gap: "1rem",
-        }}
-      >
-        {dots.map((dot, index) => (
-          <Box
-            onClick={() => changeSelectedSlide(index)}
-            bgcolor="white"
-            key={index}
-            sx={{
-              transition: ".2s ease all",
-              height: ".5rem",
-              width: ".5rem",
-              borderRadius: "1rem",
-              cursor: "pointer",
-              filter: dot.active ? "opacity(.8)" : "opacity(.25)",
-            }}
-          />
-        ))}
-      </Box>
+      {md && (
+        <Box
+          sx={{
+            position: "absolute",
+            display: "flex",
+            bottom: "0",
+            left: "50%",
+            transform: "translate(-50%, -2rem)",
+            gap: "1rem",
+          }}
+        >
+          {dots.map((dot, index) => (
+            <Box
+              onClick={() => changeSelectedSlide(index)}
+              bgcolor="white"
+              key={index}
+              sx={{
+                transition: ".2s ease all",
+                height: ".5rem",
+                width: ".5rem",
+                borderRadius: "1rem",
+                cursor: "pointer",
+                filter: dot.active ? "opacity(.8)" : "opacity(.25)",
+              }}
+            />
+          ))}
+        </Box>
+      )}
     </Stack>
   );
 };

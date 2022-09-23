@@ -40,8 +40,7 @@ export const EnterprisesSlider = ({
   enterprises,
   loading,
 }: IEnterprisesSliderProps) => {
-  const autoplay = Autoplay({ delay: 2000 });
-
+  const autoplay = Autoplay({ delay: 3000 });
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
