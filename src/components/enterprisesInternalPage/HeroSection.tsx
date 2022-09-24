@@ -1,76 +1,110 @@
-import { Box, Container, Grid, Paper, Stack, SxProps, Theme, Typography } from '@mui/material'
-import Image from 'next/image'
-import { PrimaryGradientCover } from '../commons/GradientCover';
-import React, { useCallback, useMemo } from 'react'
-import { SectionTitle } from '../commons/SectionTitle';
-import { FloatingDownArrowScroll } from '../commons/FloatingDownArrowScroll';
+import {
+  Box,
+  Container,
+  Grid,
+  Paper,
+  Stack,
+  SxProps,
+  Theme,
+  Typography,
+} from "@mui/material";
+import Image from "next/image";
+import { PrimaryGradientCover } from "../commons/GradientCover";
+import React, { useCallback, useMemo } from "react";
+import { SectionTitle } from "../commons/SectionTitle";
+import { FloatingDownArrowScroll } from "../commons/FloatingDownArrowScroll";
+import { useBreakpoint } from "../../hooks/useBreakPoint";
 
 const sxContent: SxProps<Theme> = {
-  position: 'absolute',
-  width: '100%',
-  height: '100%',
+  position: "absolute",
+  width: "100%",
+  height: "100%",
   zIndex: 500,
-  display: 'flex',
-  alignItems: 'flex-end',
-  justifyContent: 'center',
-}
+  display: "flex",
+  alignItems: "flex-end",
+  justifyContent: "center",
+};
 
 const sxLogo: SxProps<Theme> = {
-  position: 'relative',
-  height: '10rem',
-  width: '16vw',
-  minWidth: '10rem',
-  maxWidth: '13rem',
-}
+  position: "relative",
+  height: { xs: "5rem", md: "10rem" },
+  width: "16vw",
+  minWidth: "10rem",
+  maxWidth: "13rem",
+};
 
 export const HeroSection = ({ enterpriseData }) => {
+  const { md } = useBreakpoint();
+
   const sxBanner: SxProps<Theme> = {
-    position: 'absolute',
-    height: '100%',
-    width: '100%',
+    position: "absolute",
+    height: "100%",
+    width: "100%",
     backgroundImage: `url(${enterpriseData.Banner.data.attributes.url})`,
-    backgroundSize: 'cover',
-  }
-  
+    backgroundSize: "cover",
+  };
+
   const getLogo = useCallback(() => {
     if (enterpriseData.Logo.data) {
       return (
-        <Box sx={sxLogo} >                           
+        <Box sx={sxLogo}>
           <Image
             src={enterpriseData.Logo.data.attributes.url}
             alt={enterpriseData.Nome}
-            layout='fill'
-            objectFit='contain'
+            layout="fill"
+            objectFit="contain"
           />
         </Box>
-      )
+      );
     }
-    return <SectionTitle theme='light'>{enterpriseData.Nome.toUpperCase()}</SectionTitle>
-  }, [enterpriseData.Logo, enterpriseData.Nome])
+    return (
+      <SectionTitle theme="light">
+        {enterpriseData.Nome.toUpperCase()}
+      </SectionTitle>
+    );
+  }, [enterpriseData.Logo, enterpriseData.Nome]);
 
   const contentMemo = useMemo(() => {
     return (
       <>
-        <Typography textAlign='center' fontSize={12} letterSpacing={5} sx={{ color: 'rgba(255, 255, 255, .8)', mb: 3 }}>{enterpriseData.Status.toUpperCase()}</Typography>
+        <Typography
+          textAlign="center"
+          fontSize={12}
+          letterSpacing={5}
+          sx={{ color: "rgba(255, 255, 255, .8)", mb: 3 }}
+        >
+          {enterpriseData.Status.toUpperCase()}
+        </Typography>
         {getLogo()}
       </>
-    )
-  }, [enterpriseData.Status, getLogo])
-  
+    );
+  }, [enterpriseData.Status, getLogo]);
+
   return (
-    <Box sx={{ position: 'relative', zIndex: 500, height: '100%', }}>
-      <Box sx={sxBanner}/>
+    <Box sx={{ position: "relative", zIndex: 500, height: "100%" }}>
+      <Box sx={sxBanner} />
       <PrimaryGradientCover />
       <Box sx={sxContent}>
-        <Container sx={{ display: 'flex', height: '100%', pb: 10, pt: 20 }}>  
-          <Stack direction={{ xs: 'column', md: 'row' }} spacing={10} sx={{ height: '100%', width: '100%' }} alignItems='center' justifyContent='center'>
-            <Box>              
-              {contentMemo}
-            </Box>
+        <Container sx={{ display: "flex", height: "100%", pb: 10, pt: 20 }}>
+          <Stack
+            direction={{ xs: "column", md: "row" }}
+            sx={{ height: "100%", width: "100%" }}
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Box>{contentMemo}</Box>
           </Stack>
         </Container>
-        <FloatingDownArrowScroll targetId={enterpriseData.Seccoes.Menu ? 'internal-scroll-menu' : 'the-enterprise'} />
+        {md && (
+          <FloatingDownArrowScroll
+            targetId={
+              enterpriseData.Seccoes.Menu
+                ? "internal-scroll-menu"
+                : "the-enterprise"
+            }
+          />
+        )}
       </Box>
     </Box>
-  )
-}
+  );
+};
