@@ -13,7 +13,7 @@ import { PrimaryGradientCover } from "../commons/GradientCover";
 import React, { useCallback, useMemo } from "react";
 import { SectionTitle } from "../commons/SectionTitle";
 import { FloatingDownArrowScroll } from "../commons/FloatingDownArrowScroll";
-import { useBreakpoint } from "../../hooks/useBreakPoint";
+import { useBreakpoint } from "../../hooks/useBreakpoint";
 
 const sxContent: SxProps<Theme> = {
   position: "absolute",
