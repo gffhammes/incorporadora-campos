@@ -1,11 +1,8 @@
 import { Box, Container } from "@mui/material";
-import React from "react";
-import { useBreakpoint } from "../../../hooks/useBreakpoint";
 
 type Props = {};
 
 const VideoZico = (props: Props) => {
-  const { md } = useBreakpoint();
   return (
     <Box>
       <Container
