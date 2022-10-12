@@ -1,24 +1,44 @@
+import DescriptionSection from "../src/components/aboutPage/DescriptionSection";
+import FutureProjectsSection from "../src/components/aboutPage/FutureProjectsSection";
+import HeroSection from "../src/components/aboutPage/HeroSection";
+import OurHistorySection from "../src/components/aboutPage/OurHistory/OurHistorySection";
+import PartnersSection from "../src/components/aboutPage/PartnersSection";
+import { Footer } from "../src/components/commons/Footer/Footer";
+import * as qs from "qs";
 
-import DescriptionSection from '../src/components/aboutPage/DescriptionSection'
-import FutureProjectsSection from '../src/components/aboutPage/FutureProjectsSection'
-import HeroSection from '../src/components/aboutPage/HeroSection'
-import InvestorSection from '../src/components/aboutPage/InvestorSection'
-import OurHistorySection from '../src/components/aboutPage/OurHistory/OurHistorySection'
-import PartnersSection from '../src/components/aboutPage/PartnersSection'
-import PurposeSection from '../src/components/aboutPage/PurposeSection'
-import { Footer } from '../src/components/commons/Footer/Footer'
-
-export default function About() {
+export default function About({ ourHistorySlides }) {
   return (
-    <main style={{ height: '100%' }}>
+    <main style={{ height: "100%" }}>
       <HeroSection />
       <DescriptionSection />
-      <OurHistorySection />
+      <OurHistorySection slides={ourHistorySlides} />
       <FutureProjectsSection />
       {/* <PurposeSection /> */}
       <PartnersSection />
       {/* <InvestorSection /> */}
       <Footer />
     </main>
-  )
+  );
+}
+
+export async function getServerSideProps() {
+  const { API_URL } = process.env;
+
+  const query = qs.stringify(
+    {
+      populate: ["nossaHistoria", "nossaHistoria.foto"],
+    },
+    {
+      encodeValuesOnly: true,
+    }
+  );
+
+  const response = await fetch(`${API_URL}/api/sobre-nos?${query}`);
+  const data = await response.json();
+
+  return {
+    props: {
+      ourHistorySlides: data.data.attributes.nossaHistoria,
+    },
+  };
 }
