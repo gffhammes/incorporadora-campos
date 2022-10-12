@@ -42,7 +42,6 @@ const DashedLine = ({ index, lastSlideIndex }) => {
 };
 
 const OurHistorySlide = ({ slide, index, lastSlideIndex }: Props) => {
-  console.log(slide);
   return (
     <Box sx={{ position: "relative", height: "100%" }}>
       <Container sx={{ height: "100%" }}>

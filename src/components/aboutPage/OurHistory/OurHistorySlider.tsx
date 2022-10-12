@@ -72,8 +72,6 @@ const OurHistorySlider = (props: Props) => {
     );
   };
 
-  console.log(props.slides);
-
   const slidesElements = useMemo(
     () =>
       props.slides.map((slide, index) => {
