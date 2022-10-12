@@ -1,19 +1,23 @@
-import { Box, Container } from '@mui/material'
-import React from 'react'
-import { SectionTitle } from '../../commons/SectionTitle'
-import OurHistorySlider from './OurHistorySlider'
+import { Box, Container } from "@mui/material";
+import React from "react";
+import { SectionTitle } from "../../commons/SectionTitle";
+import OurHistorySlider from "./OurHistorySlider";
 
-type Props = {}
+type Props = {
+  slides: any[];
+};
 
-const OurHistorySection = (props: Props) => {
+const OurHistorySection = ({ slides }: Props) => {
   return (
-    <Box bgcolor='#E4E2E7' sx={{ py: 10 }}>
+    <Box bgcolor="#E4E2E7" sx={{ py: 10 }}>
       <Container>
-        <SectionTitle divider={false} sx={{ mb: 5 }}>NOSSA HISTÓRIA</SectionTitle>
+        <SectionTitle divider={false} sx={{ mb: 5 }}>
+          NOSSA HISTÓRIA
+        </SectionTitle>
       </Container>
-        <OurHistorySlider />
+      <OurHistorySlider slides={slides} />
     </Box>
-  )
-}
+  );
+};
 
-export default OurHistorySection
+export default OurHistorySection;
