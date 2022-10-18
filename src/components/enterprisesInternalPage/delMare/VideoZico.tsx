@@ -16,8 +16,8 @@ const VideoZico = (props: Props) => {
         <Box
           sx={{
             position: "relative",
-            width: { xs: "100%", md: "60%" },
-            pb: { xs: "56.25%", md: "33.75%" },
+            width: "100%",
+            pb: "56.25%",
           }}
         >
           <iframe
