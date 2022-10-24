@@ -5,10 +5,11 @@ import OurHistorySection from "../src/components/aboutPage/OurHistory/OurHistory
 import PartnersSection from "../src/components/aboutPage/PartnersSection";
 import { Footer } from "../src/components/commons/Footer/Footer";
 import * as qs from "qs";
+import { Box } from "@mui/material";
 
 export default function About({ ourHistorySlides }) {
   return (
-    <main style={{ height: "100%" }}>
+    <Box component={"main"} sx={{ height: { xs: "50vw", md: "100%" } }}>
       <HeroSection />
       <DescriptionSection />
       <OurHistorySection slides={ourHistorySlides} />
@@ -17,7 +18,7 @@ export default function About({ ourHistorySlides }) {
       <PartnersSection />
       {/* <InvestorSection /> */}
       <Footer />
-    </main>
+    </Box>
   );
 }
 
