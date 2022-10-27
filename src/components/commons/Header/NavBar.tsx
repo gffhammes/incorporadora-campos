@@ -7,14 +7,14 @@ import {
   useTheme,
 } from "@mui/material";
 import Link from "next/link";
-import React, { FC, useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import LogoHorizontal from "../../../../public/vectors/logo-horizontal.svg";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { pages } from "../../../constants/pages";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { useRouter } from "next/router";
-import { useScroll } from "../../../hooks/useScroll";
+import useScrollTrigger from "@mui/material/useScrollTrigger";
 
 const sxLogo = {
   height: "100%",
@@ -37,9 +37,10 @@ export const NavBar = () => {
   const sizeSm = useMediaQuery(theme.breakpoints.up("sm"));
   const sizeMd = useMediaQuery(theme.breakpoints.up("md"));
   const [open, setOpen] = useState(false);
-
-  const scroll = useScroll();
-  const isMenuScroll = scroll > 60;
+  const isMenuScroll = useScrollTrigger({
+    threshold: 30,
+    disableHysteresis: true,
+  });
 
   const handleMenuToggle = () => setOpen((open) => !open);
 
