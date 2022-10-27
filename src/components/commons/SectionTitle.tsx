@@ -38,7 +38,7 @@ export const SectionTitle: FC<SectionTitleProps> = ({
     <>
       <Typography
         variant="h2"
-        fontSize={{ xs: 20, sm: 28 }}
+        fontSize={{ xs: 16, sm: 28 }}
         fontWeight={500}
         letterSpacing={6}
         textAlign={textAlign ? textAlign : "center"}
