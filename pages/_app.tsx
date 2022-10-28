@@ -1,7 +1,6 @@
 import { Header } from "../src/components/commons/Header/Header";
 import "../styles/globals.css";
 import { createTheme, ThemeProvider } from "@mui/material";
-import { WhatsAppFloatButton } from "../src/components/commons/WhatsAppFloatButton";
 import { PageTitle } from "../src/components/commons/PageTitle";
 import TagManager from "react-gtm-module";
 import { useEffect } from "react";
@@ -38,7 +37,6 @@ function MyApp({ Component, pageProps }) {
       <PageTitle />
       <Header />
       <Component {...pageProps} />
-      <WhatsAppFloatButton />
     </ThemeProvider>
   );
 }
