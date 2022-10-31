@@ -1,4 +1,4 @@
-import { Box, Stack, SxProps, Typography } from "@mui/material";
+import { Box, SxProps } from "@mui/material";
 import { ImageHoverText } from "./ImageHoverText";
 
 export const ImageWithHover = () => {
@@ -35,7 +35,10 @@ const sxHover: SxProps = {
   height: "100%",
   backgroundColor: { xs: "rgba(26, 71, 188, .87)", md: "transparent" },
   transition: "300ms ease all",
-  boxShadow: "15px 31px 82px rgba(18, 50, 131, .48)",
+  boxShadow: {
+    xs: "7px 15px 40px rgba(18, 50, 131, .48)",
+    md: "15px 31px 82px rgba(18, 50, 131, .48)",
+  },
 
   "& > div": {
     color: { xs: "white", md: "transparent" },
