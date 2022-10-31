@@ -1,4 +1,4 @@
-import DescriptionSection from "../src/components/aboutPage/DescriptionSection";
+import DescriptionSection from "../src/components/aboutPage/DescriptionSection/DescriptionSection";
 import FutureProjectsSection from "../src/components/aboutPage/FutureProjectsSection";
 import HeroSection from "../src/components/aboutPage/HeroSection";
 import OurHistorySection from "../src/components/aboutPage/OurHistory/OurHistorySection";
