@@ -12,8 +12,8 @@ import Image from "next/image";
 import React, { useMemo, useState } from "react";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Slider } from "../../commons/Slider";
-import OurHistorySlide from "./OurHistorySlide";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { OurHistorySlide } from "./OurHistorySlide/OurHistorySlide";
 
 type Props = {
   slides: any[];
