@@ -17,7 +17,7 @@ export const SlideImage = ({ src, alt }: ISlideImageProps) => {
         ml: "auto",
       }}
     >
-      <Image src={src} alt={alt} layout="fill" objectFit="contain" />
+      <Image src={src} alt={alt} layout="fill" objectFit="contain" priority />
     </Box>
   );
 };
