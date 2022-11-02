@@ -45,7 +45,7 @@ export const EnterprisesSlider = ({
     {
       loop: true,
       align: 0,
-      dragFree: true,
+      skipSnaps: true,
     },
     [autoplay]
   );
