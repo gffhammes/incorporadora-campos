@@ -35,6 +35,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       <PageTitle />
+
       <Header />
       <Component {...pageProps} />
     </ThemeProvider>
