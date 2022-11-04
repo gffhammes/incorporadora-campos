@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 export default function Document() {
   return (
@@ -16,27 +17,22 @@ export default function Document() {
         />
       </Head>
       <body>
+        <div role="main" id="fomulario-home-site-838ec025cbb35e661775" />
         <Main />
         <NextScript />
-        <script
+
+        <Script
           type="text/javascript"
-          async
           src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/a3a1172b-ccbf-41dd-ac9a-35c63259f972-loader.js"
         />
-
-        <script
+        <Script
           type="text/javascript"
-          async
           src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js"
         />
-
-        <script type="text/javascript">
-          new
-          RDStationForms(&quot;fomulario-home-site-838ec025cbb35e661775&quot;,
-          &quot;UA-219092936-1&quot;).createForm();
-        </script>
-
-        <div role="main" id="fomulario-home-site-838ec025cbb35e661775"></div>
+        <Script type="text/javascript" id="show-form">
+          {`new RDStationForms('fomulario-home-site-838ec025cbb35e661775',
+          'UA-219092936-1').createForm();`}
+        </Script>
       </body>
     </Html>
   );
