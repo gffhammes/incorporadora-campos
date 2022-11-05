@@ -1,5 +1,4 @@
 import React from "react";
-import { useRouter } from "next/router";
 import { Footer } from "../../src/components/commons/Footer/Footer";
 import { Box } from "@mui/material";
 import { ScrollMenu } from "../../src/components/enterprisesInternalPage/ScrollMenu";
@@ -15,7 +14,6 @@ import VideoZico from "../../src/components/enterprisesInternalPage/delMare/Vide
 import fetch from "isomorphic-unfetch";
 import * as qs from "qs";
 import Head from "next/head";
-import Contact from "../../src/components/enterprisesInternalPage/Contact/Contact";
 
 const Enterprise = ({ enterprise }) => {
   const { Seccoes } = enterprise.attributes;
@@ -26,7 +24,6 @@ const Enterprise = ({ enterprise }) => {
         <title>{enterprise.attributes.Nome + " | Campos Incorporadora"}</title>
       </Head>
       <Box component={"main"} sx={{ height: { xs: "70vw", md: "100%" } }}>
-        {Seccoes.Contato && <Contact enterpriseData={enterprise.attributes} />}
         <HeroSection enterpriseData={enterprise.attributes} />
         {Seccoes.Menu && <ScrollMenu enterpriseData={enterprise.attributes} />}
         <SummarySection enterpriseData={enterprise.attributes} />

@@ -1,9 +1,9 @@
 import { Box, Container, Stack } from "@mui/material";
 import Image from "next/image";
-import React from "react";
+import { useBreakpoint } from "../../hooks/useBreakpoint";
+import { Carousel } from "../commons/Carousel/Carousel";
 import { SectionTitle } from "../commons/SectionTitle";
-
-type Props = {};
+import { useMemo } from "react";
 
 const futureProjects = [
   {
@@ -20,27 +20,50 @@ const futureProjects = [
   },
 ];
 
-const FutureProjectsSection = (props: Props) => {
+const slides = futureProjects.map((project) => (
+  <Box
+    key={project.name}
+    sx={{
+      position: "relative",
+      height: { xs: "12rem", sm: "12rem", md: "14rem" },
+      width: "100%",
+    }}
+  >
+    <Image
+      src={project.image}
+      alt={project.name}
+      layout="fill"
+      objectFit="contain"
+    />
+  </Box>
+));
+
+const FutureProjectsSection = () => {
+  const { sm } = useBreakpoint();
+
   return (
-    <Box bgcolor="primary.main">
-      <Container sx={{ py: 10 }}>
+    <Box bgcolor="primary.main" sx={{ py: 10 }}>
+      <Container>
         <SectionTitle theme="light">PROJETOS FUTUROS</SectionTitle>
-        <Stack direction={{ xs: "column", md: "row" }} spacing={5}>
-          {futureProjects.map((project) => (
-            <Box
-              key={project.name}
-              sx={{ position: "relative", height: "15rem", width: "100%" }}
-            >
-              <Image
-                src={project.image}
-                alt={project.name}
-                layout="fill"
-                objectFit="contain"
-              />
-            </Box>
-          ))}
-        </Stack>
       </Container>
+
+      {sm ? (
+        <Container>
+          <Stack direction="row" spacing={2}>
+            {slides}
+          </Stack>
+        </Container>
+      ) : (
+        <Carousel
+          slides={slides}
+          slideFlex={{ xs: "0 0 60%", sm: "0 0 33%" }}
+          spacing={4}
+          options={{
+            skipSnaps: true,
+            align: "center",
+          }}
+        />
+      )}
     </Box>
   );
 };

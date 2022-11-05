@@ -11,7 +11,7 @@ interface IProps {
 const sxButton: SxProps<Theme> = {
   position: 'fixed',
   zIndex: 1000,
-  right: '1rem',
+  left: '1rem',
   bottom: '1rem',
 }
 
