@@ -60,7 +60,6 @@ const FutureProjectsSection = () => {
           spacing={4}
           options={{
             skipSnaps: true,
-            // containScroll: "keepSnaps",
             align: "center",
           }}
         />
