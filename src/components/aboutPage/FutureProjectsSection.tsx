@@ -25,7 +25,7 @@ const slides = futureProjects.map((project) => (
     key={project.name}
     sx={{
       position: "relative",
-      height: { xs: "12rem", sm: "12rem", md: "15rem" },
+      height: { xs: "12rem", sm: "12rem", md: "14rem" },
       width: "100%",
     }}
   >
@@ -41,25 +41,30 @@ const slides = futureProjects.map((project) => (
 const FutureProjectsSection = () => {
   const { sm } = useBreakpoint();
 
-  const carouselMemo = useMemo(
-    () => (
-      <Carousel
-        slides={slides}
-        slideFlex={{ xs: "0 0 50%", sm: "0 0 33%" }}
-        spacing={4}
-        options={{ skipSnaps: true }}
-      />
-    ),
-    []
-  );
-
   return (
     <Box bgcolor="primary.main" sx={{ py: 10 }}>
       <Container>
         <SectionTitle theme="light">PROJETOS FUTUROS</SectionTitle>
       </Container>
 
-      {sm ? <Container>{carouselMemo}</Container> : carouselMemo}
+      {sm ? (
+        <Container>
+          <Stack direction="row" spacing={2}>
+            {slides}
+          </Stack>
+        </Container>
+      ) : (
+        <Carousel
+          slides={slides}
+          slideFlex={{ xs: "0 0 60%", sm: "0 0 33%" }}
+          spacing={4}
+          options={{
+            skipSnaps: true,
+            // containScroll: "keepSnaps",
+            align: "center",
+          }}
+        />
+      )}
     </Box>
   );
 };
