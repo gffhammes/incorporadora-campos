@@ -17,7 +17,7 @@ export default function Document() {
         />
       </Head>
       <body>
-        <div role="main" id="fomulario-home-site-838ec025cbb35e661775" />
+        <div role="main" id="forms-campos-255f2be8e52f84fd7fd8" />
         <Main />
         <NextScript />
 
@@ -30,8 +30,8 @@ export default function Document() {
           src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js"
         />
         <Script type="text/javascript" id="show-form">
-          {`new RDStationForms('fomulario-home-site-838ec025cbb35e661775',
-          'UA-219092936-1').createForm();`}
+          {`new RDStationForms('forms-campos-255f2be8e52f84fd7fd8',
+          'UA-244806449-1').createForm();`}
         </Script>
       </body>
     </Html>
