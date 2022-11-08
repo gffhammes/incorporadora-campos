@@ -17,7 +17,6 @@ export default function Document() {
         />
       </Head>
       <body>
-        <div role="main" id="forms-campos-255f2be8e52f84fd7fd8" />
         <Main />
         <NextScript />
 
@@ -25,14 +24,19 @@ export default function Document() {
           type="text/javascript"
           src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/a3a1172b-ccbf-41dd-ac9a-35c63259f972-loader.js"
         />
+
         <Script
           type="text/javascript"
           src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js"
         />
-        <Script type="text/javascript" id="show-form">
-          {`new RDStationForms('forms-campos-255f2be8e52f84fd7fd8',
-          'UA-244806449-1').createForm();`}
-        </Script>
+
+        <Script
+          type="text/javascript"
+          id="show-form"
+          dangerouslySetInnerHTML={{
+            __html: `new RDStationForms('forms-campos-255f2be8e52f84fd7fd8', 'UA-244806449-1').createForm();`,
+          }}
+        />
       </body>
     </Html>
   );
