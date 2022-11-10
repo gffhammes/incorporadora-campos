@@ -21,7 +21,7 @@ const VideoZico = (props: Props) => {
           }}
         >
           <iframe
-            src="https://drive.google.com/file/d/1s_3CCJpqLRcPIpLUS0vE58r7wshXGCxE/preview"
+            src="https://drive.google.com/file/d/167arXJ15hti0jtw9EwGzrmPQasWLAypw/preview"
             width="100%"
             height="100%"
             allow="autoplay"
