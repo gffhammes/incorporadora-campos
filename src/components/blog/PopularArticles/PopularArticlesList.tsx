@@ -1,13 +1,13 @@
 import { Stack } from "@mui/material";
 import { useState } from "react";
 import { LoadingButton } from "../../commons/Button";
-import { ArticleListItem } from "./ArticleListItem";
+import { PopularArticlesListItem } from "./PopularArticlesListItem";
 
 interface IArticlesListProps {
   articles: any[];
 }
 
-export const ArticlesList = ({ articles }: IArticlesListProps) => {
+export const PopularArticlesList = ({ articles }: IArticlesListProps) => {
   const [seeMore, setSeeMore] = useState(false);
 
   const toggleSeeMore = () => {
@@ -21,7 +21,10 @@ export const ArticlesList = ({ articles }: IArticlesListProps) => {
   return (
     <Stack spacing={4} alignItems="center">
       {articlesToShow.map((article) => (
-        <ArticleListItem key={article.id} article={article.attributes} />
+        <PopularArticlesListItem
+          key={article.id}
+          article={article.attributes}
+        />
       ))}
 
       <LoadingButton color="primary" type="button" onClick={toggleSeeMore}>

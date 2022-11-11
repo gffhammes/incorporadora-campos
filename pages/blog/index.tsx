@@ -1,13 +1,21 @@
-import { Box } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 import * as qs from "qs";
 import { HeroSection } from "../../src/components/blog/HeroSection";
 import { MainArticles } from "../../src/components/blog/MainArticles/MainArticles";
+import { PopularArticles } from "../../src/components/blog/PopularArticles/PopularArticles";
+import { Footer } from "../../src/components/commons/Footer/Footer";
 
 const Blog = ({ articles }) => {
   return (
     <Box component="main" sx={{ height: "100%" }}>
       <HeroSection />
       <MainArticles articles={articles} />
+
+      <Divider />
+
+      <PopularArticles articles={articles} />
+
+      <Footer />
     </Box>
   );
 };

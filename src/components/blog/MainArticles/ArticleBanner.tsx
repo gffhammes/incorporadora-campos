@@ -1,4 +1,5 @@
 import { Box, SxProps, Stack, Typography } from "@mui/material";
+import { sxEllipsis } from "../../../helpers/sxEllipsis";
 
 export interface IArticleBannerProps {
   articleData: {
@@ -52,13 +53,7 @@ export const ArticleBanner = ({
           fontSize={size === "small" ? 15 : 24}
           fontWeight={600}
           textAlign="center"
-          sx={{
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            display: "-webkit-box",
-            WebkitLineClamp: 3,
-            WebkitBoxOrient: "vertical",
-          }}
+          sx={sxEllipsis(3)}
         >
           {title}
         </Typography>
