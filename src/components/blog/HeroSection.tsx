@@ -12,7 +12,14 @@ import { SectionTitle } from "../commons/SectionTitle";
 
 export const HeroSection = () => {
   return (
-    <Box sx={{ position: "relative", zIndex: 500, height: "100%" }}>
+    <Box
+      sx={{
+        position: "relative",
+        zIndex: 500,
+        height: { xs: "40%", sm: "35%" },
+        minHeight: { xs: "530px", sm: "460px" },
+      }}
+    >
       <Box sx={sxBanner} />
       <PrimaryGradientCover />
 
