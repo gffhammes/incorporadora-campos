@@ -1,13 +1,20 @@
 import { Box, Divider } from "@mui/material";
 import * as qs from "qs";
+import { useEffect } from "react";
 import { Author } from "../../src/components/blog/Article/Author";
 import { MainImage } from "../../src/components/blog/Article/MainImage";
 import { Related } from "../../src/components/blog/Article/Related";
 import { Text } from "../../src/components/blog/Article/Text";
 import { HeroSection } from "../../src/components/blog/HeroSection";
 import { Footer } from "../../src/components/commons/Footer/Footer";
+import { updateArticleViews } from "../../src/helpers/updateArticleViews";
 
 const Article = ({ article }) => {
+  useEffect(() => {
+    updateArticleViews(article);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <Box component="main" sx={{ height: "100%" }}>
       <HeroSection />
@@ -41,7 +48,7 @@ export const getServerSideProps = async (context) => {
           $eq: article,
         },
       },
-      populate: ["capa"],
+      populate: ["capa", "relacionados", "relacionados.capa"],
     },
     {
       encodeValuesOnly: true,

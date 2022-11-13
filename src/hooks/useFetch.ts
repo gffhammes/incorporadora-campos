@@ -12,12 +12,13 @@ export const useFetch = <T = unknown>(url: string) => {
       .then((res) => res.json())
       .then((data) => setData(data))
       .catch((err) => setError(err))
-      .finally(() => setIsFetching(false))
-  }, [])
+      .finally(() => setIsFetching(false));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return {
     data,
     error,
     isFetching,
-  }
-} 
+  };
+};
