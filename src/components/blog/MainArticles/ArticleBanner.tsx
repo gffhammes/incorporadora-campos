@@ -1,4 +1,5 @@
 import { Box, SxProps, Stack, Typography } from "@mui/material";
+import Link from "next/link";
 import { sxEllipsis } from "../../../helpers/sxEllipsis";
 
 export interface IArticleBannerProps {
@@ -26,38 +27,53 @@ export const ArticleBanner = ({
   });
 
   return (
-    <Box
-      sx={{
-        height: "100%",
-        width: "100%",
-        borderRadius: 2,
-        backgroundImage: `url(${background})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        ...sx,
-      }}
-    >
-      <Stack
-        justifyContent="flex-end"
-        alignItems="center"
-        spacing={size === "small" ? 1 : 2}
+    <Link href={`/blog/${slug}`} passHref>
+      <Box
+        component="a"
         sx={{
           height: "100%",
           width: "100%",
-          color: "white",
-          p: size === "small" ? 2 : 4,
+          borderRadius: 2,
+          backgroundImage: `url(${background})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          overflow: "hidden",
+          position: "relative",
+          ...sx,
         }}
       >
-        <Typography fontSize={12}>{dateToUse.toUpperCase()}</Typography>
-        <Typography
-          fontSize={size === "small" ? 15 : 24}
-          fontWeight={600}
-          textAlign="center"
-          sx={sxEllipsis(3)}
+        <Box
+          sx={{
+            height: "100%",
+            width: "100%",
+            position: "absolute",
+            background:
+              "linear-gradient(0deg, rgba(14, 30, 66, 1), rgba(14, 30, 66, 0.1))",
+          }}
+        />
+        <Stack
+          justifyContent="flex-end"
+          alignItems="center"
+          spacing={size === "small" ? 1 : 2}
+          sx={{
+            height: "100%",
+            width: "100%",
+            color: "white",
+            position: "absolute",
+            p: size === "small" ? 2 : 4,
+          }}
         >
-          {title}
-        </Typography>
-      </Stack>
-    </Box>
+          <Typography fontSize={12}>{dateToUse.toUpperCase()}</Typography>
+          <Typography
+            fontSize={size === "small" ? 15 : 24}
+            fontWeight={600}
+            textAlign="center"
+            sx={sxEllipsis(3)}
+          >
+            {title}
+          </Typography>
+        </Stack>
+      </Box>
+    </Link>
   );
 };

@@ -32,14 +32,12 @@ export const getServerSideProps = async () => {
     }
   );
 
-  const bannersResponse = await fetch(
-    `${API_URL}/api/blog-posts?${articlesQuery}`
-  );
-  const bannersData = await bannersResponse.json();
+  const res = await fetch(`${API_URL}/api/blog-posts?${articlesQuery}`);
+  const data = await res.json();
 
   return {
     props: {
-      articles: bannersData.data,
+      articles: data.data,
     },
   };
 };

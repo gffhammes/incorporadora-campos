@@ -15,6 +15,7 @@ export const PopularArticles = ({ articles }: IPopularArticlesProps) => {
         fontSize={32}
         fontWeight={600}
         textAlign="center"
+        sx={{ mb: 6 }}
       >
         Populares
       </Typography>
