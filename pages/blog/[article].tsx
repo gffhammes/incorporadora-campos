@@ -1,7 +1,8 @@
-import { Box } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 import * as qs from "qs";
 import { Author } from "../../src/components/blog/Article/Author";
 import { MainImage } from "../../src/components/blog/Article/MainImage";
+import { Related } from "../../src/components/blog/Article/Related";
 import { Text } from "../../src/components/blog/Article/Text";
 import { HeroSection } from "../../src/components/blog/HeroSection";
 import { Footer } from "../../src/components/commons/Footer/Footer";
@@ -19,6 +20,10 @@ const Article = ({ article }) => {
       />
 
       <Text text={article.attributes.texto} />
+
+      <Divider />
+
+      <Related />
 
       <Footer />
     </Box>
