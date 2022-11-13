@@ -1,4 +1,5 @@
 import { Box, Divider } from "@mui/material";
+import Head from "next/head";
 import * as qs from "qs";
 import { useEffect } from "react";
 import { Author } from "../../src/components/blog/Article/Author";
@@ -11,29 +12,38 @@ import { updateArticleViews } from "../../src/helpers/updateArticleViews";
 
 const Article = ({ article }) => {
   useEffect(() => {
+    if (process.env.NODE_ENV === "development") return;
     updateArticleViews(article);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <Box component="main" sx={{ height: "100%" }}>
-      <HeroSection />
+    <>
+      <Head>
+        <title>{article.attributes.titulo} | Campos Incorporadora</title>
+      </Head>
+      <Box component="main" sx={{ height: "100%" }}>
+        <HeroSection />
 
-      <MainImage image={article.attributes.capa.data.attributes.url} />
+        <MainImage
+          title={article.attributes.titulo}
+          image={article.attributes.capa.data.attributes.url}
+        />
 
-      <Author
-        author={article.attributes.autor}
-        date={article.attributes.data}
-      />
+        <Author
+          author={article.attributes.autor}
+          date={article.attributes.data}
+        />
 
-      <Text text={article.attributes.texto} />
+        <Text text={article.attributes.texto} />
 
-      <Divider />
+        <Divider />
 
-      <Related />
+        <Related articles={article.attributes.relacionados.data} />
 
-      <Footer />
-    </Box>
+        <Footer />
+      </Box>
+    </>
   );
 };
 

@@ -1,7 +1,12 @@
-import { Container, Typography } from "@mui/material";
+import { Box, Container, Typography, Stack } from "@mui/material";
 import { defaultSectionPadding } from "../../../constants/defaultSectionPadding";
+import { RelatedArticleBox } from "./RelatedArticleBox";
 
-export const Related = () => {
+interface IRelatedProps {
+  articles: any[];
+}
+
+export const Related = ({ articles }: IRelatedProps) => {
   return (
     <Container maxWidth="md" sx={{ py: defaultSectionPadding }}>
       <Typography
@@ -13,6 +18,12 @@ export const Related = () => {
       >
         Artigos Relacionados
       </Typography>
+
+      <Stack direction="row" spacing={4}>
+        {articles.slice(0, 3).map((article) => (
+          <RelatedArticleBox key={article.id} article={article.attributes} />
+        ))}
+      </Stack>
     </Container>
   );
 };
