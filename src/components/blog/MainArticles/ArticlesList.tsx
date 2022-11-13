@@ -14,7 +14,7 @@ export const ArticlesList = ({ articles }: IArticlesListProps) => {
     setSeeMore((seeMore) => !seeMore);
   };
 
-  const articlesToShowQuantity = seeMore ? 4 : 2;
+  const articlesToShowQuantity = seeMore ? articles.length : 2;
 
   const articlesToShow = articles.slice(0, articlesToShowQuantity);
 

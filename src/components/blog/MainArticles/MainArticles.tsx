@@ -12,8 +12,8 @@ export const MainArticles = ({ articles }: IMainArticlesProps) => {
   return (
     <Container sx={{ py: defaultSectionPadding }}>
       <Stack spacing={4}>
-        <ArticlesBoxes articles={articles} />
-        <ArticlesList articles={articles} />
+        <ArticlesBoxes articles={articles.slice(0, 3)} />
+        <ArticlesList articles={articles.slice(3, articles.length)} />
       </Stack>
     </Container>
   );

@@ -6,6 +6,13 @@ import { PopularArticles } from "../../src/components/blog/PopularArticles/Popul
 import { Footer } from "../../src/components/commons/Footer/Footer";
 
 const Blog = ({ articles }) => {
+  const sortedArticles = [...articles];
+  sortedArticles.sort((a, b) => {
+    const aViews = parseInt(a.attributes.contadorDeViews);
+    const bViews = parseInt(b.attributes.contadorDeViews);
+    return bViews - aViews;
+  });
+
   return (
     <Box component="main" sx={{ height: "100%" }}>
       <HeroSection />
@@ -13,7 +20,7 @@ const Blog = ({ articles }) => {
 
       <Divider />
 
-      <PopularArticles articles={articles} />
+      <PopularArticles articles={sortedArticles} />
 
       <Footer />
     </Box>

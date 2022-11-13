@@ -14,7 +14,7 @@ export const MainImage = ({ image, title }: IMainImageProps) => {
           position: "relative",
           zIndex: 999,
           width: "100%",
-          aspectRatio: "1.4 / 1",
+          aspectRatio: "1.5 / 1",
           borderRadius: 2,
           backgroundImage: `url(${image})`,
           backgroundSize: "cover",
