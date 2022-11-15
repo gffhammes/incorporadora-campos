@@ -16,13 +16,16 @@ import LogoHorizontal from "../../../../public/vectors/logo-horizontal.svg";
 import { defaultLinkHoverProps } from "../../../constants/defaultLinkHover";
 import { Subscribe } from "./Subscribe/Subscribe";
 import { Copyright } from "./Copyright";
+import { ContactForm } from "./ContactForm/ContactForm";
 
 const defaultSpacing = 1.5;
 
 export const Footer = () => {
   return (
     <Box component="footer">
-      <Subscribe />
+      {/* <Subscribe /> */}
+      <ContactForm />
+
       <Box bgcolor="primary.main" sx={{ color: "#fff", py: 7 }}>
         <Container>
           <Stack
