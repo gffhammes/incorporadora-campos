@@ -10,6 +10,7 @@ interface ICarouselProps {
     | string
     | Partial<{ xs: string; sm: string; md: string; lg: string; xl: string }>;
   options?: EmblaOptionsType;
+  dotsColor?: "secondary" | "white";
 }
 
 export const Carousel = ({
@@ -17,6 +18,7 @@ export const Carousel = ({
   slideFlex,
   spacing,
   options,
+  dotsColor = "white",
 }: ICarouselProps) => {
   const [viewportRef, embla] = useEmblaCarousel(options);
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
@@ -45,6 +47,27 @@ export const Carousel = ({
     embla.on("select", onSelect);
   }, [embla, setScrollSnaps, onSelect]);
 
+  const getActiveColor = () => {
+    switch (dotsColor) {
+      case "white":
+        return "white";
+      case "secondary":
+        return "secondary.main";
+    }
+  };
+
+  const getInactiveColor = () => {
+    switch (dotsColor) {
+      case "white":
+        return "secondary.main";
+      case "secondary":
+        return "rgba(26, 72, 188, 0.5)";
+    }
+  };
+
+  const activeColor = getActiveColor();
+  const inactiveColor = getInactiveColor();
+
   return (
     <>
       <Box sx={{ position: "relative" }}>
@@ -71,13 +94,15 @@ export const Carousel = ({
         {scrollSnaps.map((_, index) => (
           <Box
             key={index}
+            role="button"
             onClick={() => scrollTo(index)}
             sx={{
+              cursor: "pointer",
               height: ".5rem",
               width: ".5rem",
               borderRadius: ".5rem",
               backgroundColor:
-                selectedIndex === index ? "white" : "secondary.main",
+                selectedIndex === index ? activeColor : inactiveColor,
             }}
           />
         ))}
