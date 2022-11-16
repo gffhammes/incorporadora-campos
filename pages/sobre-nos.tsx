@@ -6,6 +6,7 @@ import PartnersSection from "../src/components/aboutPage/PartnersSection";
 import { Footer } from "../src/components/commons/Footer/Footer";
 import * as qs from "qs";
 import { Box } from "@mui/material";
+import PurposeSection from "../src/components/aboutPage/PurposeSection";
 
 export default function About({ ourHistorySlides }) {
   return (
@@ -14,7 +15,7 @@ export default function About({ ourHistorySlides }) {
       <DescriptionSection />
       <OurHistorySection slides={ourHistorySlides} />
       <FutureProjectsSection />
-      {/* <PurposeSection /> */}
+      <PurposeSection />
       <PartnersSection />
       {/* <InvestorSection /> */}
       <Footer />
