@@ -2,7 +2,7 @@ import DescriptionSection from "../src/components/aboutPage/DescriptionSection/D
 import FutureProjectsSection from "../src/components/aboutPage/FutureProjectsSection";
 import HeroSection from "../src/components/aboutPage/HeroSection";
 import OurHistorySection from "../src/components/aboutPage/OurHistory/OurHistorySection";
-import PartnersSection from "../src/components/aboutPage/PartnersSection";
+import PartnersSection from "../src/components/aboutPage/PartnersSection/PartnersSection";
 import { Footer } from "../src/components/commons/Footer/Footer";
 import * as qs from "qs";
 import { Box } from "@mui/material";
