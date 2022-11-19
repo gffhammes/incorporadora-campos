@@ -1,41 +1,22 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
-import { defaultLinkHoverProps } from "../../constants/defaultLinkHover";
-import { scrollToTarget } from "../../helpers/scrollToTarget";
+import { defaultLinkHoverProps } from "../../../constants/defaultLinkHover";
+import { scrollToTarget } from "../../../helpers/scrollToTarget";
+import { useBreakpoint } from "../../../hooks/useBreakpoint";
+import { getScrollLinks } from "./getScrollLinks";
+import { MobileScrollMenu } from "./MobileScrollMenu";
 
-export const ScrollMenu = ({ enterpriseData }) => {
-  const { Seccoes } = enterpriseData;
+export const ScrollMenu = ({ enterpriseData: { Seccoes } }) => {
+  const { sm } = useBreakpoint();
 
-  const scrollLinks = [
-    {
-      label: "O Empreendimento",
-      targetId: "the-enterprise",
-    },
-  ];
+  const scrollLinks = getScrollLinks(Seccoes);
 
-  if (Seccoes.Diferenciais) {
-    scrollLinks.push({
-      label: "Diferenciais",
-      targetId: "differentials",
-    });
-  }
-
-  if (Seccoes.Plantas) {
-    scrollLinks.push({
-      label: "Opções de Planta",
-      targetId: "plan-options",
-    });
-  }
-
-  if (Seccoes.Mapa) {
-    scrollLinks.push({
-      label: "Localização",
-      targetId: "localization",
-    });
-  }
-
-  return (
-    <Box bgcolor="secondary.main" id="internal-scroll-menu">
+  return sm ? (
+    <Box
+      bgcolor="secondary.main"
+      id="internal-scroll-menu"
+      sx={{ position: "sticky", top: 50, zIndex: 999 }}
+    >
       <Container sx={{ py: { xs: 4, lg: 3 }, color: "white" }}>
         <Grid container spacing={4} justifyContent="center">
           {scrollLinks.map((link, index) => (
@@ -64,5 +45,7 @@ export const ScrollMenu = ({ enterpriseData }) => {
         </Grid>
       </Container>
     </Box>
+  ) : (
+    <MobileScrollMenu sections={Seccoes} />
   );
 };
