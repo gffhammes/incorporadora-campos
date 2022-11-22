@@ -23,7 +23,7 @@ const Enterprise = ({ enterprise }) => {
       <Head>
         <title>{enterprise.attributes.Nome + " | Campos Incorporadora"}</title>
       </Head>
-      <Box component={"main"} sx={{ height: { md: "100%" } }}>
+      <Box component={"main"} sx={{ height: { lg: "100%" } }}>
         <HeroSection enterpriseData={enterprise.attributes} />
         {Seccoes.Menu && <ScrollMenu enterpriseData={enterprise.attributes} />}
         <SummarySection enterpriseData={enterprise.attributes} />

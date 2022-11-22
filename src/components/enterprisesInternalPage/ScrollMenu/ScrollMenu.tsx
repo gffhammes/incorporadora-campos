@@ -7,11 +7,11 @@ import { getScrollLinks } from "./getScrollLinks";
 import { MobileScrollMenu } from "./MobileScrollMenu";
 
 export const ScrollMenu = ({ enterpriseData: { Seccoes } }) => {
-  const { sm } = useBreakpoint();
+  const { lg } = useBreakpoint();
 
   const scrollLinks = getScrollLinks(Seccoes);
 
-  return sm ? (
+  return lg ? (
     <Box
       bgcolor="secondary.main"
       id="internal-scroll-menu"

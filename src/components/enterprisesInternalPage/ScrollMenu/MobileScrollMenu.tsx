@@ -1,19 +1,36 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
-import { link } from "fs";
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import { defaultLinkHoverProps } from "../../../constants/defaultLinkHover";
-import { scrollToTarget } from "../../../helpers/scrollToTarget";
+import {
+  Box,
+  Collapse,
+  Container,
+  IconButton,
+  Stack,
+  Typography,
+} from "@mui/material";
+import React, { useEffect, useState } from "react";
 import { useScrollspy } from "../../../hooks/useScrollspy";
 import { getScrollLinks } from "./getScrollLinks";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import { scrollToTarget } from "../../../helpers/scrollToTarget";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import { styled } from "@mui/material/styles";
+import { useBreakpoint } from "../../../hooks/useBreakpoint";
 
 export const MobileScrollMenu = ({ sections }) => {
+  const [title, setTitle] = useState("SELECIONE UM MENU");
+  const [open, setOpen] = useState(false);
   const scrollLinks = getScrollLinks(sections);
   const ids = scrollLinks.map((link) => link.targetId);
+  const { md } = useBreakpoint();
 
-  const activeId = useScrollspy(ids, 50);
+  const yOffset = md ? 225 : 275;
+
+  const activeId = useScrollspy(ids, yOffset);
   const activeLink = scrollLinks.find((link) => link.targetId === activeId);
 
-  const [title, setTitle] = useState(scrollLinks[0].label);
+  const toggleOpen = () => setOpen((open) => !open);
 
   useEffect(() => {
     if (!activeLink) return;
@@ -24,37 +41,39 @@ export const MobileScrollMenu = ({ sections }) => {
     <Box
       bgcolor="secondary.main"
       id="internal-scroll-menu"
-      sx={{ position: "sticky", top: 50, zIndex: 999 }}
+      sx={{
+        position: "sticky",
+        top: { xs: 50, md: 0 },
+        zIndex: 900,
+        boxShadow: 3,
+      }}
     >
-      <Container sx={{ py: { xs: 4, lg: 3 }, color: "white" }}>
-        <Typography>{title}</Typography>
+      <StyledAccordion expanded={open} onChange={toggleOpen}>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+          {open ? "SELECIONE UM MENU" : title.toUpperCase()}
+        </AccordionSummary>
 
-        {/* <Grid container spacing={4} justifyContent="center">
-          {scrollLinks.map((link, index) => (
-            <Grid item key={index} xs={12} lg={3}>
-              <Box
+        <AccordionDetails>
+          <Stack spacing={2}>
+            {scrollLinks.map((link) => (
+              <Typography
+                key={link.label}
                 onClick={() => {
-                  scrollToTarget(link.targetId);
+                  scrollToTarget(link.targetId, yOffset);
+                  toggleOpen();
                 }}
-                sx={{ width: "fit-content", mx: "auto" }}
               >
-                <Typography
-                  letterSpacing={1}
-                  fontWeight={300}
-                  textAlign="center"
-                  sx={{
-                    ...defaultLinkHoverProps,
-                    width: "fit-content",
-                    cursor: "pointer",
-                  }}
-                >
-                  {link.label.toUpperCase()}
-                </Typography>
-              </Box>
-            </Grid>
-          ))}
-        </Grid> */}
-      </Container>
+                {link.label.toUpperCase()}
+              </Typography>
+            ))}
+          </Stack>
+        </AccordionDetails>
+      </StyledAccordion>
     </Box>
   );
 };
+
+const StyledAccordion = styled(Accordion)(({ theme }) => ({
+  backgroundColor: theme.palette.secondary.main,
+  color: "white",
+}));
