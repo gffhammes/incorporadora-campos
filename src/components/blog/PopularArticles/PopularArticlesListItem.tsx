@@ -22,14 +22,14 @@ export const PopularArticlesListItem = ({
 
   return (
     <Link href={`/blog/${article.slug}`} passHref>
-      <a>
+      <a style={{ maxWidth: "100%" }}>
         <Paper variant="outlined" sx={{ borderRadius: 2, overflow: "hidden" }}>
           <Stack direction="row" alignItems="center">
             <Box
               sx={{
                 position: "relative",
                 width: "21rem",
-                height: "14rem",
+                height: "15rem",
                 flexShrink: 0,
               }}
             >
@@ -41,7 +41,7 @@ export const PopularArticlesListItem = ({
               />
             </Box>
 
-            <Box sx={{ flexGrow: "1", p: 4 }}>
+            <Box sx={{ flexGrow: "1", p: 4, overflow: "hidden" }}>
               <Typography sx={sxEllipsis(3)} fontWeight={600}>
                 {article.titulo}
               </Typography>
@@ -51,7 +51,7 @@ export const PopularArticlesListItem = ({
               </Typography>
 
               <Typography fontSize={14} sx={sxEllipsis(2)}>
-                {article.texto}
+                {article.texto.replaceAll("**", "")}
               </Typography>
 
               <Typography fontSize={14} fontWeight={600}>

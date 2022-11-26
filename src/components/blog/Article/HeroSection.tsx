@@ -7,8 +7,8 @@ import {
   Typography,
 } from "@mui/material";
 import { useMemo } from "react";
-import { PrimaryGradientCover } from "../commons/GradientCover";
-import { SectionTitle } from "../commons/SectionTitle";
+import { PrimaryGradientCover } from "../../commons/GradientCover";
+import { SectionTitle } from "../../commons/SectionTitle";
 
 export const HeroSection = () => {
   return (
@@ -16,8 +16,8 @@ export const HeroSection = () => {
       sx={{
         position: "relative",
         zIndex: 500,
-        height: { xs: "35%", md: "45%" },
-        minHeight: { xs: "250px", md: "450px" },
+        height: "45%",
+        minHeight: "450px",
       }}
     >
       <Box sx={sxBanner} />

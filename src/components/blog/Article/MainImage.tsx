@@ -1,5 +1,6 @@
 import { Container, Box, Stack, Typography } from "@mui/material";
 import Image from "next/image";
+import { useBreakpoint } from "../../../hooks/useBreakpoint";
 
 interface IMainImageProps {
   image: string;
@@ -7,12 +8,16 @@ interface IMainImageProps {
 }
 
 export const MainImage = ({ image, title }: IMainImageProps) => {
+  const { md } = useBreakpoint();
+
+  const translation = md ? "-7rem" : "-3rem";
+
   return (
     <Container maxWidth="md">
       <Box
         sx={{
           position: "relative",
-          zIndex: 999,
+          zIndex: 900,
           width: "100%",
           aspectRatio: "1.5 / 1",
           borderRadius: 2,
@@ -20,8 +25,13 @@ export const MainImage = ({ image, title }: IMainImageProps) => {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           overflow: "hidden",
-          transform: "translateY(-10rem)",
-          mb: "-10rem",
+          transform: `translateY(${translation})`,
+          mb: translation,
+
+          boxShadow: {
+            xs: "7px 15px 40px rgba(18, 50, 131, .48)",
+            md: "15px 31px 82px rgba(18, 50, 131, .48)",
+          },
         }}
       >
         <Box
@@ -41,10 +51,14 @@ export const MainImage = ({ image, title }: IMainImageProps) => {
             width: "100%",
             color: "white",
             position: "absolute",
-            p: 6,
+            p: { xs: 3, sm: 4, md: 6 },
           }}
         >
-          <Typography fontSize={24} fontWeight={600} textAlign="center">
+          <Typography
+            fontSize={{ xs: "18pt", sm: "20pt", md: "24pt" }}
+            fontWeight={600}
+            textAlign="center"
+          >
             {title}
           </Typography>
         </Stack>

@@ -23,7 +23,7 @@ export const MainArticles = ({ articles }: IMainArticlesProps) => {
   const slicedArticles = getSlicedArticles();
 
   return (
-    <Container sx={{ py: defaultSectionPadding }}>
+    <Container sx={{ py: { xs: 5, md: defaultSectionPadding } }}>
       <Stack spacing={4}>
         {md ? (
           <ArticlesBoxes articles={slicedArticles.boxes} />

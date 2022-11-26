@@ -10,7 +10,13 @@ interface IArticleListItemProps {
 export const ArticleListItem = ({ article }: IArticleListItemProps) => {
   return (
     <Link href={`/blog/${article.slug}`} passHref>
-      <Stack component="a" direction="row" alignItems="center" spacing={3}>
+      <Stack
+        component="a"
+        direction="row"
+        alignItems="center"
+        spacing={3}
+        sx={{ maxWidth: "100%" }}
+      >
         <Box
           sx={{
             position: "relative",

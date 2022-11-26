@@ -4,24 +4,39 @@ import { HeroSection } from "../../src/components/blog/HeroSection";
 import { MainArticles } from "../../src/components/blog/MainArticles/MainArticles";
 import { PopularArticles } from "../../src/components/blog/PopularArticles/PopularArticles";
 import { Footer } from "../../src/components/commons/Footer/Footer";
+import { useBreakpoint } from "../../src/hooks/useBreakpoint";
 
 const Blog = ({ articles }) => {
-  const sortedArticles = [...articles];
-  sortedArticles.sort((a, b) => {
+  const { md } = useBreakpoint();
+  const articlesSortedByViews = [...articles];
+
+  articlesSortedByViews.sort((a, b) => {
     const aViews = parseInt(a.attributes.contadorDeViews);
     const bViews = parseInt(b.attributes.contadorDeViews);
     return bViews - aViews;
+  });
+
+  const articlesSortedByDate = [...articles];
+
+  articlesSortedByDate.sort((a, b) => {
+    const aDate = new Date(a.attributes.data);
+    const bDate = new Date(b.attributes.data);
+    return bDate.getTime() - aDate.getTime();
   });
 
   return (
     <Box component="main" sx={{ height: "100%" }}>
       <HeroSection />
 
-      <MainArticles articles={articles} />
+      <MainArticles articles={articlesSortedByDate} />
 
-      {/* <Divider />
+      {md && (
+        <>
+          <Divider />
 
-      <PopularArticles articles={sortedArticles} /> */}
+          <PopularArticles articles={articlesSortedByViews} />
+        </>
+      )}
 
       <Footer />
     </Box>
