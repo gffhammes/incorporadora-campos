@@ -1,6 +1,6 @@
 import { Box, SxProps, Stack, Typography } from "@mui/material";
 import Link from "next/link";
-import { sxEllipsis } from "../../../helpers/sxEllipsis";
+import { sxEllipsis } from "../../../../helpers/sxEllipsis";
 
 export interface IArticleBannerProps {
   articleData: {
@@ -31,8 +31,9 @@ export const ArticleBanner = ({
       <Box
         component="a"
         sx={{
-          height: "100%",
-          width: "100%",
+          height: { xs: "min(20rem, 53vw)", md: "100%" },
+          width: { xs: "80%", md: "100%" },
+          maxWidth: { xs: "30rem", md: "unset" },
           borderRadius: 2,
           backgroundImage: `url(${background})`,
           backgroundSize: "cover",

@@ -16,11 +16,12 @@ const Blog = ({ articles }) => {
   return (
     <Box component="main" sx={{ height: "100%" }}>
       <HeroSection />
+
       <MainArticles articles={articles} />
 
-      <Divider />
+      {/* <Divider />
 
-      <PopularArticles articles={sortedArticles} />
+      <PopularArticles articles={sortedArticles} /> */}
 
       <Footer />
     </Box>

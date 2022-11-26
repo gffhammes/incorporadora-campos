@@ -16,8 +16,8 @@ export const HeroSection = () => {
       sx={{
         position: "relative",
         zIndex: 500,
-        height: { xs: "40%", sm: "40%" },
-        minHeight: { xs: "530px", sm: "530px" },
+        height: { xs: "35%", md: "45%" },
+        minHeight: { xs: "350px", md: "450px" },
       }}
     >
       <Box sx={sxBanner} />
