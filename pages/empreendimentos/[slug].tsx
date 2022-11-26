@@ -1,7 +1,7 @@
 import React from "react";
 import { Footer } from "../../src/components/commons/Footer/Footer";
 import { Box } from "@mui/material";
-import { ScrollMenu } from "../../src/components/enterprisesInternalPage/ScrollMenu";
+import { ScrollMenu } from "../../src/components/enterprisesInternalPage/ScrollMenu/ScrollMenu";
 import { SummarySection } from "../../src/components/enterprisesInternalPage/SummarySection";
 import { DetailsSection } from "../../src/components/enterprisesInternalPage/DetailsSection";
 import { DifferentialsSections } from "../../src/components/enterprisesInternalPage/DifferentialsSections";
@@ -23,7 +23,7 @@ const Enterprise = ({ enterprise }) => {
       <Head>
         <title>{enterprise.attributes.Nome + " | Campos Incorporadora"}</title>
       </Head>
-      <Box component={"main"} sx={{ height: { xs: "70vw", md: "100%" } }}>
+      <Box component={"main"} sx={{ height: { lg: "100%" } }}>
         <HeroSection enterpriseData={enterprise.attributes} />
         {Seccoes.Menu && <ScrollMenu enterpriseData={enterprise.attributes} />}
         <SummarySection enterpriseData={enterprise.attributes} />

@@ -16,21 +16,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useRouter } from "next/router";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 
-const sxLogo = {
-  height: "100%",
-  width: "20vw",
-  maxWidth: "15rem",
-  minWidth: "7rem",
-};
-
-const sxNavLink = {
-  width: "fit-content",
-  transition: "300ms ease all",
-  "&:hover": {
-    color: "#ffffff",
-  },
-};
-
 export const NavBar = () => {
   const { asPath: currentRoute } = useRouter();
   const theme = useTheme();
@@ -76,6 +61,7 @@ export const NavBar = () => {
     backgroundColor: isMenuScroll && !sizeMd ? "primary.main" : "none",
     boxShadow: isMenuScroll && !sizeMd ? 20 : 0,
     top: isMenuScroll ? 0 : "unset",
+    height: 50,
   };
 
   const sxNavItems = {
@@ -137,4 +123,19 @@ export const NavBar = () => {
       </Container>
     </Box>
   );
+};
+
+const sxLogo = {
+  height: "100%",
+  width: "15vw",
+  maxWidth: "15rem",
+  minWidth: "7rem",
+};
+
+const sxNavLink = {
+  width: "fit-content",
+  transition: "300ms ease all",
+  "&:hover": {
+    color: "#ffffff",
+  },
 };

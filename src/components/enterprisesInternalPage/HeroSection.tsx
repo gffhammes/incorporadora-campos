@@ -81,7 +81,13 @@ export const HeroSection = ({ enterpriseData }) => {
   }, [enterpriseData.Status, getLogo]);
 
   return (
-    <Box sx={{ position: "relative", zIndex: 500, height: "100%" }}>
+    <Box
+      sx={{
+        position: "relative",
+        zIndex: 500,
+        height: { xs: "70vw", lg: "100%" },
+      }}
+    >
       <Box sx={sxBanner} />
       <PrimaryGradientCover />
       <Box sx={sxContent}>

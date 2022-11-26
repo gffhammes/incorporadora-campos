@@ -2,6 +2,8 @@ import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { useBreakpoint } from "../../hooks/useBreakpoint";
+import { Carousel } from "../commons/Carousel/Carousel";
 
 const banks = [
   {
@@ -35,6 +37,34 @@ const hoverFilter = {
 };
 
 export const SimulatorsSection = () => {
+  const { md } = useBreakpoint();
+
+  const slides = banks.map((bank, index) => (
+    <Box key={index} sx={{ p: 2 }}>
+      <Link href={bank.href} passHref>
+        <a target="_blank">
+          <Box
+            sx={{
+              position: "relative",
+              width: "100%",
+              maxWidth: "15rem",
+              height: "4rem",
+              m: "auto",
+              ...hoverFilter,
+            }}
+          >
+            <Image
+              src={bank.imageSrc}
+              alt={bank.name}
+              layout="fill"
+              objectFit="contain"
+            />
+          </Box>
+        </a>
+      </Link>
+    </Box>
+  ));
+
   return (
     <Box bgcolor="#f4f4f4">
       <Container sx={{ py: 3 }}>
@@ -52,42 +82,58 @@ export const SimulatorsSection = () => {
           >
             SIMULADORES
           </Typography>
-          <div style={{ width: "100%" }}>
-            <Grid container spacing={5}>
-              {banks.map((bank, index) => (
-                <Grid key={index} item xs={6} md={3}>
-                  <Box
-                    sx={{
-                      width: "100%",
-                      margin: { xs: "0 auto 0 auto", md: "0 0 0 auto" },
-                    }}
-                  >
-                    <Link href={bank.href} passHref>
-                      <a target="_blank">
-                        <Box
-                          sx={{
-                            position: "relative",
-                            width: "100%",
-                            maxWidth: "10rem",
-                            height: "4rem",
-                            margin: "auto",
-                            ...hoverFilter,
-                          }}
-                        >
-                          <Image
-                            src={bank.imageSrc}
-                            alt={bank.name}
-                            layout="fill"
-                            objectFit="contain"
-                          />
-                        </Box>
-                      </a>
-                    </Link>
-                  </Box>
-                </Grid>
-              ))}
-            </Grid>
-          </div>
+
+          {md ? (
+            <div style={{ width: "100%" }}>
+              <Grid container spacing={5}>
+                {banks.map((bank, index) => (
+                  <Grid key={index} item xs={6} md={3}>
+                    <Box
+                      sx={{
+                        width: "100%",
+                        margin: { xs: "0 auto 0 auto", md: "0 0 0 auto" },
+                      }}
+                    >
+                      <Link href={bank.href} passHref>
+                        <a target="_blank">
+                          <Box
+                            sx={{
+                              position: "relative",
+                              width: "100%",
+                              maxWidth: "10rem",
+                              height: "4rem",
+                              margin: "auto",
+                              ...hoverFilter,
+                            }}
+                          >
+                            <Image
+                              src={bank.imageSrc}
+                              alt={bank.name}
+                              layout="fill"
+                              objectFit="contain"
+                            />
+                          </Box>
+                        </a>
+                      </Link>
+                    </Box>
+                  </Grid>
+                ))}
+              </Grid>
+            </div>
+          ) : (
+            <Box sx={{ width: "100%" }}>
+              <Carousel
+                slides={slides}
+                dotsColor="secondary"
+                slideFlex="0 0 50%"
+                options={{
+                  align: 0,
+                  containScroll: "trimSnaps",
+                  slidesToScroll: 2,
+                }}
+              />
+            </Box>
+          )}
         </Stack>
       </Container>
     </Box>
