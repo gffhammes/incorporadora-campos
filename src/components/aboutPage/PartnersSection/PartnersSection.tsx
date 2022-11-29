@@ -82,7 +82,6 @@ const PartnersSection = () => {
               options={{
                 align: "center",
               }}
-              dotsColor="secondary"
             />
           </Box>
         </StackContainer>
