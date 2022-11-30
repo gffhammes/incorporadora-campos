@@ -1,6 +1,7 @@
 import { Box, SxProps, Stack, Typography } from "@mui/material";
 import Link from "next/link";
 import { sxEllipsis } from "../../../../helpers/sxEllipsis";
+import { useBreakpoint } from "../../../../hooks/useBreakpoint";
 
 export interface IArticleBannerProps {
   articleData: {
@@ -18,6 +19,7 @@ export const ArticleBanner = ({
   sx,
   size = "small",
 }: IArticleBannerProps) => {
+  const { md } = useBreakpoint();
   const dateObject = new Date(date);
 
   const dateToUse = dateObject.toLocaleDateString("pt-BR", {
@@ -29,7 +31,7 @@ export const ArticleBanner = ({
   return (
     <Link href={`/blog/${slug}`} passHref>
       <Box
-        component="a"
+        component={md ? "a" : "div"}
         sx={{
           height: { xs: "min(20rem, 53vw)", md: "100%" },
           width: { xs: "80%", md: "100%" },

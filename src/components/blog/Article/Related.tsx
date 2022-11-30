@@ -21,30 +21,40 @@ export const Related = ({ articles }: IRelatedProps) => {
         title: article.attributes.titulo,
         slug: article.attributes.slug,
       }}
+      sx={{ mx: "auto" }}
     />
   ));
 
   return (
-    <Container maxWidth="md" sx={{ py: defaultSectionPadding }}>
-      <Typography
-        variant="h2"
-        fontSize={{ xs: 20, md: 32 }}
-        fontWeight={600}
-        textAlign="center"
-        sx={{ mb: 6 }}
-      >
-        Artigos Relacionados
-      </Typography>
+    <>
+      <Container maxWidth="md" sx={{ pt: defaultSectionPadding }}>
+        <Typography
+          variant="h2"
+          fontSize={{ xs: 20, md: 32 }}
+          fontWeight={600}
+          textAlign="center"
+          sx={{ mb: 6 }}
+        >
+          Artigos Relacionados
+        </Typography>
+      </Container>
 
       {md ? (
-        <Stack direction="row" spacing={4}>
-          {articles.slice(0, 3).map((article) => (
-            <RelatedArticleBox key={article.id} article={article.attributes} />
-          ))}
-        </Stack>
+        <Container maxWidth="md" sx={{ pb: defaultSectionPadding }}>
+          <Stack direction="row" spacing={4}>
+            {articles.slice(0, 3).map((article) => (
+              <RelatedArticleBox
+                key={article.id}
+                article={article.attributes}
+              />
+            ))}
+          </Stack>
+        </Container>
       ) : (
-        <Carousel slides={slides} dotsColor="secondary" />
+        <Box sx={{ pb: defaultSectionPadding }}>
+          <Carousel slides={slides} dotsColor="secondary" />
+        </Box>
       )}
-    </Container>
+    </>
   );
 };
