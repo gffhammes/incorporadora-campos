@@ -27,7 +27,8 @@ export const NavBar = () => {
     disableHysteresis: true,
   });
 
-  const handleMenuToggle = () => setOpen((open) => !open);
+  const handleMenuClose = () => setOpen(false);
+  const handleMenuOpen = () => setOpen(true);
 
   const pagesMemo = useMemo(() => {
     return pages.map((page, index) => {
@@ -45,7 +46,7 @@ export const NavBar = () => {
               marginBottom: isActivePage ? "-1px" : 0,
               color: isActivePage ? "#fff" : "#ffffff89",
             }}
-            onClick={handleMenuToggle}
+            onClick={handleMenuClose}
           >
             <Typography>{page.name.toUpperCase()}</Typography>
           </Box>
@@ -88,7 +89,7 @@ export const NavBar = () => {
             <>
               <IconButton
                 sx={{ fontSize: 20, color: "white", zIndex: 999 }}
-                onClick={handleMenuToggle}
+                onClick={open ? handleMenuClose : handleMenuOpen}
               >
                 {open ? (
                   <CloseIcon fontSize="inherit" />
