@@ -37,17 +37,17 @@ export const BlueSection = () => {
             <Typography>
               <strong>Atendimento</strong>: Segunda à Sexta, das 08h às 18h
             </Typography>
-            <a href="mailto:vendas@camposincorporadora.com.br">
+            <a href={`mailto:${data.email}`}>
               <Typography>
-                <strong>E-mail</strong>: vendas@camposincorporadora.com.br
+                <strong>E-mail</strong>: {data.email}
               </Typography>
             </a>
           </Stack>
           <Stack spacing={0.5}>
             <Typography sx={sxBold}>TRABALHE CONOSCO!</Typography>
             <Typography>Envie um e-mail com seu currículo para:</Typography>
-            <a href="mailto:vendas@camposincorporadora.com.br">
-              <Typography>vendas@camposincorporadora.com.br</Typography>
+            <a href={`mailto:${data.email}`}>
+              <Typography>{data.email}</Typography>
             </a>
           </Stack>
           <Box>
