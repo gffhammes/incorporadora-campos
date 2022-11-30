@@ -16,10 +16,19 @@ import LogoHorizontal from "../../../../public/vectors/logo-horizontal.svg";
 import { defaultLinkHoverProps } from "../../../constants/defaultLinkHover";
 import { Subscribe } from "./Subscribe/Subscribe";
 import { Copyright } from "./Copyright";
+import { useGlobalsContext } from "../../../contexts/useGlobalsContext";
 
 const defaultSpacing = 1.5;
 
+const anchorCommonProps = {
+  target: "_blank",
+  rel: "noreferrer",
+  style: { width: "fit-content" },
+};
+
 export const Footer = () => {
+  const { data } = useGlobalsContext();
+
   return (
     <Box component="footer">
       <Subscribe />
@@ -53,17 +62,20 @@ export const Footer = () => {
             </Stack>
 
             <Stack spacing={1}>
-              <Typography fontSize={14} fontWeight="bold">
-                47 9 9138-2244
-              </Typography>
-              <Typography fontSize={14}>
-                vendas@camposincorporadora.com.br
-              </Typography>
-              <Typography fontSize={14}>
-                Rua Pará, 276 - América
-                <br />
-                Joinville/SC - 89204-420
-              </Typography>
+              <a href={`tel:${data.phone}`} {...anchorCommonProps}>
+                <Typography fontSize={14} fontWeight="bold">
+                  {data.phone}
+                </Typography>
+              </a>
+              <a href={`mailto:${data.email}`} {...anchorCommonProps}>
+                <Typography fontSize={14}>{data.email}</Typography>
+              </a>
+              <a
+                href={`https://www.google.com.br/maps/place/${data.address}`}
+                {...anchorCommonProps}
+              >
+                <Typography fontSize={14}>{data.address}</Typography>
+              </a>
               <FollowUs />
             </Stack>
           </Stack>

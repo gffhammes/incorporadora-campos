@@ -1,17 +1,20 @@
-import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react'
-
-
-const whatsappNumber = '5547991382244'
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import { useGlobalsContext } from "../contexts/useGlobalsContext";
 
 export const useWhatsappLink = () => {
+  const { data: globalData } = useGlobalsContext();
   const { asPath: currentPath } = useRouter();
   const { API_URL } = process.env;
-  const [data, setData] = useState(null)
+  const [data, setData] = useState(null);
   let text: string;
 
+  const whatsappNumber = `55${globalData.phone
+    .replaceAll(" ", "")
+    .replaceAll("-", "")}`;
+
   useEffect(() => {
-    const slugArray = currentPath.split('/');
+    const slugArray = currentPath.split("/");
 
     if (slugArray.length !== 3) {
       setData(null);
@@ -23,16 +26,18 @@ export const useWhatsappLink = () => {
     fetch(`${API_URL}/api/empreendimentos?filters[Slug][$eq]=${enterpriseName}`)
       .then((res) => res.json())
       .then((data) => {
-        setData(data.data[0])
-      })
-  }, [API_URL, currentPath])
+        setData(data.data[0]);
+      });
+  }, [API_URL, currentPath]);
 
   if (data) {
     text = `Olá! Vim pelo site e gostaria de mais informações sobre o empreendimento ${data.attributes.Nome}!`;
   } else {
-    text = 'Olá! Vim pelo site e gostaria de mais informações!';
+    text = "Olá! Vim pelo site e gostaria de mais informações!";
   }
 
-  const url = `https://api.whatsapp.com/send/?phone=${whatsappNumber}&text=${encodeURI(text)}&app_absent=0`
+  const url = `https://api.whatsapp.com/send/?phone=${whatsappNumber}&text=${encodeURI(
+    text
+  )}&app_absent=0`;
   return url;
-}
+};

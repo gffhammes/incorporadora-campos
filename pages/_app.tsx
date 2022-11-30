@@ -6,6 +6,7 @@ import TagManager from "react-gtm-module";
 import { useEffect } from "react";
 import Router, { useRouter } from "next/router";
 import NProgress from "nprogress";
+import { GlobalsContextProvider } from "../src/contexts/GlobalsContextProvider";
 
 const theme = createTheme({
   typography: {
@@ -34,10 +35,12 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <ThemeProvider theme={theme}>
-      <PageTitle />
+      <GlobalsContextProvider>
+        <PageTitle />
 
-      <Header />
-      <Component {...pageProps} />
+        <Header />
+        <Component {...pageProps} />
+      </GlobalsContextProvider>
     </ThemeProvider>
   );
 }
