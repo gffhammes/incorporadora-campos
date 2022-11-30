@@ -1,5 +1,6 @@
 import { Container, Box, Stack, Typography } from "@mui/material";
 import Image from "next/image";
+import { sxEllipsis } from "../../../helpers/sxEllipsis";
 import { useBreakpoint } from "../../../hooks/useBreakpoint";
 
 interface IMainImageProps {
@@ -51,13 +52,14 @@ export const MainImage = ({ image, title }: IMainImageProps) => {
             width: "100%",
             color: "white",
             position: "absolute",
-            p: { xs: 3, sm: 4, md: 6 },
+            p: { xs: 2, sm: 4, md: 6 },
           }}
         >
           <Typography
-            fontSize={{ xs: "18pt", sm: "20pt", md: "24pt" }}
+            fontSize={{ xs: "16pt", sm: "20pt", md: "24pt" }}
             fontWeight={600}
             textAlign="center"
+            sx={{ ...sxEllipsis(4) }}
           >
             {title}
           </Typography>
