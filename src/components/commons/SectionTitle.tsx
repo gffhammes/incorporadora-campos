@@ -1,5 +1,6 @@
 import { Box, SxProps, Typography } from "@mui/material";
 import React, { FC } from "react";
+import { DefaultAnimation } from "../animations/DefaultAnimation";
 
 type TTheme = "light" | "dark" | "blue";
 
@@ -35,7 +36,7 @@ export const SectionTitle: FC<SectionTitleProps> = ({
   const borderColor = getBorderColor(theme);
 
   return (
-    <>
+    <DefaultAnimation>
       <Typography
         variant="h2"
         fontSize={{ xs: 16, sm: 28 }}
@@ -64,6 +65,6 @@ export const SectionTitle: FC<SectionTitleProps> = ({
           }}
         />
       )}
-    </>
+    </DefaultAnimation>
   );
 };

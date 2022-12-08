@@ -1,6 +1,7 @@
 import { Box, Stack } from "@mui/material";
 import Image from "next/image";
 import { useBreakpoint } from "../../../hooks/useBreakpoint";
+import { DefaultAnimation } from "../../animations/DefaultAnimation";
 import { Carousel } from "../../commons/Carousel/Carousel";
 
 const partners = [
@@ -32,26 +33,30 @@ export const Partners = () => {
     </Box>
   ));
 
-  return sm ? (
-    <Stack
-      direction="row"
-      spacing={8}
-      alignItems="center"
-      sx={{ width: "100%" }}
-    >
-      {slides}
-    </Stack>
-  ) : (
-    <Box sx={{ width: "100%" }}>
-      <Carousel
-        slides={slides}
-        slideFlex="0 0 100%"
-        spacing={4}
-        options={{
-          align: "center",
-        }}
-      />
-    </Box>
+  return (
+    <DefaultAnimation>
+      {sm ? (
+        <Stack
+          direction="row"
+          spacing={8}
+          alignItems="center"
+          sx={{ width: "100%" }}
+        >
+          {slides}
+        </Stack>
+      ) : (
+        <Box sx={{ width: "100%" }}>
+          <Carousel
+            slides={slides}
+            slideFlex="0 0 100%"
+            spacing={4}
+            options={{
+              align: "center",
+            }}
+          />
+        </Box>
+      )}
+    </DefaultAnimation>
   );
 };
 

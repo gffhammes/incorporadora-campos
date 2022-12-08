@@ -1,7 +1,8 @@
-import React from 'react'
-import { Box,  Stack, Typography } from '@mui/material'
-import Link from 'next/link'
-import Image from 'next/image'
+import React from "react";
+import { Box, Stack, Typography } from "@mui/material";
+import Link from "next/link";
+import Image from "next/image";
+import { DefaultAnimation } from "../../animations/DefaultAnimation";
 
 interface Props {
   slug: string;
@@ -13,11 +14,11 @@ interface Props {
 }
 
 const sxImage = {
-  position: 'relative',
-  width: 'calc(100% + 32px)',
-  ml: '-16px',
-  aspectRatio: '1 / 1.45',
-}
+  position: "relative",
+  width: "calc(100% + 32px)",
+  ml: "-16px",
+  aspectRatio: "1 / 1.45",
+};
 
 export const EnterpriseCard = ({
   slug,
@@ -29,29 +30,59 @@ export const EnterpriseCard = ({
 }: Props) => {
   return (
     <Box className="embla__slide">
-      <Link href="/empreendimentos/[slug]" as={`/empreendimentos/${slug}`} passHref>
-        <a>
-          <Box sx={{ width: { xs: '80%', md: '100%' }, height: '100%', backgroundImage: 'linear-gradient(transparent 50%, #e4e2e7 50%)', p: 2, m: 'auto' }}>
-            <Box sx={sxImage}>
-              <Image
-                src={imageUrl}
-                alt={name}
-                layout='fill'
-                objectFit='contain'
-                objectPosition='bottom'
-              />
+      <DefaultAnimation style={{ height: "100%" }}>
+        <Link
+          href="/empreendimentos/[slug]"
+          as={`/empreendimentos/${slug}`}
+          passHref
+        >
+          <a>
+            <Box
+              sx={{
+                width: { xs: "80%", md: "100%" },
+                height: "100%",
+                backgroundImage:
+                  "linear-gradient(transparent 50%, #e4e2e7 50%)",
+                p: 2,
+                m: "auto",
+              }}
+            >
+              <Box sx={sxImage}>
+                <Image
+                  src={imageUrl}
+                  alt={name}
+                  layout="fill"
+                  objectFit="contain"
+                  objectPosition="bottom"
+                />
+              </Box>
+              <Stack
+                sx={{ mt: 2 }}
+                direction="row"
+                justifyContent="space-between"
+                alignItems="center"
+              >
+                <Typography
+                  fontSize={13}
+                  fontWeight={600}
+                  sx={{ color: "secondary.main", textDecoration: "underline" }}
+                >
+                  {name.toUpperCase()}
+                </Typography>
+                <Typography fontSize={10} fontWeight={600}>
+                  {status.toUpperCase()}
+                </Typography>
+              </Stack>
+              <Stack sx={{ mt: 2, fontSize: 14 }} spacing={0.5}>
+                <Typography>{location}</Typography>
+                <Typography sx={{ whiteSpace: "pre-wrap" }}>
+                  {description}
+                </Typography>
+              </Stack>
             </Box>
-            <Stack sx={{ mt: 2 }} direction='row' justifyContent='space-between' alignItems='center' >                              
-              <Typography fontSize={13} fontWeight={600} sx={{ color: 'secondary.main', textDecoration: 'underline' }} >{name.toUpperCase()}</Typography>
-              <Typography fontSize={10} fontWeight={600}>{status.toUpperCase()}</Typography>
-            </Stack>
-            <Stack sx={{ mt: 2, fontSize: 14 }} spacing={.5} >
-              <Typography>{location}</Typography>
-              <Typography sx={{ whiteSpace: 'pre-wrap' }}>{description}</Typography>
-            </Stack>
-          </Box>
-        </a>
-      </Link>
+          </a>
+        </Link>
+      </DefaultAnimation>
     </Box>
-  )
-}
+  );
+};

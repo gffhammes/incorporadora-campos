@@ -107,7 +107,10 @@ export const EnterprisesSlider = ({
 
   return (
     <Stack sx={{ position: "relative" }} spacing={4}>
-      <Box className="embla" sx={{ mt: { xs: 0, md: 5 } }}>
+      <Box
+        className="embla"
+        sx={{ mt: { xs: 0, md: 5 }, overflow: "hidden!important" }}
+      >
         <div className="embla__viewport" ref={emblaRef}>
           <div className="embla__container">{slidesMemo}</div>
         </div>

@@ -1,9 +1,18 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
 import Link from "next/link";
 import React from "react";
+import { DefaultAnimation } from "../../animations/DefaultAnimation";
 import { ContainedWhiteButton } from "../../commons/Button";
 import { SectionTitle } from "../../commons/SectionTitle";
 import { Partners } from "./Partners";
+
+const title = "Mais que empreendimentos criamos conexões";
+
+const text = `
+Estar na vanguarda dos empreendimentos imobiliários e criar
+conexões com nossos sócios, clientes e comunidade nos impulsiona
+todos os dias.
+`;
 
 export const HistorySection = () => {
   return (
@@ -11,14 +20,15 @@ export const HistorySection = () => {
       <Container maxWidth={false} sx={{ py: 7, maxWidth: "700px" }}>
         <Stack spacing={{ xs: 8, md: 4 }}>
           <Box sx={{ color: "white", textAlign: "center" }}>
-            <SectionTitle theme="light">
-              {"Mais que empreendimentos criamos conexões".toUpperCase()}
-            </SectionTitle>
-            <Typography fontSize={21} sx={{ mt: 5 }}>
-              Estar na vanguarda dos empreendimentos imobiliários e criar
-              conexões com nossos sócios, clientes e comunidade nos impulsiona
-              todos os dias.
-            </Typography>
+            <DefaultAnimation>
+              <SectionTitle theme="light">{title.toUpperCase()}</SectionTitle>
+            </DefaultAnimation>
+
+            <DefaultAnimation>
+              <Typography fontSize={21} sx={{ mt: 5 }}>
+                {text}
+              </Typography>
+            </DefaultAnimation>
           </Box>
 
           <Partners />
