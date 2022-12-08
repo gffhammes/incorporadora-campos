@@ -1,6 +1,7 @@
 import { Box, Container, Stack } from "@mui/material";
 import React from "react";
 import { useBreakpoint } from "../../../hooks/useBreakpoint";
+import { DefaultAnimation } from "../../animations/DefaultAnimation";
 import { ImageWithHover } from "./ImageWithHover";
 import { Text } from "./Text";
 
@@ -40,9 +41,13 @@ const DescriptionSection = () => {
           alignItems="center"
           justifyContent="center"
         >
-          <ImageWithHover />
+          <DefaultAnimation>
+            <ImageWithHover />
+          </DefaultAnimation>
 
-          <Text text={text} />
+          <DefaultAnimation delay={0.6} direction="left">
+            <Text text={text} />
+          </DefaultAnimation>
         </Stack>
       </Container>
     </Box>

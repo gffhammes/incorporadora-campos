@@ -2,6 +2,7 @@ import { Box, Container, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import React, { PropsWithChildren } from "react";
 import { useBreakpoint } from "../../../hooks/useBreakpoint";
+import { DefaultAnimation } from "../../animations/DefaultAnimation";
 import { Carousel } from "../../commons/Carousel/Carousel";
 import { Title } from "./Title";
 
@@ -52,7 +53,9 @@ const PartnersSection = () => {
       {sm ? (
         <Container sx={{ py: 8 }}>
           <StackContainer>
-            <Title>NOSSOS PARCEIROS</Title>
+            <DefaultAnimation direction="left">
+              <Title>NOSSOS PARCEIROS</Title>
+            </DefaultAnimation>
 
             <Stack
               direction={{ xs: "column", sm: "row" }}

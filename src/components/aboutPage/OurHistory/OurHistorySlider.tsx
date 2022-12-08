@@ -14,6 +14,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Slider } from "../../commons/Slider";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { OurHistorySlide } from "./OurHistorySlide/OurHistorySlide";
+import { DefaultAnimation } from "../../animations/DefaultAnimation";
 
 type Props = {
   slides: any[];
@@ -106,21 +107,22 @@ const OurHistorySlider = (props: Props) => {
           sx={{ listStyle: "none", mb: 8 }}
         >
           {props.slides.map(({ ano: year }, index) => (
-            <Box
-              key={index}
-              component="li"
-              onClick={handleYearClick}
-              id={index.toString()}
-              sx={{
-                transition: "300ms all ease",
-                cursor: "pointer",
-                fontWeight: 600,
-                color:
-                  selectedSlide === index ? "secondary.main" : "primary.main",
-              }}
-            >
-              {year}
-            </Box>
+            <DefaultAnimation key={index} delay={0.2 * (index + 1)}>
+              <Box
+                component="li"
+                onClick={handleYearClick}
+                id={index.toString()}
+                sx={{
+                  transition: "300ms all ease",
+                  cursor: "pointer",
+                  fontWeight: 600,
+                  color:
+                    selectedSlide === index ? "secondary.main" : "primary.main",
+                }}
+              >
+                {year}
+              </Box>
+            </DefaultAnimation>
           ))}
         </Stack>
       )}

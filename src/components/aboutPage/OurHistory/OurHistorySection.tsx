@@ -15,6 +15,7 @@ const OurHistorySection = ({ slides }: Props) => {
           NOSSA HISTÓRIA
         </SectionTitle>
       </Container>
+
       <OurHistorySlider slides={slides} />
     </Box>
   );
