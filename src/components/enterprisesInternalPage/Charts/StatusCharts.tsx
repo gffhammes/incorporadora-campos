@@ -66,7 +66,7 @@ export function StatusCharts({ data }) {
           >
             STATUS DA OBRA
           </Typography>
-          <GeneralStatus status={getAverageEnterpriseStatus(data)} />
+          <GeneralStatus status={data.StatusGeral / 100} />
         </Stack>
       </Grid>
       <Grid item xs={12} md={8}>
