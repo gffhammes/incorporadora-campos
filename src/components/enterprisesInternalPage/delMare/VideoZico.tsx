@@ -1,8 +1,18 @@
 import { Box, Container } from "@mui/material";
+import { useFetch } from "../../../hooks/useFetch";
+import Image from "next/image";
 
 type Props = {};
 
 const VideoZico = (props: Props) => {
+  const { data, isFetching } = useFetch<any>(
+    "/api/empreendimentos?filters[Slug][$eq]=piazza-del-mare&populate[0]=FotoVideo"
+  );
+
+  if (isFetching) return null;
+
+  const imgUrl = data.data[0].attributes.FotoVideo.data.attributes.url;
+
   return (
     <Box>
       <Container
@@ -20,7 +30,8 @@ const VideoZico = (props: Props) => {
             pb: "56.25%",
           }}
         >
-          <iframe
+          <Image src={imgUrl} alt="" layout="fill" priority />
+          {/* <iframe
             src="https://drive.google.com/file/d/167arXJ15hti0jtw9EwGzrmPQasWLAypw/preview"
             width="100%"
             height="100%"
@@ -32,7 +43,7 @@ const VideoZico = (props: Props) => {
               width: "100%",
               height: "100%",
             }}
-          />
+          /> */}
         </Box>
       </Container>
     </Box>

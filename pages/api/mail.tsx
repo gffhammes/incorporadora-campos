@@ -1,33 +1,33 @@
 export default async function handler(req, res) {
-  require('dotenv').config()
+  require("dotenv").config();
 
-  const email = 'contatos.sites@hotmail.com';
+  const email = "contatos.sites@hotmail.com";
 
-  let nodemailer = require('nodemailer')
+  let nodemailer = require("nodemailer");
   const transporter = nodemailer.createTransport({
-    service: 'Hotmail',
+    service: "Hotmail",
     secureConnection: false,
     auth: {
       user: email,
       pass: process.env.password,
     },
     tls: {
-        ciphers:'SSLv3'
+      ciphers: "SSLv3",
     },
-  })
+  });
   const mailData = {
     from: email,
     to: process.env.recipient_mail,
     subject: req.body.subject,
     text: req.body.message + " | Sent from: " + req.body.email,
-    html: `<div>${req.body.message}</div>`
-  }
+    html: `<div>${req.body.message}</div>`,
+  };
 
   try {
-    await transporter.sendMail(mailData)
+    await transporter.sendMail(mailData);
     res.status(200).end();
-  } catch(error) {
-    console.log(error)
+  } catch (error) {
+    console.error(error);
     res.json(error);
     res.status(405).end();
   }
