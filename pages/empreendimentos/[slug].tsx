@@ -10,7 +10,7 @@ import { ConstructionStatusSection } from "../../src/components/enterprisesInter
 import { MapsSection } from "../../src/components/enterprisesInternalPage/MapsSection";
 import { SimulatorsSection } from "../../src/components/enterprisesInternalPage/SimulatorsSection";
 import { HeroSection } from "../../src/components/enterprisesInternalPage/HeroSection";
-import VideoZico from "../../src/components/enterprisesInternalPage/delMare/VideoZico";
+import CustomMedia from "../../src/components/enterprisesInternalPage/delMare/CustomMedia";
 import fetch from "isomorphic-unfetch";
 import * as qs from "qs";
 import Head from "next/head";
@@ -27,7 +27,9 @@ const Enterprise = ({ enterprise }) => {
         <HeroSection enterpriseData={enterprise.attributes} />
         {Seccoes.Menu && <ScrollMenu enterpriseData={enterprise.attributes} />}
         <SummarySection enterpriseData={enterprise.attributes} />
-        {enterprise.attributes.Slug === "piazza-del-mare" && <VideoZico />}
+
+        {enterprise.attributes.Slug === "piazza-del-mare" && <CustomMedia />}
+
         {Seccoes.Detalhes && (
           <DetailsSection enterpriseData={enterprise.attributes} />
         )}

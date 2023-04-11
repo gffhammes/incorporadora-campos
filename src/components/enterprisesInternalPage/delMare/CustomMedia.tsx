@@ -2,9 +2,7 @@ import { Box, Container } from "@mui/material";
 import { useFetch } from "../../../hooks/useFetch";
 import Image from "next/image";
 
-type Props = {};
-
-const VideoZico = (props: Props) => {
+const CustomMedia = () => {
   const { data, isFetching } = useFetch<any>(
     "/api/empreendimentos?filters[Slug][$eq]=piazza-del-mare&populate[0]=FotoVideo"
   );
@@ -50,4 +48,4 @@ const VideoZico = (props: Props) => {
   );
 };
 
-export default VideoZico;
+export default CustomMedia;
