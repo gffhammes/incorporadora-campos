@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import { Carousel } from "../../commons/Carousel/Carousel";
 import { IStrapiImage } from "../../../interfaces/strapi";
+import { LoadingImage } from "../../commons/Image/LoadingImage";
 
 const sxGrid = {
   display: "grid",
@@ -31,14 +32,12 @@ export const SummarySection = ({ enterpriseData }) => {
     enterpriseData.CarrosselPrimeiraSessao.data;
 
   const slides = carouselImages.map((item, index) => {
-    console.log(item);
-
     return (
       <Box
         key={index}
         sx={{ position: "relative", height: "100%", width: "100%" }}
       >
-        <Image
+        <LoadingImage
           src={item.attributes.url}
           alt={item.attributes.caption}
           layout="fill"
