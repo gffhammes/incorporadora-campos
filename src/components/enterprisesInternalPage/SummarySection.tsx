@@ -1,6 +1,7 @@
 import { Box, Container, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
+import { Carousel } from "../commons/Carousel/Carousel";
 
 const sxGrid = {
   display: "grid",
@@ -38,12 +39,26 @@ export const SummarySection = ({ enterpriseData }) => {
                 aspectRatio: "1 / 1",
               }}
             >
-              <Image
+              {/* <Image
                 src={enterpriseData.Thumb.data.attributes.url}
                 alt={enterpriseData.Nome}
                 layout="fill"
                 objectFit="cover"
                 objectPosition="left"
+              /> */}
+              <Carousel
+                dotsColor="secondary"
+                slideFlex="0 0 100%"
+                slides={[
+                  <Image
+                    key="0"
+                    src={enterpriseData.Thumb.data.attributes.url}
+                    alt={enterpriseData.Nome}
+                    layout="fill"
+                    objectFit="cover"
+                    objectPosition="left"
+                  />,
+                ]}
               />
             </Box>
           </Box>

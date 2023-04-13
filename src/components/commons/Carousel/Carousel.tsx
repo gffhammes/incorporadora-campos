@@ -70,9 +70,16 @@ export const Carousel = ({
 
   return (
     <>
-      <Box sx={{ position: "relative" }}>
-        <Box sx={{ overflow: "hidden" }} ref={viewportRef}>
-          <Stack direction="row" spacing={spacing}>
+      <Box sx={{ position: "relative", width: "100%", height: "100%" }}>
+        <Box
+          sx={{ overflow: "hidden", width: "100%", height: "100%" }}
+          ref={viewportRef}
+        >
+          <Stack
+            direction="row"
+            spacing={spacing}
+            sx={{ width: "100%", height: "100%" }}
+          >
             {slides.map((slide, index) => (
               <Box
                 key={index}
