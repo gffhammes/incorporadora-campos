@@ -1,7 +1,8 @@
 import { Box, Container, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
-import { Carousel } from "../commons/Carousel/Carousel";
+import { Carousel } from "../../commons/Carousel/Carousel";
+import { IStrapiImage } from "../../../interfaces/strapi";
 
 const sxGrid = {
   display: "grid",
@@ -26,9 +27,12 @@ const sxGrid = {
 };
 
 export const SummarySection = ({ enterpriseData }) => {
-  const carouselImages = enterpriseData.CarrosselPrimeiraSessao.data;
+  const carouselImages: IStrapiImage[] =
+    enterpriseData.CarrosselPrimeiraSessao.data;
 
   const slides = carouselImages.map((item, index) => {
+    console.log(item);
+
     return (
       <Box
         key={index}
@@ -40,6 +44,7 @@ export const SummarySection = ({ enterpriseData }) => {
           layout="fill"
           objectFit="cover"
           objectPosition="left"
+          priority
         />
       </Box>
     );

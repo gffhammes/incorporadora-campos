@@ -2,7 +2,7 @@ import React from "react";
 import { Footer } from "../../src/components/commons/Footer/Footer";
 import { Box } from "@mui/material";
 import { ScrollMenu } from "../../src/components/enterprisesInternalPage/ScrollMenu/ScrollMenu";
-import { SummarySection } from "../../src/components/enterprisesInternalPage/SummarySection";
+import { SummarySection } from "../../src/components/enterprisesInternalPage/SummarySection/SummarySection";
 import { DetailsSection } from "../../src/components/enterprisesInternalPage/DetailsSection";
 import { DifferentialsSections } from "../../src/components/enterprisesInternalPage/DifferentialsSections";
 import { PlanOptionsSection } from "../../src/components/enterprisesInternalPage/PlanOptionsSection";
