@@ -74,6 +74,7 @@ export async function getServerSideProps(context) {
         "Plantas",
         "Plantas.Foto",
         "texoAzulPaginaInterna",
+        "CarrosselPrimeiraSessao",
       ],
     },
     {

@@ -26,6 +26,25 @@ const sxGrid = {
 };
 
 export const SummarySection = ({ enterpriseData }) => {
+  const carouselImages = enterpriseData.CarrosselPrimeiraSessao.data;
+
+  const slides = carouselImages.map((item, index) => {
+    return (
+      <Box
+        key={index}
+        sx={{ position: "relative", height: "100%", width: "100%" }}
+      >
+        <Image
+          src={item.attributes.url}
+          alt={item.attributes.caption}
+          layout="fill"
+          objectFit="cover"
+          objectPosition="left"
+        />
+      </Box>
+    );
+  });
+
   return (
     <Box id="the-enterprise">
       <Container sx={{ py: 7 }}>
@@ -49,16 +68,7 @@ export const SummarySection = ({ enterpriseData }) => {
               <Carousel
                 dotsColor="secondary"
                 slideFlex="0 0 100%"
-                slides={[
-                  <Image
-                    key="0"
-                    src={enterpriseData.Thumb.data.attributes.url}
-                    alt={enterpriseData.Nome}
-                    layout="fill"
-                    objectFit="cover"
-                    objectPosition="left"
-                  />,
-                ]}
+                slides={slides}
               />
             </Box>
           </Box>
