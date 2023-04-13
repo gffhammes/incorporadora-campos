@@ -47,8 +47,7 @@ export const SummarySlider = ({ enterpriseData }: ISummarySliderProps) => {
       /> */}
       <Carousel
         dotsInside
-        dotsColor="secondary"
-        slideFlex="0 0 100%"
+        dotsColor="full-white"
         slides={slides}
         options={{ loop: true }}
         showArrows

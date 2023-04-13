@@ -1,6 +1,6 @@
 import { Box, Stack } from "@mui/material";
 
-export type TDotsColors = "secondary" | "white";
+export type TDotsColors = "secondary" | "white" | "full-white";
 
 interface IDotsProps {
   scrollSnaps: any[];
@@ -21,6 +21,8 @@ export const Dots = ({
     switch (dotsColor) {
       case "white":
         return "white";
+      case "full-white":
+        return "white";
       case "secondary":
         return "secondary.main";
     }
@@ -30,6 +32,8 @@ export const Dots = ({
     switch (dotsColor) {
       case "white":
         return "secondary.main";
+      case "full-white":
+        return "rgba(255,255,255,.35)";
       case "secondary":
         return "rgba(26, 72, 188, 0.5)";
     }
