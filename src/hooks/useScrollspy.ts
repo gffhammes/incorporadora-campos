@@ -5,6 +5,8 @@ export const useScrollspy = (ids: string[], offset: number = 0) => {
   const [activeId, setActiveId] = useState("");
 
   useLayoutEffect(() => {
+    if (typeof window === "undefined") return;
+
     const listener = () => {
       const scroll = window.pageYOffset;
 

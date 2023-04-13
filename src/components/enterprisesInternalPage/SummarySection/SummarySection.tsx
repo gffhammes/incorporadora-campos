@@ -1,6 +1,10 @@
 import { Box, Container, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
+import { Carousel } from "../../commons/Carousel/Carousel";
+import { IStrapiImage } from "../../../interfaces/strapi";
+import { LoadingImage } from "../../commons/Image/LoadingImage";
+import { SummarySlider } from "./SummarySlider";
 
 const sxGrid = {
   display: "grid",
@@ -30,23 +34,9 @@ export const SummarySection = ({ enterpriseData }) => {
       <Container sx={{ py: 7 }}>
         <Box sx={sxGrid}>
           <Box sx={{ gridArea: "a" }}>
-            <Box
-              sx={{
-                position: "relative",
-                height: { xs: "unset", md: "100%" },
-                width: "100%",
-                aspectRatio: "1 / 1",
-              }}
-            >
-              <Image
-                src={enterpriseData.Thumb.data.attributes.url}
-                alt={enterpriseData.Nome}
-                layout="fill"
-                objectFit="cover"
-                objectPosition="left"
-              />
-            </Box>
+            <SummarySlider enterpriseData={enterpriseData} />
           </Box>
+
           <Box sx={{ gridArea: "b", alignSelf: "flex-end" }}>
             <Typography
               fontSize={{ xs: 18, sm: 25 }}
@@ -57,6 +47,7 @@ export const SummarySection = ({ enterpriseData }) => {
               {enterpriseData.TituloPagina.toUpperCase()}
             </Typography>
           </Box>
+
           <Box sx={{ gridArea: "c" }}>
             <Typography sx={{ whiteSpace: "pre-wrap" }}>
               {enterpriseData.TextoPagina}

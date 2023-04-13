@@ -1,7 +1,9 @@
-import { Box, Stack } from "@mui/material";
+import { Box, IconButton, Stack } from "@mui/material";
 import useEmblaCarousel from "embla-carousel-react";
 import { EmblaOptionsType } from "embla-carousel-react";
 import { ReactNode, useCallback, useEffect, useState } from "react";
+import { Dots, TDotsColors } from "./Dots";
+import { Arrows } from "./Arrows";
 
 interface ICarouselProps {
   slides: ReactNode[];
@@ -10,7 +12,9 @@ interface ICarouselProps {
     | string
     | Partial<{ xs: string; sm: string; md: string; lg: string; xl: string }>;
   options?: EmblaOptionsType;
-  dotsColor?: "secondary" | "white";
+  dotsColor?: TDotsColors;
+  dotsInside?: boolean;
+  showArrows?: boolean;
 }
 
 export const Carousel = ({
@@ -19,6 +23,8 @@ export const Carousel = ({
   spacing,
   options,
   dotsColor = "white",
+  dotsInside = false,
+  showArrows = false,
 }: ICarouselProps) => {
   const [viewportRef, embla] = useEmblaCarousel(options);
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
@@ -29,7 +35,7 @@ export const Carousel = ({
   const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla]);
   const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
   const scrollTo = useCallback(
-    (index) => embla && embla.scrollTo(index),
+    (index: number) => embla && embla.scrollTo(index),
     [embla]
   );
 
@@ -47,32 +53,18 @@ export const Carousel = ({
     embla.on("select", onSelect);
   }, [embla, setScrollSnaps, onSelect]);
 
-  const getActiveColor = () => {
-    switch (dotsColor) {
-      case "white":
-        return "white";
-      case "secondary":
-        return "secondary.main";
-    }
-  };
-
-  const getInactiveColor = () => {
-    switch (dotsColor) {
-      case "white":
-        return "secondary.main";
-      case "secondary":
-        return "rgba(26, 72, 188, 0.5)";
-    }
-  };
-
-  const activeColor = getActiveColor();
-  const inactiveColor = getInactiveColor();
-
   return (
     <>
-      <Box sx={{ position: "relative" }}>
-        <Box sx={{ overflow: "hidden" }} ref={viewportRef}>
-          <Stack direction="row" spacing={spacing}>
+      <Box sx={{ position: "relative", width: "100%", height: "100%" }}>
+        <Box
+          sx={{ overflow: "hidden", width: "100%", height: "100%" }}
+          ref={viewportRef}
+        >
+          <Stack
+            direction="row"
+            spacing={spacing}
+            sx={{ width: "100%", height: "100%" }}
+          >
             {slides.map((slide, index) => (
               <Box
                 key={index}
@@ -87,26 +79,17 @@ export const Carousel = ({
             ))}
           </Stack>
         </Box>
-        {/* <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />
-        <NextButton onClick={scrollNext} enabled={nextBtnEnabled} /> */}
       </Box>
-      <Stack direction="row" spacing={1} justifyContent="center" sx={{ mt: 4 }}>
-        {scrollSnaps.map((_, index) => (
-          <Box
-            key={index}
-            role="button"
-            onClick={() => scrollTo(index)}
-            sx={{
-              cursor: "pointer",
-              height: ".5rem",
-              width: ".5rem",
-              borderRadius: ".5rem",
-              backgroundColor:
-                selectedIndex === index ? activeColor : inactiveColor,
-            }}
-          />
-        ))}
-      </Stack>
+
+      {showArrows && <Arrows scrollPrev={scrollPrev} scrollNext={scrollNext} />}
+
+      <Dots
+        handleClick={scrollTo}
+        scrollSnaps={scrollSnaps}
+        selectedIndex={selectedIndex}
+        dotsColor={dotsColor}
+        dotsInside={dotsInside}
+      />
     </>
   );
 };
