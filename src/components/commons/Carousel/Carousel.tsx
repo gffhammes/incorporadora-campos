@@ -2,6 +2,7 @@ import { Box, Stack } from "@mui/material";
 import useEmblaCarousel from "embla-carousel-react";
 import { EmblaOptionsType } from "embla-carousel-react";
 import { ReactNode, useCallback, useEffect, useState } from "react";
+import { Dots, TDotsColors } from "./Dots";
 
 interface ICarouselProps {
   slides: ReactNode[];
@@ -10,7 +11,8 @@ interface ICarouselProps {
     | string
     | Partial<{ xs: string; sm: string; md: string; lg: string; xl: string }>;
   options?: EmblaOptionsType;
-  dotsColor?: "secondary" | "white";
+  dotsColor?: TDotsColors;
+  dotsInside?: boolean;
 }
 
 export const Carousel = ({
@@ -19,6 +21,7 @@ export const Carousel = ({
   spacing,
   options,
   dotsColor = "white",
+  dotsInside = false,
 }: ICarouselProps) => {
   const [viewportRef, embla] = useEmblaCarousel(options);
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
@@ -46,27 +49,6 @@ export const Carousel = ({
     setScrollSnaps(embla.scrollSnapList());
     embla.on("select", onSelect);
   }, [embla, setScrollSnaps, onSelect]);
-
-  const getActiveColor = () => {
-    switch (dotsColor) {
-      case "white":
-        return "white";
-      case "secondary":
-        return "secondary.main";
-    }
-  };
-
-  const getInactiveColor = () => {
-    switch (dotsColor) {
-      case "white":
-        return "secondary.main";
-      case "secondary":
-        return "rgba(26, 72, 188, 0.5)";
-    }
-  };
-
-  const activeColor = getActiveColor();
-  const inactiveColor = getInactiveColor();
 
   return (
     <>
@@ -97,23 +79,14 @@ export const Carousel = ({
         {/* <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />
         <NextButton onClick={scrollNext} enabled={nextBtnEnabled} /> */}
       </Box>
-      <Stack direction="row" spacing={1} justifyContent="center" sx={{ mt: 4 }}>
-        {scrollSnaps.map((_, index) => (
-          <Box
-            key={index}
-            role="button"
-            onClick={() => scrollTo(index)}
-            sx={{
-              cursor: "pointer",
-              height: ".5rem",
-              width: ".5rem",
-              borderRadius: ".5rem",
-              backgroundColor:
-                selectedIndex === index ? activeColor : inactiveColor,
-            }}
-          />
-        ))}
-      </Stack>
+
+      <Dots
+        handleClick={scrollTo}
+        scrollSnaps={scrollSnaps}
+        selectedIndex={selectedIndex}
+        dotsColor={dotsColor}
+        dotsInside={dotsInside}
+      />
     </>
   );
 };

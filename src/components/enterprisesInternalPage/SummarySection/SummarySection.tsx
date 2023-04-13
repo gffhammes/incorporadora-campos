@@ -4,6 +4,7 @@ import React from "react";
 import { Carousel } from "../../commons/Carousel/Carousel";
 import { IStrapiImage } from "../../../interfaces/strapi";
 import { LoadingImage } from "../../commons/Image/LoadingImage";
+import { SummarySlider } from "./SummarySlider";
 
 const sxGrid = {
   display: "grid",
@@ -28,54 +29,14 @@ const sxGrid = {
 };
 
 export const SummarySection = ({ enterpriseData }) => {
-  const carouselImages: IStrapiImage[] =
-    enterpriseData.CarrosselPrimeiraSessao.data;
-
-  const slides = carouselImages.map((item, index) => {
-    return (
-      <Box
-        key={index}
-        sx={{ position: "relative", height: "100%", width: "100%" }}
-      >
-        <LoadingImage
-          src={item.attributes.url}
-          alt={item.attributes.caption}
-          layout="fill"
-          objectFit="cover"
-          objectPosition="left"
-          priority
-        />
-      </Box>
-    );
-  });
-
   return (
     <Box id="the-enterprise">
       <Container sx={{ py: 7 }}>
         <Box sx={sxGrid}>
           <Box sx={{ gridArea: "a" }}>
-            <Box
-              sx={{
-                position: "relative",
-                height: { xs: "unset", md: "100%" },
-                width: "100%",
-                aspectRatio: "1 / 1",
-              }}
-            >
-              {/* <Image
-                src={enterpriseData.Thumb.data.attributes.url}
-                alt={enterpriseData.Nome}
-                layout="fill"
-                objectFit="cover"
-                objectPosition="left"
-              /> */}
-              <Carousel
-                dotsColor="secondary"
-                slideFlex="0 0 100%"
-                slides={slides}
-              />
-            </Box>
+            <SummarySlider enterpriseData={enterpriseData} />
           </Box>
+
           <Box sx={{ gridArea: "b", alignSelf: "flex-end" }}>
             <Typography
               fontSize={{ xs: 18, sm: 25 }}
@@ -86,6 +47,7 @@ export const SummarySection = ({ enterpriseData }) => {
               {enterpriseData.TituloPagina.toUpperCase()}
             </Typography>
           </Box>
+
           <Box sx={{ gridArea: "c" }}>
             <Typography sx={{ whiteSpace: "pre-wrap" }}>
               {enterpriseData.TextoPagina}
