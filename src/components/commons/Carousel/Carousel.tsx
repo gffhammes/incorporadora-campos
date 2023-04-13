@@ -1,8 +1,9 @@
-import { Box, Stack } from "@mui/material";
+import { Box, IconButton, Stack } from "@mui/material";
 import useEmblaCarousel from "embla-carousel-react";
 import { EmblaOptionsType } from "embla-carousel-react";
 import { ReactNode, useCallback, useEffect, useState } from "react";
 import { Dots, TDotsColors } from "./Dots";
+import { Arrows } from "./Arrows";
 
 interface ICarouselProps {
   slides: ReactNode[];
@@ -13,6 +14,7 @@ interface ICarouselProps {
   options?: EmblaOptionsType;
   dotsColor?: TDotsColors;
   dotsInside?: boolean;
+  showArrows?: boolean;
 }
 
 export const Carousel = ({
@@ -22,6 +24,7 @@ export const Carousel = ({
   options,
   dotsColor = "white",
   dotsInside = false,
+  showArrows = false,
 }: ICarouselProps) => {
   const [viewportRef, embla] = useEmblaCarousel(options);
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
@@ -76,9 +79,9 @@ export const Carousel = ({
             ))}
           </Stack>
         </Box>
-        {/* <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />
-        <NextButton onClick={scrollNext} enabled={nextBtnEnabled} /> */}
       </Box>
+
+      {showArrows && <Arrows scrollPrev={scrollPrev} scrollNext={scrollNext} />}
 
       <Dots
         handleClick={scrollTo}

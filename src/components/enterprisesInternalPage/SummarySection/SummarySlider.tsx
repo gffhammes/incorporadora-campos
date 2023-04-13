@@ -51,6 +51,7 @@ export const SummarySlider = ({ enterpriseData }: ISummarySliderProps) => {
         slideFlex="0 0 100%"
         slides={slides}
         options={{ loop: true }}
+        showArrows
       />
     </Box>
   );
