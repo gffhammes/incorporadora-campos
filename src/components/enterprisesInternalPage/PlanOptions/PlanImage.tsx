@@ -16,7 +16,6 @@ export const PlanImage = ({ imgUrl }: IPlanImageProps) => {
         hideHint={true}
         zoomScale={1.25}
       />
-      {/* <LoadingImage src={imgUrl} layout="fill" /> */}
     </Box>
   );
 };

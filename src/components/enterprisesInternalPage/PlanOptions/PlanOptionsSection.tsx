@@ -22,7 +22,7 @@ export const PlanOptionsSection = ({ enterpriseData }) => {
   return (
     <Box id="plan-options">
       <Container sx={{ py: 7 }}>
-        <SectionTitle marginBottom={false}>OPÇÕES DE PLANTA</SectionTitle>
+        <SectionTitle>OPÇÕES DE PLANTA</SectionTitle>
 
         <Stack
           direction="row"
