@@ -1,8 +1,6 @@
 import {
   Box,
   Container,
-  Grid,
-  Paper,
   Stack,
   SxProps,
   Theme,

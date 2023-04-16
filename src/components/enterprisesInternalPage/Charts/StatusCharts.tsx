@@ -2,7 +2,6 @@ import React from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import { Box, Grid, Stack, Typography } from "@mui/material";
-import { getAverageEnterpriseStatus } from "../../../helpers/getAverageEnterpriseStatus";
 import { StatusBar } from "./StatusBar";
 
 ChartJS.register(ArcElement, Tooltip, Legend);

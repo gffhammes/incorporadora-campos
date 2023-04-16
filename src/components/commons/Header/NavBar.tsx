@@ -19,7 +19,6 @@ import useScrollTrigger from "@mui/material/useScrollTrigger";
 export const NavBar = () => {
   const { asPath: currentRoute } = useRouter();
   const theme = useTheme();
-  const sizeSm = useMediaQuery(theme.breakpoints.up("sm"));
   const sizeMd = useMediaQuery(theme.breakpoints.up("md"));
   const [open, setOpen] = useState(false);
   const isMenuScroll = useScrollTrigger({

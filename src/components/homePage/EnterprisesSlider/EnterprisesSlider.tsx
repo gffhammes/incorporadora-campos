@@ -7,13 +7,6 @@ import { EnterpriseCard } from "./EnterpriseCard";
 import { getLocationString } from "../../../helpers/getLocationString";
 import Autoplay from "embla-carousel-autoplay";
 
-const sxImage = {
-  position: "relative",
-  width: "calc(100% + 32px)",
-  ml: "-16px",
-  aspectRatio: "1 / 1.45",
-};
-
 const sxArrowWrapperCommon = {
   position: "absolute",
   height: "fit-content",
