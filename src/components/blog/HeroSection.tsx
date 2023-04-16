@@ -1,12 +1,4 @@
-import {
-  Box,
-  Container,
-  Stack,
-  SxProps,
-  Theme,
-  Typography,
-} from "@mui/material";
-import { useMemo } from "react";
+import { Box, Container, Stack, SxProps, Theme } from "@mui/material";
 import { PrimaryGradientCover } from "../commons/GradientCover";
 import { SectionTitle } from "../commons/SectionTitle";
 

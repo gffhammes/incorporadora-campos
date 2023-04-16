@@ -1,14 +1,4 @@
-import {
-  Box,
-  Container,
-  Divider,
-  Stack,
-  SxProps,
-  Theme,
-  Typography,
-  useTheme,
-} from "@mui/material";
-import Image from "next/image";
+import { Box, Divider, Stack, Typography, useTheme } from "@mui/material";
 import React, { useMemo, useState } from "react";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Slider } from "../../commons/Slider";

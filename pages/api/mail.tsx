@@ -3,7 +3,7 @@ export default async function handler(req, res) {
 
   const email = "contatos.sites@hotmail.com";
 
-  let nodemailer = require("nodemailer");
+  const nodemailer = require("nodemailer");
   const transporter = nodemailer.createTransport({
     service: "Hotmail",
     secureConnection: false,

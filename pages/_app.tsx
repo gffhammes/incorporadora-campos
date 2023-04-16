@@ -4,7 +4,7 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import { PageTitle } from "../src/components/commons/PageTitle";
 import TagManager from "react-gtm-module";
 import { useEffect } from "react";
-import Router, { useRouter } from "next/router";
+import Router from "next/router";
 import NProgress from "nprogress";
 import { GlobalsContextProvider } from "../src/contexts/GlobalsContextProvider";
 
@@ -18,7 +18,7 @@ const theme = createTheme({
   },
 });
 
-Router.events.on("routeChangeStart", (url) => {
+Router.events.on("routeChangeStart", () => {
   NProgress.start();
 });
 
@@ -27,8 +27,6 @@ Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
 function MyApp({ Component, pageProps }) {
-  const router = useRouter();
-
   useEffect(() => {
     TagManager.initialize({ gtmId: "GTM-W7TDPT6" });
   }, []);

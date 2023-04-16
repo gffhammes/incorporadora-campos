@@ -1,4 +1,4 @@
-import { Box, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import { useState } from "react";
 import { LoadingButton } from "../../../commons/Button";
 import { ArticleBanner } from "./ArticleBanner";
