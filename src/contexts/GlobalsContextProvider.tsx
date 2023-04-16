@@ -1,4 +1,4 @@
-import { PropsWithChildren, useState } from "react";
+import { PropsWithChildren } from "react";
 import { GlobalsContext } from "./GlobalsContext";
 import { useFetch } from "../hooks/useFetch";
 
