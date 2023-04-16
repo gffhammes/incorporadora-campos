@@ -1,4 +1,4 @@
-import { Box, IconButton, Stack } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import useEmblaCarousel from "embla-carousel-react";
 import { EmblaOptionsType } from "embla-carousel-react";
 import { ReactNode, useCallback, useEffect, useState } from "react";
@@ -27,8 +27,8 @@ export const Carousel = ({
   showArrows = false,
 }: ICarouselProps) => {
   const [viewportRef, embla] = useEmblaCarousel(options);
-  const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
-  const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
+  const [, setPrevBtnEnabled] = useState(false);
+  const [, setNextBtnEnabled] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState([]);
 

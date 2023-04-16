@@ -1,16 +1,8 @@
-import {
-  Box,
-  Collapse,
-  Container,
-  IconButton,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useScrollspy } from "../../../hooks/useScrollspy";
 import { getScrollLinks } from "./getScrollLinks";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import { scrollToTarget } from "../../../helpers/scrollToTarget";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";

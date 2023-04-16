@@ -1,7 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { Box } from "@mui/material";
 import Image from "next/image";
-import CircularProgress from "@mui/material/CircularProgress";
 import { useBreakpoint } from "../../../hooks/useBreakpoint";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
@@ -9,7 +8,7 @@ const boxShadow =
   "0px 10px 13px -6px rgb(26 71 188 / 20%), 0px 20px 31px 3px rgb(26 71 188 / 14%), 0px 8px 38px 7px rgb(26 71 188/ 12%);";
 
 export const Slide = ({ image, selectedSlide, index, handleClickOpen }) => {
-  const [loading, setLoading] = useState(true);
+  const [, setLoading] = useState(true);
   const { md } = useBreakpoint();
 
   const isSelected = useMemo(

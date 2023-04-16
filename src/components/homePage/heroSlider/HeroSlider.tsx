@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { Box, Stack, useMediaQuery, useTheme } from "@mui/material";
 import { defaultSvgProps } from "../../../constants/defaultSvgProps";

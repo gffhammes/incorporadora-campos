@@ -8,7 +8,9 @@ export interface IData {
   address: string;
 }
 
-export const GlobalsContextProvider = ({ children }: PropsWithChildren<{}>) => {
+export const GlobalsContextProvider = ({
+  children,
+}: PropsWithChildren<any>) => {
   const { data } = useFetch<any>("/api/global");
 
   const phone = data?.data.attributes.Telefone ?? "";

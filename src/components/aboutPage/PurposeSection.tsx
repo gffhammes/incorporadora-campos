@@ -3,8 +3,6 @@ import Image from "next/image";
 import React from "react";
 import { SectionTitle } from "../commons/SectionTitle";
 
-type Props = {};
-
 const icons = [
   {
     image: "/images/missao.png",
@@ -29,7 +27,7 @@ const icons = [
   },
 ];
 
-const PurposeSection = (props: Props) => {
+const PurposeSection = () => {
   return (
     <Box>
       <Container sx={{ py: 10 }}>
