@@ -1,5 +1,4 @@
 import { Container, Box, Stack, Typography } from "@mui/material";
-import Image from "next/image";
 import { sxEllipsis } from "../../../helpers/sxEllipsis";
 import { useBreakpoint } from "../../../hooks/useBreakpoint";
 

@@ -1,11 +1,8 @@
-import { Box, Container, Stack, SxProps, Theme } from "@mui/material";
-import Image from "next/image";
+import { Box, SxProps, Theme } from "@mui/material";
 import React from "react";
 import { useBreakpoint } from "../../hooks/useBreakpoint";
 import { FloatingDownArrowScroll } from "../commons/FloatingDownArrowScroll";
 import { AboutGradientCover } from "../commons/GradientCover";
-
-type Props = {};
 
 const sxContent: SxProps<Theme> = {
   position: "absolute",
@@ -17,7 +14,7 @@ const sxContent: SxProps<Theme> = {
   justifyContent: "center",
 };
 
-const HeroSection = (props: Props) => {
+const HeroSection = () => {
   const { md } = useBreakpoint();
   return (
     <Box sx={{ position: "relative", zIndex: 500, height: "100%" }}>

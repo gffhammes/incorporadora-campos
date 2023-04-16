@@ -1,16 +1,5 @@
-import {
-  Box,
-  Container,
-  Grid,
-  Stack,
-  SxProps,
-  Theme,
-  Typography,
-} from "@mui/material";
-import Image from "next/image";
+import { Stack, Typography } from "@mui/material";
 import React from "react";
-import { SlideImage } from "./SlideImage";
-import { SlideText } from "./SlideText";
 
 interface ISlideYearProps {
   year: string;

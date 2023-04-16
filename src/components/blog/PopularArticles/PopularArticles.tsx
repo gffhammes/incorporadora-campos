@@ -1,7 +1,7 @@
 import { Container, Typography } from "@mui/material";
 import { defaultSectionPadding } from "../../../constants/defaultSectionPadding";
 import { PopularArticlesList } from "./PopularArticlesList";
-import { IArticle, PopularArticlesListItem } from "./PopularArticlesListItem";
+import { IArticle } from "./PopularArticlesListItem";
 
 interface IPopularArticlesProps {
   articles: IArticle[];

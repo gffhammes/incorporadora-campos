@@ -3,7 +3,6 @@ import Image from "next/image";
 import { useBreakpoint } from "../../hooks/useBreakpoint";
 import { Carousel } from "../commons/Carousel/Carousel";
 import { SectionTitle } from "../commons/SectionTitle";
-import { useMemo } from "react";
 
 const futureProjects = [
   {

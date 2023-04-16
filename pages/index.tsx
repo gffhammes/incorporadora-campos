@@ -1,6 +1,5 @@
 import { EnterprisesSection } from "../src/components/homePage/EnterprisesSection";
 import { HistorySection } from "../src/components/homePage/HistorySection/HistorySection";
-import { BlogSection } from "../src/components/homePage/BlogSection";
 import { Footer } from "../src/components/commons/Footer/Footer";
 import { HeroSlider } from "../src/components/homePage/heroSlider/HeroSlider";
 import * as qs from "qs";
