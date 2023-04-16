@@ -44,3 +44,11 @@ export interface IStrapiImage {
   attributes: IImageAttributes;
   id: number;
 }
+
+export interface IPlan {
+  id: number;
+  Titulo: string;
+  Foto: {
+    data: IStrapiImage;
+  };
+}

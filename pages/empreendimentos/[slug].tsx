@@ -5,7 +5,7 @@ import { ScrollMenu } from "../../src/components/enterprisesInternalPage/ScrollM
 import { SummarySection } from "../../src/components/enterprisesInternalPage/SummarySection/SummarySection";
 import { DetailsSection } from "../../src/components/enterprisesInternalPage/DetailsSection";
 import { DifferentialsSections } from "../../src/components/enterprisesInternalPage/DifferentialsSections";
-import { PlanOptionsSection } from "../../src/components/enterprisesInternalPage/PlanOptionsSection";
+import { PlanOptionsSection } from "../../src/components/enterprisesInternalPage/PlanOptions/PlanOptionsSection";
 import { ConstructionStatusSection } from "../../src/components/enterprisesInternalPage/ConstructionStatusSection";
 import { MapsSection } from "../../src/components/enterprisesInternalPage/MapsSection";
 import { SimulatorsSection } from "../../src/components/enterprisesInternalPage/SimulatorsSection";
