@@ -1,9 +1,5 @@
 import { Box, Container, Typography } from "@mui/material";
-import Image from "next/image";
 import React from "react";
-import { Carousel } from "../../commons/Carousel/Carousel";
-import { IStrapiImage } from "../../../interfaces/strapi";
-import { LoadingImage } from "../../commons/Image/LoadingImage";
 import { SummarySlider } from "./SummarySlider";
 
 const sxGrid = {

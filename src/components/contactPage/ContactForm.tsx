@@ -1,16 +1,9 @@
-import {
-  Alert,
-  Box,
-  Container,
-  Grid,
-  Snackbar,
-  Typography,
-} from "@mui/material";
+import { Alert, Box, Container, Grid, Snackbar } from "@mui/material";
 import { Formik } from "formik";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { sendMail } from "../../services/sendMail";
-import { ContainedSecondaryButton, LoadingButton } from "../commons/Button";
+import { LoadingButton } from "../commons/Button";
 import { Input } from "../commons/Input";
 
 const boxShadow =
@@ -63,7 +56,7 @@ export const ContactForm = () => {
 
   const handleSubmit = async (values) => {
     setLoading(true);
-    let data = {
+    const data = {
       email: values.email,
       subject: values.subject,
       message: `

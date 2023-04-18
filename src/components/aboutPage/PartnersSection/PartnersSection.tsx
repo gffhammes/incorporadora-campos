@@ -1,4 +1,4 @@
-import { Box, Container, Stack, Typography } from "@mui/material";
+import { Box, Container, Stack } from "@mui/material";
 import Image from "next/image";
 import React, { PropsWithChildren } from "react";
 import { useBreakpoint } from "../../../hooks/useBreakpoint";
@@ -34,7 +34,7 @@ const PartnersSection = () => {
     </Box>
   ));
 
-  const StackContainer = ({ children }: PropsWithChildren<{}>) => {
+  const StackContainer = ({ children }: PropsWithChildren<any>) => {
     return (
       <Stack
         direction={{ xs: "column", lg: "row" }}

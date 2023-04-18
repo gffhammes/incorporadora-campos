@@ -1,15 +1,5 @@
-import {
-  Box,
-  Button,
-  Container,
-  Stack,
-  SvgIcon,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Container, Stack, Typography } from "@mui/material";
 import Link from "next/link";
-import React, { useState } from "react";
-import { footerLinks } from "../../../constants/footerAssets";
 import { pages } from "../../../constants/pages";
 import { FollowUs } from "../FollowUs";
 import LogoHorizontal from "../../../../public/vectors/logo-horizontal.svg";

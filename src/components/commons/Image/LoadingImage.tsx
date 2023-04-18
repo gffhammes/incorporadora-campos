@@ -2,9 +2,7 @@ import { Skeleton } from "@mui/material";
 import Image, { ImageProps } from "next/image";
 import { useState } from "react";
 
-interface ILoadingImageProps extends ImageProps {}
-
-export const LoadingImage = (props: ILoadingImageProps) => {
+export const LoadingImage = (props: ImageProps) => {
   const [loading, setLoading] = useState(true);
 
   const handleOnLoad = () => setLoading(false);

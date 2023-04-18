@@ -54,7 +54,6 @@ export const Slide = ({
   text,
   href,
   buttonText,
-  ...props
 }: IProps) => {
   return (
     <Box sx={{ position: "relative", zIndex: 500, height: "100%" }}>

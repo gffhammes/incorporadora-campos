@@ -1,4 +1,4 @@
-import { PropsWithChildren, useState } from "react";
+import { PropsWithChildren } from "react";
 import { GlobalsContext } from "./GlobalsContext";
 import { useFetch } from "../hooks/useFetch";
 
@@ -8,7 +8,9 @@ export interface IData {
   address: string;
 }
 
-export const GlobalsContextProvider = ({ children }: PropsWithChildren<{}>) => {
+export const GlobalsContextProvider = ({
+  children,
+}: PropsWithChildren<any>) => {
   const { data } = useFetch<any>("/api/global");
 
   const phone = data?.data.attributes.Telefone ?? "";

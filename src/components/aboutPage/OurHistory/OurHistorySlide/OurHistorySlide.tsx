@@ -1,14 +1,4 @@
-import {
-  Box,
-  Container,
-  Grid,
-  Stack,
-  SxProps,
-  Theme,
-  Typography,
-} from "@mui/material";
-import Image from "next/image";
-import React from "react";
+import { Box, Container, Grid, SxProps, Theme } from "@mui/material";
 import { SlideImage } from "./SlideImage";
 import { SlideText } from "./SlideText";
 import { SlideYear } from "./SlideYear";

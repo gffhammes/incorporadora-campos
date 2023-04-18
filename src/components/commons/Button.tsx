@@ -1,4 +1,4 @@
-import { CircularProgress, styled, SxProps, ButtonProps } from "@mui/material";
+import { CircularProgress, styled, SxProps } from "@mui/material";
 import ButtonBase from "@mui/material/ButtonBase";
 import React, { useMemo } from "react";
 
@@ -16,7 +16,7 @@ const commonProps = {
   letterSpacing: 1,
 };
 
-export const ContainedWhiteButton = styled(ButtonBase)(({ theme }) => ({
+export const ContainedWhiteButton = styled(ButtonBase)(() => ({
   ...commonProps,
   backgroundColor: "#fff",
   color: "#1A47BC",
@@ -27,7 +27,7 @@ export const ContainedWhiteButton = styled(ButtonBase)(({ theme }) => ({
   whiteSpace: "nowrap",
 }));
 
-export const ContainedPrimaryButton = styled(ButtonBase)(({ theme }) => ({
+export const ContainedPrimaryButton = styled(ButtonBase)(() => ({
   ...commonProps,
   backgroundColor: "#0E1E42",
   color: "white",
@@ -37,7 +37,7 @@ export const ContainedPrimaryButton = styled(ButtonBase)(({ theme }) => ({
   whiteSpace: "nowrap",
 }));
 
-export const ContainedSecondaryButton = styled(ButtonBase)(({ theme }) => ({
+export const ContainedSecondaryButton = styled(ButtonBase)(() => ({
   ...commonProps,
   backgroundColor: "#1A47BC",
   color: "white",
@@ -47,7 +47,7 @@ export const ContainedSecondaryButton = styled(ButtonBase)(({ theme }) => ({
   whiteSpace: "nowrap",
 }));
 
-export const OutlinedWhiteButton = styled(ButtonBase)(({ theme }) => ({
+export const OutlinedWhiteButton = styled(ButtonBase)(() => ({
   ...commonProps,
   backgroundColor: "transparent",
   border: "1px solid rgba(255, 255, 255, 0.5)",

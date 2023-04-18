@@ -1,17 +1,7 @@
-import {
-  Alert,
-  Box,
-  Container,
-  Grid,
-  Paper,
-  Snackbar,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Grid, Paper, Typography } from "@mui/material";
 import React, { useMemo, useState } from "react";
 import { LoadingButton } from "../../commons/Button";
 import { Input } from "../../commons/Input";
-import { useRouter } from "next/router";
 import { Formik } from "formik";
 import { sendMail } from "../../../services/sendMail";
 
@@ -55,7 +45,7 @@ const ContactForm = ({ enterpriseName, open }: Props) => {
 
   const handleSubmit = async (values: IContactData) => {
     setLoading(true);
-    let data = {
+    const data = {
       email: values.email,
       subject: `Contato para o empreendimento ${enterpriseName}`,
       message: `
@@ -67,7 +57,7 @@ const ContactForm = ({ enterpriseName, open }: Props) => {
       `,
     };
     await sendMail(data)
-      .then((res) => {
+      .then(() => {
         setLoading(false);
       })
       .catch(() => setLoading(false));

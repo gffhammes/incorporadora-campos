@@ -1,5 +1,4 @@
 import { Box, Container, Stack, SxProps, Typography } from "@mui/material";
-import Link from "next/link";
 import React from "react";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";

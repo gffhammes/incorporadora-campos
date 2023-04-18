@@ -1,6 +1,5 @@
 import { Box, Container } from "@mui/material";
 import React from "react";
-import { SectionTitle } from "../commons/SectionTitle";
 import { StatusCharts } from "./Charts/StatusCharts";
 
 export const ConstructionStatusSection = ({ enterpriseData }) => {

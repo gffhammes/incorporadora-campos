@@ -1,6 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import Image from "next/image";
-import React from "react";
 import InnerImageZoom from "react-inner-image-zoom";
 
 type Props = {
