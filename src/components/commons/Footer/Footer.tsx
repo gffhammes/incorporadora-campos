@@ -22,6 +22,7 @@ export const Footer = () => {
   return (
     <Box component="footer">
       <Subscribe />
+      
       <Box bgcolor="primary.main" sx={{ color: "#fff", py: 7 }}>
         <Container>
           <Stack
