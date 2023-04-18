@@ -6,9 +6,13 @@ export interface IPlanImageProps {
   zoomImgUrl: string;
 }
 
+const imgDimentions = "min(40vw, 70vh)";
+
 export const PlanImage = ({ imgUrl }: IPlanImageProps) => {
   return (
-    <Box sx={{ height: "40vw", width: "40vw", overflow: "hidden" }}>
+    <Box
+      sx={{ height: imgDimentions, width: imgDimentions, overflow: "hidden" }}
+    >
       <InnerImageZoom
         src={imgUrl}
         zoomSrc={imgUrl}
