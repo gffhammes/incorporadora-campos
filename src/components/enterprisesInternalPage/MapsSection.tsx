@@ -9,7 +9,15 @@ interface IMapsSection {
 export const MapsSection = ({ address }: IMapsSection) => {
   const { Rua, Numero, Bairro, Cidade, UF } = address;
 
-  const fullAddress = `${Rua}, ${Numero} - ${Bairro}, ${Cidade}/${UF}`;
+  const getFullAddress = () => {
+    if (!Bairro) {
+      return `${Rua}, ${Numero}, ${Cidade}/${UF}`;
+    }
+
+    return `${Rua}, ${Numero} - ${Bairro}, ${Cidade}/${UF}`;
+  };
+
+  const fullAddress = getFullAddress();
 
   const addressToUse = encodeURI(fullAddress);
 
