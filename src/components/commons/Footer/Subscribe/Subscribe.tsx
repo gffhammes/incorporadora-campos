@@ -60,7 +60,7 @@ export const Subscribe = () => {
     <Box bgcolor="secondary.main">
       <Container sx={{ color: "#fff", py: 3 }}>
         <Stack
-          direction={{ xs: "column", md: "row" }}
+          direction={{ xs: "column", lg: "row" }}
           justifyContent="space-between"
           alignItems="center"
           spacing={6}
@@ -71,7 +71,7 @@ export const Subscribe = () => {
               fontWeight={500}
               sx={{ whiteSpace: { xs: "normal", md: "nowrap" } }}
             >
-              CADASTRE SEU E-MAIL E FIQUE POR DENTRO DAS NOVIDADES
+              CADASTRE-SE E FIQUE POR DENTRO DAS NOVIDADES
             </Typography>
           </Stack>
 
@@ -84,47 +84,49 @@ export const Subscribe = () => {
             }}
           >
             {(props) => (
-              <Grid
-                container
-                component="form"
-                noValidate
-                onSubmit={props.handleSubmit}
-                direction={{ xs: "column", sm: "row" }}
-                alignItems="stretch"
-                spacing={2}
-                sx={{ width: "100%" }}
-              >
-                <Grid item xs={6}>
-                  <Input name="name" type="text" placeholder="Seu nome..." />
-                </Grid>
+              <Box sx={{ width: "100%" }}>
+                <Grid
+                  container
+                  component="form"
+                  noValidate
+                  onSubmit={props.handleSubmit}
+                  direction={{ xs: "column", sm: "row" }}
+                  alignItems="stretch"
+                  spacing={2}
+                  sx={{ width: "100%" }}
+                >
+                  <Grid item xs={12} sm={6} md={3} lg={6}>
+                    <Input name="name" type="text" placeholder="Seu nome..." />
+                  </Grid>
 
-                <Grid item xs={6}>
-                  <Input
-                    name="phone"
-                    type="phone"
-                    placeholder="Seu telefone..."
-                  />
-                </Grid>
+                  <Grid item xs={12} sm={6} md={3} lg={6}>
+                    <Input
+                      name="phone"
+                      type="phone"
+                      placeholder="Seu telefone..."
+                    />
+                  </Grid>
 
-                <Grid item xs={6}>
-                  <Input
-                    name="email"
-                    type="email"
-                    placeholder="Seu e-mail..."
-                  />
-                </Grid>
+                  <Grid item xs={12} sm={6} md={3} lg={6}>
+                    <Input
+                      name="email"
+                      type="email"
+                      placeholder="Seu e-mail..."
+                    />
+                  </Grid>
 
-                <Grid item xs={6}>
-                  <LoadingButton
-                    type="submit"
-                    loading={loading}
-                    sx={{ width: "100%", height: "100%" }}
-                    color="primary"
-                  >
-                    CADASTRAR
-                  </LoadingButton>
+                  <Grid item xs={12} sm={6} md={3} lg={6}>
+                    <LoadingButton
+                      type="submit"
+                      loading={loading}
+                      sx={{ width: "100%", height: "100%" }}
+                      color="primary"
+                    >
+                      CADASTRAR
+                    </LoadingButton>
+                  </Grid>
                 </Grid>
-              </Grid>
+              </Box>
             )}
           </Formik>
         </Stack>
