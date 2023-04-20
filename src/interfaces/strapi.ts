@@ -44,3 +44,18 @@ export interface IStrapiImage {
   attributes: IImageAttributes;
   id: number;
 }
+
+export interface IStrapiGlobals {
+  data: {
+    id: 1;
+    attributes: {
+      Endereco: string;
+      Telefone: string;
+      Email: string;
+      createdAt: string;
+      updatedAt: string;
+      publishedAt: string;
+    };
+  };
+  meta: any;
+}
