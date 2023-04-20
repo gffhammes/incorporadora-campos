@@ -44,3 +44,99 @@ export interface IStrapiImage {
   attributes: IImageAttributes;
   id: number;
 }
+
+export interface IStrapiGlobals {
+  data: {
+    id: 1;
+    attributes: {
+      Endereco: string;
+      Telefone: string;
+      Email: string;
+      createdAt: string;
+      updatedAt: string;
+      publishedAt: string;
+    };
+  };
+  meta: any;
+}
+
+export interface IStrapiEnterpriseAddress {
+  id: number;
+  Rua: string;
+  Numero: string;
+  Bairro: string;
+  Cidade: string;
+  UF: string;
+}
+
+export interface IStrapiEnterprise {
+  id: number;
+  attributes: {
+    Nome: string;
+    Slug: string;
+    Area: string;
+    Quartos: string;
+    QteBlocos: number;
+    QteAndares: number;
+    QteApartamentos: number;
+    Status: string;
+    TextoPlanta: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+    Ordem: number;
+    Descricao2: string;
+    Descricao1: string;
+    StatusGeral: number;
+    Logo: {
+      data: IStrapiImage;
+    };
+    Banner: {
+      data: IStrapiImage;
+    };
+    Thumb: {
+      data: IStrapiImage;
+    };
+    Galeria: {
+      data: IStrapiImage[];
+    };
+    Endereco: IStrapiEnterpriseAddress;
+    Seccoes: {
+      id: number;
+      Menu: boolean;
+      Detalhes: boolean;
+      Plantas: boolean;
+      Contato: boolean;
+      Diferenciais: boolean;
+      Status: boolean;
+      Mapa: boolean;
+    };
+    StatusDetalhado: {
+      id: number;
+      Infraestrutura: number;
+      Fundacao: number;
+      Alvenaria: number;
+      Instalacoes: number;
+      Revestimentos: number;
+    };
+    diferenciais: {
+      data: IStrapiImage[];
+    };
+    Plantas: {
+      id: number;
+      Titulo: string;
+      Foto: {
+        data: IStrapiImage;
+      };
+    }[];
+    texoAzulPaginaInterna: {
+      id: number;
+      Descricao1: boolean;
+      Descricao2: boolean;
+      tamanhoFonte: number;
+    };
+    CarrosselPrimeiraSessao: {
+      data: IStrapiImage[];
+    };
+  };
+}
