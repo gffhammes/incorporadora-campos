@@ -9,7 +9,13 @@ interface IMapsSection {
 export const MapsSection = ({ address }: IMapsSection) => {
   const { Rua, Numero, Bairro, Cidade, UF } = address;
 
+  console.log(Numero);
+
   const getFullAddress = () => {
+    if (Rua === " " && Numero === " ") {
+      return `${Bairro}, ${Cidade}/${UF}`;
+    }
+
     if (!Bairro) {
       return `${Rua}, ${Numero}, ${Cidade}/${UF}`;
     }
