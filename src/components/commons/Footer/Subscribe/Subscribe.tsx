@@ -9,11 +9,12 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { LoadingButton } from "../../Button";
-import { Input } from "../../Input";
+import { Input } from "../../Forms/Input";
 import { useRouter } from "next/router";
 import SendIcon from "./SendIcon";
 import { Formik } from "formik";
 import { sendMail } from "../../../../services/sendMail";
+import { MaskedInput } from "../../Forms/MaskedInput";
 
 export const Subscribe = () => {
   const [loading, setLoading] = useState(false);
@@ -21,15 +22,23 @@ export const Subscribe = () => {
   const router = useRouter();
 
   const validate = (values) => {
-    const errors: { email?: string } = {};
+    const errors: { email?: string; name?: string; phone?: string } = {};
 
-    // if (!values.email) {
-    //   errors.email = "Obrigatório";
-    // } else if (
-    //   !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-    // ) {
-    //   errors.email = "Email inválido";
-    // }
+    if (!values.email) {
+      errors.email = "Obrigatório";
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+    ) {
+      errors.email = "Email inválido";
+    }
+
+    if (!values.name) {
+      errors.name = "Obrigatório";
+    }
+
+    if (!values.phone) {
+      errors.phone = "Obrigatório";
+    }
 
     return errors;
   };
@@ -43,8 +52,16 @@ export const Subscribe = () => {
 
     const data = {
       email: values.email,
-      message: `Um novo contato se inscreveu para a news letter: ${values.email}`,
       subject: "Novo Contato News Letter",
+      message: `<div>
+        <h2>Novo contato news letter</h2>
+        <br/>
+        <ul>
+          <li>Nome: ${values.name}</li>
+          <li>Email: ${values.email}</li>
+          <li>Telefone: ${values.phone}</li>
+        </ul>      
+      </div>`,
     };
 
     await sendMail(data)
@@ -103,6 +120,9 @@ export const Subscribe = () => {
                     <Input
                       name="phone"
                       type="phone"
+                      InputProps={{
+                        inputComponent: MaskedInput as any,
+                      }}
                       placeholder="Seu telefone..."
                     />
                   </Grid>

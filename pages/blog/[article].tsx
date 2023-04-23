@@ -12,7 +12,7 @@ import { updateArticleViews } from "../../src/helpers/updateArticleViews";
 
 const Article = ({ article }) => {
   useEffect(() => {
-    if (process.env.NODE_ENV === "development") return;
+    if (process.env.NODE_ENV !== "production") return;
     updateArticleViews(article);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

@@ -1,7 +1,7 @@
 import { Box, Grid, Paper, Typography } from "@mui/material";
 import React, { useMemo, useState } from "react";
 import { LoadingButton } from "../../commons/Button";
-import { Input } from "../../commons/Input";
+import { Input } from "../../commons/Forms/Input";
 import { Formik } from "formik";
 import { sendMail } from "../../../services/sendMail";
 
