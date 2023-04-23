@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { sendMail } from "../../services/sendMail";
 import { LoadingButton } from "../commons/Button";
-import { Input } from "../commons/Input";
+import { Input } from "../commons/Forms/Input";
 
 const boxShadow =
   "0px 10px 13px -6px rgb(26 71 188 / 20%), 0px 20px 31px 3px rgb(26 71 188 / 14%), 0px 8px 38px 7px rgb(26 71 188/ 12%);";
