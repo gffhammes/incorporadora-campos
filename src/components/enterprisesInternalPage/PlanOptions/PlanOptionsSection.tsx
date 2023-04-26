@@ -19,21 +19,24 @@ export const PlanOptionsSection = ({ enterpriseData }) => {
     setSelectedPlanIndex(index);
   };
 
+  const breakpoint = "md";
+
   return (
     <Box id="plan-options">
       <Container sx={{ pt: 7, pb: 2 }}>
         <SectionTitle>OPÇÕES DE PLANTA</SectionTitle>
 
         <Stack
-          direction="row"
+          direction={{ xs: "column", [breakpoint]: "row" }}
           alignItems="center"
           justifyContent="center"
-          spacing={10}
+          spacing={{ xs: 2, [breakpoint]: 10 }}
         >
           <PlanSelector
             plans={plans}
             selectedPlanIndex={selectedPlanIndex}
             onPlanClick={handleSelectorClick}
+            breakpoint={breakpoint}
           />
 
           <PlanImage
