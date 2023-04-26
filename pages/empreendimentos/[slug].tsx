@@ -14,8 +14,13 @@ import CustomMedia from "../../src/components/enterprisesInternalPage/delMare/Cu
 import fetch from "isomorphic-unfetch";
 import * as qs from "qs";
 import Head from "next/head";
+import { IStrapiEnterprise } from "../../src/interfaces/strapi";
 
-const Enterprise = ({ enterprise }) => {
+interface IEnterprise {
+  enterprise: IStrapiEnterprise;
+}
+
+const Enterprise = ({ enterprise }: IEnterprise) => {
   const { Seccoes } = enterprise.attributes;
 
   return (
@@ -42,7 +47,9 @@ const Enterprise = ({ enterprise }) => {
         {Seccoes.Status && (
           <ConstructionStatusSection enterpriseData={enterprise.attributes} />
         )}
-        {Seccoes.Mapa && <MapsSection enterpriseData={enterprise.attributes} />}
+        {Seccoes.Mapa && (
+          <MapsSection address={enterprise.attributes.Endereco} />
+        )}
         <SimulatorsSection />
         <Footer />
       </Box>

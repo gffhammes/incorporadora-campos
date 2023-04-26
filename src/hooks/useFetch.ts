@@ -9,8 +9,11 @@ export const useFetch = <T = unknown>(url: string) => {
 
   useEffect(() => {
     fetch(`${API_URL}${url}`)
-      .then((res) => res.json())
-      .then((data) => setData(data))
+      .then(async (res) => {
+        const data = await res.json();
+
+        setData(data);
+      })
       .catch((err) => setError(err))
       .finally(() => setIsFetching(false));
     // eslint-disable-next-line react-hooks/exhaustive-deps

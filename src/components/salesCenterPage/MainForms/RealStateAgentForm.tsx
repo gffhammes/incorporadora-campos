@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { sendMail } from "../../../services/sendMail";
 import { LoadingButton } from "../../commons/Button";
-import { Input } from "../../commons/Input";
+import { Input } from "../../commons/Forms/Input";
 import FormTemplate from "./FormTemplate";
 
 const RealStateAgentForm = () => {

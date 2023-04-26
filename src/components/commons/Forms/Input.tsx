@@ -13,6 +13,7 @@ interface InputProps {
   sx?: SxProps;
   multiline?: boolean;
   rows?: number;
+  InputProps?: any;
 }
 
 const padding = ".5rem 1.5rem";
@@ -110,6 +111,7 @@ export const Input: FC<InputProps> = ({
   name,
   multiline = false,
   rows = 6,
+  InputProps,
 }) => {
   const [field, meta] = useField({ name });
 
@@ -137,6 +139,7 @@ export const Input: FC<InputProps> = ({
           {...field}
           helperText={helperTextMemo}
           error={!!helperTextMemo}
+          InputProps={InputProps}
         />
       );
 
@@ -149,6 +152,7 @@ export const Input: FC<InputProps> = ({
           {...field}
           helperText={helperTextMemo}
           error={!!helperTextMemo}
+          InputProps={InputProps}
         />
       );
 
@@ -161,6 +165,7 @@ export const Input: FC<InputProps> = ({
           {...field}
           helperText={helperTextMemo}
           error={!!helperTextMemo}
+          InputProps={InputProps}
         />
       );
 
@@ -173,6 +178,7 @@ export const Input: FC<InputProps> = ({
           {...field}
           helperText={helperTextMemo}
           error={!!helperTextMemo}
+          InputProps={InputProps}
         />
       );
   }

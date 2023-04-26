@@ -1,7 +1,7 @@
 import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { LoadingButton } from "../commons/Button";
-import { Input } from "../commons/Input";
+import { Input } from "../commons/Forms/Input";
 import { Formik } from "formik";
 import { sendMail } from "../../services/sendMail";
 import { useRouter } from "next/router";
