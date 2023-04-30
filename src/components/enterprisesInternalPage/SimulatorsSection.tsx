@@ -124,6 +124,7 @@ export const SimulatorsSection = () => {
             <Box sx={{ width: "100%" }}>
               <Carousel
                 slides={slides}
+                showDots
                 dotsColor="secondary"
                 slideFlex="0 0 50%"
                 options={{

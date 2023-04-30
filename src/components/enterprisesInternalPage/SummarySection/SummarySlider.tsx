@@ -50,6 +50,7 @@ export const SummarySlider = ({ enterpriseData }: ISummarySliderProps) => {
         slides={slides}
         options={{ loop: true }}
         showArrows
+        showDots
       />
     );
   }, [enterpriseData.CarrosselPrimeiraSessao.data]);
