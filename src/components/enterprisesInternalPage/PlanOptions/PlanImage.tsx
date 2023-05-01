@@ -43,7 +43,15 @@ export const PlanImage = ({ imgUrl }: IPlanImageProps) => {
         zoomScale={1.25}
       />
 
-      <Box sx={{ height: "100%", width: "100%", display: "none" }}>
+      <Box
+        sx={{
+          height: "100%",
+          width: "100%",
+          zIndex: -1,
+          position: "absolute",
+          top: 0,
+        }}
+      >
         <Image
           src={imgUrl}
           alt=""
