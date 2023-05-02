@@ -52,7 +52,7 @@ export const Related = ({ articles }: IRelatedProps) => {
         </Container>
       ) : (
         <Box sx={{ pb: defaultSectionPadding }}>
-          <Carousel slides={slides} dotsColor="secondary" />
+          <Carousel slides={slides} dotsColor="secondary" showDots />
         </Box>
       )}
     </>

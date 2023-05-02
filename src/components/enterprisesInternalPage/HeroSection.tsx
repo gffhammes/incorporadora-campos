@@ -51,6 +51,7 @@ export const HeroSection = ({ enterpriseData }) => {
             alt={enterpriseData.Nome}
             layout="fill"
             objectFit="contain"
+            priority
           />
         </Box>
       );
@@ -73,6 +74,7 @@ export const HeroSection = ({ enterpriseData }) => {
         >
           {enterpriseData.Status.toUpperCase()}
         </Typography>
+
         {getLogo()}
       </>
     );

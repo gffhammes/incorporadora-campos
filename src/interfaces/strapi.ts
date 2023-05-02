@@ -140,3 +140,11 @@ export interface IStrapiEnterprise {
     };
   };
 }
+
+export interface IPlan {
+  id: number;
+  Titulo: string;
+  Foto: {
+    data: IStrapiImage;
+  };
+}

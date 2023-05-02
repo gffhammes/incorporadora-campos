@@ -15,6 +15,11 @@ interface ICarouselProps {
   dotsColor?: TDotsColors;
   dotsInside?: boolean;
   showArrows?: boolean;
+  showDots?: boolean;
+  onIndexChange?: (args: {
+    curentIndex: number;
+    indexesQuantity: number;
+  }) => void;
 }
 
 export const Carousel = ({
@@ -25,6 +30,8 @@ export const Carousel = ({
   dotsColor = "white",
   dotsInside = false,
   showArrows = false,
+  showDots = false,
+  onIndexChange,
 }: ICarouselProps) => {
   const [viewportRef, embla] = useEmblaCarousel(options);
   const [, setPrevBtnEnabled] = useState(false);
@@ -44,7 +51,12 @@ export const Carousel = ({
     setSelectedIndex(embla.selectedScrollSnap());
     setPrevBtnEnabled(embla.canScrollPrev());
     setNextBtnEnabled(embla.canScrollNext());
-  }, [embla, setSelectedIndex]);
+
+    onIndexChange?.({
+      curentIndex: embla.selectedScrollSnap(),
+      indexesQuantity: scrollSnaps.length - 1,
+    });
+  }, [embla, onIndexChange, scrollSnaps.length]);
 
   useEffect(() => {
     if (!embla) return;
@@ -83,13 +95,15 @@ export const Carousel = ({
 
       {showArrows && <Arrows scrollPrev={scrollPrev} scrollNext={scrollNext} />}
 
-      <Dots
-        handleClick={scrollTo}
-        scrollSnaps={scrollSnaps}
-        selectedIndex={selectedIndex}
-        dotsColor={dotsColor}
-        dotsInside={dotsInside}
-      />
+      {showDots && (
+        <Dots
+          handleClick={scrollTo}
+          scrollSnaps={scrollSnaps}
+          selectedIndex={selectedIndex}
+          dotsColor={dotsColor}
+          dotsInside={dotsInside}
+        />
+      )}
     </>
   );
 };

@@ -51,6 +51,7 @@ export const Partners = () => {
           align: "center",
         }}
         dotsColor="secondary"
+        showDots
       />
     </Box>
   );

@@ -50,6 +50,7 @@ export const Partners = () => {
         options={{
           align: "center",
         }}
+        showDots
       />
     </Box>
   );

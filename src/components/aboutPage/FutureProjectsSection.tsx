@@ -61,6 +61,7 @@ const FutureProjectsSection = () => {
             skipSnaps: true,
             align: "center",
           }}
+          showDots
         />
       )}
     </Box>
