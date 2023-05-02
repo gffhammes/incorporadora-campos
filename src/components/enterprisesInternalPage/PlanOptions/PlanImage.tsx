@@ -23,7 +23,7 @@ export const PlanImage = ({ imgUrl }: IPlanImageProps) => {
   useEffect(() => {
     if (lastImgUrl.current === imgUrl) return;
 
-    handleLoadingStart();
+    handleLoadingStart(0);
   }, [handleLoadingStart, imgUrl]);
 
   return (
@@ -59,6 +59,8 @@ export const PlanImage = ({ imgUrl }: IPlanImageProps) => {
           onLoad={() => {
             handleLoadingEnd();
           }}
+          priority
+          unoptimized
         />
       </Box>
 
@@ -69,7 +71,7 @@ export const PlanImage = ({ imgUrl }: IPlanImageProps) => {
             height: "100%",
             width: "100%",
             zIndex: 999,
-            backgroundColor: "rgba(255, 255, 255, 0.9)",
+            backgroundColor: "rgb(255, 255, 255)",
             top: 0,
           }}
           alignItems="center"

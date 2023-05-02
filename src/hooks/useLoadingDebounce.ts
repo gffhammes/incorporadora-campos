@@ -4,10 +4,10 @@ export const useLoadingDebounce = () => {
   const [loading, setLoading] = useState(false);
   const timeoutRef = useRef<number | null>(null);
 
-  const handleLoadingStart = useCallback(() => {
+  const handleLoadingStart = useCallback((ms?: number) => {
     timeoutRef.current = window.setTimeout(() => {
       setLoading(true);
-    }, 500);
+    }, ms ?? 500);
   }, []);
 
   const handleLoadingEnd = useCallback(() => {

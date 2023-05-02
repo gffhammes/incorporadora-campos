@@ -15,6 +15,7 @@ const nextConfig = {
   },
   images: {
     domains: ['localhost', 'evening-lowlands-86540.herokuapp.com', 'res.cloudinary.com'],
+    minimumCacheTTL: 60 * 5,
   },
 }
 
