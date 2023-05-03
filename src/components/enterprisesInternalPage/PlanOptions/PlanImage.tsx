@@ -39,6 +39,9 @@ export const PlanImage = ({ imgUrl }: IPlanImageProps) => {
         },
         overflow: "hidden",
         position: "relative",
+        "& > .iiz": { m: "auto" },
+        "& > .iiz > div": { height: "100%" },
+        "& > .iiz > div > img": { objectFit: "contain" },
       }}
     >
       <InnerImageZoom
