@@ -29,8 +29,14 @@ export const PlanImage = ({ imgUrl }: IPlanImageProps) => {
   return (
     <Box
       sx={{
-        height: { xs: mobileImgDimentions, [breakpoint]: desktopImgDimentions },
-        width: { xs: mobileImgDimentions, [breakpoint]: desktopImgDimentions },
+        height: {
+          xs: "calc(100vw - 2rem)",
+          [breakpoint]: desktopImgDimentions,
+        },
+        width: {
+          xs: mobileImgDimentions,
+          [breakpoint]: desktopImgDimentions,
+        },
         overflow: "hidden",
         position: "relative",
       }}
