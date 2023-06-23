@@ -9,7 +9,7 @@ export const pages = [
   },
   {
     route: "/portfolio",
-    name: "Portfolio",
+    name: "Portfólio",
   },
   {
     route: "/blog",

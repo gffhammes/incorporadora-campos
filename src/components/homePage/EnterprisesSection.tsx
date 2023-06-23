@@ -14,7 +14,7 @@ export const EnterprisesSection = () => {
     <Box bgcolor="#f2f2f2">
       <Container sx={{ py: 7 }}>
         <SectionTitle theme="dark" marginBottom={false}>
-          NOSSOS EMPREENDIMENTOS
+          PORTFÓLIO
         </SectionTitle>
         <EnterprisesSlider enterprises={data?.data} loading={isFetching} />
         <Box sx={{ display: "flex", mt: 6 }}>

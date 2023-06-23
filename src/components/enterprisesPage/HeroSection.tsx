@@ -52,7 +52,7 @@ export const HeroSection = ({ enterprises, handleFilter }: IProps) => {
         <Container sx={{ my: "auto" }}>
           <Stack spacing={{ xs: 3, lg: 5 }}>
             <Box>
-              <SectionTitle theme="light">NOSSOS EMPREENDIMENTOS</SectionTitle>
+              <SectionTitle theme="light">PORTFÓLIO</SectionTitle>
             </Box>
 
             <Box>
