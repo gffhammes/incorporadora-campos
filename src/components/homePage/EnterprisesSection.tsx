@@ -18,7 +18,7 @@ export const EnterprisesSection = () => {
         </SectionTitle>
         <EnterprisesSlider enterprises={data?.data} loading={isFetching} />
         <Box sx={{ display: "flex", mt: 6 }}>
-          <Link href="/empreendimentos" passHref>
+          <Link href="/portfolio" passHref>
             <a style={{ margin: "auto auto" }}>
               <ContainedPrimaryButton>VEJA TODOS</ContainedPrimaryButton>
             </a>

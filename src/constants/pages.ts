@@ -8,8 +8,8 @@ export const pages = [
     name: "Sobre Nós",
   },
   {
-    route: "/empreendimentos",
-    name: "Empreendimentos",
+    route: "/portfolio",
+    name: "Portfolio",
   },
   {
     route: "/blog",
@@ -17,7 +17,7 @@ export const pages = [
   },
   {
     route: "/oportunidades",
-    name: "Central de Vendas",
+    name: "Oportunidades",
   },
   {
     route: "/contato",
