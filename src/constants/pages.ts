@@ -16,7 +16,7 @@ export const pages = [
     name: "Blog",
   },
   {
-    route: "/central-de-vendas",
+    route: "/oportunidades",
     name: "Central de Vendas",
   },
   {
