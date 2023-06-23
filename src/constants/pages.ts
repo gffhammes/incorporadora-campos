@@ -8,16 +8,16 @@ export const pages = [
     name: "Sobre Nós",
   },
   {
-    route: "/empreendimentos",
-    name: "Empreendimentos",
+    route: "/portfolio",
+    name: "Portfólio",
   },
   {
     route: "/blog",
     name: "Blog",
   },
   {
-    route: "/central-de-vendas",
-    name: "Central de Vendas",
+    route: "/oportunidades",
+    name: "Oportunidades",
   },
   {
     route: "/contato",

@@ -94,11 +94,7 @@ export const Slide = ({
             >
               {text}
             </Typography>
-            <Link
-              href="/empreendimentos/[slug]"
-              as={"/empreendimentos/" + href}
-              passHref
-            >
+            <Link href="/portfolio/[slug]" as={"/portfolio/" + href} passHref>
               <a>
                 <OutlinedWhiteButton sx={{ width: "fit-content" }}>
                   {buttonText}
