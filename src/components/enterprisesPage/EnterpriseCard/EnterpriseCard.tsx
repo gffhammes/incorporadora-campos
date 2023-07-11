@@ -1,10 +1,7 @@
-import React, { useMemo } from "react";
-import { Box, Stack, Typography } from "@mui/material";
-import Image from "next/image";
-import Link from "next/link";
-import { getLocationString } from "../../../helpers/getLocationString";
+import { Box, Stack } from "@mui/material";
 import { EnterpriseCardData } from "./EnterpriseCardData";
 import { IStrapiEnterprise } from "../../../interfaces/strapi";
+import { EnterpriseCardCarousel } from "./EnterpriseCardCarousel";
 
 export interface IEnterpriseCardProps {
   enterprise: IStrapiEnterprise["attributes"];
@@ -20,11 +17,12 @@ export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
           <EnterpriseCardData
             city={enterprise.Endereco.Cidade}
             name={enterprise.Nome}
-            slug=""
+            slug={enterprise.Slug}
             status={enterprise.Status}
             text={enterprise.Descricao1}
           />
-          <Box>space 2</Box>
+
+          <EnterpriseCardCarousel photos={enterprise.Galeria.data} />
         </Stack>
         <Stack>line 2</Stack>
       </Stack>
@@ -98,63 +96,3 @@ export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
   //   </Link>
   // );
 };
-
-const enterpriseNameProps = {
-  fontSize: 19,
-  fontWeight: 600,
-  lineHeight: 1,
-  letterSpacing: 2,
-  sx: {
-    width: "fit-content",
-    color: "#1a47bc",
-    borderBottom: "2px solid #1A47BC",
-  },
-};
-
-const sxImage = {
-  position: "relative",
-  height: { xs: "unset", sm: "unset", md: "22rem" },
-  aspectRatio: { xs: "1 / 1", md: "unset" },
-  width: "100%",
-  overflow: "hidden",
-  maxWidth: { xs: "unset", md: "22rem" },
-};
-
-const sxStatus = {
-  position: "absolute",
-  right: {
-    xs: "50%",
-    sm: 0,
-  },
-  top: {
-    xs: 0,
-    sm: "50%",
-    lg: "50%",
-  },
-  transform: {
-    xs: "translate(50%, -50%)",
-    sm: "translate(0%, -50%)",
-    md: "translate(0%, -50%)",
-    lg: "translate(15%, -50%)",
-  },
-  width: "12rem",
-  py: 3,
-  px: 2,
-  color: "white",
-  textAlign: "center",
-};
-
-const sxInfos = {
-  p: {
-    xs: "5rem 2rem 2rem 2rem",
-    sm: "3rem 12rem 3rem 3rem",
-  },
-  display: "flex",
-  flexDirection: "column",
-  gap: ".5rem",
-  width: "100%",
-  position: "relative",
-};
-
-const boxShadow =
-  "0px 10px 13px -6px rgb(26 71 188 / 20%), 0px 20px 31px 3px rgb(26 71 188 / 14%), 0px 8px 38px 7px rgb(26 71 188 / 12%)";

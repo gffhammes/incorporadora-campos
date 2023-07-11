@@ -1,4 +1,4 @@
-import { Paper, Typography, Chip, Stack, Box } from "@mui/material";
+import { Paper, Typography, Chip, Stack } from "@mui/material";
 import { useMemo } from "react";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import { TEnterpriseStatus } from "../../../interfaces/strapi";
@@ -33,8 +33,6 @@ export const EnterpriseCardData = ({
         return SellIcon;
     }
   }, [status]);
-
-  console.log(status);
 
   return (
     <Paper elevation={5} square sx={{ height: 300, p: 4, flex: "0 0 66.66%" }}>
