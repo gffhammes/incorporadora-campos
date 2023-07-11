@@ -1,5 +1,5 @@
 import { Box, Container, Grid } from "@mui/material";
-import { EnterpriseCard } from "./EnterpriseCard";
+import { EnterpriseCard } from "./EnterpriseCard/EnterpriseCard";
 import { NotFound } from "./NotFound";
 
 export const EnterprisesSection = ({ enterprises }) => {
