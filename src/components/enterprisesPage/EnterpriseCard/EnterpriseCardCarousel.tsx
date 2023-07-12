@@ -30,6 +30,7 @@ export const EnterpriseCardCarousel = ({
   return (
     <Box sx={{ gridArea: "carousel" }}>
       <Carousel
+        autoplay
         slides={slidesMemo}
         slideFlex={"0 0 100%"}
         spacing={2}
