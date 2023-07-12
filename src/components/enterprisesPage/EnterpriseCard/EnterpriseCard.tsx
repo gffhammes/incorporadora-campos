@@ -21,9 +21,9 @@ export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
       "image1 image1 image2 image2 image3"
       "image4 image4 image2 image2 image3"
       `}
-        gridTemplateColumns=".5fr .5fr 1fr 1fr .75fr"
-        gridTemplateRows="150px 150px 100px 100px"
-        gap={".5rem"}
+        gridTemplateColumns=".25fr .5fr 1fr 1fr .75fr"
+        gridTemplateRows="repeat(2, 130px) repeat(2, 100px)"
+        gap={"1rem"}
       >
         <EnterpriseCardData
           city={enterprise.Endereco.Cidade}

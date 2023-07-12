@@ -32,7 +32,7 @@ export const EnterpriseCardCarousel = ({
       <Carousel
         slides={slidesMemo}
         slideFlex={"0 0 100%"}
-        spacing={1}
+        spacing={2}
         dotsInside
         dotsColor="full-white"
       />
