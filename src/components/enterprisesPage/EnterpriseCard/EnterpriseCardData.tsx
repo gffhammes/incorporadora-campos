@@ -35,13 +35,13 @@ export const EnterpriseCardData = ({
   }, [status]);
 
   return (
-    <Paper elevation={0} square sx={{ p: 4, gridArea: "data" }}>
+    <Paper elevation={0} square sx={{ p: { xs: 3, md: 4 }, gridArea: "data" }}>
       <Stack height="100%" justifyContent="center">
         <Stack spacing={3}>
           <Stack spacing={1}>
             <Typography
               variant="h2"
-              fontSize="1.5rem"
+              fontSize={{ xs: "1.25rem", md: "1.5rem" }}
               color="secondary"
               fontWeight={500}
             >
@@ -51,7 +51,7 @@ export const EnterpriseCardData = ({
             <Stack direction="row" spacing={1}>
               <Chip
                 label={
-                  <Typography fontSize={12} fontWeight={500}>
+                  <Typography fontSize={{ xs: 10, md: 12 }} fontWeight={500}>
                     {status.toUpperCase()}
                   </Typography>
                 }
@@ -63,7 +63,11 @@ export const EnterpriseCardData = ({
 
               <Chip
                 label={
-                  <Typography fontSize={12} fontWeight={500}>
+                  <Typography
+                    fontSize={{ xs: 10, md: 12 }}
+                    fontWeight={500}
+                    color="rgba(0, 0, 0, 0.75)"
+                  >
                     {city.toUpperCase()}
                   </Typography>
                 }

@@ -3,27 +3,49 @@ import { EnterpriseCardData } from "./EnterpriseCardData";
 import { IStrapiEnterprise } from "../../../interfaces/strapi";
 import { EnterpriseCardCarousel } from "./EnterpriseCardCarousel";
 import { EnterpriseCardImageModel } from "./EnterpriseCardImageModel";
+import { useBreakpoint } from "../../../hooks/useBreakpoint";
 
 export interface IEnterpriseCardProps {
   enterprise: IStrapiEnterprise["attributes"];
 }
 
 export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
-  console.log(enterprise);
+  const { sm } = useBreakpoint();
+
+  const gridTemplateArea = {
+    xs: `
+    "image1 image2"
+    "image3 image2"
+    "image3 image4"
+    "data data"
+    `,
+    sm: `
+    "data data data carousel carousel"
+    "data data data carousel carousel"
+    "image1 image1 image2 image2 image3"
+    "image4 image4 image2 image2 image3"
+    `,
+  };
+
+  const gridTemplateColumns = {
+    xs: "1fr 1fr",
+    sm: ".25fr .5fr 1fr 1fr .75fr",
+  };
+
+  const gridTemplateRows = {
+    xs: "15vh 7vh 15vh 1fr ",
+    sm: "repeat(2, 130px) repeat(2, 100px)",
+    md: "repeat(2, 130px) repeat(2, 100px)",
+  };
 
   return (
     <Box>
       <Box
         display="grid"
-        gridTemplateAreas={`
-      "data data data carousel carousel"
-      "data data data carousel carousel"
-      "image1 image1 image2 image2 image3"
-      "image4 image4 image2 image2 image3"
-      `}
-        gridTemplateColumns=".25fr .5fr 1fr 1fr .75fr"
-        gridTemplateRows="repeat(2, 130px) repeat(2, 100px)"
-        gap={"1rem"}
+        gridTemplateAreas={gridTemplateArea}
+        gridTemplateColumns={gridTemplateColumns}
+        gridTemplateRows={gridTemplateRows}
+        gap={{ xs: ".5rem", md: "1rem" }}
       >
         <EnterpriseCardData
           city={enterprise.Endereco.Cidade}
@@ -32,8 +54,7 @@ export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
           status={enterprise.Status}
           text={enterprise.Descricao1}
         />
-
-        <EnterpriseCardCarousel photos={enterprise.Galeria.data} />
+        {sm && <EnterpriseCardCarousel photos={enterprise.Galeria.data} />}
 
         <EnterpriseCardImageModel
           gridArea="image1"
