@@ -1,4 +1,4 @@
-import { Paper, Typography, Chip, Stack } from "@mui/material";
+import { Paper, Typography, Chip, Stack, Box } from "@mui/material";
 import { useMemo } from "react";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import { TEnterpriseStatus } from "../../../interfaces/strapi";
@@ -58,10 +58,24 @@ export const EnterpriseCardData = ({
                 size="small"
                 variant="outlined"
                 color="secondary"
-                icon={<StatusIcon fontSize="small" />}
+                icon={<StatusIcon />}
+                sx={{
+                  "&.MuiChip-root .MuiChip-icon": {
+                    fontSize: 14,
+                    ml: 1,
+                  },
+                  "& .MuiChip-label": {
+                    px: 1.5,
+                  },
+                }}
               />
 
               <Chip
+                sx={{
+                  "& .MuiChip-label": {
+                    px: 1.5,
+                  },
+                }}
                 label={
                   <Typography
                     fontSize={{ xs: 10, md: 12 }}
