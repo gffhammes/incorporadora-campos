@@ -35,7 +35,7 @@ export const EnterpriseCardData = ({
   }, [status]);
 
   return (
-    <Paper elevation={5} square sx={{ height: 300, p: 4, flex: "0 0 66.66%" }}>
+    <Paper elevation={0} square sx={{ p: 4, gridArea: "data" }}>
       <Stack height="100%" justifyContent="center">
         <Stack spacing={3}>
           <Stack spacing={1}>

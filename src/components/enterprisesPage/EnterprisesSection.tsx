@@ -4,7 +4,7 @@ import { NotFound } from "./NotFound";
 
 export const EnterprisesSection = ({ enterprises }) => {
   return (
-    <Box id="enterprises">
+    <Box id="enterprises" bgcolor={"#efefef"}>
       <Container sx={{ py: 10, maxWidth: "1100px" }} maxWidth={false}>
         {enterprises.length > 0 && (
           <Grid container spacing={10}>

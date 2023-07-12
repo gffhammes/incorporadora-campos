@@ -10,8 +10,6 @@ export interface IEnterpriseCardCarouselProps {
 export const EnterpriseCardCarousel = ({
   photos,
 }: IEnterpriseCardCarouselProps) => {
-  console.log(photos);
-
   if (!photos) return null;
 
   const slidesMemo = photos.slice(0, 5).map((photo) => (
@@ -30,11 +28,11 @@ export const EnterpriseCardCarousel = ({
   ));
 
   return (
-    <Box sx={{ flex: "0 0 33.33%", width: "33.33%" }}>
+    <Box sx={{ gridArea: "carousel" }}>
       <Carousel
         slides={slidesMemo}
         slideFlex={"0 0 100%"}
-        spacing={2}
+        spacing={1}
         dotsInside
         dotsColor="full-white"
       />
