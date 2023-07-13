@@ -71,11 +71,10 @@ const gridTemplateArea = {
 
 const gridTemplateColumns = {
   xs: "1fr 1fr",
-  sm: ".25fr .5fr 1fr 1fr .75fr",
+  sm: ".25fr .5fr 1fr repeat(2, 130px)",
 };
 
 const gridTemplateRows = {
   xs: "15vh 7vh 15vh 1fr ",
   sm: "repeat(2, 130px) repeat(2, 100px)",
-  md: "repeat(2, 130px) repeat(2, 100px)",
 };
