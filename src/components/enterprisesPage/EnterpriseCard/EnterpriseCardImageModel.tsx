@@ -12,8 +12,18 @@ export const EnterpriseCardImageModel = ({
   gridArea,
   src,
 }: IEnterpriseCardImageModelProps) => {
-  if (!src) return null;
-
+  if (!src) {
+    return (
+      <Box
+        sx={{
+          gridArea,
+          height: "100%",
+          width: "100%",
+          backgroundColor: "#d3d3d3",
+        }}
+      />
+    );
+  }
   return (
     <Box sx={{ gridArea, height: "100%", width: "100%", position: "relative" }}>
       <Image src={src} alt={alt} layout="fill" priority objectFit="cover" />

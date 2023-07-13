@@ -54,6 +54,7 @@ export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
           status={enterprise.Status}
           text={enterprise.Descricao1}
         />
+
         {sm && <EnterpriseCardCarousel photos={enterprise.Galeria.data} />}
 
         <EnterpriseCardImageModel

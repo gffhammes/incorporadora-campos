@@ -1,10 +1,13 @@
-import { Paper, Typography, Chip, Stack, Box } from "@mui/material";
-import { useMemo } from "react";
+import { Paper, Typography, Chip, Stack } from "@mui/material";
+import { useMemo, useRef } from "react";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import { TEnterpriseStatus } from "../../../interfaces/strapi";
 import SellIcon from "@mui/icons-material/Sell";
 import ConstructionIcon from "@mui/icons-material/Construction";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import {
+  EnterpriseCardDataButton,
+  IEnterpriseCardDataButtonRef,
+} from "./EnterpriseCardDataButton";
 
 export interface IEnterpriseCardDataProps {
   name: string;
@@ -21,6 +24,8 @@ export const EnterpriseCardData = ({
   status,
   text,
 }: IEnterpriseCardDataProps) => {
+  const buttonRef = useRef<IEnterpriseCardDataButtonRef>(null);
+
   const StatusIcon = useMemo(() => {
     switch (status) {
       case "Pré lançamento":
@@ -35,7 +40,17 @@ export const EnterpriseCardData = ({
   }, [status]);
 
   return (
-    <Paper elevation={0} square sx={{ p: { xs: 3, md: 4 }, gridArea: "data" }}>
+    <Paper
+      elevation={0}
+      square
+      sx={{
+        p: { xs: 3, md: 4 },
+        gridArea: "data",
+        cursor: "pointer",
+      }}
+      onMouseEnter={() => buttonRef.current.handleHoverEnter()}
+      onMouseLeave={() => buttonRef.current.handleHoverExit()}
+    >
       <Stack height="100%" justifyContent="center">
         <Stack spacing={3}>
           <Stack spacing={1}>
@@ -93,16 +108,7 @@ export const EnterpriseCardData = ({
 
           <Typography whiteSpace="pre-wrap">{text}</Typography>
 
-          <Stack direction="row" alignItems="center" spacing={1}>
-            <Typography color="secondary">SAIBA MAIS</Typography>
-
-            <Stack
-              justifyContent="center"
-              sx={{ fontSize: 12, height: "100%" }}
-            >
-              <ArrowForwardIosIcon fontSize="inherit" color="secondary" />
-            </Stack>
-          </Stack>
+          <EnterpriseCardDataButton ref={buttonRef} />
         </Stack>
       </Stack>
     </Paper>

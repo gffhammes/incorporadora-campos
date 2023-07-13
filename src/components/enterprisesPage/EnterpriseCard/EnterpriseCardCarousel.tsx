@@ -10,7 +10,18 @@ export interface IEnterpriseCardCarouselProps {
 export const EnterpriseCardCarousel = ({
   photos,
 }: IEnterpriseCardCarouselProps) => {
-  if (!photos) return null;
+  if (!photos) {
+    return (
+      <Box
+        sx={{
+          gridArea: "carousel",
+          height: "100%",
+          width: "100%",
+          backgroundColor: "#d3d3d3",
+        }}
+      />
+    );
+  }
 
   const slidesMemo = photos.slice(0, 5).map((photo) => (
     <Box
