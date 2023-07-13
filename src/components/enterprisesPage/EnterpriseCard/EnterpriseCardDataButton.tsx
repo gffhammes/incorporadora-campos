@@ -23,8 +23,6 @@ export const EnterpriseCardDataButton =
       []
     );
 
-    console.log(hover);
-
     return (
       <Stack
         direction="row"
