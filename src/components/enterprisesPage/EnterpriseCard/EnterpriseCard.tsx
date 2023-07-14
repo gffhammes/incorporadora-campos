@@ -47,6 +47,14 @@ export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
         src={enterprise.Galeria?.data?.[2]?.attributes.url ?? ""}
         alt={enterprise.Galeria?.data?.[2]?.attributes.url ?? ""}
       />
+
+      {!sm && (
+        <EnterpriseCardImageModel
+          gridArea="image4"
+          src={enterprise.Galeria?.data?.[3]?.attributes.url ?? ""}
+          alt={enterprise.Galeria?.data?.[3]?.attributes.url ?? ""}
+        />
+      )}
     </Box>
   );
 };
@@ -62,12 +70,6 @@ const gridTemplateArea = {
   "carousel  image1  image1  image1"
   "data      data    image2  image3"
   `,
-  // sm: `
-  // "data data data carousel carousel"
-  // "data data data carousel carousel"
-  // "image1 image1 image2 image2 image3"
-  // "image4 image4 image2 image2 image3"
-  // `,
 };
 
 const gridTemplateColumns = {
