@@ -35,20 +35,17 @@ export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
         src={enterprise.Galeria?.data?.[0].attributes.url ?? ""}
         alt={enterprise.Galeria?.data?.[0].attributes.url ?? ""}
       />
+
       <EnterpriseCardImageModel
         gridArea="image2"
         src={enterprise.Galeria?.data?.[1].attributes.url ?? ""}
         alt={enterprise.Galeria?.data?.[1].attributes.url ?? ""}
       />
+
       <EnterpriseCardImageModel
         gridArea="image3"
         src={enterprise.Galeria?.data?.[2]?.attributes.url ?? ""}
         alt={enterprise.Galeria?.data?.[2]?.attributes.url ?? ""}
-      />
-      <EnterpriseCardImageModel
-        gridArea="image4"
-        src={enterprise.Galeria?.data?.[3]?.attributes.url ?? ""}
-        alt={enterprise.Galeria?.data?.[3]?.attributes.url ?? ""}
       />
     </Box>
   );
@@ -62,19 +59,23 @@ const gridTemplateArea = {
   "data data"
   `,
   sm: `
-  "data data data carousel carousel"
-  "data data data carousel carousel"
-  "image1 image1 image2 image2 image3"
-  "image4 image4 image2 image2 image3"
+  "carousel  image1  image1  image1"
+  "data      data    image2  image3"
   `,
+  // sm: `
+  // "data data data carousel carousel"
+  // "data data data carousel carousel"
+  // "image1 image1 image2 image2 image3"
+  // "image4 image4 image2 image2 image3"
+  // `,
 };
 
 const gridTemplateColumns = {
   xs: "1fr 1fr",
-  sm: ".25fr .5fr 1fr repeat(2, 130px)",
+  sm: "300px 100px 1fr 1fr",
 };
 
 const gridTemplateRows = {
-  xs: "15vh 7vh 15vh 1fr ",
-  sm: "repeat(2, 130px) repeat(2, 100px)",
+  xs: "15vh 7vh 15vh 1fr",
+  sm: "300px 200px",
 };

@@ -6,15 +6,17 @@ export const EnterpriseCardDataButton = () => {
     <Stack
       direction="row"
       alignItems="center"
-      spacing={1}
+      spacing={0.5}
       className="enterprise-button"
     >
-      <Typography color="secondary">SAIBA MAIS</Typography>
+      <Typography fontSize={12} color="secondary">
+        SAIBA MAIS
+      </Typography>
 
       <Stack
         justifyContent="center"
         sx={{
-          fontSize: 12,
+          fontSize: 10,
           height: "100%",
         }}
       >

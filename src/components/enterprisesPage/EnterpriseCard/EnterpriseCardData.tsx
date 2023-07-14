@@ -44,7 +44,7 @@ export const EnterpriseCardData = ({
           sx={{
             height: "100%",
             width: "100%",
-            p: { xs: 3, md: 4 },
+            p: 3,
 
             "&:hover": {
               "& .enterprise-button": {
@@ -68,13 +68,13 @@ export const EnterpriseCardData = ({
           }}
         >
           <Stack height="100%" justifyContent="center">
-            <Stack spacing={3}>
-              <Stack spacing={1}>
+            <Stack spacing={2}>
+              <Stack spacing={0.5}>
                 <Typography
                   variant="h2"
-                  fontSize={{ xs: "1.25rem", md: "1.5rem" }}
+                  fontSize="1rem"
                   color="secondary"
-                  fontWeight={500}
+                  fontWeight={700}
                 >
                   {name.toUpperCase()}
                 </Typography>
@@ -82,10 +82,7 @@ export const EnterpriseCardData = ({
                 <Stack direction="row" spacing={1}>
                   <Chip
                     label={
-                      <Typography
-                        fontSize={{ xs: 10, md: 12 }}
-                        fontWeight={500}
-                      >
+                      <Typography fontSize={10} fontWeight={500}>
                         {status.toUpperCase()}
                       </Typography>
                     }
@@ -94,25 +91,33 @@ export const EnterpriseCardData = ({
                     color="secondary"
                     icon={<StatusIcon />}
                     sx={{
-                      "&.MuiChip-root .MuiChip-icon": {
-                        fontSize: 14,
-                        ml: 1,
+                      "&.MuiChip-root": {
+                        height: 20,
+
+                        "& .MuiChip-icon": {
+                          fontSize: 12,
+                          ml: 0.5,
+                        },
                       },
                       "& .MuiChip-label": {
-                        px: 1.5,
+                        px: 1,
                       },
                     }}
                   />
 
                   <Chip
                     sx={{
-                      "& .MuiChip-label": {
-                        px: 1.5,
+                      "&.MuiChip-root": {
+                        height: 20,
+
+                        "& .MuiChip-label": {
+                          px: 1,
+                        },
                       },
                     }}
                     label={
                       <Typography
-                        fontSize={{ xs: 10, md: 12 }}
+                        fontSize={10}
                         fontWeight={500}
                         color="rgba(0, 0, 0, 0.75)"
                       >
@@ -125,7 +130,9 @@ export const EnterpriseCardData = ({
                 </Stack>
               </Stack>
 
-              <Typography whiteSpace="pre-wrap">{text}</Typography>
+              <Typography whiteSpace="pre-wrap" fontSize={12}>
+                {text}
+              </Typography>
 
               <EnterpriseCardDataButton />
             </Stack>
