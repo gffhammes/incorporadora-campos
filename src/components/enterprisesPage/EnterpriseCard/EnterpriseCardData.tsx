@@ -1,4 +1,4 @@
-import { Paper, Typography, Chip, Stack } from "@mui/material";
+import { Paper, Typography, Chip, Stack, Box } from "@mui/material";
 import { useMemo } from "react";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import { TEnterpriseStatus } from "../../../interfaces/strapi";
@@ -56,7 +56,7 @@ export const EnterpriseCardData = ({
                   },
 
                   "50%": {
-                    transform: "translateX(2%)",
+                    transform: "translateX(10%)",
                   },
 
                   "100%": {
@@ -67,76 +67,79 @@ export const EnterpriseCardData = ({
             },
           }}
         >
-          <Stack height="100%" justifyContent="center">
-            <Stack spacing={2}>
-              <Stack spacing={0.5}>
-                <Typography
-                  variant="h2"
-                  fontSize="1rem"
+          <Box
+            display="grid"
+            gridTemplateColumns="1fr 1fr min-content"
+            gap={2}
+            alignItems="center"
+          >
+            <Stack spacing={0.5}>
+              <Typography
+                variant="h2"
+                fontSize="1rem"
+                color="secondary"
+                fontWeight={700}
+              >
+                {name.toUpperCase()}
+              </Typography>
+
+              <Stack direction="row" spacing={1}>
+                <Chip
+                  label={
+                    <Typography fontSize={10} fontWeight={500}>
+                      {status.toUpperCase()}
+                    </Typography>
+                  }
+                  size="small"
+                  variant="outlined"
                   color="secondary"
-                  fontWeight={700}
-                >
-                  {name.toUpperCase()}
-                </Typography>
+                  icon={<StatusIcon />}
+                  sx={{
+                    "&.MuiChip-root": {
+                      height: 20,
 
-                <Stack direction="row" spacing={1}>
-                  <Chip
-                    label={
-                      <Typography fontSize={10} fontWeight={500}>
-                        {status.toUpperCase()}
-                      </Typography>
-                    }
-                    size="small"
-                    variant="outlined"
-                    color="secondary"
-                    icon={<StatusIcon />}
-                    sx={{
-                      "&.MuiChip-root": {
-                        height: 20,
-
-                        "& .MuiChip-icon": {
-                          fontSize: 12,
-                          ml: 0.5,
-                        },
+                      "& .MuiChip-icon": {
+                        fontSize: 12,
+                        ml: 0.5,
                       },
+                    },
+                    "& .MuiChip-label": {
+                      px: 1,
+                    },
+                  }}
+                />
+
+                <Chip
+                  sx={{
+                    "&.MuiChip-root": {
+                      height: 20,
+
                       "& .MuiChip-label": {
                         px: 1,
                       },
-                    }}
-                  />
-
-                  <Chip
-                    sx={{
-                      "&.MuiChip-root": {
-                        height: 20,
-
-                        "& .MuiChip-label": {
-                          px: 1,
-                        },
-                      },
-                    }}
-                    label={
-                      <Typography
-                        fontSize={10}
-                        fontWeight={500}
-                        color="rgba(0, 0, 0, 0.75)"
-                      >
-                        {city.toUpperCase()}
-                      </Typography>
-                    }
-                    size="small"
-                    variant="outlined"
-                  />
-                </Stack>
+                    },
+                  }}
+                  label={
+                    <Typography
+                      fontSize={10}
+                      fontWeight={500}
+                      color="rgba(0, 0, 0, 0.75)"
+                    >
+                      {city.toUpperCase()}
+                    </Typography>
+                  }
+                  size="small"
+                  variant="outlined"
+                />
               </Stack>
-
-              <Typography whiteSpace="pre-wrap" fontSize={12}>
-                {text}
-              </Typography>
-
-              <EnterpriseCardDataButton />
             </Stack>
-          </Stack>
+
+            <Typography whiteSpace="pre-wrap" fontSize={12}>
+              {text}
+            </Typography>
+
+            <EnterpriseCardDataButton />
+          </Box>
         </Paper>
       </a>
     </Link>

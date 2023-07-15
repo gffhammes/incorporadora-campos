@@ -9,7 +9,7 @@ export const EnterpriseCardDataButton = () => {
       spacing={0.5}
       className="enterprise-button"
     >
-      <Typography fontSize={12} color="secondary">
+      <Typography whiteSpace="nowrap" fontSize={12} color="secondary">
         SAIBA MAIS
       </Typography>
 
