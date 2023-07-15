@@ -69,8 +69,11 @@ export const EnterpriseCardData = ({
         >
           <Box
             display="grid"
-            gridTemplateColumns="1fr 1fr min-content"
-            gap={2}
+            gridTemplateColumns={{
+              xs: "1fr",
+              sm: "1fr 1fr min-content",
+            }}
+            gap={{ xs: 3, sm: 2 }}
             alignItems="center"
           >
             <Stack spacing={0.5}>

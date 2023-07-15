@@ -13,13 +13,19 @@ export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
   const { sm } = useBreakpoint();
 
   return (
-    <Stack gap={{ xs: ".5rem", md: "1rem" }}>
+    <Stack gap={{ xs: ".5rem", sm: "1rem" }}>
       <Box
         display="grid"
         gridTemplateAreas={gridTemplateArea}
         gridTemplateColumns={gridTemplateColumns}
         gridTemplateRows={gridTemplateRows}
-        gap={{ xs: ".5rem", md: "1rem" }}
+        gap={{
+          xs: ".5rem",
+          sm: "1rem",
+        }}
+        sx={{
+          height: { xs: "fit-content", sm: "min(450px, 50vw, 60vh)" },
+        }}
       >
         {sm && <EnterpriseCardCarousel photos={enterprise.Galeria.data} />}
 
@@ -64,7 +70,6 @@ const gridTemplateArea = {
   "image1 image2"
   "image3 image2"
   "image3 image4"
-  "data   data"
   `,
   sm: `
   "carousel  image1  image3"
@@ -75,10 +80,10 @@ const gridTemplateArea = {
 
 const gridTemplateColumns = {
   xs: "1fr 1fr",
-  sm: "400px 1fr 1fr",
+  sm: "2fr 1fr 1fr",
 };
 
 const gridTemplateRows = {
-  xs: "15vh 7vh 15vh 1fr",
-  sm: "175px 100px 175px",
+  xs: "15vh 7vh 15vh",
+  sm: "1fr .5fr 1fr",
 };
