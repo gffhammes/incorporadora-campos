@@ -79,7 +79,7 @@ export interface IStrapiEnterprise {
     QteBlocos: number;
     QteAndares: number;
     QteApartamentos: number;
-    Status: string;
+    Status: TEnterpriseStatus;
     TextoPlanta: string;
     createdAt: string;
     updatedAt: string;
@@ -138,5 +138,27 @@ export interface IStrapiEnterprise {
     CarrosselPrimeiraSessao: {
       data: IStrapiImage[];
     };
+    mosaico: [
+      {
+        id: 1;
+        imagem4: {
+          data: IStrapiImage;
+        };
+        imagem3: {
+          data: IStrapiImage;
+        };
+        imagem2: {
+          data: IStrapiImage;
+        };
+        imagem1: {
+          data: IStrapiImage;
+        };
+        carrossel: {
+          data: IStrapiImage[];
+        };
+      }
+    ];
   };
 }
+
+export type TEnterpriseStatus = "Em obra" | "Pré lançamento" | "Vendido";

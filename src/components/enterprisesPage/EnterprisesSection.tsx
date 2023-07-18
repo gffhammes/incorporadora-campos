@@ -1,19 +1,27 @@
-import { Box, Container, Grid } from "@mui/material";
-import { EnterpriseCard } from "./EnterpriseCard";
+import { Box, Container, Stack } from "@mui/material";
+import { EnterpriseCard } from "./EnterpriseCard/EnterpriseCard";
 import { NotFound } from "./NotFound";
+import { IStrapiEnterprise } from "../../interfaces/strapi";
 
-export const EnterprisesSection = ({ enterprises }) => {
+interface IEnterprisesSectionProps {
+  enterprises: IStrapiEnterprise[];
+}
+
+export const EnterprisesSection = ({
+  enterprises,
+}: IEnterprisesSectionProps) => {
   return (
-    <Box id="enterprises">
-      <Container sx={{ py: 10, maxWidth: "1100px" }} maxWidth={false}>
+    <Box id="enterprises" bgcolor={"#efefef"}>
+      <Container sx={{ py: 10, maxWidth: "860px" }} maxWidth={false}>
         {enterprises.length > 0 && (
-          <Grid container spacing={10}>
-            {enterprises.map((enterprise, index) => (
-              <Grid item key={index} xs={12}>
-                <EnterpriseCard enterprise={enterprise.attributes} />
-              </Grid>
+          <Stack spacing={10}>
+            {enterprises.map((enterprise) => (
+              <EnterpriseCard
+                key={enterprise.id}
+                enterprise={enterprise.attributes}
+              />
             ))}
-          </Grid>
+          </Stack>
         )}
         {enterprises.length === 0 && <NotFound />}
       </Container>

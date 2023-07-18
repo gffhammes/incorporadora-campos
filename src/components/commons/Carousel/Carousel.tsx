@@ -4,6 +4,7 @@ import { EmblaOptionsType } from "embla-carousel-react";
 import { ReactNode, useCallback, useEffect, useState } from "react";
 import { Dots, TDotsColors } from "./Dots";
 import { Arrows } from "./Arrows";
+import Autoplay from "embla-carousel-autoplay";
 
 interface ICarouselProps {
   slides: ReactNode[];
@@ -15,6 +16,7 @@ interface ICarouselProps {
   dotsColor?: TDotsColors;
   dotsInside?: boolean;
   showArrows?: boolean;
+  autoplay?: boolean;
 }
 
 export const Carousel = ({
@@ -25,8 +27,14 @@ export const Carousel = ({
   dotsColor = "white",
   dotsInside = false,
   showArrows = false,
+  autoplay = false,
 }: ICarouselProps) => {
-  const [viewportRef, embla] = useEmblaCarousel(options);
+  const autoplayPlugin = Autoplay({ delay: 3000 });
+
+  const [viewportRef, embla] = useEmblaCarousel(
+    options,
+    autoplay ? [autoplayPlugin] : undefined
+  );
   const [, setPrevBtnEnabled] = useState(false);
   const [, setNextBtnEnabled] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
