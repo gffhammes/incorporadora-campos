@@ -27,31 +27,37 @@ export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
           height: { xs: "fit-content", sm: "min(450px, 50vw, 60vh)" },
         }}
       >
-        {sm && <EnterpriseCardCarousel photos={enterprise.Galeria.data} />}
+        {sm && (
+          <EnterpriseCardCarousel
+            photos={enterprise.mosaico[0]?.carrossel.data}
+          />
+        )}
 
         <EnterpriseCardImageModel
           gridArea="image1"
-          src={enterprise.Galeria?.data?.[0].attributes.url ?? ""}
+          src={enterprise.mosaico[0]?.imagem1?.data?.attributes?.url ?? ""}
           alt={enterprise.Galeria?.data?.[0].attributes.url ?? ""}
         />
 
         <EnterpriseCardImageModel
           gridArea="image2"
-          src={enterprise.Galeria?.data?.[1].attributes.url ?? ""}
+          src={enterprise.mosaico[0]?.imagem2?.data?.attributes?.url ?? ""}
           alt={enterprise.Galeria?.data?.[1].attributes.url ?? ""}
         />
 
         <EnterpriseCardImageModel
           gridArea="image3"
-          src={enterprise.Galeria?.data?.[2]?.attributes.url ?? ""}
+          src={enterprise.mosaico[0]?.imagem3?.data?.attributes?.url ?? ""}
           alt={enterprise.Galeria?.data?.[2]?.attributes.url ?? ""}
         />
 
-        <EnterpriseCardImageModel
-          gridArea="image4"
-          src={enterprise.Galeria?.data?.[3]?.attributes.url ?? ""}
-          alt={enterprise.Galeria?.data?.[3]?.attributes.url ?? ""}
-        />
+        {!sm && (
+          <EnterpriseCardImageModel
+            gridArea="image4"
+            src={enterprise.mosaico[0]?.imagem4?.data?.attributes?.url ?? ""}
+            alt={enterprise.Galeria?.data?.[3]?.attributes.url ?? ""}
+          />
+        )}
       </Box>
 
       <EnterpriseCardData
@@ -73,8 +79,8 @@ const gridTemplateArea = {
   `,
   sm: `
   "carousel  image1  image3"
-  "carousel  image1  image4"
-  "carousel  image2  image4"
+  "carousel  image1  image3"
+  "carousel  image2  image2"
   `,
 };
 
@@ -85,5 +91,5 @@ const gridTemplateColumns = {
 
 const gridTemplateRows = {
   xs: "15vh 7vh 15vh",
-  sm: "1fr .5fr 1fr",
+  sm: "1fr .5fr 1.5fr",
 };
