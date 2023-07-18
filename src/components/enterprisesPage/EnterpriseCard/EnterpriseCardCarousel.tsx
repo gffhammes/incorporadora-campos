@@ -23,7 +23,7 @@ export const EnterpriseCardCarousel = ({
     );
   }
 
-  const slidesMemo = photos.slice(0, 5).map((photo) => (
+  const slidesMemo = photos.map((photo) => (
     <Box
       key={photo.id}
       sx={{ height: "100%", width: "100%", position: "relative" }}
