@@ -36,26 +36,38 @@ export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
         <EnterpriseCardImageModel
           gridArea="image1"
           src={enterprise.mosaico[0]?.imagem1?.data?.attributes?.url ?? ""}
-          alt={enterprise.Galeria?.data?.[0].attributes.url ?? ""}
+          alt={
+            enterprise.mosaico[0]?.imagem1?.data?.attributes?.alternativeText ??
+            ""
+          }
         />
 
         <EnterpriseCardImageModel
           gridArea="image2"
           src={enterprise.mosaico[0]?.imagem2?.data?.attributes?.url ?? ""}
-          alt={enterprise.Galeria?.data?.[1].attributes.url ?? ""}
+          alt={
+            enterprise.mosaico[0]?.imagem2?.data?.attributes?.alternativeText ??
+            ""
+          }
         />
 
         <EnterpriseCardImageModel
           gridArea="image3"
           src={enterprise.mosaico[0]?.imagem3?.data?.attributes?.url ?? ""}
-          alt={enterprise.Galeria?.data?.[2]?.attributes.url ?? ""}
+          alt={
+            enterprise.mosaico[0]?.imagem3?.data?.attributes?.alternativeText ??
+            ""
+          }
         />
 
         {!sm && (
           <EnterpriseCardImageModel
             gridArea="image4"
             src={enterprise.mosaico[0]?.imagem4?.data?.attributes?.url ?? ""}
-            alt={enterprise.Galeria?.data?.[3]?.attributes.url ?? ""}
+            alt={
+              enterprise.mosaico[0]?.imagem4?.data?.attributes
+                ?.alternativeText ?? ""
+            }
           />
         )}
       </Box>
