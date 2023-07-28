@@ -14,8 +14,6 @@ interface IPortfolio {
 export default function Portfolio({ enterprises }: IPortfolio) {
   const [filteredEnterprises, setFilteredEnterprises] = useState(enterprises);
 
-  console.log(enterprises);
-
   const handleFilter = (values: {
     city: string;
     district: string;
@@ -41,7 +39,9 @@ export default function Portfolio({ enterprises }: IPortfolio) {
   return (
     <main style={{ height: "100%" }}>
       <HeroSection enterprises={enterprises} handleFilter={handleFilter} />
+
       <EnterprisesSection enterprises={filteredEnterprises} />
+
       <Footer />
     </main>
   );

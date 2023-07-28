@@ -12,7 +12,7 @@ export const EnterprisesSection = ({
 }: IEnterprisesSectionProps) => {
   return (
     <Box id="enterprises" bgcolor={"#efefef"}>
-      <Container sx={{ py: 10, maxWidth: "860px" }} maxWidth={false}>
+      <Container sx={{ py: 10 }}>
         {enterprises.length > 0 && (
           <Stack spacing={10}>
             {enterprises.map((enterprise) => (
