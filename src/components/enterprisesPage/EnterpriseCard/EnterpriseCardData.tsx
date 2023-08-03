@@ -56,7 +56,7 @@ export const EnterpriseCardData = ({
                   },
 
                   "50%": {
-                    transform: "translateX(10%)",
+                    transform: "translateX(5%)",
                   },
 
                   "100%": {
@@ -69,7 +69,7 @@ export const EnterpriseCardData = ({
         >
           <Box
             display="grid"
-            gridTemplateColumns={{
+            gridTemplateRows={{
               xs: "1fr",
               sm: "1fr 1fr min-content",
             }}

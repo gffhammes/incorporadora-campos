@@ -70,15 +70,15 @@ export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
             }
           />
         )}
-      </Box>
 
-      <EnterpriseCardData
-        city={enterprise.Endereco.Cidade}
-        name={enterprise.Nome}
-        slug={enterprise.Slug}
-        status={enterprise.Status}
-        text={enterprise.Descricao1}
-      />
+        <EnterpriseCardData
+          city={enterprise.Endereco.Cidade}
+          name={enterprise.Nome}
+          slug={enterprise.Slug}
+          status={enterprise.Status}
+          text={enterprise.Descricao1}
+        />
+      </Box>
     </Stack>
   );
 };
@@ -88,20 +88,20 @@ const gridTemplateArea = {
   "image1 image2"
   "image3 image2"
   "image3 image4"
+  "data   data"
   `,
   sm: `
-  "carousel  image1  image3"
-  "carousel  image1  image3"
-  "carousel  image2  image2"
+  "carousel  image1  image1 image2"
+  "carousel  image3  data   data"
   `,
 };
 
 const gridTemplateColumns = {
   xs: "1fr 1fr",
-  sm: "2fr 1fr 1fr",
+  sm: "3fr 2fr 1fr 2fr",
 };
 
 const gridTemplateRows = {
   xs: "15vh 7vh 15vh",
-  sm: "1fr .5fr 1.5fr",
+  sm: "2fr 1fr",
 };
