@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import Image from "next/image";
+import { LoadingImage } from "../../commons/Image/LoadingImage";
 
 export interface IEnterpriseCardImageModelProps {
   gridArea: string;
@@ -26,7 +26,13 @@ export const EnterpriseCardImageModel = ({
   }
   return (
     <Box sx={{ gridArea, height: "100%", width: "100%", position: "relative" }}>
-      <Image src={src} alt={alt} layout="fill" priority objectFit="cover" />
+      <LoadingImage
+        src={src}
+        alt={alt}
+        layout="fill"
+        priority
+        objectFit="cover"
+      />
     </Box>
   );
 };
