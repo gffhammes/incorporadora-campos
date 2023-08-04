@@ -24,7 +24,10 @@ export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
           md: "1rem",
         }}
         sx={{
-          height: { xs: "fit-content", sm: "min(450px, 50vw, 60vh)" },
+          height: {
+            xs: "fit-content",
+            // sm: "min(450px, 50vw, 60vh)"
+          },
         }}
       >
         {sm && (
@@ -104,11 +107,11 @@ const gridTemplateArea = {
 
 const gridTemplateColumns = {
   xs: "1fr 1fr",
-  sm: "4fr 1fr 1fr 3fr",
-  md: "3fr 2fr 1fr 2fr",
+  sm: "6fr 1fr 2fr 3fr",
+  md: "400px 2fr 1fr 3fr",
 };
 
 const gridTemplateRows = {
   xs: "15vh 7vh 15vh",
-  sm: "2fr 1fr",
+  sm: "210px 210px",
 };
