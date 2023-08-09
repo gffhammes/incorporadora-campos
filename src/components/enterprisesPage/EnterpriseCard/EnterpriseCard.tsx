@@ -26,7 +26,6 @@ export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
         sx={{
           height: {
             xs: "fit-content",
-            // sm: "min(450px, 50vw, 60vh)"
           },
         }}
       >
