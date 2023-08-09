@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { Carousel } from "../../commons/Carousel/Carousel";
 import { IStrapiEnterprise } from "../../../interfaces/strapi";
-import Image from "next/image";
+import { LoadingImage } from "../../commons/Image/LoadingImage";
 
 export interface IEnterpriseCardCarouselProps {
   photos: IStrapiEnterprise["attributes"]["Galeria"]["data"];
@@ -28,7 +28,7 @@ export const EnterpriseCardCarousel = ({
       key={photo.id}
       sx={{ height: "100%", width: "100%", position: "relative" }}
     >
-      <Image
+      <LoadingImage
         src={photo.attributes.url}
         alt={photo.attributes.alternativeText}
         layout="fill"

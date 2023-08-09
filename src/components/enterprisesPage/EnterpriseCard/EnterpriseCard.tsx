@@ -10,7 +10,7 @@ export interface IEnterpriseCardProps {
 }
 
 export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
-  const { sm } = useBreakpoint();
+  const { sm, md } = useBreakpoint();
 
   return (
     <Stack gap={{ xs: ".5rem", sm: "1rem" }}>
@@ -21,10 +21,12 @@ export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
         gridTemplateRows={gridTemplateRows}
         gap={{
           xs: ".5rem",
-          sm: "1rem",
+          md: "1rem",
         }}
         sx={{
-          height: { xs: "fit-content", sm: "min(450px, 50vw, 60vh)" },
+          height: {
+            xs: "fit-content",
+          },
         }}
       >
         {sm && (
@@ -51,14 +53,16 @@ export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
           }
         />
 
-        <EnterpriseCardImageModel
-          gridArea="image3"
-          src={enterprise.mosaico[0]?.imagem3?.data?.attributes?.url ?? ""}
-          alt={
-            enterprise.mosaico[0]?.imagem3?.data?.attributes?.alternativeText ??
-            ""
-          }
-        />
+        {(!sm || md) && (
+          <EnterpriseCardImageModel
+            gridArea="image3"
+            src={enterprise.mosaico[0]?.imagem3?.data?.attributes?.url ?? ""}
+            alt={
+              enterprise.mosaico[0]?.imagem3?.data?.attributes
+                ?.alternativeText ?? ""
+            }
+          />
+        )}
 
         {!sm && (
           <EnterpriseCardImageModel
@@ -70,15 +74,15 @@ export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
             }
           />
         )}
-      </Box>
 
-      <EnterpriseCardData
-        city={enterprise.Endereco.Cidade}
-        name={enterprise.Nome}
-        slug={enterprise.Slug}
-        status={enterprise.Status}
-        text={enterprise.Descricao1}
-      />
+        <EnterpriseCardData
+          city={enterprise.Endereco.Cidade}
+          name={enterprise.Nome}
+          slug={enterprise.Slug}
+          status={enterprise.Status}
+          text={enterprise.Descricao1}
+        />
+      </Box>
     </Stack>
   );
 };
@@ -88,20 +92,25 @@ const gridTemplateArea = {
   "image1 image2"
   "image3 image2"
   "image3 image4"
+  "data   data"
   `,
   sm: `
-  "carousel  image1  image3"
-  "carousel  image1  image3"
-  "carousel  image2  image2"
+  "carousel  image1  image1 image2"
+  "carousel  data  data   data"
+  `,
+  md: `
+  "carousel  image1  image1 image2"
+  "carousel  image3  data   data"
   `,
 };
 
 const gridTemplateColumns = {
   xs: "1fr 1fr",
-  sm: "2fr 1fr 1fr",
+  sm: "6fr 1fr 2fr 3fr",
+  md: "400px 2fr 1fr 3fr",
 };
 
 const gridTemplateRows = {
   xs: "15vh 7vh 15vh",
-  sm: "1fr .5fr 1.5fr",
+  sm: "210px 210px",
 };
