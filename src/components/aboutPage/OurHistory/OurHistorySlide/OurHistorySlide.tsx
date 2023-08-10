@@ -2,31 +2,21 @@ import { Box, Container, Grid, SxProps, Theme } from "@mui/material";
 import { SlideImage } from "./SlideImage";
 import { SlideText } from "./SlideText";
 import { SlideYear } from "./SlideYear";
+import { IOurHistorySlide } from "../../../../interfaces/strapi";
+import { DashedLine } from "./DashedLine";
 
-type Props = {
-  slide: any;
+export interface IOurHistorySlideProps {
+  slide: IOurHistorySlide;
   index: number;
   lastSlideIndex: number;
-};
+}
 
-const DashedLine = ({ index, lastSlideIndex }) => {
-  if (index === lastSlideIndex) return null;
-
-  return (
-    <Box
-      sx={{
-        position: "absolute",
-        borderBottom: "3px dotted #0E1E42",
-        width: "100vw",
-        top: "50%",
-        left: "45%",
-        zIndex: 10,
-      }}
-    />
-  );
-};
-
-export const OurHistorySlide = ({ slide, index, lastSlideIndex }: Props) => {
+export const OurHistorySlide = ({
+  slide,
+  index,
+  lastSlideIndex,
+}: IOurHistorySlideProps) => {
+  console.log(slide);
   return (
     <Box sx={{ position: "relative", height: "100%" }}>
       <Container sx={{ height: "100%" }}>
@@ -59,14 +49,14 @@ export const OurHistorySlide = ({ slide, index, lastSlideIndex }: Props) => {
                 >
                   <SlideYear year={slide.ano} />
 
-                  <DashedLine index={index} lastSlideIndex={lastSlideIndex} />
+                  <DashedLine hide={index === lastSlideIndex} />
                 </Box>
               </Grid>
 
-              <Grid item xs={8} sm={8} md={5} order={{ xs: 2, sm: 3 }}>
+              <Grid item xs={6} sm={6} md={5} order={{ xs: 2, sm: 3 }}>
                 <SlideImage
                   src={slide.foto.data.attributes.url}
-                  alt={slide.year}
+                  alt={slide.ano}
                 />
               </Grid>
             </Grid>
