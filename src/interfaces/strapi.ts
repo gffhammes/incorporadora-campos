@@ -162,12 +162,3 @@ export interface IStrapiEnterprise {
 }
 
 export type TEnterpriseStatus = "Em obra" | "Pré lançamento" | "Vendido";
-
-export interface IOurHistorySlide {
-  id: number;
-  ano: string;
-  texto: string;
-  foto: {
-    data: IStrapiImage;
-  };
-}

@@ -11,22 +11,13 @@ export const SlideImage = ({ src, alt }: ISlideImageProps) => {
     <Box
       sx={{
         position: "relative",
-        aspectRatio: "1200 / 795",
+        width: { xs: "100%", md: "20rem" },
         height: { xs: "7.5rem", sm: "15rem" },
         zIndex: 200,
         ml: "auto",
-        borderRadius: 4,
-        overflow: "hidden",
       }}
     >
-      <Image
-        src={src}
-        alt={alt}
-        layout="fill"
-        objectFit="cover"
-        objectPosition={"bottom"}
-        priority
-      />
+      <Image src={src} alt={alt} layout="fill" objectFit="contain" priority />
     </Box>
   );
 };

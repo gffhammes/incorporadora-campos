@@ -1,18 +1,56 @@
-import { Box, Divider, Stack, Typography } from "@mui/material";
+import { Box, Divider, Stack, Typography, useTheme } from "@mui/material";
 import React, { useMemo, useState } from "react";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Slider } from "../../commons/Slider";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { OurHistorySlide } from "./OurHistorySlide/OurHistorySlide";
-import { IOurHistorySlide } from "../../../interfaces/strapi";
-import { useBreakpoint } from "../../../hooks/useBreakpoint";
 
-export interface IOurHistorySliderProps {
-  slides: IOurHistorySlide[];
-}
+type Props = {
+  slides: any[];
+};
 
-const OurHistorySlider = (props: IOurHistorySliderProps) => {
+const slides = [
+  {
+    year: "2010",
+    text: "Nasce a Campos, inspirada na conexão entre amigos motivados pelo desejo de crescer, buscar algo novo e empreender.",
+    image: "socios.webp",
+  },
+  {
+    year: "2014",
+    text: "Nosso primeiro empreendimento sai do papel e se torna realidade. O Piazza San Marco, em Joinville.",
+    image: "SAN_MARCO.png",
+  },
+  {
+    year: "2016",
+    text: "Logo em seguida, o Piazza San Carlo ganha vida e conquista os moradores do Bairro Costa e Silva em Joinville.",
+    image: "SAN_CARLO.png",
+  },
+  {
+    year: "2018",
+    text: "Em 2018, o Piazza Della Libertá nasce para conquistar os moradores do Bairro Costa e Silva.",
+    image: "LIBERTA.png",
+  },
+  {
+    year: "2020",
+    text: "O Piazza San Pietro, no coração do bairro América, vem para apresentar um novo padrão de conforto e requinte em Joinville.",
+    image: "SAN_PIETRO.webp",
+  },
+  {
+    year: "2022",
+    text: "O eterno camisa 10, o craque Zico, marca mais um gol de placa e assina o nosso Residencial Del Mare, em Balneário Piçarras.",
+    image: "zico.webp",
+  },
+  {
+    year: "2022",
+    text: "Em uma parceria inédita no mundo, assinamos com a escola Bolshoi e iniciamos o planejamento do Edifício Bolshoi Brasil.",
+    image: "BOLSHOI.webp",
+  },
+];
+
+const OurHistorySlider = (props: Props) => {
   const [selectedSlide, setSelectedSlide] = useState(0);
-  const { md } = useBreakpoint();
+  const theme = useTheme();
+  const smSize = useMediaQuery(theme.breakpoints.up("sm"));
 
   const handleYearClick = (e: any) => {
     setSelectedSlide(parseInt(e.target.id));
@@ -20,7 +58,7 @@ const OurHistorySlider = (props: IOurHistorySliderProps) => {
 
   const handleNextSlide = () => {
     setSelectedSlide((selectedSlide) =>
-      selectedSlide === props.slides.length - 1 ? 0 : selectedSlide + 1
+      selectedSlide === slides.length - 1 ? 0 : selectedSlide + 1
     );
   };
 
@@ -32,7 +70,7 @@ const OurHistorySlider = (props: IOurHistorySliderProps) => {
             key={index}
             slide={slide}
             index={index}
-            lastSlideIndex={props.slides.length - 1}
+            lastSlideIndex={slides.length - 1}
           />
         );
       }),
@@ -41,7 +79,7 @@ const OurHistorySlider = (props: IOurHistorySliderProps) => {
 
   return (
     <Box>
-      {md && (
+      {smSize && (
         <Stack
           component="ul"
           direction="row"
