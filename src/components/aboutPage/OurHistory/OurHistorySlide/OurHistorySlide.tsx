@@ -20,7 +20,7 @@ export const OurHistorySlide = ({
   return (
     <Box sx={{ position: "relative", height: "100%" }}>
       <Container sx={{ height: "100%" }}>
-        <Box sx={{ ...sxSlide, zIndex: { xs: "unset", sm: 999 } }}>
+        <Box sx={{ ...sxSlide, zIndex: { xs: "unset", md: 999 } }}>
           <Box
             sx={{
               mx: "auto",
