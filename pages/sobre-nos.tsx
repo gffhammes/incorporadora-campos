@@ -14,8 +14,6 @@ interface IAbout {
 }
 
 export default function About({ ourHistorySlides }: IAbout) {
-  console.log(ourHistorySlides);
-
   return (
     <Box component={"main"} sx={{ height: { xs: "50vw", md: "100%" } }}>
       <HeroSection />
