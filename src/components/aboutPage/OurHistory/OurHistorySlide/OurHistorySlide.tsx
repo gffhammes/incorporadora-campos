@@ -16,7 +16,6 @@ export const OurHistorySlide = ({
   index,
   lastSlideIndex,
 }: IOurHistorySlideProps) => {
-  console.log(slide);
   return (
     <Box sx={{ position: "relative", height: "100%" }}>
       <Container sx={{ height: "100%" }}>
