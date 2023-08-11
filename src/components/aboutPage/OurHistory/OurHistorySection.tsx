@@ -2,12 +2,13 @@ import { Box, Container } from "@mui/material";
 import React from "react";
 import { SectionTitle } from "../../commons/SectionTitle";
 import OurHistorySlider from "./OurHistorySlider";
+import { IOurHistorySlide } from "../../../interfaces/strapi";
 
-type Props = {
-  slides: any[];
-};
+interface IOurHistorySectionProps {
+  slides: IOurHistorySlide[];
+}
 
-const OurHistorySection = ({ slides }: Props) => {
+const OurHistorySection = ({ slides }: IOurHistorySectionProps) => {
   return (
     <Box bgcolor="#E4E2E7" sx={{ py: 10 }}>
       <Container>
@@ -15,6 +16,7 @@ const OurHistorySection = ({ slides }: Props) => {
           NOSSA HISTÓRIA
         </SectionTitle>
       </Container>
+
       <OurHistorySlider slides={slides} />
     </Box>
   );
