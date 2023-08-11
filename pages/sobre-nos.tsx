@@ -7,8 +7,13 @@ import * as qs from "qs";
 import { Box } from "@mui/material";
 import PurposeSection from "../src/components/aboutPage/PurposeSection";
 import PartnersSection from "../src/components/aboutPage/PartnersSection/PartnersSection";
+import { IOurHistorySlide } from "../src/interfaces/strapi";
 
-export default function About({ ourHistorySlides }) {
+interface IAbout {
+  ourHistorySlides: IOurHistorySlide[];
+}
+
+export default function About({ ourHistorySlides }: IAbout) {
   return (
     <Box component={"main"} sx={{ height: { xs: "50vw", md: "100%" } }}>
       <HeroSection />
