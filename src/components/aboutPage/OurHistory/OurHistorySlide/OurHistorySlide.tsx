@@ -54,7 +54,7 @@ export const OurHistorySlide = ({
 
               <Grid item xs={6} sm={6} md={5} order={{ xs: 2, sm: 3 }}>
                 <SlideImage
-                  src={slide.foto.data.attributes.url}
+                  src={slide.foto.data?.attributes.url ?? ""}
                   alt={slide.ano}
                 />
               </Grid>

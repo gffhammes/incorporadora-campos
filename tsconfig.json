@@ -19,7 +19,8 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "allowSyntheticDefaultImports": true,
-    "checkJs": true
+    "checkJs": true,
+    "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",

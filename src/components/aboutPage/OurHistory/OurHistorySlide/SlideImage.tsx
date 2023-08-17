@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import Image from "next/image";
+import { LoadingImage } from "../../../commons/Image/LoadingImage";
 
 interface ISlideImageProps {
   src: string;
@@ -19,7 +19,7 @@ export const SlideImage = ({ src, alt }: ISlideImageProps) => {
         overflow: "hidden",
       }}
     >
-      <Image
+      <LoadingImage
         src={src}
         alt={alt}
         layout="fill"

@@ -168,6 +168,6 @@ export interface IOurHistorySlide {
   ano: string;
   texto: string;
   foto: {
-    data: IStrapiImage;
+    data: IStrapiImage | null;
   };
 }
