@@ -9,9 +9,10 @@ import React, { ChangeEvent, useCallback, useEffect, useState } from "react";
 import { ContainedWhiteButton } from "../commons/Button";
 import { Select } from "../commons/Select";
 import SearchIcon from "@mui/icons-material/Search";
+import { IStrapiEnterprise } from "../../interfaces/strapi";
 
 interface IProps {
-  enterprises: any;
+  enterprises: IStrapiEnterprise[];
   handleFilter({
     city,
     district,
@@ -33,12 +34,12 @@ const Filters = ({ enterprises, handleFilter }: IProps) => {
   const [district, setDistrict] = useState<string>("");
   const [buildingStatus, setBuildingStatus] = useState<string>("");
   const [districtsOptions, setDistrictsOptions] = useState<string[]>([]);
-  const cities = [];
-  const statusOptions = [];
+  const cities: string[] = [];
+  const statusOptions: string[] = [];
 
   const getDistrictsOptions = useCallback(
-    (city: string, enterprises: any[]) => {
-      const districts = [];
+    (city: string, enterprises: IStrapiEnterprise[]) => {
+      const districts: string[] = [];
 
       enterprises.forEach((enterprise) => {
         if (enterprise.attributes.Endereco.Cidade === city) {

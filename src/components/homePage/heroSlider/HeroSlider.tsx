@@ -48,12 +48,12 @@ export const HeroSlider = ({ banners }) => {
   const autoplay = Autoplay({ delay: 5000 });
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [autoplay]);
   const [selectedSlide, setSelectedSlide] = useState(0);
-  const [dots, setDots] = useState([]);
+  const [dots, setDots] = useState<any[]>([]);
   const theme = useTheme();
   const md = useMediaQuery(theme.breakpoints.up("md"));
 
   useEffect(() => {
-    const arr = [];
+    const arr: any[] = [];
     for (let i = 0; i < banners.length; i++) {
       arr.push({ active: false });
     }
@@ -70,7 +70,7 @@ export const HeroSlider = ({ banners }) => {
   }, [selectedSlide]);
 
   const changeSelectedSlide = (newSlideIndex) => {
-    emblaApi.scrollTo(newSlideIndex);
+    emblaApi?.scrollTo(newSlideIndex);
   };
 
   const scrollPrev = useCallback(() => {

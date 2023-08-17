@@ -6,7 +6,7 @@ export const useWhatsappLink = () => {
   const { data: globalData } = useGlobalsContext();
   const { asPath: currentPath } = useRouter();
   const { API_URL } = process.env;
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<any>(null);
   let text: string;
 
   const whatsappNumber = `55${globalData.phone

@@ -113,7 +113,7 @@ export const Input: FC<InputProps> = ({
   rows = 6,
   InputProps,
 }) => {
-  const [field, meta] = useField({ name });
+  const [field, meta] = useField({ name: name ?? "" });
 
   const textFieldProps = {
     id: id,
