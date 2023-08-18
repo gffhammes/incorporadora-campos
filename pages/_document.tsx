@@ -14,6 +14,7 @@ export default function Document() {
           href="https://api.fontshare.com/css?f[]=satoshi@300,301,400,401,500,501,700,701,900,901&display=swap"
           rel="stylesheet"
         />
+
         <meta
           name="facebook-domain-verification"
           content="judrkaywuvzux703ez2d1cpv31tqrm"
