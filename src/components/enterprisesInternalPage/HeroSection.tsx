@@ -12,6 +12,7 @@ import React, { useCallback, useMemo } from "react";
 import { SectionTitle } from "../commons/SectionTitle";
 import { FloatingDownArrowScroll } from "../commons/FloatingDownArrowScroll";
 import { useBreakpoint } from "../../hooks/useBreakpoint";
+import { IStrapiEnterprise } from "../../interfaces/strapi";
 
 const sxContent: SxProps<Theme> = {
   position: "absolute",
@@ -31,14 +32,18 @@ const sxLogo: SxProps<Theme> = {
   maxWidth: "13rem",
 };
 
-export const HeroSection = ({ enterpriseData }) => {
+export interface IHeroSectionProps {
+  enterpriseData: IStrapiEnterprise["attributes"];
+}
+
+export const HeroSection = ({ enterpriseData }: IHeroSectionProps) => {
   const { md } = useBreakpoint();
 
   const sxBanner: SxProps<Theme> = {
     position: "absolute",
     height: "100%",
     width: "100%",
-    backgroundImage: `url(${enterpriseData.Banner.data.attributes.url})`,
+    backgroundImage: `url(${enterpriseData.Banner.data?.attributes.url})`,
     backgroundSize: "cover",
   };
 

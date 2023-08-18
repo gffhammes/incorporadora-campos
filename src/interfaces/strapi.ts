@@ -92,7 +92,7 @@ export interface IStrapiEnterprise {
       data: IStrapiImage;
     };
     Banner: {
-      data: IStrapiImage;
+      data: IStrapiImage | null;
     };
     Thumb: {
       data: IStrapiImage;
