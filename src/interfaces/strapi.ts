@@ -88,6 +88,9 @@ export interface IStrapiEnterprise {
     Descricao2: string;
     Descricao1: string;
     StatusGeral: number;
+    FotoHome: {
+      data: IStrapiImage | null;
+    };
     Logo: {
       data: IStrapiImage;
     };

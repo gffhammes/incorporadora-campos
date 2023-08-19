@@ -4,7 +4,7 @@ import { NotFound } from "./NotFound";
 import { IStrapiEnterprise } from "../../interfaces/strapi";
 
 interface IEnterprisesSectionProps {
-  enterprises: IStrapiEnterprise[];
+  enterprises: IStrapiEnterprise[] | null;
 }
 
 export const EnterprisesSection = ({
@@ -13,9 +13,9 @@ export const EnterprisesSection = ({
   return (
     <Box id="enterprises" bgcolor={"#efefef"}>
       <Container sx={{ py: 10 }}>
-        {enterprises.length > 0 && (
+        {(enterprises?.length ?? 0) > 0 && (
           <Stack spacing={10}>
-            {enterprises.map((enterprise) => (
+            {enterprises?.map((enterprise) => (
               <EnterpriseCard
                 key={enterprise.id}
                 enterprise={enterprise.attributes}
@@ -23,7 +23,7 @@ export const EnterprisesSection = ({
             ))}
           </Stack>
         )}
-        {enterprises.length === 0 && <NotFound />}
+        {enterprises?.length === 0 && <NotFound />}
       </Container>
     </Box>
   );

@@ -12,7 +12,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { IStrapiEnterprise } from "../../interfaces/strapi";
 
 interface IProps {
-  enterprises: IStrapiEnterprise[];
+  enterprises: IStrapiEnterprise[] | null;
   handleFilter({
     city,
     district,
@@ -55,7 +55,7 @@ const Filters = ({ enterprises, handleFilter }: IProps) => {
 
   useEffect(() => {
     const districtsOptions = city
-      ? getDistrictsOptions(city, enterprises)
+      ? getDistrictsOptions(city, enterprises ?? [])
       : ["Selecione uma cidade"];
     setDistrictsOptions(districtsOptions);
     setDistrict("");
@@ -86,7 +86,7 @@ const Filters = ({ enterprises, handleFilter }: IProps) => {
     setBuildingStatus(e.target.value);
   };
 
-  enterprises.forEach((enterprise) => {
+  enterprises?.forEach((enterprise) => {
     if (!cities.includes(enterprise.attributes.Endereco.Cidade))
       cities.push(enterprise.attributes.Endereco.Cidade);
     if (!statusOptions.includes(enterprise.attributes.Status))
