@@ -141,26 +141,23 @@ export interface IStrapiEnterprise {
     CarrosselPrimeiraSessao: {
       data: IStrapiImage[];
     };
-    mosaico: [
-      {
-        id: 1;
-        imagem4: {
-          data: IStrapiImage;
-        };
-        imagem3: {
-          data: IStrapiImage;
-        };
-        imagem2: {
-          data: IStrapiImage;
-        };
-        imagem1: {
-          data: IStrapiImage;
-        };
-        carrossel: {
-          data: IStrapiImage[];
-        };
-      }
-    ];
+    mosaico: {
+      imagem4: {
+        data: IStrapiImage;
+      };
+      imagem3: {
+        data: IStrapiImage;
+      };
+      imagem2: {
+        data: IStrapiImage;
+      };
+      imagem1: {
+        data: IStrapiImage;
+      };
+      carrossel: {
+        data: IStrapiImage[];
+      };
+    };
   };
 }
 

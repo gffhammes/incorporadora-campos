@@ -30,36 +30,32 @@ export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
         }}
       >
         {sm && (
-          <EnterpriseCardCarousel
-            photos={enterprise.mosaico[0]?.carrossel.data}
-          />
+          <EnterpriseCardCarousel photos={enterprise.mosaico?.carrossel.data} />
         )}
 
         <EnterpriseCardImageModel
           gridArea="image1"
-          src={enterprise.mosaico[0]?.imagem1?.data?.attributes?.url ?? ""}
+          src={enterprise.mosaico?.imagem1?.data?.attributes?.url ?? ""}
           alt={
-            enterprise.mosaico[0]?.imagem1?.data?.attributes?.alternativeText ??
-            ""
+            enterprise.mosaico?.imagem1?.data?.attributes?.alternativeText ?? ""
           }
         />
 
         <EnterpriseCardImageModel
           gridArea="image2"
-          src={enterprise.mosaico[0]?.imagem2?.data?.attributes?.url ?? ""}
+          src={enterprise.mosaico?.imagem2?.data?.attributes?.url ?? ""}
           alt={
-            enterprise.mosaico[0]?.imagem2?.data?.attributes?.alternativeText ??
-            ""
+            enterprise.mosaico?.imagem2?.data?.attributes?.alternativeText ?? ""
           }
         />
 
         {(!sm || md) && (
           <EnterpriseCardImageModel
             gridArea="image3"
-            src={enterprise.mosaico[0]?.imagem3?.data?.attributes?.url ?? ""}
+            src={enterprise.mosaico?.imagem3?.data?.attributes?.url ?? ""}
             alt={
-              enterprise.mosaico[0]?.imagem3?.data?.attributes
-                ?.alternativeText ?? ""
+              enterprise.mosaico?.imagem3?.data?.attributes?.alternativeText ??
+              ""
             }
           />
         )}
@@ -67,10 +63,10 @@ export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
         {!sm && (
           <EnterpriseCardImageModel
             gridArea="image4"
-            src={enterprise.mosaico[0]?.imagem4?.data?.attributes?.url ?? ""}
+            src={enterprise.mosaico?.imagem4?.data?.attributes?.url ?? ""}
             alt={
-              enterprise.mosaico[0]?.imagem4?.data?.attributes
-                ?.alternativeText ?? ""
+              enterprise.mosaico?.imagem4?.data?.attributes?.alternativeText ??
+              ""
             }
           />
         )}
