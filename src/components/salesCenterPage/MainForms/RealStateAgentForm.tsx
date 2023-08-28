@@ -1,6 +1,5 @@
 import { Box, Grid } from "@mui/material";
 import { Formik } from "formik";
-import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { sendMail } from "../../../services/sendMail";
 import { LoadingButton } from "../../commons/Button";
@@ -9,7 +8,6 @@ import FormTemplate from "./FormTemplate";
 
 const RealStateAgentForm = () => {
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
 
   const validate = (values) => {
     const errors: {
@@ -57,7 +55,7 @@ const RealStateAgentForm = () => {
     await sendMail(data)
       .then((res) => {
         if (res.status === 200) {
-          router.push("/confirmacao/corretor");
+          window.open("/confirmacao/corretor", "_self");
         }
         setLoading(false);
       })

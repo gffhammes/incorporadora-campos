@@ -1,11 +1,11 @@
 import React from "react";
 import { Box, Stack, Typography } from "@mui/material";
 import Link from "next/link";
-import Image from "next/image";
+import { LoadingImage } from "../../commons/Image/LoadingImage";
 
 interface Props {
   slug: string;
-  imageUrl: string;
+  imageUrl?: string;
   name: string;
   status: string;
   description: string;
@@ -41,8 +41,8 @@ export const EnterpriseCard = ({
             }}
           >
             <Box sx={sxImage}>
-              <Image
-                src={imageUrl}
+              <LoadingImage
+                src={imageUrl ?? ""}
                 alt={name}
                 layout="fill"
                 objectFit="contain"

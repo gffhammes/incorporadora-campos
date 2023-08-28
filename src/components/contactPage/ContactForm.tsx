@@ -1,6 +1,5 @@
 import { Alert, Box, Container, Grid, Snackbar } from "@mui/material";
 import { Formik } from "formik";
-import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { sendMail } from "../../services/sendMail";
 import { LoadingButton } from "../commons/Button";
@@ -23,7 +22,6 @@ const sxFormWrapper = {
 export const ContactForm = () => {
   const [loading, setLoading] = useState(false);
   const [openSnackbar, setOpenSnackbar] = useState(false);
-  const router = useRouter();
 
   const handleSnackbarClose = () => {
     setOpenSnackbar(false);
@@ -74,7 +72,7 @@ export const ContactForm = () => {
     await sendMail(data)
       .then((res) => {
         if (res.status === 200) {
-          router.push("/confirmacao/contato");
+          window.open("/confirmacao/contato", "_self");
         }
         setLoading(false);
       })
