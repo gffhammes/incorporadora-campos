@@ -4,11 +4,9 @@ import { LoadingButton } from "../commons/Button";
 import { Input } from "../commons/Forms/Input";
 import { Formik } from "formik";
 import { sendMail } from "../../services/sendMail";
-import { useRouter } from "next/router";
 
 export const ContactForm = () => {
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
 
   const validate = (values) => {
     const errors: {
@@ -37,7 +35,7 @@ export const ContactForm = () => {
     await sendMail(data)
       .then((res) => {
         if (res.status === 200) {
-          router.push("/confirmacao/contato");
+          window.open("/confirmacao/contato", "_self");
         }
         setLoading(false);
       })

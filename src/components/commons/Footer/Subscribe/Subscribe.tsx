@@ -10,7 +10,6 @@ import {
 import React, { useState } from "react";
 import { LoadingButton } from "../../Button";
 import { Input } from "../../Forms/Input";
-import { useRouter } from "next/router";
 import SendIcon from "./SendIcon";
 import { Formik } from "formik";
 import { sendMail } from "../../../../services/sendMail";
@@ -19,7 +18,6 @@ import { MaskedInput } from "../../Forms/MaskedInput";
 export const Subscribe = () => {
   const [loading, setLoading] = useState(false);
   const [openSnackbar, setOpenSnackbar] = useState(false);
-  const router = useRouter();
 
   const validate = (values) => {
     const errors: { email?: string; name?: string; phone?: string } = {};
@@ -67,7 +65,7 @@ export const Subscribe = () => {
     await sendMail(data)
       .then((res) => {
         if (res.status === 200) {
-          router.push("/confirmacao/newsletter");
+          window.open("/confirmacao/newsletter", "_self");
         }
       })
       .finally(() => setLoading(false));
