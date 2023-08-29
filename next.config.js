@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
   reactStrictMode: true,
   webpack(config) {
@@ -16,6 +17,15 @@ const nextConfig = {
   images: {
     domains: ['localhost', 'evening-lowlands-86540.herokuapp.com', 'res.cloudinary.com'],
   },
+  async redirects() {
+    return [
+      {
+        source: '/empreendimentos/piazza-del-mare',
+        destination: '/portfolio/piazza-del-mare',
+        permanent: true,
+      },
+    ];
+  }
 }
 
 module.exports = nextConfig
