@@ -171,3 +171,10 @@ export interface IOurHistorySlide {
     data: IStrapiImage | null;
   };
 }
+
+export interface IOurHistoryText {
+  id: number;
+  titulo: string;
+  texto1: string;
+  texto2: string;
+}

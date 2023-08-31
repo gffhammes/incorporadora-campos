@@ -7,17 +7,18 @@ import * as qs from "qs";
 import { Box } from "@mui/material";
 import PurposeSection from "../src/components/aboutPage/PurposeSection";
 import PartnersSection from "../src/components/aboutPage/PartnersSection/PartnersSection";
-import { IOurHistorySlide } from "../src/interfaces/strapi";
+import { IOurHistorySlide, IOurHistoryText } from "../src/interfaces/strapi";
 
 interface IAbout {
   ourHistorySlides: IOurHistorySlide[];
+  ourHistoryText: IOurHistoryText;
 }
 
-export default function About({ ourHistorySlides }: IAbout) {
+export default function About({ ourHistorySlides, ourHistoryText }: IAbout) {
   return (
     <Box component={"main"} sx={{ height: { xs: "50vw", md: "100%" } }}>
       <HeroSection />
-      <DescriptionSection />
+      <DescriptionSection ourHistoryText={ourHistoryText} />
       <PartnersSection />
       <OurHistorySection slides={ourHistorySlides} />
       <FutureProjectsSection />
@@ -33,7 +34,7 @@ export async function getServerSideProps() {
 
   const query = qs.stringify(
     {
-      populate: ["nossaHistoria", "nossaHistoria.foto"],
+      populate: ["nossaHistoria", "nossaHistoria.foto", "tituloETexto"],
     },
     {
       encodeValuesOnly: true,
@@ -46,6 +47,7 @@ export async function getServerSideProps() {
   return {
     props: {
       ourHistorySlides: data.data.attributes.nossaHistoria,
+      ourHistoryText: data.data.attributes.tituloETexto,
     },
   };
 }

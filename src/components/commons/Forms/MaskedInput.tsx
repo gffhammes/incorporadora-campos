@@ -1,26 +1,34 @@
-import { forwardRef } from "react";
+import { ComponentType, forwardRef } from "react";
 import { IMaskInput } from "react-imask";
-import { ReactElement } from "react-imask/dist/mixin";
+import { AnyMaskedOptions, MaskElement } from "imask";
+
+import { IMaskInputProps, ReactElement } from "react-imask/dist/mixin";
 
 interface CustomProps {
   onChange: (event: { target: { name: string; value: string } }) => void;
   name: string;
 }
 
-export const MaskedInput = forwardRef<ReactElement, CustomProps>(
-  function TextMaskCustom(props, ref) {
-    const { onChange, ...other } = props;
+type IMaskProps = IMaskInputProps<
+  AnyMaskedOptions,
+  false,
+  string,
+  MaskElement | HTMLTextAreaElement | HTMLInputElement
+>;
 
-    return (
-      <IMaskInput
-        {...other}
-        mask="(00) 00000-0000"
-        inputRef={ref}
-        onAccept={(value: any) =>
-          onChange({ target: { name: props.name, value } })
-        }
-        overwrite
-      />
-    );
-  }
-);
+export const MaskedInput = forwardRef<
+  ReactElement,
+  ComponentType<IMaskProps & CustomProps>
+>(function TextMaskCustom(props, ref) {
+  return (
+    <IMaskInput
+      {...props}
+      mask="(00) 00000-0000"
+      inputRef={ref}
+      onAccept={(value: any) =>
+        props.defaultProps?.onChange?.({ target: { name: props.name, value } })
+      }
+      overwrite
+    />
+  );
+});

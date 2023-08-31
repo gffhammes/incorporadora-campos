@@ -1,17 +1,14 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
 import React from "react";
+import { IOurHistoryText } from "../../../interfaces/strapi";
 
-const text1 = `A Campos Incorporadora tem em seu DNA a inspiração.
+export interface IDescriptionSectionProps {
+  ourHistoryText: IOurHistoryText;
+}
 
-Nasceu inspirada na conexão entre amigos motivados pelo desejo de crescer, buscar algo novo e empreender.`;
+const DescriptionSection = ({ ourHistoryText }: IDescriptionSectionProps) => {
+  const { titulo, texto1, texto2 } = ourHistoryText;
 
-const text2 = `O que era desejo se tornou realidade através da formação de um grupo de investimentos.
-
-Grupo este que olha para o futuro, que busca o resultado através da relação "ganha-ganha" e que preza pela qualidade de vida dos seus parceiros.
-
-Seus empreendimentos foram cuidadosamente nominados com praças italianas, que denota robustez, imponência, características arquitetônicas marcantes, planejamento dos espaços, convergência e centralidade.`;
-
-const DescriptionSection = () => {
   return (
     <Box id="description">
       <Container
@@ -32,15 +29,13 @@ const DescriptionSection = () => {
               sx={{ fontVariantLigatures: "none" }}
               color="secondary"
             >
-              Nossa
-              <br />
-              História
+              {titulo}
             </Typography>
 
-            <Typography whiteSpace="pre-wrap">{text1}</Typography>
+            <Typography whiteSpace="pre-wrap">{texto1}</Typography>
           </Stack>
 
-          <Typography whiteSpace="pre-wrap">{text2}</Typography>
+          <Typography whiteSpace="pre-wrap">{texto2}</Typography>
         </Box>
       </Container>
     </Box>

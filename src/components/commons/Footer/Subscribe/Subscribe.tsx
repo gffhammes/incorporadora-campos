@@ -149,6 +149,7 @@ export const Subscribe = () => {
           </Formik>
         </Stack>
       </Container>
+
       <Snackbar
         open={openSnackbar}
         autoHideDuration={6000}
