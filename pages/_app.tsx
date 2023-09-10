@@ -7,7 +7,6 @@ import { useEffect } from "react";
 import Router from "next/router";
 import NProgress from "nprogress";
 import { GlobalsContextProvider } from "../src/contexts/GlobalsContextProvider";
-import { WhatsAppFloatButton } from "../src/components/commons/WhatsAppFloatButton";
 
 const theme = createTheme({
   typography: {
@@ -40,8 +39,6 @@ function MyApp({ Component, pageProps }) {
         <Header />
 
         <Component {...pageProps} />
-
-        <WhatsAppFloatButton />
       </GlobalsContextProvider>
     </ThemeProvider>
   );

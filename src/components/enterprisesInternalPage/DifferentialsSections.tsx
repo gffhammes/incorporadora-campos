@@ -2,12 +2,14 @@ import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 import { SectionTitle } from "../commons/SectionTitle";
+import { ContactButton } from "./ContactButton";
 
 export const DifferentialsSections = ({ enterpriseData }) => {
   return (
     <Box bgcolor="#f2f2f2" id="differentials">
       <Container sx={{ py: 7 }}>
         <SectionTitle>DIFERENCIAIS</SectionTitle>
+
         <Grid
           container
           rowSpacing={5}
@@ -44,6 +46,10 @@ export const DifferentialsSections = ({ enterpriseData }) => {
             </Grid>
           ))}
         </Grid>
+
+        <Stack sx={{ mt: 8 }}>
+          <ContactButton />
+        </Stack>
       </Container>
     </Box>
   );
