@@ -28,9 +28,12 @@ const Enterprise = ({ enterprise }: IEnterprise) => {
       <Head>
         <title>{enterprise.attributes.Nome + " | Campos Incorporadora"}</title>
       </Head>
+
       <Box component={"main"} sx={{ height: { lg: "100%" } }}>
         <HeroSection enterpriseData={enterprise.attributes} />
+
         {Seccoes.Menu && <ScrollMenu enterpriseData={enterprise.attributes} />}
+
         <SummarySection enterpriseData={enterprise.attributes} />
 
         {enterprise.attributes.Slug === "piazza-del-mare" && <CustomMedia />}
@@ -38,18 +41,23 @@ const Enterprise = ({ enterprise }: IEnterprise) => {
         {Seccoes.Detalhes && (
           <DetailsSection enterpriseData={enterprise.attributes} />
         )}
+
         {Seccoes.Diferenciais && (
           <DifferentialsSections enterpriseData={enterprise.attributes} />
         )}
+
         {Seccoes.Plantas && (
           <PlanOptionsSection enterpriseData={enterprise.attributes} />
         )}
+
         {Seccoes.Status && (
           <ConstructionStatusSection enterpriseData={enterprise.attributes} />
         )}
+
         {Seccoes.Mapa && (
           <MapsSection address={enterprise.attributes.Endereco} />
         )}
+
         <SimulatorsSection />
         <Footer />
       </Box>

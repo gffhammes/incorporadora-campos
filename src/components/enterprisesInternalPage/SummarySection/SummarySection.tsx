@@ -1,6 +1,7 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Stack, Typography } from "@mui/material";
 import React from "react";
 import { SummarySlider } from "./SummarySlider";
+import { ContactButton } from "../ContactButton";
 
 const sxGrid = {
   display: "grid",
@@ -8,11 +9,13 @@ const sxGrid = {
     xs: `
       'b'
       'a'
+      'd'
       'c'
     `,
     md: `
       'a b'
       'a c'
+      'a d'
     `,
   },
   gridTemplateColumns: {
@@ -71,6 +74,12 @@ export const SummarySection = ({ enterpriseData }) => {
               )}
             </Box>
           </Box>
+
+          <Stack
+            sx={{ gridArea: "d", width: { xs: "100%", md: "fit-content" } }}
+          >
+            <ContactButton />
+          </Stack>
         </Box>
       </Container>
     </Box>
