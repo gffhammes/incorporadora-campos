@@ -3,8 +3,8 @@ import ButtonBase from "@mui/material/ButtonBase";
 import React, { useMemo } from "react";
 
 const commonProps = {
-  width: "10rem",
-  minWidth: "fit-content",
+  width: "fit-content",
+  minWidth: "10rem",
   borderRadius: "20rem",
   padding: ".5rem 2rem",
   fontWeight: 600,

@@ -47,7 +47,7 @@ export const DifferentialsSections = ({ enterpriseData }) => {
           ))}
         </Grid>
 
-        <Stack sx={{ mt: 8 }}>
+        <Stack sx={{ mt: 8 }} alignItems="center">
           <ContactButton />
         </Stack>
       </Container>
