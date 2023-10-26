@@ -13,7 +13,6 @@ export const ContactButton = () => {
         target="_blank"
         rel="noreferrer"
         className="whatsapp-button"
-        // style={{ width: "fit-content" }}
       >
         <ContainedSecondaryButton>
           <WhatsAppIcon sx={{ mr: 1 }} />
