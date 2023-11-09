@@ -8,9 +8,10 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useCallback } from "react";
 import { OutlinedWhiteButton } from "../../commons/Button";
 import { PrimaryGradientCover } from "../../commons/GradientCover";
+import { SectionTitle } from "../../commons/SectionTitle";
 
 interface IProps {
   bgImage: string;
@@ -55,6 +56,28 @@ export const Slide = ({
   href,
   buttonText,
 }: IProps) => {
+  const getLogo = useCallback(() => {
+    if (logo) {
+      return (
+        <Box sx={sxLogo}>
+          <Image
+            src={logo}
+            alt={enterpriseName}
+            layout="fill"
+            objectFit="contain"
+          />
+        </Box>
+      );
+    }
+    return (
+      <Stack height="100%" justifyContent="center">
+        <SectionTitle theme="light">
+          {enterpriseName.toUpperCase()}
+        </SectionTitle>
+      </Stack>
+    );
+  }, [enterpriseName, logo]);
+
   return (
     <Box sx={{ position: "relative", zIndex: 500, height: "100%" }}>
       <Box
@@ -78,14 +101,8 @@ export const Slide = ({
             alignItems="center"
             justifyContent="flex-end"
           >
-            <Box sx={sxLogo}>
-              <Image
-                src={logo}
-                alt={enterpriseName}
-                layout="fill"
-                objectFit="contain"
-              />
-            </Box>
+            {getLogo()}
+
             <Typography
               fontSize={{ xs: 12, md: 21 }}
               letterSpacing={4}

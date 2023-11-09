@@ -110,7 +110,7 @@ export const HeroSlider = ({ banners }) => {
                     }
                     logo={
                       slide.attributes.empreendimento.data.attributes.Logo.data
-                        .attributes.url
+                        ?.attributes.url
                     }
                     enterpriseName={
                       slide.attributes.empreendimento.data.attributes.Nome

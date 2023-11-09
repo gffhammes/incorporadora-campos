@@ -78,6 +78,7 @@ export const HeroSection = ({ enterpriseData }: IHeroSectionProps) => {
         >
           {enterpriseData.Status.toUpperCase()}
         </Typography>
+
         {getLogo()}
       </>
     );
