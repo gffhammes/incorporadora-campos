@@ -29,9 +29,10 @@ export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
           },
         }}
       >
-        {sm && (
-          <EnterpriseCardCarousel photos={enterprise.mosaico?.carrossel.data} />
-        )}
+        <EnterpriseCardCarousel
+          gridArea="carousel"
+          photos={enterprise.mosaico?.carrossel.data}
+        />
 
         <EnterpriseCardImageModel
           gridArea="image1"
@@ -60,17 +61,6 @@ export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
           />
         )}
 
-        {!sm && (
-          <EnterpriseCardImageModel
-            gridArea="image4"
-            src={enterprise.mosaico?.imagem4?.data?.attributes?.url ?? ""}
-            alt={
-              enterprise.mosaico?.imagem4?.data?.attributes?.alternativeText ??
-              ""
-            }
-          />
-        )}
-
         <EnterpriseCardData
           city={enterprise.Endereco.Cidade}
           name={enterprise.Nome}
@@ -85,10 +75,10 @@ export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
 
 const gridTemplateArea = {
   xs: `
-  "image1 image2"
-  "image3 image2"
-  "image3 image4"
-  "data   data"
+  "image1     image2"
+  "carousel   image2"
+  "carousel   image3"
+  "data       data"
   `,
   sm: `
   "carousel  image1  image1 image2"

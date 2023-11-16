@@ -5,16 +5,18 @@ import { LoadingImage } from "../../commons/Image/LoadingImage";
 
 export interface IEnterpriseCardCarouselProps {
   photos: IStrapiEnterprise["attributes"]["Galeria"]["data"];
+  gridArea: string;
 }
 
 export const EnterpriseCardCarousel = ({
   photos,
+  gridArea,
 }: IEnterpriseCardCarouselProps) => {
   if (!photos) {
     return (
       <Box
         sx={{
-          gridArea: "carousel",
+          gridArea,
           height: "100%",
           width: "100%",
           backgroundColor: "#d3d3d3",
@@ -39,9 +41,8 @@ export const EnterpriseCardCarousel = ({
   ));
 
   return (
-    <Box sx={{ gridArea: "carousel" }}>
+    <Box sx={{ gridArea }}>
       <Carousel
-        autoplay
         slides={slidesMemo}
         slideFlex={"0 0 100%"}
         spacing={2}
