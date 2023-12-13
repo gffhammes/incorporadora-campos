@@ -48,6 +48,7 @@ export const EnterpriseCardCarousel = ({
         spacing={2}
         dotsInside
         dotsColor="full-white"
+        autoplay
       />
     </Box>
   );
