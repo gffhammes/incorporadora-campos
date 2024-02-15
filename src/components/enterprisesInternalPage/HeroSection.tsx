@@ -12,7 +12,7 @@ import React, { useCallback, useMemo } from "react";
 import { SectionTitle } from "../commons/SectionTitle";
 import { FloatingDownArrowScroll } from "../commons/FloatingDownArrowScroll";
 import { useBreakpoint } from "../../hooks/useBreakpoint";
-import { IStrapiEnterprise } from "../../interfaces/strapi";
+import { IEnterprise } from "../../interfaces/strapiLocal";
 
 const sxContent: SxProps<Theme> = {
   position: "absolute",
@@ -33,7 +33,7 @@ const sxLogo: SxProps<Theme> = {
 };
 
 export interface IHeroSectionProps {
-  enterpriseData: IStrapiEnterprise["attributes"];
+  enterpriseData: IEnterprise["attributes"];
 }
 
 export const HeroSection = ({ enterpriseData }: IHeroSectionProps) => {

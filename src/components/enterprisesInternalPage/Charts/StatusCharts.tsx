@@ -3,6 +3,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import { StatusBar } from "./StatusBar";
+import { IEnterprise } from "../../../interfaces/strapiLocal";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -52,7 +53,11 @@ const GeneralStatus = ({ status }) => {
   );
 };
 
-export function StatusCharts({ data }) {
+export interface IStatusChartsProps {
+  data: IEnterprise["attributes"];
+}
+
+export function StatusCharts({ data }: IStatusChartsProps) {
   return (
     <Grid container spacing={10} alignItems="center" justifyContent="center">
       <Grid item xs={8} md={4}>
@@ -74,11 +79,30 @@ export function StatusCharts({ data }) {
           justifyContent="space-between"
           sx={{ height: "100%" }}
         >
-          <StatusBar title="FUNDAÇÃO" value={data.Fundacao / 100} />
-          <StatusBar title="ESTRUTURA" value={data.Infraestrutura / 100} />
-          <StatusBar title="ALVENARIA" value={data.Alvenaria / 100} />
-          <StatusBar title="INSTALAÇÕES" value={data.Instalacoes / 100} />
-          <StatusBar title="ACABAMENTOS" value={data.Revestimentos / 100} />
+          <StatusBar
+            title="PROJETOS E APROVAÇÕES"
+            value={data.StatusDetalhado.ProjetosEAprovacoes / 100}
+          />
+          <StatusBar
+            title="FUNDAÇÃO"
+            value={data.StatusDetalhado.Fundacao / 100}
+          />
+          <StatusBar
+            title="ESTRUTURA"
+            value={data.StatusDetalhado.Estrutura / 100}
+          />
+          <StatusBar
+            title="ALVENARIA"
+            value={data.StatusDetalhado.Alvenaria / 100}
+          />
+          <StatusBar
+            title="INSTALAÇÕES"
+            value={data.StatusDetalhado.Instalacoes / 100}
+          />
+          <StatusBar
+            title="ACABAMENTOS"
+            value={data.StatusDetalhado.Acabamentos / 100}
+          />
         </Stack>
       </Grid>
     </Grid>

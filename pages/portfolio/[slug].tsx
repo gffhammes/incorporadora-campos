@@ -11,16 +11,19 @@ import { MapsSection } from "../../src/components/enterprisesInternalPage/MapsSe
 import { SimulatorsSection } from "../../src/components/enterprisesInternalPage/SimulatorsSection";
 import { HeroSection } from "../../src/components/enterprisesInternalPage/HeroSection";
 import CustomMedia from "../../src/components/enterprisesInternalPage/delMare/CustomMedia";
-import fetch from "isomorphic-unfetch";
-import * as qs from "qs";
 import Head from "next/head";
-import { IStrapiEnterprise } from "../../src/interfaces/strapi";
+import { enterprises } from "../../src/data/enterprises";
+import { useRouter } from "next/router";
 
-interface IEnterprise {
-  enterprise: IStrapiEnterprise;
-}
+const Enterprise = () => {
+  const router = useRouter();
 
-const Enterprise = ({ enterprise }: IEnterprise) => {
+  const enterprise = enterprises.find(
+    (enterprise) => enterprise.attributes.Slug === router.query.slug
+  );
+
+  if (!enterprise) return null;
+
   const { Seccoes } = enterprise.attributes;
 
   return (
@@ -65,46 +68,65 @@ const Enterprise = ({ enterprise }: IEnterprise) => {
   );
 };
 
-export async function getServerSideProps(context) {
-  const { API_URL } = process.env;
-  const { slug } = context.query;
+// export async function getServerSideProps(context) {
+//   const { API_URL } = process.env;
+//   const { slug } = context.query;
 
-  const query = qs.stringify(
-    {
-      filters: {
-        Slug: {
-          $eq: slug,
-        },
-      },
-      populate: [
-        "Logo",
-        "Banner",
-        "Thumb",
-        "Galeria",
-        "Endereco",
-        "Seccoes",
-        "StatusDetalhado",
-        "diferenciais",
-        "diferenciais.Imagem",
-        "Plantas",
-        "Plantas.Foto",
-        "texoAzulPaginaInterna",
-        "CarrosselPrimeiraSessao",
-      ],
-    },
-    {
-      encodeValuesOnly: true, // prettify URL
-    }
-  );
+//   const query = qs.stringify(
+//     {
+//       // filters: {
+//       //   Slug: {
+//       //     $eq: slug,
+//       //   },
+//       // },
+//       populate: [
+//         "Logo",
+//         "Banner",
+//         "Thumb",
+//         "Galeria",
+//         "Endereco",
+//         "Seccoes",
+//         "StatusDetalhado",
+//         "diferenciais",
+//         "diferenciais.Imagem",
+//         "Plantas",
+//         "Plantas.Foto",
+//         "texoAzulPaginaInterna",
+//         "CarrosselPrimeiraSessao",
+//         "Logo",
+//         "Banner",
+//         "Thumb",
+//         "Galeria",
+//         "Endereco",
+//         "Seccoes",
+//         "StatusDetalhado",
+//         "diferenciais",
+//         "diferenciais.Imagem",
+//         "Plantas",
+//         "Plantas.Foto",
+//         "texoAzulPaginaInterna",
+//         "CarrosselPrimeiraSessao",
+//         "mosaico",
+//         "mosaico.carrossel",
+//         "mosaico.imagem1",
+//         "mosaico.imagem2",
+//         "mosaico.imagem3",
+//         "mosaico.imagem4",
+//       ],
+//     },
+//     {
+//       encodeValuesOnly: true, // prettify URL
+//     }
+//   );
 
-  const res = await fetch(`${API_URL}/api/empreendimentos?${query}`);
-  const data = await res.json();
+//   const res = await fetch(`${API_URL}/api/empreendimentos?${query}`);
+//   const data = await res.json();
 
-  return {
-    props: {
-      enterprise: data.data[0],
-    },
-  };
-}
+//   return {
+//     props: {
+//       data: data.data,
+//     },
+//   };
+// }
 
 export default Enterprise;
