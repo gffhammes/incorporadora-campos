@@ -1,10 +1,10 @@
 import { Box, Container, Stack } from "@mui/material";
 import { EnterpriseCard } from "./EnterpriseCard/EnterpriseCard";
 import { NotFound } from "./NotFound";
-import { IStrapiEnterprise } from "../../interfaces/strapi";
+import { IEnterprise } from "../../interfaces/strapiLocal";
 
 interface IEnterprisesSectionProps {
-  enterprises: IStrapiEnterprise[] | null;
+  enterprises: IEnterprise[] | null;
 }
 
 export const EnterprisesSection = ({

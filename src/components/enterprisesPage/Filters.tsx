@@ -9,10 +9,10 @@ import React, { ChangeEvent, useCallback, useEffect, useState } from "react";
 import { ContainedWhiteButton } from "../commons/Button";
 import { Select } from "../commons/Select";
 import SearchIcon from "@mui/icons-material/Search";
-import { IStrapiEnterprise } from "../../interfaces/strapi";
+import { IEnterprise } from "../../interfaces/strapiLocal";
 
 interface IProps {
-  enterprises: IStrapiEnterprise[] | null;
+  enterprises: IEnterprise[] | null;
   handleFilter({
     city,
     district,
@@ -38,7 +38,7 @@ const Filters = ({ enterprises, handleFilter }: IProps) => {
   const statusOptions: string[] = [];
 
   const getDistrictsOptions = useCallback(
-    (city: string, enterprises: IStrapiEnterprise[]) => {
+    (city: string, enterprises: IEnterprise[]) => {
       const districts: string[] = [];
 
       enterprises.forEach((enterprise) => {

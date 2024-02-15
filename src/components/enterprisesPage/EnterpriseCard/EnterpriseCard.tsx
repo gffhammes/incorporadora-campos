@@ -1,12 +1,12 @@
 import { Box, Stack } from "@mui/material";
 import { EnterpriseCardData } from "./EnterpriseCardData";
-import { IStrapiEnterprise } from "../../../interfaces/strapi";
 import { EnterpriseCardCarousel } from "./EnterpriseCardCarousel";
 import { EnterpriseCardImageModel } from "./EnterpriseCardImageModel";
 import { useBreakpoint } from "../../../hooks/useBreakpoint";
+import { IEnterprise } from "../../../interfaces/strapiLocal";
 
 export interface IEnterpriseCardProps {
-  enterprise: IStrapiEnterprise["attributes"];
+  enterprise: IEnterprise["attributes"];
 }
 
 export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {

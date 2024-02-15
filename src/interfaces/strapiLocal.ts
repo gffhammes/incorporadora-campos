@@ -85,6 +85,15 @@ interface CarouselFirstSession {
   data: BannerImage[];
 }
 
+interface Mosaico {
+  id: number;
+  imagem1: { data: BannerImage | null };
+  imagem2: { data: BannerImage | null };
+  imagem3: { data: BannerImage | null };
+  imagem4: { data: BannerImage | null };
+  carrossel: { data: BannerImage[] | null };
+}
+
 export interface IEnterpriseAttributes {
   Nome: string;
   Slug: string;
@@ -115,7 +124,7 @@ export interface IEnterpriseAttributes {
   Plantas: any[];
   texoAzulPaginaInterna: TextBlueInnerPage;
   CarrosselPrimeiraSessao: CarouselFirstSession;
-  mosaico: null;
+  mosaico: null | Mosaico;
 }
 
 export interface IEnterprise {

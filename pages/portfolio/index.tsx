@@ -3,15 +3,13 @@ import { EnterprisesSection } from "../../src/components/enterprisesPage/Enterpr
 import { Footer } from "../../src/components/commons/Footer/Footer";
 import { useState } from "react";
 import { scrollToTarget } from "../../src/helpers/scrollToTarget";
-import fetch from "isomorphic-unfetch";
-import { IStrapiEnterprise } from "../../src/interfaces/strapi";
-import qs from "qs";
+import { enterprises } from "../../src/data/enterprises";
 
-interface IPortfolio {
-  enterprises: IStrapiEnterprise[];
-}
+enterprises.sort((enterpriseA, enterpriseB) => {
+  return enterpriseA.attributes.Ordem - enterpriseB.attributes.Ordem;
+});
 
-export default function Portfolio({ enterprises }: IPortfolio) {
+export default function Portfolio() {
   const [filteredEnterprises, setFilteredEnterprises] = useState(enterprises);
 
   const handleFilter = (values: {
@@ -47,46 +45,46 @@ export default function Portfolio({ enterprises }: IPortfolio) {
   );
 }
 
-export async function getServerSideProps() {
-  const { API_URL } = process.env;
+// export async function getServerSideProps() {
+//   const { API_URL } = process.env;
 
-  const query = qs.stringify(
-    {
-      populate: [
-        "Logo",
-        "Banner",
-        "Thumb",
-        "Galeria",
-        "Endereco",
-        "Seccoes",
-        "StatusDetalhado",
-        "diferenciais",
-        "diferenciais.Imagem",
-        "Plantas",
-        "Plantas.Foto",
-        "texoAzulPaginaInterna",
-        "CarrosselPrimeiraSessao",
-        "mosaico",
-        "mosaico.carrossel",
-        "mosaico.imagem1",
-        "mosaico.imagem2",
-        "mosaico.imagem3",
-        "mosaico.imagem4",
-      ],
-    },
-    {
-      encodeValuesOnly: true, // prettify URL
-    }
-  );
+//   const query = qs.stringify(
+//     {
+//       populate: [
+//         "Logo",
+//         "Banner",
+//         "Thumb",
+//         "Galeria",
+//         "Endereco",
+//         "Seccoes",
+//         "StatusDetalhado",
+//         "diferenciais",
+//         "diferenciais.Imagem",
+//         "Plantas",
+//         "Plantas.Foto",
+//         "texoAzulPaginaInterna",
+//         "CarrosselPrimeiraSessao",
+//         "mosaico",
+//         "mosaico.carrossel",
+//         "mosaico.imagem1",
+//         "mosaico.imagem2",
+//         "mosaico.imagem3",
+//         "mosaico.imagem4",
+//       ],
+//     },
+//     {
+//       encodeValuesOnly: true, // prettify URL
+//     }
+//   );
 
-  const res = await fetch(
-    `${API_URL}/api/empreendimentos?sort=Ordem&populate=*&${query}`
-  );
-  const data = await res.json();
+//   const res = await fetch(
+//     `${API_URL}/api/empreendimentos?sort=Ordem&populate=*&${query}`
+//   );
+//   const data = await res.json();
 
-  return {
-    props: {
-      enterprises: data.data,
-    },
-  };
-}
+//   return {
+//     props: {
+//       enterprises: data.data,
+//     },
+//   };
+// }

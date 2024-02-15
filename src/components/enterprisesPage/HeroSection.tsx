@@ -2,10 +2,10 @@ import { Box, Container, Stack } from "@mui/material";
 import React from "react";
 import { SectionTitle } from "../commons/SectionTitle";
 import Filters from "./Filters";
-import { IStrapiEnterprise } from "../../interfaces/strapi";
+import { IEnterprise } from "../../interfaces/strapiLocal";
 
 interface IProps {
-  enterprises: IStrapiEnterprise[];
+  enterprises: IEnterprise[];
   handleFilter({
     city,
     district,
