@@ -1,10 +1,10 @@
 import { Box } from "@mui/material";
 import { Carousel } from "../../commons/Carousel/Carousel";
-import { IStrapiEnterprise } from "../../../interfaces/strapi";
 import { LoadingImage } from "../../commons/Image/LoadingImage";
+import { IEnterprise } from "../../../interfaces/strapiLocal";
 
 export interface IEnterpriseCardCarouselProps {
-  photos: IStrapiEnterprise["attributes"]["Galeria"]["data"];
+  photos?: IEnterprise["attributes"]["Galeria"]["data"];
   gridArea: string;
 }
 

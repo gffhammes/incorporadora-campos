@@ -1,3 +1,5 @@
+import { TEnterpriseStatus } from "./strapi";
+
 interface BannerImage {
   id: number;
   attributes: {
@@ -102,7 +104,7 @@ export interface IEnterpriseAttributes {
   QteBlocos: number;
   QteAndares: number;
   QteApartamentos: number;
-  Status: string;
+  Status: TEnterpriseStatus;
   TextoPlanta: string | null;
   TituloPagina: string;
   TextoPagina: string;
