@@ -45,6 +45,7 @@ export const HeroSection = ({ enterpriseData }: IHeroSectionProps) => {
     width: "100%",
     backgroundImage: `url(${enterpriseData.Banner.data?.attributes.url})`,
     backgroundSize: "cover",
+    backgroundPosition: "center center",
   };
 
   const getLogo = useCallback(() => {
