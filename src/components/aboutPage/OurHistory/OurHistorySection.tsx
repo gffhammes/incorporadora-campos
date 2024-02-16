@@ -2,10 +2,9 @@ import { Box, Container } from "@mui/material";
 import React from "react";
 import { SectionTitle } from "../../commons/SectionTitle";
 import OurHistorySlider from "./OurHistorySlider";
-import { IOurHistorySlide } from "../../../interfaces/strapi";
 
 interface IOurHistorySectionProps {
-  slides: IOurHistorySlide[];
+  slides: any[];
 }
 
 const OurHistorySection = ({ slides }: IOurHistorySectionProps) => {

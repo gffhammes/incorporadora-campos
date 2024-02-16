@@ -3,12 +3,10 @@ import React from "react";
 import { IOurHistoryText } from "../../../interfaces/strapi";
 
 export interface IDescriptionSectionProps {
-  ourHistoryText: IOurHistoryText;
+  ourHistoryText: IOurHistoryText | null;
 }
 
 const DescriptionSection = ({ ourHistoryText }: IDescriptionSectionProps) => {
-  const { titulo, texto1, texto2 } = ourHistoryText;
-
   return (
     <Box id="description">
       <Container
@@ -29,13 +27,17 @@ const DescriptionSection = ({ ourHistoryText }: IDescriptionSectionProps) => {
               sx={{ fontVariantLigatures: "none" }}
               color="secondary"
             >
-              {titulo}
+              {ourHistoryText?.titulo}
             </Typography>
 
-            <Typography whiteSpace="pre-wrap">{texto1}</Typography>
+            <Typography whiteSpace="pre-wrap">
+              {ourHistoryText?.texto1}
+            </Typography>
           </Stack>
 
-          <Typography whiteSpace="pre-wrap">{texto2}</Typography>
+          <Typography whiteSpace="pre-wrap">
+            {ourHistoryText?.texto2}
+          </Typography>
         </Box>
       </Container>
     </Box>

@@ -1,26 +1,18 @@
-import DescriptionSection from "../src/components/aboutPage/DescriptionSection/DescriptionSection";
 import FutureProjectsSection from "../src/components/aboutPage/FutureProjectsSection";
 import HeroSection from "../src/components/aboutPage/HeroSection";
-import OurHistorySection from "../src/components/aboutPage/OurHistory/OurHistorySection";
 import { Footer } from "../src/components/commons/Footer/Footer";
-import * as qs from "qs";
 import { Box } from "@mui/material";
 import PurposeSection from "../src/components/aboutPage/PurposeSection";
 import PartnersSection from "../src/components/aboutPage/PartnersSection/PartnersSection";
-import { IOurHistorySlide, IOurHistoryText } from "../src/interfaces/strapi";
+import OurHistorySection from "../src/components/aboutPage/OurHistory/OurHistorySection";
 
-interface IAbout {
-  ourHistorySlides: IOurHistorySlide[];
-  ourHistoryText: IOurHistoryText;
-}
-
-export default function About({ ourHistorySlides, ourHistoryText }: IAbout) {
+export default function About() {
   return (
     <Box component={"main"} sx={{ height: { xs: "50vw", md: "100%" } }}>
       <HeroSection />
-      <DescriptionSection ourHistoryText={ourHistoryText} />
+      {/* <DescriptionSection ourHistoryText={data.ourHistoryText} /> */}
       <PartnersSection />
-      <OurHistorySection slides={ourHistorySlides} />
+      <OurHistorySection slides={data.ourHistorySlides} />
       <FutureProjectsSection />
       <PurposeSection />
       {/* <InvestorSection /> */}
@@ -29,25 +21,998 @@ export default function About({ ourHistorySlides, ourHistoryText }: IAbout) {
   );
 }
 
-export async function getServerSideProps() {
-  const { API_URL } = process.env;
-
-  const query = qs.stringify(
+const data = {
+  ourHistorySlides: [
     {
-      populate: ["nossaHistoria", "nossaHistoria.foto", "tituloETexto"],
+      id: 1,
+      ano: "2010",
+      texto:
+        "Nasce a Campos Incorporadora Ltda.  Inspirada no sonho dos seus fundadores e do desejo de criar conexão entre amigos motivados pelo desejo de crescer, buscar algo novo e empreender.",
+      foto: {
+        data: {
+          id: 246,
+          attributes: {
+            name: "SOCIOS.png",
+            alternativeText: "SOCIOS.png",
+            caption: "SOCIOS.png",
+            width: 1200,
+            height: 795,
+            formats: {
+              large: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595845/large_SOCIOS_326c01c3aa.png",
+                hash: "large_SOCIOS_326c01c3aa",
+                mime: "image/png",
+                name: "large_SOCIOS.png",
+                path: null,
+                size: 1346.37,
+                width: 1000,
+                height: 663,
+                provider_metadata: {
+                  public_id: "large_SOCIOS_326c01c3aa",
+                  resource_type: "image",
+                },
+              },
+              small: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595846/small_SOCIOS_326c01c3aa.png",
+                hash: "small_SOCIOS_326c01c3aa",
+                mime: "image/png",
+                name: "small_SOCIOS.png",
+                path: null,
+                size: 365.26,
+                width: 500,
+                height: 331,
+                provider_metadata: {
+                  public_id: "small_SOCIOS_326c01c3aa",
+                  resource_type: "image",
+                },
+              },
+              medium: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595846/medium_SOCIOS_326c01c3aa.png",
+                hash: "medium_SOCIOS_326c01c3aa",
+                mime: "image/png",
+                name: "medium_SOCIOS.png",
+                path: null,
+                size: 791.98,
+                width: 750,
+                height: 497,
+                provider_metadata: {
+                  public_id: "medium_SOCIOS_326c01c3aa",
+                  resource_type: "image",
+                },
+              },
+              thumbnail: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595845/thumbnail_SOCIOS_326c01c3aa.png",
+                hash: "thumbnail_SOCIOS_326c01c3aa",
+                mime: "image/png",
+                name: "thumbnail_SOCIOS.png",
+                path: null,
+                size: 92.13,
+                width: 235,
+                height: 156,
+                provider_metadata: {
+                  public_id: "thumbnail_SOCIOS_326c01c3aa",
+                  resource_type: "image",
+                },
+              },
+            },
+            hash: "SOCIOS_326c01c3aa",
+            ext: ".png",
+            mime: "image/png",
+            size: 442.75,
+            url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595844/SOCIOS_326c01c3aa.png",
+            previewUrl: null,
+            provider: "cloudinary",
+            provider_metadata: {
+              public_id: "SOCIOS_326c01c3aa",
+              resource_type: "image",
+            },
+            createdAt: "2022-10-12T17:30:47.249Z",
+            updatedAt: "2022-10-12T17:30:47.249Z",
+          },
+        },
+      },
     },
     {
-      encodeValuesOnly: true,
-    }
-  );
-
-  const response = await fetch(`${API_URL}/api/sobre-nos?${query}`);
-  const data = await response.json();
-
-  return {
-    props: {
-      ourHistorySlides: data.data.attributes.nossaHistoria,
-      ourHistoryText: data.data.attributes.tituloETexto,
+      id: 2,
+      ano: "2014",
+      texto:
+        "Inspirado na Piazza San Marco de Venezia, Itália, criamos o projeto do nosso primeiro empreendimento, uma obra diferenciada na época para a região do Bairro Costa e Silva, com modernidade na arquitetura, tons e acabamentos.",
+      foto: {
+        data: {
+          id: 247,
+          attributes: {
+            name: "SAN-MARCO.png",
+            alternativeText: "SAN-MARCO.png",
+            caption: "SAN-MARCO.png",
+            width: 1200,
+            height: 795,
+            formats: {
+              large: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595864/large_SAN_MARCO_6e00dc7cf8.png",
+                hash: "large_SAN_MARCO_6e00dc7cf8",
+                mime: "image/png",
+                name: "large_SAN-MARCO.png",
+                path: null,
+                size: 1257.44,
+                width: 1000,
+                height: 663,
+                provider_metadata: {
+                  public_id: "large_SAN_MARCO_6e00dc7cf8",
+                  resource_type: "image",
+                },
+              },
+              small: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595865/small_SAN_MARCO_6e00dc7cf8.png",
+                hash: "small_SAN_MARCO_6e00dc7cf8",
+                mime: "image/png",
+                name: "small_SAN-MARCO.png",
+                path: null,
+                size: 358.01,
+                width: 500,
+                height: 331,
+                provider_metadata: {
+                  public_id: "small_SAN_MARCO_6e00dc7cf8",
+                  resource_type: "image",
+                },
+              },
+              medium: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595865/medium_SAN_MARCO_6e00dc7cf8.png",
+                hash: "medium_SAN_MARCO_6e00dc7cf8",
+                mime: "image/png",
+                name: "medium_SAN-MARCO.png",
+                path: null,
+                size: 747.1,
+                width: 750,
+                height: 497,
+                provider_metadata: {
+                  public_id: "medium_SAN_MARCO_6e00dc7cf8",
+                  resource_type: "image",
+                },
+              },
+              thumbnail: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595863/thumbnail_SAN_MARCO_6e00dc7cf8.png",
+                hash: "thumbnail_SAN_MARCO_6e00dc7cf8",
+                mime: "image/png",
+                name: "thumbnail_SAN-MARCO.png",
+                path: null,
+                size: 96.01,
+                width: 235,
+                height: 156,
+                provider_metadata: {
+                  public_id: "thumbnail_SAN_MARCO_6e00dc7cf8",
+                  resource_type: "image",
+                },
+              },
+            },
+            hash: "SAN_MARCO_6e00dc7cf8",
+            ext: ".png",
+            mime: "image/png",
+            size: 342.37,
+            url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595863/SAN_MARCO_6e00dc7cf8.png",
+            previewUrl: null,
+            provider: "cloudinary",
+            provider_metadata: {
+              public_id: "SAN_MARCO_6e00dc7cf8",
+              resource_type: "image",
+            },
+            createdAt: "2022-10-12T17:31:06.238Z",
+            updatedAt: "2022-10-12T17:31:06.238Z",
+          },
+        },
+      },
     },
-  };
-}
+    {
+      id: 3,
+      ano: "2016",
+      texto:
+        "Firmados na influência de Praças Italianas, nasceu o Piazza San Carlo. Nome que é dado a uma das mais belas praças da cidade de Turim na Itália. Simbologia forte, imponência e beleza. Cosi è la Piazza San Carlo dai......",
+      foto: {
+        data: {
+          id: 248,
+          attributes: {
+            name: "SAN-CARLOS.png",
+            alternativeText: "SAN-CARLOS.png",
+            caption: "SAN-CARLOS.png",
+            width: 1200,
+            height: 795,
+            formats: {
+              large: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595888/large_SAN_CARLOS_6012ee437b.png",
+                hash: "large_SAN_CARLOS_6012ee437b",
+                mime: "image/png",
+                name: "large_SAN-CARLOS.png",
+                path: null,
+                size: 1220.22,
+                width: 1000,
+                height: 663,
+                provider_metadata: {
+                  public_id: "large_SAN_CARLOS_6012ee437b",
+                  resource_type: "image",
+                },
+              },
+              small: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595889/small_SAN_CARLOS_6012ee437b.png",
+                hash: "small_SAN_CARLOS_6012ee437b",
+                mime: "image/png",
+                name: "small_SAN-CARLOS.png",
+                path: null,
+                size: 342.01,
+                width: 500,
+                height: 331,
+                provider_metadata: {
+                  public_id: "small_SAN_CARLOS_6012ee437b",
+                  resource_type: "image",
+                },
+              },
+              medium: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595888/medium_SAN_CARLOS_6012ee437b.png",
+                hash: "medium_SAN_CARLOS_6012ee437b",
+                mime: "image/png",
+                name: "medium_SAN-CARLOS.png",
+                path: null,
+                size: 723.9,
+                width: 750,
+                height: 497,
+                provider_metadata: {
+                  public_id: "medium_SAN_CARLOS_6012ee437b",
+                  resource_type: "image",
+                },
+              },
+              thumbnail: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595887/thumbnail_SAN_CARLOS_6012ee437b.png",
+                hash: "thumbnail_SAN_CARLOS_6012ee437b",
+                mime: "image/png",
+                name: "thumbnail_SAN-CARLOS.png",
+                path: null,
+                size: 91.35,
+                width: 235,
+                height: 156,
+                provider_metadata: {
+                  public_id: "thumbnail_SAN_CARLOS_6012ee437b",
+                  resource_type: "image",
+                },
+              },
+            },
+            hash: "SAN_CARLOS_6012ee437b",
+            ext: ".png",
+            mime: "image/png",
+            size: 349.39,
+            url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595887/SAN_CARLOS_6012ee437b.png",
+            previewUrl: null,
+            provider: "cloudinary",
+            provider_metadata: {
+              public_id: "SAN_CARLOS_6012ee437b",
+              resource_type: "image",
+            },
+            createdAt: "2022-10-12T17:31:29.850Z",
+            updatedAt: "2022-10-12T17:31:29.850Z",
+          },
+        },
+      },
+    },
+    {
+      id: 4,
+      ano: "2018",
+      texto:
+        "O fascínio por praças Italianas nos leva a bela e incomparável cidade de Firenze. Nesta buscamos a Piazza Della Libertá. ",
+      foto: {
+        data: {
+          id: 162,
+          attributes: {
+            name: "LIBERTA-card-home.png",
+            alternativeText: "LIBERTA-card-home.png",
+            caption: "LIBERTA-card-home.png",
+            width: 350,
+            height: 484,
+            formats: {
+              thumbnail: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1660669631/thumbnail_LIBERTA_card_home_2164c26982.png",
+                hash: "thumbnail_LIBERTA_card_home_2164c26982",
+                mime: "image/png",
+                name: "thumbnail_LIBERTA-card-home.png",
+                path: null,
+                size: 36.38,
+                width: 113,
+                height: 156,
+                provider_metadata: {
+                  public_id: "thumbnail_LIBERTA_card_home_2164c26982",
+                  resource_type: "image",
+                },
+              },
+            },
+            hash: "LIBERTA_card_home_2164c26982",
+            ext: ".png",
+            mime: "image/png",
+            size: 72.83,
+            url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1660669631/LIBERTA_card_home_2164c26982.png",
+            previewUrl: null,
+            provider: "cloudinary",
+            provider_metadata: {
+              public_id: "LIBERTA_card_home_2164c26982",
+              resource_type: "image",
+            },
+            createdAt: "2022-07-19T14:49:13.172Z",
+            updatedAt: "2022-08-16T17:07:11.820Z",
+          },
+        },
+      },
+    },
+    {
+      id: 5,
+      ano: "2020",
+      texto:
+        "O Piazza San Pietro, no coração do bairro América, vem para apresentar um novo padrão de conforto e requinte em Joinville.",
+      foto: {
+        data: {
+          id: 250,
+          attributes: {
+            name: "SAN-PIETRO.png",
+            alternativeText: "SAN-PIETRO.png",
+            caption: "SAN-PIETRO.png",
+            width: 1200,
+            height: 795,
+            formats: {
+              large: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595920/large_SAN_PIETRO_045ff89eb7.png",
+                hash: "large_SAN_PIETRO_045ff89eb7",
+                mime: "image/png",
+                name: "large_SAN-PIETRO.png",
+                path: null,
+                size: 1030.78,
+                width: 1000,
+                height: 663,
+                provider_metadata: {
+                  public_id: "large_SAN_PIETRO_045ff89eb7",
+                  resource_type: "image",
+                },
+              },
+              small: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595921/small_SAN_PIETRO_045ff89eb7.png",
+                hash: "small_SAN_PIETRO_045ff89eb7",
+                mime: "image/png",
+                name: "small_SAN-PIETRO.png",
+                path: null,
+                size: 288.74,
+                width: 500,
+                height: 331,
+                provider_metadata: {
+                  public_id: "small_SAN_PIETRO_045ff89eb7",
+                  resource_type: "image",
+                },
+              },
+              medium: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595920/medium_SAN_PIETRO_045ff89eb7.png",
+                hash: "medium_SAN_PIETRO_045ff89eb7",
+                mime: "image/png",
+                name: "medium_SAN-PIETRO.png",
+                path: null,
+                size: 613.66,
+                width: 750,
+                height: 497,
+                provider_metadata: {
+                  public_id: "medium_SAN_PIETRO_045ff89eb7",
+                  resource_type: "image",
+                },
+              },
+              thumbnail: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595919/thumbnail_SAN_PIETRO_045ff89eb7.png",
+                hash: "thumbnail_SAN_PIETRO_045ff89eb7",
+                mime: "image/png",
+                name: "thumbnail_SAN-PIETRO.png",
+                path: null,
+                size: 77.61,
+                width: 235,
+                height: 156,
+                provider_metadata: {
+                  public_id: "thumbnail_SAN_PIETRO_045ff89eb7",
+                  resource_type: "image",
+                },
+              },
+            },
+            hash: "SAN_PIETRO_045ff89eb7",
+            ext: ".png",
+            mime: "image/png",
+            size: 312.78,
+            url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595919/SAN_PIETRO_045ff89eb7.png",
+            previewUrl: null,
+            provider: "cloudinary",
+            provider_metadata: {
+              public_id: "SAN_PIETRO_045ff89eb7",
+              resource_type: "image",
+            },
+            createdAt: "2022-10-12T17:32:02.028Z",
+            updatedAt: "2022-10-12T17:32:02.028Z",
+          },
+        },
+      },
+    },
+    {
+      id: 6,
+      ano: "2022",
+      texto:
+        "O eterno camisa 10, o craque Zico, marca mais um gol de placa e assina o nosso Residencial Del Mare, em Balneário Piçarras.",
+      foto: {
+        data: {
+          id: 251,
+          attributes: {
+            name: "ZICO.png",
+            alternativeText: "ZICO.png",
+            caption: "ZICO.png",
+            width: 1200,
+            height: 795,
+            formats: {
+              large: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595935/large_ZICO_4e32c7e679.png",
+                hash: "large_ZICO_4e32c7e679",
+                mime: "image/png",
+                name: "large_ZICO.png",
+                path: null,
+                size: 1160.42,
+                width: 1000,
+                height: 663,
+                provider_metadata: {
+                  public_id: "large_ZICO_4e32c7e679",
+                  resource_type: "image",
+                },
+              },
+              small: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595936/small_ZICO_4e32c7e679.png",
+                hash: "small_ZICO_4e32c7e679",
+                mime: "image/png",
+                name: "small_ZICO.png",
+                path: null,
+                size: 316.27,
+                width: 500,
+                height: 331,
+                provider_metadata: {
+                  public_id: "small_ZICO_4e32c7e679",
+                  resource_type: "image",
+                },
+              },
+              medium: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595936/medium_ZICO_4e32c7e679.png",
+                hash: "medium_ZICO_4e32c7e679",
+                mime: "image/png",
+                name: "medium_ZICO.png",
+                path: null,
+                size: 675.55,
+                width: 750,
+                height: 497,
+                provider_metadata: {
+                  public_id: "medium_ZICO_4e32c7e679",
+                  resource_type: "image",
+                },
+              },
+              thumbnail: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595934/thumbnail_ZICO_4e32c7e679.png",
+                hash: "thumbnail_ZICO_4e32c7e679",
+                mime: "image/png",
+                name: "thumbnail_ZICO.png",
+                path: null,
+                size: 86.71,
+                width: 235,
+                height: 156,
+                provider_metadata: {
+                  public_id: "thumbnail_ZICO_4e32c7e679",
+                  resource_type: "image",
+                },
+              },
+            },
+            hash: "ZICO_4e32c7e679",
+            ext: ".png",
+            mime: "image/png",
+            size: 303.73,
+            url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595934/ZICO_4e32c7e679.png",
+            previewUrl: null,
+            provider: "cloudinary",
+            provider_metadata: {
+              public_id: "ZICO_4e32c7e679",
+              resource_type: "image",
+            },
+            createdAt: "2022-10-12T17:32:17.182Z",
+            updatedAt: "2022-10-12T17:32:17.182Z",
+          },
+        },
+      },
+    },
+    {
+      id: 8,
+      ano: "2022",
+      texto:
+        "Lançamento no nosso primeiro projeto de alto padrão no Litoral Norte de Santa Catarina - Balneário Piçarras.",
+      foto: {
+        data: {
+          id: 289,
+          attributes: {
+            name: "Del_Mare_Cam01-min.jpg",
+            alternativeText: "Del_Mare_Cam01-min.jpg",
+            caption: "Del_Mare_Cam01-min.jpg",
+            width: 4000,
+            height: 5000,
+            formats: {
+              large: {
+                ext: ".jpg",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1689696823/large_Del_Mare_Cam01_min_fc81deb43d.jpg",
+                hash: "large_Del_Mare_Cam01_min_fc81deb43d",
+                mime: "image/jpeg",
+                name: "large_Del_Mare_Cam01-min.jpg",
+                path: null,
+                size: 119.36,
+                width: 800,
+                height: 1000,
+                provider_metadata: {
+                  public_id: "large_Del_Mare_Cam01_min_fc81deb43d",
+                  resource_type: "image",
+                },
+              },
+              small: {
+                ext: ".jpg",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1689696824/small_Del_Mare_Cam01_min_fc81deb43d.jpg",
+                hash: "small_Del_Mare_Cam01_min_fc81deb43d",
+                mime: "image/jpeg",
+                name: "small_Del_Mare_Cam01-min.jpg",
+                path: null,
+                size: 34.92,
+                width: 400,
+                height: 500,
+                provider_metadata: {
+                  public_id: "small_Del_Mare_Cam01_min_fc81deb43d",
+                  resource_type: "image",
+                },
+              },
+              medium: {
+                ext: ".jpg",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1689696824/medium_Del_Mare_Cam01_min_fc81deb43d.jpg",
+                hash: "medium_Del_Mare_Cam01_min_fc81deb43d",
+                mime: "image/jpeg",
+                name: "medium_Del_Mare_Cam01-min.jpg",
+                path: null,
+                size: 73.06,
+                width: 600,
+                height: 750,
+                provider_metadata: {
+                  public_id: "medium_Del_Mare_Cam01_min_fc81deb43d",
+                  resource_type: "image",
+                },
+              },
+              thumbnail: {
+                ext: ".jpg",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1689696817/thumbnail_Del_Mare_Cam01_min_fc81deb43d.jpg",
+                hash: "thumbnail_Del_Mare_Cam01_min_fc81deb43d",
+                mime: "image/jpeg",
+                name: "thumbnail_Del_Mare_Cam01-min.jpg",
+                path: null,
+                size: 4.61,
+                width: 125,
+                height: 156,
+                provider_metadata: {
+                  public_id: "thumbnail_Del_Mare_Cam01_min_fc81deb43d",
+                  resource_type: "image",
+                },
+              },
+            },
+            hash: "Del_Mare_Cam01_min_fc81deb43d",
+            ext: ".jpg",
+            mime: "image/jpeg",
+            size: 1943.78,
+            url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1689696816/Del_Mare_Cam01_min_fc81deb43d.jpg",
+            previewUrl: null,
+            provider: "cloudinary",
+            provider_metadata: {
+              public_id: "Del_Mare_Cam01_min_fc81deb43d",
+              resource_type: "image",
+            },
+            createdAt: "2023-07-18T16:13:45.257Z",
+            updatedAt: "2023-07-18T16:13:45.257Z",
+          },
+        },
+      },
+    },
+    {
+      id: 7,
+      ano: "2023",
+      texto:
+        "Em uma parceria inédita no mundo, a Campos Incorporadora Ltda assina com a Escola de Teatro Bolshoi a construção de um edifício chamado Bolshoi Brasil, UNICO NO MUNDO.",
+      foto: {
+        data: {
+          id: 252,
+          attributes: {
+            name: "BOLSHOI.png",
+            alternativeText: "BOLSHOI.png",
+            caption: "BOLSHOI.png",
+            width: 1200,
+            height: 795,
+            formats: {
+              large: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595952/large_BOLSHOI_2ed37a9899.png",
+                hash: "large_BOLSHOI_2ed37a9899",
+                mime: "image/png",
+                name: "large_BOLSHOI.png",
+                path: null,
+                size: 1401.78,
+                width: 1000,
+                height: 663,
+                provider_metadata: {
+                  public_id: "large_BOLSHOI_2ed37a9899",
+                  resource_type: "image",
+                },
+              },
+              small: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595953/small_BOLSHOI_2ed37a9899.png",
+                hash: "small_BOLSHOI_2ed37a9899",
+                mime: "image/png",
+                name: "small_BOLSHOI.png",
+                path: null,
+                size: 407.39,
+                width: 500,
+                height: 331,
+                provider_metadata: {
+                  public_id: "small_BOLSHOI_2ed37a9899",
+                  resource_type: "image",
+                },
+              },
+              medium: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595953/medium_BOLSHOI_2ed37a9899.png",
+                hash: "medium_BOLSHOI_2ed37a9899",
+                mime: "image/png",
+                name: "medium_BOLSHOI.png",
+                path: null,
+                size: 840.03,
+                width: 750,
+                height: 497,
+                provider_metadata: {
+                  public_id: "medium_BOLSHOI_2ed37a9899",
+                  resource_type: "image",
+                },
+              },
+              thumbnail: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595952/thumbnail_BOLSHOI_2ed37a9899.png",
+                hash: "thumbnail_BOLSHOI_2ed37a9899",
+                mime: "image/png",
+                name: "thumbnail_BOLSHOI.png",
+                path: null,
+                size: 108.05,
+                width: 235,
+                height: 156,
+                provider_metadata: {
+                  public_id: "thumbnail_BOLSHOI_2ed37a9899",
+                  resource_type: "image",
+                },
+              },
+            },
+            hash: "BOLSHOI_2ed37a9899",
+            ext: ".png",
+            mime: "image/png",
+            size: 330.74,
+            url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595951/BOLSHOI_2ed37a9899.png",
+            previewUrl: null,
+            provider: "cloudinary",
+            provider_metadata: {
+              public_id: "BOLSHOI_2ed37a9899",
+              resource_type: "image",
+            },
+            createdAt: "2022-10-12T17:32:34.135Z",
+            updatedAt: "2022-10-12T17:32:34.135Z",
+          },
+        },
+      },
+    },
+    {
+      id: 9,
+      ano: "2024",
+      texto:
+        "Lançamento do 2° (segundo) projeto da Campos Incorporadora no Litoral Norte de Santa Catarina. Itajuba receberá o PLAZA BEACH RESIDENCE. Mais 1 (um) alto Padrão da Campos.",
+      foto: {
+        data: {
+          id: 323,
+          attributes: {
+            name: "empreendimento horizontal.jpg",
+            alternativeText: "empreendimento horizontal.jpg",
+            caption: "empreendimento horizontal.jpg",
+            width: 1200,
+            height: 795,
+            formats: {
+              large: {
+                ext: ".jpg",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1692907786/large_empreendimento_horizontal_299677fa07.jpg",
+                hash: "large_empreendimento_horizontal_299677fa07",
+                mime: "image/jpeg",
+                name: "large_empreendimento horizontal.jpg",
+                path: null,
+                size: 76.49,
+                width: 1000,
+                height: 663,
+                provider_metadata: {
+                  public_id: "large_empreendimento_horizontal_299677fa07",
+                  resource_type: "image",
+                },
+              },
+              small: {
+                ext: ".jpg",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1692907787/small_empreendimento_horizontal_299677fa07.jpg",
+                hash: "small_empreendimento_horizontal_299677fa07",
+                mime: "image/jpeg",
+                name: "small_empreendimento horizontal.jpg",
+                path: null,
+                size: 22.31,
+                width: 500,
+                height: 331,
+                provider_metadata: {
+                  public_id: "small_empreendimento_horizontal_299677fa07",
+                  resource_type: "image",
+                },
+              },
+              medium: {
+                ext: ".jpg",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1692907786/medium_empreendimento_horizontal_299677fa07.jpg",
+                hash: "medium_empreendimento_horizontal_299677fa07",
+                mime: "image/jpeg",
+                name: "medium_empreendimento horizontal.jpg",
+                path: null,
+                size: 43.81,
+                width: 750,
+                height: 497,
+                provider_metadata: {
+                  public_id: "medium_empreendimento_horizontal_299677fa07",
+                  resource_type: "image",
+                },
+              },
+              thumbnail: {
+                ext: ".jpg",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1692907785/thumbnail_empreendimento_horizontal_299677fa07.jpg",
+                hash: "thumbnail_empreendimento_horizontal_299677fa07",
+                mime: "image/jpeg",
+                name: "thumbnail_empreendimento horizontal.jpg",
+                path: null,
+                size: 6.94,
+                width: 236,
+                height: 156,
+                provider_metadata: {
+                  public_id: "thumbnail_empreendimento_horizontal_299677fa07",
+                  resource_type: "image",
+                },
+              },
+            },
+            hash: "empreendimento_horizontal_299677fa07",
+            ext: ".jpg",
+            mime: "image/jpeg",
+            size: 111.67,
+            url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1692907785/empreendimento_horizontal_299677fa07.jpg",
+            previewUrl: null,
+            provider: "cloudinary",
+            provider_metadata: {
+              public_id: "empreendimento_horizontal_299677fa07",
+              resource_type: "image",
+            },
+            createdAt: "2023-08-24T20:09:47.606Z",
+            updatedAt: "2023-08-24T20:09:47.606Z",
+          },
+        },
+      },
+    },
+    {
+      id: 10,
+      ano: "2025",
+      texto:
+        "Um novo projeto em Joinville no América, uma olha impar para a Rua Visconde de Mauá, plantas diferenciadas, alto padrão da Campos Incorporadora Ltda.",
+      foto: {
+        data: {
+          id: 320,
+          attributes: {
+            name: "IMG-4116.jpg",
+            alternativeText: "IMG-4116.jpg",
+            caption: "IMG-4116.jpg",
+            width: 4032,
+            height: 3024,
+            formats: {
+              large: {
+                ext: ".jpg",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1692902398/large_IMG_4116_b1ea3f1943.jpg",
+                hash: "large_IMG_4116_b1ea3f1943",
+                mime: "image/jpeg",
+                name: "large_IMG-4116.jpg",
+                path: null,
+                size: 178.94,
+                width: 1000,
+                height: 750,
+                provider_metadata: {
+                  public_id: "large_IMG_4116_b1ea3f1943",
+                  resource_type: "image",
+                },
+              },
+              small: {
+                ext: ".jpg",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1692902399/small_IMG_4116_b1ea3f1943.jpg",
+                hash: "small_IMG_4116_b1ea3f1943",
+                mime: "image/jpeg",
+                name: "small_IMG-4116.jpg",
+                path: null,
+                size: 51.12,
+                width: 500,
+                height: 375,
+                provider_metadata: {
+                  public_id: "small_IMG_4116_b1ea3f1943",
+                  resource_type: "image",
+                },
+              },
+              medium: {
+                ext: ".jpg",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1692902399/medium_IMG_4116_b1ea3f1943.jpg",
+                hash: "medium_IMG_4116_b1ea3f1943",
+                mime: "image/jpeg",
+                name: "medium_IMG-4116.jpg",
+                path: null,
+                size: 105.05,
+                width: 750,
+                height: 563,
+                provider_metadata: {
+                  public_id: "medium_IMG_4116_b1ea3f1943",
+                  resource_type: "image",
+                },
+              },
+              thumbnail: {
+                ext: ".jpg",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1692902398/thumbnail_IMG_4116_b1ea3f1943.jpg",
+                hash: "thumbnail_IMG_4116_b1ea3f1943",
+                mime: "image/jpeg",
+                name: "thumbnail_IMG-4116.jpg",
+                path: null,
+                size: 10.97,
+                width: 208,
+                height: 156,
+                provider_metadata: {
+                  public_id: "thumbnail_IMG_4116_b1ea3f1943",
+                  resource_type: "image",
+                },
+              },
+            },
+            hash: "IMG_4116_b1ea3f1943",
+            ext: ".jpg",
+            mime: "image/jpeg",
+            size: 1854.29,
+            url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1692902397/IMG_4116_b1ea3f1943.jpg",
+            previewUrl: null,
+            provider: "cloudinary",
+            provider_metadata: {
+              public_id: "IMG_4116_b1ea3f1943",
+              resource_type: "image",
+            },
+            createdAt: "2023-08-24T18:40:00.111Z",
+            updatedAt: "2023-08-24T18:40:00.111Z",
+          },
+        },
+      },
+    },
+    {
+      id: 11,
+      ano: "2026",
+      texto: "Vem novidades no Litoral .....",
+      foto: {
+        data: {
+          id: 220,
+          attributes: {
+            name: "u.png",
+            alternativeText: "u.png",
+            caption: "u.png",
+            width: 800,
+            height: 800,
+            formats: {
+              small: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1659486505/small_u_4f204760d4.png",
+                hash: "small_u_4f204760d4",
+                mime: "image/png",
+                name: "small_u.png",
+                path: null,
+                size: 635.74,
+                width: 500,
+                height: 500,
+                provider_metadata: {
+                  public_id: "small_u_4f204760d4",
+                  resource_type: "image",
+                },
+              },
+              medium: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1659486504/medium_u_4f204760d4.png",
+                hash: "medium_u_4f204760d4",
+                mime: "image/png",
+                name: "medium_u.png",
+                path: null,
+                size: 1423.56,
+                width: 750,
+                height: 750,
+                provider_metadata: {
+                  public_id: "medium_u_4f204760d4",
+                  resource_type: "image",
+                },
+              },
+              thumbnail: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1659486504/thumbnail_u_4f204760d4.png",
+                hash: "thumbnail_u_4f204760d4",
+                mime: "image/png",
+                name: "thumbnail_u.png",
+                path: null,
+                size: 65.32,
+                width: 156,
+                height: 156,
+                provider_metadata: {
+                  public_id: "thumbnail_u_4f204760d4",
+                  resource_type: "image",
+                },
+              },
+            },
+            hash: "u_4f204760d4",
+            ext: ".png",
+            mime: "image/png",
+            size: 383.41,
+            url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1659486503/u_4f204760d4.png",
+            previewUrl: null,
+            provider: "cloudinary",
+            provider_metadata: {
+              public_id: "u_4f204760d4",
+              resource_type: "image",
+            },
+            createdAt: "2022-08-03T00:28:25.979Z",
+            updatedAt: "2023-08-17T20:10:31.171Z",
+          },
+        },
+      },
+    },
+  ],
+  ourHistoryText: {
+    id: 2,
+    titulo: " ",
+    texto1: " ",
+    texto2: " ",
+  },
+};
+
+// export async function getServerSideProps() {
+//   const { API_URL } = process.env;
+
+//   const query = qs.stringify(
+//     {
+//       populate: ["nossaHistoria", "nossaHistoria.foto", "tituloETexto"],
+//     },
+//     {
+//       encodeValuesOnly: true,
+//     }
+//   );
+
+//   const response = await fetch(`${API_URL}/api/sobre-nos?${query}`);
+//   const data = await response.json();
+
+//   return {
+//     props: {
+//       ourHistorySlides: data.data.attributes.nossaHistoria,
+//       ourHistoryText: data.data.attributes.tituloETexto,
+//     },
+//   };
+// }
