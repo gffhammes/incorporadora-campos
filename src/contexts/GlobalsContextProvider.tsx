@@ -1,12 +1,5 @@
-import {
-  PropsWithChildren,
-  useState,
-  useEffect,
-  useCallback,
-  useRef,
-} from "react";
+import { PropsWithChildren } from "react";
 import { GlobalsContext } from "./GlobalsContext";
-import { IStrapiGlobals } from "../interfaces/strapi";
 
 export interface IData {
   phone: string;
@@ -17,40 +10,36 @@ export interface IData {
 export const GlobalsContextProvider = ({
   children,
 }: PropsWithChildren<any>) => {
-  const [data, setData] = useState<IStrapiGlobals | null>(null);
-  const running = useRef(false);
+  // const [data, setData] = useState<IStrapiGlobals | null>(null);
+  // const running = useRef(false);
 
-  const getData = useCallback(async () => {
-    const { API_URL } = process.env;
+  // const getData = useCallback(async () => {
+  //   const { API_URL } = process.env;
 
-    if (running.current || !!data) return;
-    running.current = true;
+  //   if (running.current || !!data) return;
+  //   running.current = true;
 
-    try {
-      const res = await fetch(`${API_URL}/api/global`);
+  //   try {
+  //     const res = await fetch(`${API_URL}/api/global`);
 
-      const data = await res.json();
+  //     const data = await res.json();
 
-      setData(data);
-    } catch (err) {
-      console.error(err);
-    } finally {
-      running.current = false;
-    }
-  }, [data]);
+  //     setData(data);
+  //   } catch (err) {
+  //     console.error(err);
+  //   } finally {
+  //     running.current = false;
+  //   }
+  // }, [data]);
 
-  useEffect(() => {
-    getData();
-  }, [getData]);
-
-  const phone = data?.data.attributes.Telefone ?? "";
-  const email = data?.data.attributes.Email ?? "";
-  const address = data?.data.attributes.Endereco ?? "";
+  // useEffect(() => {
+  //   getData();
+  // }, [getData]);
 
   const dataToUse = {
-    phone,
-    email,
-    address,
+    phone: "(47) 9  9934-0992",
+    email: "vendas@camposincorporadora.com.br",
+    address: "Rua João Pessoa, nº 860 - Bairro América",
   };
 
   const value = {
