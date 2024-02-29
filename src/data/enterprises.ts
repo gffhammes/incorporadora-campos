@@ -4,6 +4,49 @@ export const enterprises: IEnterprise[] = [
   {
     id: 7,
     attributes: {
+      FotoHome: {
+        data: {
+          id: 335,
+          attributes: {
+            name: "BannerInicial-Pequeno-Bolshoi.png",
+            alternativeText: "BannerInicial-Pequeno-Bolshoi.png",
+            caption: "BannerInicial-Pequeno-Bolshoi.png",
+            width: 350,
+            height: 484,
+            formats: {
+              thumbnail: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1699555141/thumbnail_Banner_Inicial_Pequeno_Bolshoi_88d638ef1d.png",
+                hash: "thumbnail_Banner_Inicial_Pequeno_Bolshoi_88d638ef1d",
+                mime: "image/png",
+                name: "thumbnail_BannerInicial-Pequeno-Bolshoi.png",
+                path: null,
+                size: 10.07,
+                width: 113,
+                height: 156,
+                provider_metadata: {
+                  public_id:
+                    "thumbnail_Banner_Inicial_Pequeno_Bolshoi_88d638ef1d",
+                  resource_type: "image",
+                },
+              },
+            },
+            hash: "Banner_Inicial_Pequeno_Bolshoi_88d638ef1d",
+            ext: ".png",
+            mime: "image/png",
+            size: 11.31,
+            url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1699555140/Banner_Inicial_Pequeno_Bolshoi_88d638ef1d.png",
+            previewUrl: null,
+            provider: "cloudinary",
+            provider_metadata: {
+              public_id: "Banner_Inicial_Pequeno_Bolshoi_88d638ef1d",
+              resource_type: "image",
+            },
+            createdAt: "2023-11-09T18:39:01.469Z",
+            updatedAt: "2023-11-09T18:39:01.469Z",
+          },
+        },
+      },
       Nome: "Bolshoi Brasil",
       Slug: "bolshoi-brasil",
       Area: "De 155 a 205m² privativos",
@@ -1269,6 +1312,49 @@ export const enterprises: IEnterprise[] = [
   {
     id: 8,
     attributes: {
+      FotoHome: {
+        data: {
+          id: 338,
+          attributes: {
+            name: "BannerInicial-Pequeno_piazzadispagna.png",
+            alternativeText: "BannerInicial-Pequeno_piazzadispagna.png",
+            caption: "BannerInicial-Pequeno_piazzadispagna.png",
+            width: 350,
+            height: 484,
+            formats: {
+              thumbnail: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1699555385/thumbnail_Banner_Inicial_Pequeno_piazzadispagna_6c20e22b86.png",
+                hash: "thumbnail_Banner_Inicial_Pequeno_piazzadispagna_6c20e22b86",
+                mime: "image/png",
+                name: "thumbnail_BannerInicial-Pequeno_piazzadispagna.png",
+                path: null,
+                size: 22.91,
+                width: 113,
+                height: 156,
+                provider_metadata: {
+                  public_id:
+                    "thumbnail_Banner_Inicial_Pequeno_piazzadispagna_6c20e22b86",
+                  resource_type: "image",
+                },
+              },
+            },
+            hash: "Banner_Inicial_Pequeno_piazzadispagna_6c20e22b86",
+            ext: ".png",
+            mime: "image/png",
+            size: 39.46,
+            url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1699555385/Banner_Inicial_Pequeno_piazzadispagna_6c20e22b86.png",
+            previewUrl: null,
+            provider: "cloudinary",
+            provider_metadata: {
+              public_id: "Banner_Inicial_Pequeno_piazzadispagna_6c20e22b86",
+              resource_type: "image",
+            },
+            createdAt: "2023-11-09T18:43:06.715Z",
+            updatedAt: "2023-11-09T18:43:06.715Z",
+          },
+        },
+      },
       Nome: "Piazza Di Spagna",
       Slug: "piazza-di-spagna",
       Area: "Área privativa de 125 a 165m²",
@@ -1995,6 +2081,48 @@ export const enterprises: IEnterprise[] = [
   {
     id: 3,
     attributes: {
+      FotoHome: {
+        data: {
+          id: 162,
+          attributes: {
+            name: "LIBERTA-card-home.png",
+            alternativeText: "LIBERTA-card-home.png",
+            caption: "LIBERTA-card-home.png",
+            width: 350,
+            height: 484,
+            formats: {
+              thumbnail: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1660669631/thumbnail_LIBERTA_card_home_2164c26982.png",
+                hash: "thumbnail_LIBERTA_card_home_2164c26982",
+                mime: "image/png",
+                name: "thumbnail_LIBERTA-card-home.png",
+                path: null,
+                size: 36.38,
+                width: 113,
+                height: 156,
+                provider_metadata: {
+                  public_id: "thumbnail_LIBERTA_card_home_2164c26982",
+                  resource_type: "image",
+                },
+              },
+            },
+            hash: "LIBERTA_card_home_2164c26982",
+            ext: ".png",
+            mime: "image/png",
+            size: 72.83,
+            url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1660669631/LIBERTA_card_home_2164c26982.png",
+            previewUrl: null,
+            provider: "cloudinary",
+            provider_metadata: {
+              public_id: "LIBERTA_card_home_2164c26982",
+              resource_type: "image",
+            },
+            createdAt: "2022-07-19T14:49:13.172Z",
+            updatedAt: "2022-08-16T17:07:11.820Z",
+          },
+        },
+      },
       Nome: "Piazza Della Libertá",
       Slug: "piazza-della-liberta",
       Area: "Área privativa de 94 a 97m²",
@@ -4033,6 +4161,48 @@ export const enterprises: IEnterprise[] = [
   {
     id: 5,
     attributes: {
+      FotoHome: {
+        data: {
+          id: 212,
+          attributes: {
+            name: "SAN-MARCO-card-home.png",
+            alternativeText: "SAN-MARCO-card-home.png",
+            caption: "SAN-MARCO-card-home.png",
+            width: 350,
+            height: 484,
+            formats: {
+              thumbnail: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1662968791/thumbnail_SAN_MARCO_card_home_0de9b3a7d8.png",
+                hash: "thumbnail_SAN_MARCO_card_home_0de9b3a7d8",
+                mime: "image/png",
+                name: "thumbnail_SAN-MARCO-card-home.png",
+                path: null,
+                size: 46.91,
+                width: 113,
+                height: 156,
+                provider_metadata: {
+                  public_id: "thumbnail_SAN_MARCO_card_home_0de9b3a7d8",
+                  resource_type: "image",
+                },
+              },
+            },
+            hash: "SAN_MARCO_card_home_0de9b3a7d8",
+            ext: ".png",
+            mime: "image/png",
+            size: 90.4,
+            url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1662968791/SAN_MARCO_card_home_0de9b3a7d8.png",
+            previewUrl: null,
+            provider: "cloudinary",
+            provider_metadata: {
+              public_id: "SAN_MARCO_card_home_0de9b3a7d8",
+              resource_type: "image",
+            },
+            createdAt: "2022-07-19T16:31:31.865Z",
+            updatedAt: "2022-09-12T07:46:31.907Z",
+          },
+        },
+      },
       Nome: "Piazza San Marco",
       Slug: "piazza-san-marco",
       Area: "Área privativa de 38 a 117m²",
@@ -4940,6 +5110,48 @@ export const enterprises: IEnterprise[] = [
   {
     id: 4,
     attributes: {
+      FotoHome: {
+        data: {
+          id: 205,
+          attributes: {
+            name: "piazzasancarlo-card-home.png",
+            alternativeText: "piazzasancarlo-card-home.png",
+            caption: "piazzasancarlo-card-home.png",
+            width: 350,
+            height: 484,
+            formats: {
+              thumbnail: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1662968839/thumbnail_piazzasancarlo_card_home_78e37b2089.png",
+                hash: "thumbnail_piazzasancarlo_card_home_78e37b2089",
+                mime: "image/png",
+                name: "thumbnail_piazzasancarlo-card-home.png",
+                path: null,
+                size: 45.56,
+                width: 113,
+                height: 156,
+                provider_metadata: {
+                  public_id: "thumbnail_piazzasancarlo_card_home_78e37b2089",
+                  resource_type: "image",
+                },
+              },
+            },
+            hash: "piazzasancarlo_card_home_78e37b2089",
+            ext: ".png",
+            mime: "image/png",
+            size: 85.43,
+            url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1662968839/piazzasancarlo_card_home_78e37b2089.png",
+            previewUrl: null,
+            provider: "cloudinary",
+            provider_metadata: {
+              public_id: "piazzasancarlo_card_home_78e37b2089",
+              resource_type: "image",
+            },
+            createdAt: "2022-07-19T15:04:04.417Z",
+            updatedAt: "2022-09-12T07:47:20.000Z",
+          },
+        },
+      },
       Nome: "Piazza San Carlo",
       Slug: "piazza-san-carlo",
       Area: "Área privativa de 39 a 143m²",
@@ -6012,6 +6224,48 @@ export const enterprises: IEnterprise[] = [
   {
     id: 1,
     attributes: {
+      FotoHome: {
+        data: {
+          id: 79,
+          attributes: {
+            name: "SAN-PIETRO-card-home.png",
+            alternativeText: "SAN-PIETRO-card-home.png",
+            caption: "SAN-PIETRO-card-home.png",
+            width: 350,
+            height: 484,
+            formats: {
+              thumbnail: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1662968712/thumbnail_SAN_PIETRO_card_home_6553b62488.png",
+                hash: "thumbnail_SAN_PIETRO_card_home_6553b62488",
+                mime: "image/png",
+                name: "thumbnail_SAN-PIETRO-card-home.png",
+                path: null,
+                size: 46.99,
+                width: 113,
+                height: 156,
+                provider_metadata: {
+                  public_id: "thumbnail_SAN_PIETRO_card_home_6553b62488",
+                  resource_type: "image",
+                },
+              },
+            },
+            hash: "SAN_PIETRO_card_home_6553b62488",
+            ext: ".png",
+            mime: "image/png",
+            size: 84.5,
+            url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1662968711/SAN_PIETRO_card_home_6553b62488.png",
+            previewUrl: null,
+            provider: "cloudinary",
+            provider_metadata: {
+              public_id: "SAN_PIETRO_card_home_6553b62488",
+              resource_type: "image",
+            },
+            createdAt: "2022-07-18T17:18:08.096Z",
+            updatedAt: "2022-09-12T07:45:12.643Z",
+          },
+        },
+      },
       Nome: "Piazza San Pietro",
       Slug: "piazza-san-pietro",
       Area: "Área privativa de 108 a 126m²",
@@ -9523,6 +9777,48 @@ export const enterprises: IEnterprise[] = [
   {
     id: 2,
     attributes: {
+      FotoHome: {
+        data: {
+          id: 130,
+          attributes: {
+            name: "del-mare-card-home.png",
+            alternativeText: "del-mare-card-home.png",
+            caption: "del-mare-card-home.png",
+            width: 350,
+            height: 484,
+            formats: {
+              thumbnail: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1678999370/thumbnail_del_mare_card_home_b496ad71f8.png",
+                hash: "thumbnail_del_mare_card_home_b496ad71f8",
+                mime: "image/png",
+                name: "thumbnail_del-mare-card-home.png",
+                path: null,
+                size: 41.26,
+                width: 113,
+                height: 156,
+                provider_metadata: {
+                  public_id: "thumbnail_del_mare_card_home_b496ad71f8",
+                  resource_type: "image",
+                },
+              },
+            },
+            hash: "del_mare_card_home_b496ad71f8",
+            ext: ".png",
+            mime: "image/png",
+            size: 72.39,
+            url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1678999370/del_mare_card_home_b496ad71f8.png",
+            previewUrl: null,
+            provider: "cloudinary",
+            provider_metadata: {
+              public_id: "del_mare_card_home_b496ad71f8",
+              resource_type: "image",
+            },
+            createdAt: "2022-07-19T14:24:00.346Z",
+            updatedAt: "2023-03-16T20:42:50.883Z",
+          },
+        },
+      },
       Nome: "Piazza Del Mare",
       Slug: "piazza-del-mare",
       Area: "Área privativa de 99,90 a 123,96m²",
@@ -14002,6 +14298,49 @@ export const enterprises: IEnterprise[] = [
   {
     id: 6,
     attributes: {
+      FotoHome: {
+        data: {
+          id: 337,
+          attributes: {
+            name: "BannerInicial-Pequeno-Plaza.png",
+            alternativeText: "BannerInicial-Pequeno-Plaza.png",
+            caption: "BannerInicial-Pequeno-Plaza.png",
+            width: 350,
+            height: 484,
+            formats: {
+              thumbnail: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1699555320/thumbnail_Banner_Inicial_Pequeno_Plaza_3c3130b2eb.png",
+                hash: "thumbnail_Banner_Inicial_Pequeno_Plaza_3c3130b2eb",
+                mime: "image/png",
+                name: "thumbnail_BannerInicial-Pequeno-Plaza.png",
+                path: null,
+                size: 16.73,
+                width: 113,
+                height: 156,
+                provider_metadata: {
+                  public_id:
+                    "thumbnail_Banner_Inicial_Pequeno_Plaza_3c3130b2eb",
+                  resource_type: "image",
+                },
+              },
+            },
+            hash: "Banner_Inicial_Pequeno_Plaza_3c3130b2eb",
+            ext: ".png",
+            mime: "image/png",
+            size: 23.75,
+            url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1699555319/Banner_Inicial_Pequeno_Plaza_3c3130b2eb.png",
+            previewUrl: null,
+            provider: "cloudinary",
+            provider_metadata: {
+              public_id: "Banner_Inicial_Pequeno_Plaza_3c3130b2eb",
+              resource_type: "image",
+            },
+            createdAt: "2023-11-09T18:42:00.550Z",
+            updatedAt: "2023-11-09T18:42:00.550Z",
+          },
+        },
+      },
       Nome: "PLAZA BEACH RESIDENCE",
       Slug: "plaza-beach-residence-itajuba",
       Area: "Área privativa de 137 a 160m²",

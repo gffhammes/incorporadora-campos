@@ -6,7 +6,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { EnterpriseCard } from "./EnterpriseCard";
 import { getLocationString } from "../../../helpers/getLocationString";
 import Autoplay from "embla-carousel-autoplay";
-import { IStrapiEnterprise } from "../../../interfaces/strapi";
+import { IEnterprise } from "../../../interfaces/strapiLocal";
 
 const sxArrowWrapperCommon = {
   position: "absolute",
@@ -26,7 +26,7 @@ const sxLeftArrowWrapper = {
 };
 
 interface IEnterprisesSliderProps {
-  enterprises: IStrapiEnterprise[] | null;
+  enterprises: IEnterprise[] | null;
   loading: boolean;
 }
 

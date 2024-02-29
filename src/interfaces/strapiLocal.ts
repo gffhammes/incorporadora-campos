@@ -127,6 +127,7 @@ export interface IEnterpriseAttributes {
   texoAzulPaginaInterna: TextBlueInnerPage;
   CarrosselPrimeiraSessao: CarouselFirstSession;
   mosaico: null | Mosaico;
+  FotoHome: { data: BannerImage };
 }
 
 export interface IEnterprise {
