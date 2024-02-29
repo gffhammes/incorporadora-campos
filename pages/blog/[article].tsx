@@ -9,13 +9,22 @@ import { Text } from "../../src/components/blog/Article/Text";
 import { HeroSection } from "../../src/components/blog/HeroSection";
 import { Footer } from "../../src/components/commons/Footer/Footer";
 import { updateArticleViews } from "../../src/helpers/updateArticleViews";
+import { articles } from "../../src/data/blog";
+import { useRouter } from "next/router";
 
-const Article = ({ article }) => {
-  useEffect(() => {
-    if (process.env.NODE_ENV !== "production") return;
-    updateArticleViews(article);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+const Article = () => {
+  const router = useRouter();
+  // useEffect(() => {
+  //   if (process.env.NODE_ENV !== "production") return;
+  //   updateArticleViews(article);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
+
+  const article = articles.find(
+    (article) => article.attributes.slug === router.query.article
+  );
+
+  if (!article) return null;
 
   return (
     <>
@@ -47,32 +56,32 @@ const Article = ({ article }) => {
   );
 };
 
-export const getServerSideProps = async (context) => {
-  const { article } = context.query;
-  const { API_URL } = process.env;
+// export const getServerSideProps = async (context) => {
+//   const { article } = context.query;
+//   const { API_URL } = process.env;
 
-  const articlesQuery = qs.stringify(
-    {
-      filters: {
-        slug: {
-          $eq: article,
-        },
-      },
-      populate: ["capa", "relacionados", "relacionados.capa"],
-    },
-    {
-      encodeValuesOnly: true,
-    }
-  );
+//   const articlesQuery = qs.stringify(
+//     {
+//       // filters: {
+//       //   slug: {
+//       //     $eq: article,
+//       //   },
+//       // },
+//       populate: ["capa", "relacionados", "relacionados.capa"],
+//     },
+//     {
+//       encodeValuesOnly: true,
+//     }
+//   );
 
-  const res = await fetch(`${API_URL}/api/blog-posts?${articlesQuery}`);
-  const data = await res.json();
+//   const res = await fetch(`${API_URL}/api/blog-posts?${articlesQuery}`);
+//   const data = await res.json();
 
-  return {
-    props: {
-      article: data.data[0],
-    },
-  };
-};
+//   return {
+//     props: {
+//       article: data,
+//     },
+//   };
+// };
 
 export default Article;
