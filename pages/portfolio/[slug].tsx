@@ -10,7 +10,6 @@ import { ConstructionStatusSection } from "../../src/components/enterprisesInter
 import { MapsSection } from "../../src/components/enterprisesInternalPage/MapsSection";
 import { SimulatorsSection } from "../../src/components/enterprisesInternalPage/SimulatorsSection";
 import { HeroSection } from "../../src/components/enterprisesInternalPage/HeroSection";
-import CustomMedia from "../../src/components/enterprisesInternalPage/delMare/CustomMedia";
 import Head from "next/head";
 import { enterprises } from "../../src/data/enterprises";
 import { useRouter } from "next/router";
@@ -38,8 +37,6 @@ const Enterprise = () => {
         {Seccoes.Menu && <ScrollMenu enterpriseData={enterprise.attributes} />}
 
         <SummarySection enterpriseData={enterprise.attributes} />
-
-        {enterprise.attributes.Slug === "piazza-del-mare" && <CustomMedia />}
 
         {Seccoes.Detalhes && (
           <DetailsSection enterpriseData={enterprise.attributes} />
