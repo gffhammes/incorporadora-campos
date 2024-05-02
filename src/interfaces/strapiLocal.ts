@@ -1,6 +1,6 @@
 import { TEnterpriseStatus } from "./strapi";
 
-interface BannerImage {
+export interface BannerImage {
   id: number;
   attributes: {
     name: string;
@@ -29,6 +29,8 @@ interface BannerImage {
     updatedAt: string;
   };
 }
+
+export type TNewBannerImage = { data: BannerImage } | string;
 
 interface ImageFormat {
   ext: string;
@@ -116,7 +118,7 @@ export interface IEnterpriseAttributes {
   Descricao1: string;
   StatusGeral: number;
   Logo: { data: BannerImage | null };
-  Banner: { data: BannerImage };
+  Banner: TNewBannerImage;
   Thumb: { data: BannerImage };
   Galeria: { data: BannerImage[] | null };
   Endereco: Address;

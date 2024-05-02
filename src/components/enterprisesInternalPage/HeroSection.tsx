@@ -13,6 +13,7 @@ import { SectionTitle } from "../commons/SectionTitle";
 import { FloatingDownArrowScroll } from "../commons/FloatingDownArrowScroll";
 import { useBreakpoint } from "../../hooks/useBreakpoint";
 import { IEnterprise } from "../../interfaces/strapiLocal";
+import { getNewImageUrl } from "../../helpers/utils";
 
 const sxContent: SxProps<Theme> = {
   position: "absolute",
@@ -39,13 +40,15 @@ export interface IHeroSectionProps {
 export const HeroSection = ({ enterpriseData }: IHeroSectionProps) => {
   const { md } = useBreakpoint();
 
+  const bannerUrl = getNewImageUrl(enterpriseData.Banner);
+
   const sxBanner: SxProps<Theme> = {
     position: "absolute",
     height: "100%",
     width: "100%",
-    backgroundImage: `url(${enterpriseData.Banner.data?.attributes.url})`,
+    backgroundImage: `url(${bannerUrl})`,
     backgroundSize: "cover",
-    backgroundPosition: "center center",
+    backgroundPosition: "top center",
   };
 
   const getLogo = useCallback(() => {
