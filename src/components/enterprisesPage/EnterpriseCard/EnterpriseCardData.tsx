@@ -27,6 +27,9 @@ export const EnterpriseCardData = ({
       case "Pré lançamento":
         return AutoAwesomeIcon;
 
+      case "Breve lançamento":
+        return AutoAwesomeIcon;
+
       case "Em obra":
         return ConstructionIcon;
 
