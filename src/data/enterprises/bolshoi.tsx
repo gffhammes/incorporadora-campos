@@ -46,7 +46,7 @@ export const bolshoi: IEnterprise = {
         },
       },
     },
-    Nome: "Bolshoi Brasil",
+    Nome: "Residencial Bolshoi Brasil",
     Slug: "bolshoi-brasil",
     Area: "De 155 a 205m² privativos",
     Quartos: "Apartamento com 3 e 4 suítes ",
