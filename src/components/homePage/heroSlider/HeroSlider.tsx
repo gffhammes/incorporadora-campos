@@ -175,7 +175,7 @@ const banners: THomeBanners = [
   {
     id: 5,
     attributes: {
-      Texto: "PRÉ LANÇAMENTO NO AMÉRICA",
+      Texto: "BREVE LANÇAMENTO NO AMÉRICA",
       TextoBotao: "SAIBA MAIS",
       empreendimento: {
         data: bolshoi,
