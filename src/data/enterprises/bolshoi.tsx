@@ -53,7 +53,7 @@ export const bolshoi: IEnterprise = {
     QteBlocos: 1,
     QteAndares: 15,
     QteApartamentos: 47,
-    Status: "Pré lançamento",
+    Status: "Breve lançamento",
     TextoPlanta: null,
     TituloPagina: "Inspirado pela dança, pela arte e pela cultura",
     TextoPagina:
