@@ -59,7 +59,7 @@ export const EnterpriseCardData = ({
                   },
 
                   "50%": {
-                    transform: "translateX(5%)",
+                    transform: "translateX(2%)",
                   },
 
                   "100%": {
