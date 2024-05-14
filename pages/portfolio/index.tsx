@@ -5,10 +5,6 @@ import { useState } from "react";
 import { scrollToTarget } from "../../src/helpers/scrollToTarget";
 import { enterprises } from "../../src/data/enterprises";
 
-enterprises.sort((enterpriseA, enterpriseB) => {
-  return enterpriseA.attributes.Ordem - enterpriseB.attributes.Ordem;
-});
-
 export default function Portfolio() {
   const [filteredEnterprises, setFilteredEnterprises] = useState(enterprises);
 
