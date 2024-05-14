@@ -31,6 +31,7 @@ export interface BannerImage {
 }
 
 export type TNewBannerImage = { data: BannerImage } | string;
+export type TNewBannerImageArray = { data: BannerImage[] | string[] };
 
 interface ImageFormat {
   ext: string;
@@ -85,10 +86,6 @@ interface TextBlueInnerPage {
   tamanhoFonte: number;
 }
 
-interface CarouselFirstSession {
-  data: BannerImage[];
-}
-
 interface Mosaico {
   id: number;
   imagem1: { data: BannerImage | null };
@@ -127,7 +124,7 @@ export interface IEnterpriseAttributes {
   diferenciais: { data: any[] };
   Plantas: any[];
   texoAzulPaginaInterna: TextBlueInnerPage;
-  CarrosselPrimeiraSessao: CarouselFirstSession;
+  CarrosselPrimeiraSessao: TNewBannerImageArray;
   mosaico: null | Mosaico;
   FotoHome: { data: BannerImage };
 }

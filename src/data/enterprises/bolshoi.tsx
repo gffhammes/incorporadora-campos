@@ -64,7 +64,7 @@ export const bolshoi: IEnterprise = {
     Ordem: 5,
     Descricao2:
       "Localização Privilegiada | Torre Única \n15 andares | 02 coberturas planas\n02 a 03 vagas de garagem",
-    Descricao1: "Área privativa a partir de 155m²\n",
+    Descricao1: "",
     StatusGeral: 100,
     Logo: {
       data: null,
@@ -184,80 +184,7 @@ export const bolshoi: IEnterprise = {
       tamanhoFonte: 19,
     },
     CarrosselPrimeiraSessao: {
-      data: [
-        {
-          id: 215,
-          attributes: {
-            name: "edificiobolshoibrasil_800x800px.png",
-            alternativeText: "edificiobolshoibrasil_800x800px.png",
-            caption: "edificiobolshoibrasil_800x800px.png",
-            width: 800,
-            height: 800,
-            formats: {
-              small: {
-                ext: ".png",
-                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1658248701/small_edificiobolshoibrasil_800x800px_73001971de.png",
-                hash: "small_edificiobolshoibrasil_800x800px_73001971de",
-                mime: "image/png",
-                name: "small_edificiobolshoibrasil_800x800px.png",
-                path: null,
-                size: 322.01,
-                width: 500,
-                height: 500,
-                provider_metadata: {
-                  public_id: "small_edificiobolshoibrasil_800x800px_73001971de",
-                  resource_type: "image",
-                },
-              },
-              medium: {
-                ext: ".png",
-                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1658248700/medium_edificiobolshoibrasil_800x800px_73001971de.png",
-                hash: "medium_edificiobolshoibrasil_800x800px_73001971de",
-                mime: "image/png",
-                name: "medium_edificiobolshoibrasil_800x800px.png",
-                path: null,
-                size: 711.58,
-                width: 750,
-                height: 750,
-                provider_metadata: {
-                  public_id:
-                    "medium_edificiobolshoibrasil_800x800px_73001971de",
-                  resource_type: "image",
-                },
-              },
-              thumbnail: {
-                ext: ".png",
-                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1658248700/thumbnail_edificiobolshoibrasil_800x800px_73001971de.png",
-                hash: "thumbnail_edificiobolshoibrasil_800x800px_73001971de",
-                mime: "image/png",
-                name: "thumbnail_edificiobolshoibrasil_800x800px.png",
-                path: null,
-                size: 39.96,
-                width: 156,
-                height: 156,
-                provider_metadata: {
-                  public_id:
-                    "thumbnail_edificiobolshoibrasil_800x800px_73001971de",
-                  resource_type: "image",
-                },
-              },
-            },
-            hash: "edificiobolshoibrasil_800x800px_73001971de",
-            ext: ".png",
-            mime: "image/png",
-            size: 161.02,
-            url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1658248700/edificiobolshoibrasil_800x800px_73001971de.png",
-            previewUrl: null,
-            provider: "cloudinary",
-            provider_metadata: {
-              public_id: "edificiobolshoibrasil_800x800px_73001971de",
-              resource_type: "image",
-            },
-            createdAt: "2022-07-19T16:38:21.767Z",
-            updatedAt: "2022-07-19T16:38:21.767Z",
-          },
-        },
-      ],
+      data: ["/images/bolshoi-brasil/fachada01.webp"],
     },
     mosaico: {
       id: 4,

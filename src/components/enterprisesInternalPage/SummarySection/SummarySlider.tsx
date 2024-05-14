@@ -1,26 +1,35 @@
 import { Box } from "@mui/material";
 import { Carousel } from "../../commons/Carousel/Carousel";
 import { LoadingImage } from "../../commons/Image/LoadingImage";
-import { IStrapiImage } from "../../../interfaces/strapi";
 import { useMemo } from "react";
+import { BannerImage, IEnterprise } from "../../../interfaces/strapiLocal";
 
 interface ISummarySliderProps {
-  enterpriseData: any;
+  enterpriseData: IEnterprise["attributes"];
 }
 
 export const SummarySlider = ({ enterpriseData }: ISummarySliderProps) => {
   const imageOrSliderMemo = useMemo(() => {
-    const carouselImages: IStrapiImage[] =
-      enterpriseData.CarrosselPrimeiraSessao.data;
+    const carouselImages = enterpriseData.CarrosselPrimeiraSessao.data;
+
+    const carouselImagesToUse: string[] = carouselImages.map(
+      (image: string | BannerImage) => {
+        if (typeof image === "string") {
+          return image;
+        }
+
+        return image.attributes.url;
+      }
+    );
 
     if (carouselImages.length < 2) {
       return (
         <LoadingImage
-          src={carouselImages[0].attributes.url}
-          alt={carouselImages[0].attributes.alternativeText}
+          src={carouselImagesToUse[0]}
+          alt=""
           layout="fill"
           objectFit="cover"
-          objectPosition="left"
+          objectPosition="73%"
         />
       );
     }
@@ -36,7 +45,6 @@ export const SummarySlider = ({ enterpriseData }: ISummarySliderProps) => {
             alt={item.attributes.caption}
             layout="fill"
             objectFit="cover"
-            objectPosition="left"
             priority
           />
         </Box>
@@ -52,7 +60,7 @@ export const SummarySlider = ({ enterpriseData }: ISummarySliderProps) => {
         showArrows
       />
     );
-  }, [enterpriseData.CarrosselPrimeiraSessao.data]);
+  }, [enterpriseData.CarrosselPrimeiraSessao]);
 
   return (
     <Box
