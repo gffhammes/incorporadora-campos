@@ -1,10 +1,10 @@
 import { Box } from "@mui/material";
 import { Carousel } from "../../commons/Carousel/Carousel";
 import { LoadingImage } from "../../commons/Image/LoadingImage";
-import { IEnterprise } from "../../../interfaces/strapiLocal";
+import { BannerImage, IEnterprise } from "../../../interfaces/strapiLocal";
 
 export interface IEnterpriseCardCarouselProps {
-  photos?: IEnterprise["attributes"]["Galeria"]["data"];
+  photos?: IEnterprise["attributes"]["Galeria"]["data"] | string[];
   gridArea: string;
 }
 
@@ -25,16 +25,17 @@ export const EnterpriseCardCarousel = ({
     );
   }
 
-  const slidesMemo = photos.map((photo) => (
+  const slidesMemo = photos.map((photo: string | BannerImage, index) => (
     <Box
-      key={photo.id}
+      key={index}
       sx={{ height: "100%", width: "100%", position: "relative" }}
     >
       <LoadingImage
-        src={photo.attributes.url}
-        alt={photo.attributes.alternativeText}
+        src={typeof photo === "string" ? photo : photo.attributes.url}
+        alt=""
         layout="fill"
         objectFit="cover"
+        objectPosition="70%"
         priority
       />
     </Box>

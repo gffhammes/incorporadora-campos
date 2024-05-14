@@ -1,42 +1,50 @@
 import { Box } from "@mui/material";
 import { Carousel } from "../../commons/Carousel/Carousel";
 import { LoadingImage } from "../../commons/Image/LoadingImage";
-import { IStrapiImage } from "../../../interfaces/strapi";
 import { useMemo } from "react";
+import { BannerImage, IEnterprise } from "../../../interfaces/strapiLocal";
 
 interface ISummarySliderProps {
-  enterpriseData: any;
+  enterpriseData: IEnterprise["attributes"];
 }
 
 export const SummarySlider = ({ enterpriseData }: ISummarySliderProps) => {
   const imageOrSliderMemo = useMemo(() => {
-    const carouselImages: IStrapiImage[] =
-      enterpriseData.CarrosselPrimeiraSessao.data;
+    const carouselImages = enterpriseData.CarrosselPrimeiraSessao.data;
 
-    if (carouselImages.length < 2) {
+    const carouselImagesToUse = carouselImages?.map(
+      (image: string | BannerImage) => {
+        if (typeof image === "string") {
+          return image;
+        }
+
+        return image.attributes.url;
+      }
+    );
+
+    if (!!carouselImagesToUse && carouselImagesToUse.length < 2) {
       return (
         <LoadingImage
-          src={carouselImages[0].attributes.url}
-          alt={carouselImages[0].attributes.alternativeText}
+          src={carouselImagesToUse[0]}
+          alt=""
           layout="fill"
           objectFit="cover"
-          objectPosition="left"
+          objectPosition="73%"
         />
       );
     }
 
-    const slides = carouselImages.map((item, index) => {
+    const slides = carouselImagesToUse?.map((item, index) => {
       return (
         <Box
           key={index}
           sx={{ position: "relative", height: "100%", width: "100%" }}
         >
           <LoadingImage
-            src={item.attributes.url}
-            alt={item.attributes.caption}
+            src={item}
+            alt=""
             layout="fill"
             objectFit="cover"
-            objectPosition="left"
             priority
           />
         </Box>
@@ -47,12 +55,12 @@ export const SummarySlider = ({ enterpriseData }: ISummarySliderProps) => {
       <Carousel
         dotsInside
         dotsColor="full-white"
-        slides={slides}
+        slides={slides ?? []}
         options={{ loop: true }}
         showArrows
       />
     );
-  }, [enterpriseData.CarrosselPrimeiraSessao.data]);
+  }, [enterpriseData.CarrosselPrimeiraSessao]);
 
   return (
     <Box

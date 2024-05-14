@@ -4,6 +4,7 @@ import { EnterpriseCardCarousel } from "./EnterpriseCardCarousel";
 import { EnterpriseCardImageModel } from "./EnterpriseCardImageModel";
 import { useBreakpoint } from "../../../hooks/useBreakpoint";
 import { IEnterprise } from "../../../interfaces/strapiLocal";
+import { getNewImageUrl } from "../../../helpers/utils";
 
 export interface IEnterpriseCardProps {
   enterprise: IEnterprise["attributes"];
@@ -31,33 +32,26 @@ export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
       >
         <EnterpriseCardCarousel
           gridArea="carousel"
-          photos={enterprise.mosaico?.carrossel.data}
+          photos={enterprise.mosaico?.carrossel.data ?? []}
         />
 
         <EnterpriseCardImageModel
           gridArea="image1"
-          src={enterprise.mosaico?.imagem1?.data?.attributes?.url ?? ""}
-          alt={
-            enterprise.mosaico?.imagem1?.data?.attributes?.alternativeText ?? ""
-          }
+          src={getNewImageUrl(enterprise.mosaico?.imagem1 ?? "")}
+          alt=""
         />
 
         <EnterpriseCardImageModel
           gridArea="image2"
-          src={enterprise.mosaico?.imagem2?.data?.attributes?.url ?? ""}
-          alt={
-            enterprise.mosaico?.imagem2?.data?.attributes?.alternativeText ?? ""
-          }
+          src={getNewImageUrl(enterprise.mosaico?.imagem2 ?? "")}
+          alt=""
         />
 
         {(!sm || md) && (
           <EnterpriseCardImageModel
             gridArea="image3"
-            src={enterprise.mosaico?.imagem3?.data?.attributes?.url ?? ""}
-            alt={
-              enterprise.mosaico?.imagem3?.data?.attributes?.alternativeText ??
-              ""
-            }
+            src={getNewImageUrl(enterprise.mosaico?.imagem3 ?? "")}
+            alt=""
           />
         )}
 

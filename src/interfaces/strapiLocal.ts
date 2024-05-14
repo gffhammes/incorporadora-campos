@@ -31,6 +31,7 @@ export interface BannerImage {
 }
 
 export type TNewBannerImage = { data: BannerImage } | string;
+export type TNewBannerImageArray = { data: BannerImage[] | string[] | null };
 
 interface ImageFormat {
   ext: string;
@@ -85,17 +86,13 @@ interface TextBlueInnerPage {
   tamanhoFonte: number;
 }
 
-interface CarouselFirstSession {
-  data: BannerImage[];
-}
-
 interface Mosaico {
   id: number;
-  imagem1: { data: BannerImage | null };
-  imagem2: { data: BannerImage | null };
-  imagem3: { data: BannerImage | null };
-  imagem4: { data: BannerImage | null };
-  carrossel: { data: BannerImage[] | null };
+  imagem1: TNewBannerImage;
+  imagem2: TNewBannerImage;
+  imagem3: TNewBannerImage;
+  imagem4: TNewBannerImage;
+  carrossel: TNewBannerImageArray;
 }
 
 export interface IEnterpriseAttributes {
@@ -127,7 +124,7 @@ export interface IEnterpriseAttributes {
   diferenciais: { data: any[] };
   Plantas: any[];
   texoAzulPaginaInterna: TextBlueInnerPage;
-  CarrosselPrimeiraSessao: CarouselFirstSession;
+  CarrosselPrimeiraSessao: TNewBannerImageArray;
   mosaico: null | Mosaico;
   FotoHome: { data: BannerImage };
 }
