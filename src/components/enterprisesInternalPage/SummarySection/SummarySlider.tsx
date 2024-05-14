@@ -12,7 +12,7 @@ export const SummarySlider = ({ enterpriseData }: ISummarySliderProps) => {
   const imageOrSliderMemo = useMemo(() => {
     const carouselImages = enterpriseData.CarrosselPrimeiraSessao.data;
 
-    const carouselImagesToUse: string[] = carouselImages.map(
+    const carouselImagesToUse = carouselImages?.map(
       (image: string | BannerImage) => {
         if (typeof image === "string") {
           return image;
@@ -22,7 +22,7 @@ export const SummarySlider = ({ enterpriseData }: ISummarySliderProps) => {
       }
     );
 
-    if (carouselImages.length < 2) {
+    if (!!carouselImagesToUse && carouselImagesToUse.length < 2) {
       return (
         <LoadingImage
           src={carouselImagesToUse[0]}
@@ -34,15 +34,15 @@ export const SummarySlider = ({ enterpriseData }: ISummarySliderProps) => {
       );
     }
 
-    const slides = carouselImages.map((item, index) => {
+    const slides = carouselImagesToUse?.map((item, index) => {
       return (
         <Box
           key={index}
           sx={{ position: "relative", height: "100%", width: "100%" }}
         >
           <LoadingImage
-            src={item.attributes.url}
-            alt={item.attributes.caption}
+            src={item}
+            alt=""
             layout="fill"
             objectFit="cover"
             priority
@@ -55,7 +55,7 @@ export const SummarySlider = ({ enterpriseData }: ISummarySliderProps) => {
       <Carousel
         dotsInside
         dotsColor="full-white"
-        slides={slides}
+        slides={slides ?? []}
         options={{ loop: true }}
         showArrows
       />
