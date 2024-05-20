@@ -184,7 +184,7 @@ export const bolshoi: IEnterprise = {
       tamanhoFonte: 19,
     },
     CarrosselPrimeiraSessao: {
-      data: ["/images/bolshoi-brasil/fachada01.webp"],
+      data: ["/images/bolshoi-brasil/foto1.webp"],
     },
     mosaico: {
       id: 4,
