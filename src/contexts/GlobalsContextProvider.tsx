@@ -37,7 +37,7 @@ export const GlobalsContextProvider = ({
   // }, [getData]);
 
   const dataToUse = {
-    phone: "(47) 9  9934-0992",
+    phone: "(47) 99138-2244",
     email: "vendas@camposincorporadora.com.br",
     address: "Rua João Pessoa, nº 860 - Bairro América",
   };

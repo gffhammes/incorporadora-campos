@@ -57,14 +57,14 @@ export const bolshoi: IEnterprise = {
     TextoPlanta: null,
     TituloPagina: "Inspirado pela dança, pela arte e pela cultura",
     TextoPagina:
-      "Em uma parceria inédita no mundo, nasce o Residencial Bolshoi Brasil.\n\nUm projeto que não só será um marco na arquitetura de Santa Catarina, mas também no coração das crianças e das famílias atendidas pela Escola Bolshoi.\n\nReforçando o nosso compromisso para com a comunidade, a escola receberá uma participação dos lucros que será destinada à manutenção e a política de concessão de bolsas a crianças e jovens de todo o país.\n\nUm incentivo a cultura, a dança e a arte no Brasil.\n\nAguarde.",
+      "Em uma parceria inédita e exclusiva no mundo, nasce o RESIDENCIAL BOLSHOI BRASIL.\n\nUm projeto que não só será um marco na arquitetura de Santa Catarina, mas também no coração das crianças e das famílias atendidas pela Escola Bolshoi.\n\nReforçando o nosso compromisso para com a comunidade, a parceria da CAMPOS com a Escola de Teatro Bolshoi do Brasil vem para  dar apoio financeiro crucial para a manutenção das atividades da escola e também uma oportunidade de divulgação da CAMPOS, mostrando como nossa união, nossa força pode transformar vidas e impactar positivamente a sociedade.\n\nUm incentivo a cultura, a dança e a arte no Brasil.\n\nAguarde.",
     createdAt: "2022-07-19T16:37:50.970Z",
     updatedAt: "2023-11-15T14:48:50.383Z",
     publishedAt: "2022-07-19T16:37:52.706Z",
     Ordem: 5,
     Descricao2:
-      "Localização Privilegiada | Torre Única \n15 andares | 02 coberturas planas\n02 a 03 vagas de garagem",
-    Descricao1: "",
+      "Localização Privilegiada | Torre Única \n15 andares | 01 cobertura plana\n02 a 04 vagas de garagem",
+    Descricao1: "Alto padrão",
     StatusGeral: 100,
     Logo: {
       data: null,
@@ -184,16 +184,16 @@ export const bolshoi: IEnterprise = {
       tamanhoFonte: 19,
     },
     CarrosselPrimeiraSessao: {
-      data: ["/images/bolshoi-brasil/fachada01.webp"],
+      data: ["/images/bolshoi-brasil/foto1.webp"],
     },
     mosaico: {
       id: 4,
-      imagem4: "/images/bolshoi-brasil/fachada04.webp",
-      imagem3: "/images/bolshoi-brasil/fachada03.webp",
-      imagem2: "/images/bolshoi-brasil/fachada05.webp",
-      imagem1: "/images/bolshoi-brasil/fachada02.webp",
+      imagem4: "/images/bolshoi-brasil/fachada01.webp",
+      imagem3: "/images/bolshoi-brasil/foto5.webp",
+      imagem2: "/images/bolshoi-brasil/foto4.webp",
+      imagem1: "/images/bolshoi-brasil/foto3.webp",
       carrossel: {
-        data: ["/images/bolshoi-brasil/fachada01.webp"],
+        data: ["/images/bolshoi-brasil/foto2-1.webp"],
       },
     },
   },
