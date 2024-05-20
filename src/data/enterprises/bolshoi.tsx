@@ -188,12 +188,12 @@ export const bolshoi: IEnterprise = {
     },
     mosaico: {
       id: 4,
-      imagem4: "/images/bolshoi-brasil/fachada04.webp",
-      imagem3: "/images/bolshoi-brasil/fachada03.webp",
-      imagem2: "/images/bolshoi-brasil/fachada05.webp",
-      imagem1: "/images/bolshoi-brasil/fachada02.webp",
+      imagem4: "/images/bolshoi-brasil/fachada01.webp",
+      imagem3: "/images/bolshoi-brasil/foto5.webp",
+      imagem2: "/images/bolshoi-brasil/foto4.webp",
+      imagem1: "/images/bolshoi-brasil/foto3.webp",
       carrossel: {
-        data: ["/images/bolshoi-brasil/fachada01.webp"],
+        data: ["/images/bolshoi-brasil/foto2-1.webp"],
       },
     },
   },

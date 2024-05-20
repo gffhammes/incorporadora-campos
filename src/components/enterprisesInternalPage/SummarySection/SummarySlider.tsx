@@ -3,12 +3,15 @@ import { Carousel } from "../../commons/Carousel/Carousel";
 import { LoadingImage } from "../../commons/Image/LoadingImage";
 import { useMemo } from "react";
 import { BannerImage, IEnterprise } from "../../../interfaces/strapiLocal";
+import { useBreakpoint } from "../../../hooks/useBreakpoint";
 
 interface ISummarySliderProps {
   enterpriseData: IEnterprise["attributes"];
 }
 
 export const SummarySlider = ({ enterpriseData }: ISummarySliderProps) => {
+  const { md } = useBreakpoint();
+
   const imageOrSliderMemo = useMemo(() => {
     const carouselImages = enterpriseData.CarrosselPrimeiraSessao.data;
 
@@ -28,8 +31,7 @@ export const SummarySlider = ({ enterpriseData }: ISummarySliderProps) => {
           src={carouselImagesToUse[0]}
           alt=""
           layout="fill"
-          objectFit="cover"
-          objectPosition="73%"
+          objectFit={md ? "cover" : "contain"}
         />
       );
     }
@@ -60,13 +62,13 @@ export const SummarySlider = ({ enterpriseData }: ISummarySliderProps) => {
         showArrows
       />
     );
-  }, [enterpriseData.CarrosselPrimeiraSessao]);
+  }, [enterpriseData.CarrosselPrimeiraSessao.data, md]);
 
   return (
     <Box
       sx={{
         position: "relative",
-        height: { xs: "unset", md: "100%" },
+        height: { xs: "20rem", md: "100%" },
         width: "100%",
       }}
     >
