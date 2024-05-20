@@ -47,7 +47,7 @@ export const plaza_beach_residence: IEnterprise = {
     },
     Nome: "PLAZA BEACH RESIDENCE",
     Slug: "plaza-beach-residence-itajuba",
-    Area: "Área privativa de 137 a 160m²",
+    Area: "Área privativa de 136 a 160m²",
     Quartos: "3 ou 4 suítes",
     QteBlocos: 1,
     QteAndares: 25,
@@ -63,7 +63,7 @@ export const plaza_beach_residence: IEnterprise = {
     Ordem: 4,
     Descricao2: "Torre única | 26 andares\n02 vagas de garagem",
     Descricao1:
-      "Área privativa de 137 a 160m²\n2 coberturas planas com 200m²\nOpções com 3 ou 4 suítes",
+      "Área privativa de 136 a 160m²\n2 coberturas planas com 210m² e 228m²\nOpções com 3 ou 4 suítes",
     StatusGeral: 100,
     Logo: {
       data: null,
