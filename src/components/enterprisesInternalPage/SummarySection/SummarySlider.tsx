@@ -68,7 +68,6 @@ export const SummarySlider = ({ enterpriseData }: ISummarySliderProps) => {
         position: "relative",
         height: { xs: "unset", md: "100%" },
         width: "100%",
-        aspectRatio: "1 / 1",
       }}
     >
       {imageOrSliderMemo}
