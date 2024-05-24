@@ -189,8 +189,8 @@ export const bolshoi: IEnterprise = {
     mosaico: {
       id: 4,
       imagem4: "/images/bolshoi-brasil/fachada01.webp",
-      imagem3: "/images/bolshoi-brasil/foto5.webp",
-      imagem2: "/images/bolshoi-brasil/foto4.webp",
+      imagem3: "/images/bolshoi-brasil/foto4.webp",
+      imagem2: "/images/bolshoi-brasil/foto5.webp",
       imagem1: "/images/bolshoi-brasil/foto3.webp",
       carrossel: {
         data: ["/images/bolshoi-brasil/foto2-1.webp"],
