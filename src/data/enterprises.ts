@@ -4,7 +4,7 @@ import { del_mare } from "./enterprises/del_mare";
 import { plaza_beach_residence } from "./enterprises/plaza_beach_residence";
 import { san_pietro } from "./enterprises/san_pietro";
 
-const san_marco: IEnterprise = {
+export const san_marco: IEnterprise = {
   id: 5,
   attributes: {
     FotoHome: {
@@ -953,7 +953,7 @@ const san_marco: IEnterprise = {
   },
 };
 
-const san_carlo: IEnterprise = {
+export const san_carlo: IEnterprise = {
   id: 4,
   attributes: {
     FotoHome: {
@@ -2066,7 +2066,7 @@ const san_carlo: IEnterprise = {
   },
 };
 
-const della_liberta: IEnterprise = {
+export const della_liberta: IEnterprise = {
   id: 3,
   attributes: {
     FotoHome: {
@@ -4135,7 +4135,7 @@ const della_liberta: IEnterprise = {
   },
 };
 
-const piazza_di_spagna: IEnterprise = {
+export const piazza_di_spagna: IEnterprise = {
   id: 8,
   attributes: {
     FotoHome: {
