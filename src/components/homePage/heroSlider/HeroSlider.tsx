@@ -10,6 +10,7 @@ import { THomeBanners } from "../../../interfaces/homeBanner";
 import { getNewImageUrl } from "../../../helpers/utils";
 import { TNewBannerImage } from "../../../interfaces/strapiLocal";
 import { bolshoi } from "../../../data/enterprises/bolshoi";
+import { plaza_beach_residence } from "../../../data/enterprises/plaza_beach_residence";
 
 const defaultButtonProps = {
   zIndex: 500,
@@ -549,126 +550,7 @@ const banners: THomeBanners = [
       Texto: "PRÉ LANÇAMENTO EM BARRA VELHA",
       TextoBotao: "SAIBA MAIS",
       empreendimento: {
-        data: {
-          id: 6,
-          attributes: {
-            Nome: "PLAZA BEACH RESIDENCE",
-            Slug: "plaza-beach-residence-itajuba",
-            Area: "Área privativa de 137 a 160m²",
-            Quartos: "3 ou 4 suítes",
-            QteBlocos: 1,
-            QteAndares: 25,
-            QteApartamentos: 59,
-            Status: "Pré lançamento",
-            TextoPlanta: null,
-            TituloPagina:
-              "INSPIRADO NO CONCEITO DE TER SUA RESIDENCIA NA PRAIA",
-            TextoPagina:
-              "Inspirado no conceito de condomínio clube, a Campos Incorporadora Ltda desenvolveu um empreendimento próximo ao mar que oferece maior exclusividade e comodidade.\n\nApartamentos que potencializam a sensação de liberdade. Ambientes de lazer diversificados, sofisticados, que oferecem momentos contrastantes de tranquilidade e diversão.\n\nAguarde. ",
-            createdAt: "2022-07-19T16:34:38.481Z",
-            updatedAt: "2024-02-09T14:38:19.622Z",
-            publishedAt: "2022-07-19T16:34:40.388Z",
-            Ordem: 4,
-            Descricao2: "Torre única | 26 andares\n02 vagas de garagem",
-            Descricao1:
-              "Área privativa de 137 a 160m²\n2 coberturas planas com 200m²\nOpções com 3 ou 4 suítes",
-            StatusGeral: 100,
-            Logo: {
-              data: null,
-            },
-            Banner: {
-              data: {
-                id: 339,
-                attributes: {
-                  name: "BannerSite - Plaza - 1920x1080px.png",
-                  alternativeText: "BannerSite - Plaza - 1920x1080px.png",
-                  caption: "BannerSite - Plaza - 1920x1080px.png",
-                  width: 1920,
-                  height: 1080,
-                  formats: {
-                    large: {
-                      ext: ".png",
-                      url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1699555525/large_Banner_Site_Plaza_1920x1080px_ef26ad29d7.png",
-                      hash: "large_Banner_Site_Plaza_1920x1080px_ef26ad29d7",
-                      mime: "image/png",
-                      name: "large_BannerSite - Plaza - 1920x1080px.png",
-                      path: null,
-                      size: 831.81,
-                      width: 1000,
-                      height: 563,
-                      provider_metadata: {
-                        public_id:
-                          "large_Banner_Site_Plaza_1920x1080px_ef26ad29d7",
-                        resource_type: "image",
-                      },
-                    },
-                    small: {
-                      ext: ".png",
-                      url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1699555526/small_Banner_Site_Plaza_1920x1080px_ef26ad29d7.png",
-                      hash: "small_Banner_Site_Plaza_1920x1080px_ef26ad29d7",
-                      mime: "image/png",
-                      name: "small_BannerSite - Plaza - 1920x1080px.png",
-                      path: null,
-                      size: 219.75,
-                      width: 500,
-                      height: 281,
-                      provider_metadata: {
-                        public_id:
-                          "small_Banner_Site_Plaza_1920x1080px_ef26ad29d7",
-                        resource_type: "image",
-                      },
-                    },
-                    medium: {
-                      ext: ".png",
-                      url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1699555526/medium_Banner_Site_Plaza_1920x1080px_ef26ad29d7.png",
-                      hash: "medium_Banner_Site_Plaza_1920x1080px_ef26ad29d7",
-                      mime: "image/png",
-                      name: "medium_BannerSite - Plaza - 1920x1080px.png",
-                      path: null,
-                      size: 476.77,
-                      width: 750,
-                      height: 422,
-                      provider_metadata: {
-                        public_id:
-                          "medium_Banner_Site_Plaza_1920x1080px_ef26ad29d7",
-                        resource_type: "image",
-                      },
-                    },
-                    thumbnail: {
-                      ext: ".png",
-                      url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1699555524/thumbnail_Banner_Site_Plaza_1920x1080px_ef26ad29d7.png",
-                      hash: "thumbnail_Banner_Site_Plaza_1920x1080px_ef26ad29d7",
-                      mime: "image/png",
-                      name: "thumbnail_BannerSite - Plaza - 1920x1080px.png",
-                      path: null,
-                      size: 59.1,
-                      width: 245,
-                      height: 138,
-                      provider_metadata: {
-                        public_id:
-                          "thumbnail_Banner_Site_Plaza_1920x1080px_ef26ad29d7",
-                        resource_type: "image",
-                      },
-                    },
-                  },
-                  hash: "Banner_Site_Plaza_1920x1080px_ef26ad29d7",
-                  ext: ".png",
-                  mime: "image/png",
-                  size: 705.9,
-                  url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1699555524/Banner_Site_Plaza_1920x1080px_ef26ad29d7.png",
-                  previewUrl: null,
-                  provider: "cloudinary",
-                  provider_metadata: {
-                    public_id: "Banner_Site_Plaza_1920x1080px_ef26ad29d7",
-                    resource_type: "image",
-                  },
-                  createdAt: "2023-11-09T18:45:26.981Z",
-                  updatedAt: "2023-11-09T18:45:26.981Z",
-                },
-              },
-            },
-          },
-        },
+        data: plaza_beach_residence,
       },
     },
   },
