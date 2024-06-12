@@ -116,8 +116,8 @@ export const plaza_beach_residence: IEnterprise = {
     },
     Endereco: {
       id: 6,
-      Rua: " ",
-      Numero: " ",
+      Rua: "R. Rosa dos Ventos",
+      Numero: "42",
       Bairro: "Itajubá",
       Cidade: "Barra Velha",
       UF: "SC",
