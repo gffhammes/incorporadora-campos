@@ -178,7 +178,7 @@ const banners: THomeBanners = [
   {
     id: 2,
     attributes: {
-      Texto: "PRÉ LANÇAMENTO EM PIÇARRAS",
+      Texto: "EM CONSTRUÇÃO EM PIÇARRAS",
       TextoBotao: "SAIBA MAIS",
       empreendimento: {
         data: del_mare,
@@ -208,7 +208,7 @@ const banners: THomeBanners = [
   {
     id: 1,
     attributes: {
-      Texto: "LANÇAMENTO NO AMÉRICA",
+      Texto: "PRONTO PARA MORAR - Somente 3 unidades disponíveis",
       TextoBotao: "SAIBA MAIS",
       empreendimento: {
         data: san_pietro,
