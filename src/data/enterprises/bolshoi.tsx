@@ -53,7 +53,7 @@ export const bolshoi: IEnterprise = {
     QteBlocos: 1,
     QteAndares: 15,
     QteApartamentos: 47,
-    Status: "Breve lançamento",
+    Status: "Lançamento",
     TextoPlanta: null,
     TituloPagina: "Inspirado pela dança, pela arte e pela cultura",
     TextoPagina:
@@ -64,7 +64,8 @@ export const bolshoi: IEnterprise = {
     Ordem: 5,
     Descricao2:
       "Localização Privilegiada | Torre Única \n15 andares | 01 cobertura plana\n02 a 04 vagas de garagem",
-    Descricao1: "Alto padrão",
+    Descricao1:
+      "Área privativa de 148,62 a 204,60m²\nLiving com abertura integral\n3 ou 4 suítes",
     StatusGeral: 100,
     Logo: {
       data: null,
@@ -189,11 +190,16 @@ export const bolshoi: IEnterprise = {
     mosaico: {
       id: 4,
       imagem4: "/images/bolshoi-brasil/fachada01.webp",
-      imagem3: "/images/bolshoi-brasil/foto4.webp",
-      imagem2: "/images/bolshoi-brasil/foto5.webp",
+      imagem3: "/images/bolshoi-brasil/CAMBO_04_Fachada_Voo_Cam02_P2 (1).webp",
+      imagem2: "/images/bolshoi-brasil/CAMBO_04_Fachada_Voo_Cam01_P2 (1).webp",
       imagem1: "/images/bolshoi-brasil/foto3.webp",
       carrossel: {
-        data: ["/images/bolshoi-brasil/foto2-1.webp"],
+        data: [
+          "/images/bolshoi-brasil/CAMBO_02_Fachada_Noturna_Cam01_P2.webp",
+          "/images/bolshoi-brasil/CAMBO_01_Fachada_Diurna_Cam01_P4 (1).webp",
+          "/images/bolshoi-brasil/CAMBO_01_Fachada_Diurna_Cam02_P2.webp",
+          "/images/bolshoi-brasil/foto2-1.webp",
+        ],
       },
     },
   },

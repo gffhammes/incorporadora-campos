@@ -164,6 +164,7 @@ export interface IStrapiEnterprise {
 export type TEnterpriseStatus =
   | "Em obra"
   | "Pré lançamento"
+  | "Lançamento"
   | "Breve lançamento"
   | "Vendido";
 

@@ -27,6 +27,9 @@ export const EnterpriseCardData = ({
       case "Pré lançamento":
         return AutoAwesomeIcon;
 
+      case "Lançamento":
+        return AutoAwesomeIcon;
+
       case "Breve lançamento":
         return AutoAwesomeIcon;
 
