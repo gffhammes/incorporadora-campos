@@ -212,7 +212,7 @@ export const plaza_beach_residence: IEnterprise = {
             ext: ".png",
             mime: "image/png",
             size: 383.41,
-            url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1659486503/u_4f204760d4.png",
+            url: "/images/plaza-beach-residence/CAMPL_02_Fachada_Noturna_Cam03_P2.webp",
             previewUrl: null,
             provider: "cloudinary",
             provider_metadata: {
@@ -405,7 +405,11 @@ export const plaza_beach_residence: IEnterprise = {
         },
       },
       carrossel: {
-        data: ["/images/plaza_beach_residence.webp"],
+        data: [
+          "/images/plaza-beach-residence/CAMPL_01_Fachada_Diurna_Cam02_P4.webp",
+          "/images/plaza-beach-residence/CAMPL_02_Fachada_Noturna_Cam03_P2.webp",
+          "/images/plaza_beach_residence.webp",
+        ],
       },
     },
   },
