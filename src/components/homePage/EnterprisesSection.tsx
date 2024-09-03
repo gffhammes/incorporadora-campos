@@ -12,7 +12,9 @@ export const EnterprisesSection = () => {
         <SectionTitle theme="dark" marginBottom={false}>
           PORTFÓLIO
         </SectionTitle>
+
         <EnterprisesSlider enterprises={enterprises} loading={false} />
+
         <Box sx={{ display: "flex", mt: 6 }}>
           <Link href="/portfolio" passHref>
             <a style={{ margin: "auto auto" }}>

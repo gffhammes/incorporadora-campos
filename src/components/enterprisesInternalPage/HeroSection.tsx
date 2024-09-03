@@ -46,7 +46,7 @@ export const HeroSection = ({ enterpriseData }: IHeroSectionProps) => {
     position: "absolute",
     height: "100%",
     width: "100%",
-    backgroundImage: `url(${bannerUrl})`,
+    backgroundImage: `url("${bannerUrl}")`,
     backgroundSize: "cover",
     backgroundPosition: "top center",
   };

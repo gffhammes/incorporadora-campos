@@ -106,6 +106,7 @@ export const EnterprisesSlider = ({
           <div className="embla__container">{slidesMemo}</div>
         </div>
       </Box>
+
       <Stack
         direction="row"
         alignItems="center"
@@ -128,6 +129,7 @@ export const EnterprisesSlider = ({
           />
         ))}
       </Stack>
+
       <Stack
         direction="row"
         sx={{

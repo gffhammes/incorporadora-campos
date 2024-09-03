@@ -45,7 +45,7 @@ export const EnterpriseCard = ({
                 src={imageUrl ?? ""}
                 alt={name}
                 layout="fill"
-                objectFit="contain"
+                objectFit="cover"
                 objectPosition="bottom"
               />
             </Box>

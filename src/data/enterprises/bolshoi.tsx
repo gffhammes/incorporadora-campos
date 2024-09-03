@@ -34,7 +34,7 @@ export const bolshoi: IEnterprise = {
           ext: ".png",
           mime: "image/png",
           size: 11.31,
-          url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1699555140/Banner_Inicial_Pequeno_Bolshoi_88d638ef1d.png",
+          url: "/images/bolshoi-brasil/CAMBO_02_Fachada_Noturna_Cam01_P2.webp",
           previewUrl: null,
           provider: "cloudinary",
           provider_metadata: {
@@ -70,7 +70,7 @@ export const bolshoi: IEnterprise = {
     Logo: {
       data: null,
     },
-    Banner: "/images/bolshoi-brasil/bailarina1.webp",
+    Banner: "/images/bolshoi-brasil/CAMBO_05_FotoImplantacao_P3 (1).webp",
     Thumb: {
       data: {
         id: 215,
@@ -132,7 +132,7 @@ export const bolshoi: IEnterprise = {
           ext: ".png",
           mime: "image/png",
           size: 161.02,
-          url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1658248700/edificiobolshoibrasil_800x800px_73001971de.png",
+          url: "/images/bolshoi-brasil/CAMBO_02_Fachada_Noturna_Cam01_P2.webp",
           previewUrl: null,
           provider: "cloudinary",
           provider_metadata: {
