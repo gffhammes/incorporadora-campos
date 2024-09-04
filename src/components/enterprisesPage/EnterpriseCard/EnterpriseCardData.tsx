@@ -13,6 +13,7 @@ export interface IEnterpriseCardDataProps {
   city: string;
   text: string;
   slug: string;
+  externalHref?: string;
 }
 
 export const EnterpriseCardData = ({
@@ -21,6 +22,7 @@ export const EnterpriseCardData = ({
   slug,
   status,
   text,
+  externalHref,
 }: IEnterpriseCardDataProps) => {
   const StatusIcon = useMemo(() => {
     switch (status) {
@@ -42,8 +44,15 @@ export const EnterpriseCardData = ({
   }, [status]);
 
   return (
-    <Link href="/portfolio/[slug]" as={`/portfolio/${slug}`} passHref>
-      <a style={{ width: "100%", height: "100%", gridArea: "data" }}>
+    <Link
+      href={externalHref ?? "/portfolio/[slug]"}
+      as={externalHref ? undefined : "/portfolio/" + slug}
+      passHref
+    >
+      <a
+        target={externalHref ? "_blank" : "_self"}
+        style={{ width: "100%", height: "100%", gridArea: "data" }}
+      >
         <Paper
           elevation={0}
           square

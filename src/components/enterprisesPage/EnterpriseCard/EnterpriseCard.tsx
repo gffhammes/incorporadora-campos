@@ -61,6 +61,7 @@ export const EnterpriseCard = ({ enterprise }: IEnterpriseCardProps) => {
           slug={enterprise.Slug}
           status={enterprise.Status}
           text={enterprise.Descricao1}
+          externalHref={enterprise.redirectLink}
         />
       </Box>
     </Stack>

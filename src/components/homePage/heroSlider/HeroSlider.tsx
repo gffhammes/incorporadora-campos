@@ -126,8 +126,11 @@ export const HeroSlider = () => {
                     text={slide.attributes.Texto}
                     buttonText={slide.attributes.TextoBotao}
                     href={
+                      slide.attributes.empreendimento.data.attributes.Slug ?? ""
+                    }
+                    externalHref={
                       slide.attributes.empreendimento.data.attributes
-                        .Slug as string
+                        .redirectLink
                     }
                   />
                 </Box>
@@ -136,12 +139,14 @@ export const HeroSlider = () => {
           </Box>
         </Box>
       </Box>
+
       <Box
         sx={{ ...defaultButtonProps, marginRight: "10vw", right: 0 }}
         onClick={scrollNext}
       >
         <ArrowForwardIosIcon {...defaultSvgProps} sx={{ color: "white" }} />
       </Box>
+
       {md && (
         <Box
           sx={{

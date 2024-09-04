@@ -127,6 +127,7 @@ export interface IEnterpriseAttributes {
   CarrosselPrimeiraSessao: TNewBannerImageArray;
   mosaico: null | Mosaico;
   FotoHome: { data: BannerImage };
+  redirectLink?: string;
 }
 
 export interface IEnterprise {

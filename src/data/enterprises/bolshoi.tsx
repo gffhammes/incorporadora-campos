@@ -3,6 +3,7 @@ import { IEnterprise } from "../../interfaces/strapiLocal";
 export const bolshoi: IEnterprise = {
   id: 7,
   attributes: {
+    redirectLink: "https://residencialbolshoi.com.br/",
     FotoHome: {
       data: {
         id: 335,

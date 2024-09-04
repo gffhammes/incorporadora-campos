@@ -20,6 +20,7 @@ interface IProps {
   text: string;
   buttonText: string;
   href: string;
+  externalHref?: string;
 }
 
 const sxImage: SxProps<Theme> = {
@@ -55,6 +56,7 @@ export const Slide = ({
   text,
   href,
   buttonText,
+  externalHref,
 }: IProps) => {
   const getLogo = useCallback(() => {
     if (logo) {
@@ -111,8 +113,13 @@ export const Slide = ({
             >
               {text}
             </Typography>
-            <Link href="/portfolio/[slug]" as={"/portfolio/" + href} passHref>
-              <a>
+
+            <Link
+              href={externalHref ?? "/portfolio/[slug]"}
+              as={externalHref ? undefined : "/portfolio/" + href}
+              passHref
+            >
+              <a target={externalHref ? "_blank" : "_self"}>
                 <OutlinedWhiteButton sx={{ width: "fit-content" }}>
                   {buttonText}
                 </OutlinedWhiteButton>
