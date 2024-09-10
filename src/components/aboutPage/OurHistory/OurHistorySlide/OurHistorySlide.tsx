@@ -34,6 +34,7 @@ export const OurHistorySlide = ({
               spacing={4}
               alignItems="center"
               justifyContent="center"
+              height="100%"
             >
               <Grid item xs={12} md={4} order={{ xs: 3, sm: 1 }}>
                 <SlideText text={slide.texto} />

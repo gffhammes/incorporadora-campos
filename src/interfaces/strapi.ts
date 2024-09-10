@@ -23,10 +23,10 @@ export interface IImageAttributes {
   width: number;
   height: number;
   formats: {
-    large: IImageFormats;
-    small: IImageFormats;
-    medium: IImageFormats;
-    thumbnail: IImageFormats;
+    large?: IImageFormats;
+    small?: IImageFormats;
+    medium?: IImageFormats;
+    thumbnail?: IImageFormats;
   };
   hash: string;
   ext: string;

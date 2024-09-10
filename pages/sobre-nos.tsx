@@ -5,6 +5,7 @@ import { Box } from "@mui/material";
 import PurposeSection from "../src/components/aboutPage/PurposeSection";
 import PartnersSection from "../src/components/aboutPage/PartnersSection/PartnersSection";
 import OurHistorySection from "../src/components/aboutPage/OurHistory/OurHistorySection";
+import { IOurHistorySlide } from "../src/interfaces/strapi";
 
 export default function About() {
   return (
@@ -21,7 +22,7 @@ export default function About() {
   );
 }
 
-const data = {
+const data: { ourHistorySlides: IOurHistorySlide[] } = {
   ourHistorySlides: [
     {
       id: 1,
@@ -723,6 +724,101 @@ const data = {
       },
     },
     {
+      id: 7,
+      ano: "2024",
+      texto: `Em momento memorável lançamos o RESIDENCIAL BOLSHOI BRASIL.
+      O projeto é um marco pela imponência e arquitetura modernista para Joinville e região.
+      Um brinde a arte, a cultura, a dança e a arquitetura……
+      VIVA O RESIDENCIAL BOLSHOI BRASIL!!!`,
+      foto: {
+        data: {
+          id: 252,
+          attributes: {
+            name: "BOLSHOI.png",
+            alternativeText: "BOLSHOI.png",
+            caption: "BOLSHOI.png",
+            width: 1200,
+            height: 795,
+            formats: {
+              large: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595952/large_BOLSHOI_2ed37a9899.png",
+                hash: "large_BOLSHOI_2ed37a9899",
+                mime: "image/png",
+                name: "large_BOLSHOI.png",
+                path: null,
+                size: 1401.78,
+                width: 1000,
+                height: 663,
+                provider_metadata: {
+                  public_id: "large_BOLSHOI_2ed37a9899",
+                  resource_type: "image",
+                },
+              },
+              small: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595953/small_BOLSHOI_2ed37a9899.png",
+                hash: "small_BOLSHOI_2ed37a9899",
+                mime: "image/png",
+                name: "small_BOLSHOI.png",
+                path: null,
+                size: 407.39,
+                width: 500,
+                height: 331,
+                provider_metadata: {
+                  public_id: "small_BOLSHOI_2ed37a9899",
+                  resource_type: "image",
+                },
+              },
+              medium: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595953/medium_BOLSHOI_2ed37a9899.png",
+                hash: "medium_BOLSHOI_2ed37a9899",
+                mime: "image/png",
+                name: "medium_BOLSHOI.png",
+                path: null,
+                size: 840.03,
+                width: 750,
+                height: 497,
+                provider_metadata: {
+                  public_id: "medium_BOLSHOI_2ed37a9899",
+                  resource_type: "image",
+                },
+              },
+              thumbnail: {
+                ext: ".png",
+                url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595952/thumbnail_BOLSHOI_2ed37a9899.png",
+                hash: "thumbnail_BOLSHOI_2ed37a9899",
+                mime: "image/png",
+                name: "thumbnail_BOLSHOI.png",
+                path: null,
+                size: 108.05,
+                width: 235,
+                height: 156,
+                provider_metadata: {
+                  public_id: "thumbnail_BOLSHOI_2ed37a9899",
+                  resource_type: "image",
+                },
+              },
+            },
+            hash: "BOLSHOI_2ed37a9899",
+            ext: ".png",
+            mime: "image/png",
+            size: 330.74,
+            url: "/images/bolshoi-brasil/146.jpg",
+            previewUrl: null,
+            provider: "cloudinary",
+            provider_metadata: {
+              public_id: "BOLSHOI_2ed37a9899",
+              resource_type: "image",
+            },
+            createdAt: "2022-10-12T17:32:34.135Z",
+            updatedAt: "2022-10-12T17:32:34.135Z",
+          },
+        },
+      },
+    },
+    {
       id: 9,
       ano: "2024",
       texto:
@@ -802,7 +898,7 @@ const data = {
             ext: ".jpg",
             mime: "image/jpeg",
             size: 111.67,
-            url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1692907785/empreendimento_horizontal_299677fa07.jpg",
+            url: "/images/plaza-beach-residence/CAMPL_06_Lazer_Externo_Cam01_P3 (2).webp",
             previewUrl: null,
             provider: "cloudinary",
             provider_metadata: {
@@ -986,33 +1082,10 @@ const data = {
       },
     },
   ],
-  ourHistoryText: {
-    id: 2,
-    titulo: " ",
-    texto1: " ",
-    texto2: " ",
-  },
+  // ourHistoryText: {
+  //   id: 2,
+  //   titulo: " ",
+  //   texto1: " ",
+  //   texto2: " ",
+  // },
 };
-
-// export async function getServerSideProps() {
-//   const { API_URL } = process.env;
-
-//   const query = qs.stringify(
-//     {
-//       populate: ["nossaHistoria", "nossaHistoria.foto", "tituloETexto"],
-//     },
-//     {
-//       encodeValuesOnly: true,
-//     }
-//   );
-
-//   const response = await fetch(`${API_URL}/api/sobre-nos?${query}`);
-//   const data = await response.json();
-
-//   return {
-//     props: {
-//       ourHistorySlides: data.data.attributes.nossaHistoria,
-//       ourHistoryText: data.data.attributes.tituloETexto,
-//     },
-//   };
-// }
