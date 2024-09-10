@@ -166,7 +166,8 @@ export type TEnterpriseStatus =
   | "Pré lançamento"
   | "Lançamento"
   | "Breve lançamento"
-  | "Vendido";
+  | "Em criação"
+  | "Entregue";
 
 export interface IOurHistorySlide {
   id: number;

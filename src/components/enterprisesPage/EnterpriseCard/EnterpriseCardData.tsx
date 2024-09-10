@@ -2,10 +2,11 @@ import { Paper, Typography, Chip, Stack, Box } from "@mui/material";
 import { useMemo } from "react";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import { TEnterpriseStatus } from "../../../interfaces/strapi";
-import SellIcon from "@mui/icons-material/Sell";
 import ConstructionIcon from "@mui/icons-material/Construction";
 import { EnterpriseCardDataButton } from "./EnterpriseCardDataButton";
 import Link from "next/link";
+import VerifiedIcon from "@mui/icons-material/Verified";
+import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
 
 export interface IEnterpriseCardDataProps {
   name: string;
@@ -38,8 +39,11 @@ export const EnterpriseCardData = ({
       case "Em obra":
         return ConstructionIcon;
 
-      case "Vendido":
-        return SellIcon;
+      case "Entregue":
+        return VerifiedIcon;
+
+      case "Em criação":
+        return TipsAndUpdatesIcon;
     }
   }, [status]);
 

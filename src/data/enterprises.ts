@@ -56,7 +56,7 @@ export const san_marco: IEnterprise = {
     QteBlocos: 1,
     QteAndares: 5,
     QteApartamentos: 14,
-    Status: "Vendido",
+    Status: "Entregue",
     TextoPlanta: null,
     TituloPagina: "INSPIRADO NA PRAÇA SAN MARCO, DE VENEZA:",
     TextoPagina:
@@ -1005,7 +1005,7 @@ export const san_carlo: IEnterprise = {
     QteBlocos: 1,
     QteAndares: 5,
     QteApartamentos: 17,
-    Status: "Vendido",
+    Status: "Entregue",
     TextoPlanta: null,
     TituloPagina: "INSPIRADO NA PRAÇA SAN CARLO, DE TURIM:",
     TextoPagina:
@@ -2118,7 +2118,7 @@ export const della_liberta: IEnterprise = {
     QteBlocos: 1,
     QteAndares: 8,
     QteApartamentos: 23,
-    Status: "Vendido",
+    Status: "Entregue",
     TextoPlanta: null,
     TituloPagina: "INSPIRADO NA PRAÇA DELLA LIBERTÁ, DE FLORENÇA:",
     TextoPagina:
@@ -4188,7 +4188,7 @@ export const piazza_di_spagna: IEnterprise = {
     QteBlocos: 1,
     QteAndares: 9,
     QteApartamentos: 14,
-    Status: "Pré lançamento",
+    Status: "Em criação",
     TextoPlanta: null,
     TituloPagina: "Inspirada na Piazza di Spagna, no coração de Roma",
     TextoPagina:
