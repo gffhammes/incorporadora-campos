@@ -35,7 +35,7 @@ export const bolshoi: IEnterprise = {
           ext: ".png",
           mime: "image/png",
           size: 11.31,
-          url: "/images/bolshoi-brasil/CAMBO_02_Fachada_Noturna_Cam01_P2.webp",
+          url: "/images/bolshoi-brasil/CAMBO_01_Fachada_Diurna_Cam01_P4 (1).webp",
           previewUrl: null,
           provider: "cloudinary",
           provider_metadata: {
