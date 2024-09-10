@@ -66,7 +66,7 @@ export const del_mare: IEnterprise = {
       "Torre única | 19 andares | 45 apartamentos\nInfraestrutura para sistema de segurança\n2 elevadores",
     Descricao1:
       "Área privativa de 99,90 a 123,96m²\n3 suítes ou 1 suíte e 2 demi-suítes",
-    StatusGeral: 5,
+    StatusGeral: 38.6,
     Logo: {
       data: {
         id: 133,
@@ -1632,10 +1632,10 @@ export const del_mare: IEnterprise = {
     StatusDetalhado: {
       id: 2,
       ProjetosEAprovacoes: 100,
-      Estrutura: 5,
-      Fundacao: 90,
-      Alvenaria: 2,
-      Instalacoes: 3,
+      Fundacao: 100,
+      Estrutura: 76,
+      Alvenaria: 28,
+      Instalacoes: 12,
       Acabamentos: 0,
     },
     diferenciais: {

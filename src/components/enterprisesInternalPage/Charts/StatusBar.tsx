@@ -21,7 +21,7 @@ export const StatusBar = ({ title, value }: IStatusBarProps) => {
           bgcolor="secondary.main"
           sx={{
             position: "absolute",
-            width: value,
+            width: value / 100,
             height: "100%",
             overflowX: "hidden",
             display: "flex",
@@ -59,7 +59,7 @@ export const StatusBar = ({ title, value }: IStatusBarProps) => {
       </Box>
       <Box sx={{ width: "5ch" }}>
         <Typography textAlign="right" fontSize={17} fontWeight={700}>
-          {value * 10 * 10}%
+          {value}%
         </Typography>
       </Box>
     </Stack>

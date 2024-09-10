@@ -81,27 +81,18 @@ export function StatusCharts({ data }: IStatusChartsProps) {
         >
           <StatusBar
             title="PROJETOS E APROVAÇÕES"
-            value={data.StatusDetalhado.ProjetosEAprovacoes / 100}
+            value={data.StatusDetalhado.ProjetosEAprovacoes}
           />
-          <StatusBar
-            title="FUNDAÇÃO"
-            value={data.StatusDetalhado.Fundacao / 100}
-          />
-          <StatusBar
-            title="ESTRUTURA"
-            value={data.StatusDetalhado.Estrutura / 100}
-          />
-          <StatusBar
-            title="ALVENARIA"
-            value={data.StatusDetalhado.Alvenaria / 100}
-          />
+          <StatusBar title="FUNDAÇÃO" value={data.StatusDetalhado.Fundacao} />
+          <StatusBar title="ESTRUTURA" value={data.StatusDetalhado.Estrutura} />
+          <StatusBar title="ALVENARIA" value={data.StatusDetalhado.Alvenaria} />
           <StatusBar
             title="INSTALAÇÕES"
-            value={data.StatusDetalhado.Instalacoes / 100}
+            value={data.StatusDetalhado.Instalacoes}
           />
           <StatusBar
             title="ACABAMENTOS"
-            value={data.StatusDetalhado.Acabamentos / 100}
+            value={data.StatusDetalhado.Acabamentos}
           />
         </Stack>
       </Grid>
