@@ -2813,6 +2813,7 @@ export const san_pietro: IEnterprise = {
       imagem1: "/images/piazza-san-pietro/Campos.jpg",
       carrossel: {
         data: [
+          "/images/piazza-san-pietro/fachada pronta.jpeg",
           "/images/piazza-san-pietro/Campos-27 (2).jpg",
           "/images/piazza-san-pietro/Campos-32.jpg",
           "/images/piazza-san-pietro/Campos-33.jpg",
