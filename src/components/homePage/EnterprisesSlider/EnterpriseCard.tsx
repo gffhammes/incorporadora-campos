@@ -46,14 +46,14 @@ export const EnterpriseCard = ({
                 alt={name}
                 layout="fill"
                 objectFit="cover"
-                objectPosition="bottom"
+                objectPosition="top"
               />
             </Box>
             <Stack
               sx={{ mt: 2 }}
               direction="row"
               justifyContent="space-between"
-              alignItems="center"
+              alignItems="flex-start"
             >
               <Typography
                 fontSize={13}
@@ -62,7 +62,13 @@ export const EnterpriseCard = ({
               >
                 {name.toUpperCase()}
               </Typography>
-              <Typography fontSize={10} fontWeight={600}>
+
+              <Typography
+                fontSize={10}
+                fontWeight={600}
+                lineHeight={1.2}
+                pt={0.2}
+              >
                 {status.toUpperCase()}
               </Typography>
             </Stack>
