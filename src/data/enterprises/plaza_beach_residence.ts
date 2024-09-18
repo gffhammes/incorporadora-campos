@@ -68,8 +68,7 @@ export const plaza_beach_residence: IEnterprise = {
     Logo: {
       data: null,
     },
-    Banner:
-      "/images/plaza-beach-residence/CAMPL_06_Lazer_Externo_Cam01_P3 (2).webp",
+    Banner: "/images/plaza-beach-residence/Materiais SIte_Home - Banner 1.png",
     Thumb: {
       data: {
         id: 322,

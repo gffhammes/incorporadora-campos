@@ -898,7 +898,7 @@ const data: { ourHistorySlides: IOurHistorySlide[] } = {
             ext: ".jpg",
             mime: "image/jpeg",
             size: 111.67,
-            url: "/images/plaza-beach-residence/CAMPL_06_Lazer_Externo_Cam01_P3 (2).webp",
+            url: "/images/plaza-beach-residence/Materiais SIte_Página sobre - Banner 1-08.png",
             previewUrl: null,
             provider: "cloudinary",
             provider_metadata: {
