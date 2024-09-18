@@ -431,7 +431,7 @@ const data: { ourHistorySlides: IOurHistorySlide[] } = {
             ext: ".png",
             mime: "image/png",
             size: 312.78,
-            url: "https://res.cloudinary.com/de5rrszh7/image/upload/v1665595919/SAN_PIETRO_045ff89eb7.png",
+            url: "/images/piazza-san-pietro/fachada pronta2.jpeg",
             previewUrl: null,
             provider: "cloudinary",
             provider_metadata: {
