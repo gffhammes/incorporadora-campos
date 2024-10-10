@@ -61,7 +61,7 @@ export const plaza_beach_residence: IEnterprise = {
     updatedAt: "2024-02-16T22:40:27.784Z",
     publishedAt: "2022-07-19T16:34:40.388Z",
     Ordem: 4,
-    Descricao2: "Torre única | 26 andares\n02 vagas de garagem",
+    Descricao2: "Torre única | 25 andares\n02 vagas de garagem",
     Descricao1:
       "Área privativa de 136 a 160m²\n2 coberturas planas com 210m² e 228m²\nOpções com 3 ou 4 suítes",
     StatusGeral: 100,
