@@ -3,7 +3,7 @@ import Script from "next/script";
 
 export default function Document() {
   return (
-    <Html lang="pt">
+    <Html lang="pt-BR">
       <Head>
         <meta
           name="description"
@@ -14,11 +14,30 @@ export default function Document() {
           href="https://api.fontshare.com/css?f[]=satoshi@300,301,400,401,500,501,700,701,900,901&display=swap"
           rel="stylesheet"
         />
-
-        <meta
-          name="facebook-domain-verification"
-          content="judrkaywuvzux703ez2d1cpv31tqrm"
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '200090439712055');
+              fbq('track', 'PageView');
+            `,
+          }}
         />
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=200090439712055&ev=PageView&noscript=1"
+          />
+        </noscript>
       </Head>
       <body>
         <div role="main" id="fomulario-home-site-838ec025cbb35e661775" />
@@ -26,6 +45,12 @@ export default function Document() {
         <NextScript />
 
         <Script
+          type="text/javascript"
+          async
+          src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/72d60cff-b961-4024-8a23-313f8ec88a61-loader.js"
+        />
+
+        {/* <Script
           type="text/javascript"
           src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/a3a1172b-ccbf-41dd-ac9a-35c63259f972-loader.js"
         />
@@ -36,7 +61,7 @@ export default function Document() {
         <Script type="text/javascript" id="show-form">
           {`new RDStationForms('fomulario-home-site-838ec025cbb35e661775',
           'UA-219092936-1').createForm();`}
-        </Script>
+        </Script> */}
       </body>
     </Html>
   );

@@ -28,7 +28,7 @@ Router.events.on("routeChangeError", () => NProgress.done());
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
-    TagManager.initialize({ gtmId: "GTM-NXW3HB4Z" });
+    TagManager.initialize({ gtmId: "AW-11296495330" });
   }, []);
 
   return (
