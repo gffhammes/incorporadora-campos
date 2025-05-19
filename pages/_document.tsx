@@ -1,5 +1,4 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import Script from "next/script";
 
 export default function Document() {
   return (
@@ -13,6 +12,12 @@ export default function Document() {
         <link
           href="https://api.fontshare.com/css?f[]=satoshi@300,301,400,401,500,501,700,701,900,901&display=swap"
           rel="stylesheet"
+        />
+
+        <script
+          async
+          type="text/javascript"
+          src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/72d60cff-b961-4024-8a23-313f8ec88a61-loader.js"
         />
         <script
           dangerouslySetInnerHTML={{
@@ -43,11 +48,6 @@ export default function Document() {
         <div role="main" id="fomulario-home-site-838ec025cbb35e661775" />
         <Main />
         <NextScript />
-
-        <Script
-          type="text/javascript"
-          src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/72d60cff-b961-4024-8a23-313f8ec88a61-loader.js"
-        />
       </body>
     </Html>
   );
