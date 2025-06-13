@@ -15,10 +15,11 @@ export default function Document() {
         />
 
         <script
-          async
           type="text/javascript"
-          src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/72d60cff-b961-4024-8a23-313f8ec88a61-loader.js"
+          async
+          src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/3518d9f0-a25a-4c7c-bf42-a1c74bb51258-loader.js"
         />
+
         <script
           dangerouslySetInnerHTML={{
             __html: `
