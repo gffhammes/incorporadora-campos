@@ -114,7 +114,7 @@ export interface IEnterpriseAttributes {
   Descricao2: string;
   Descricao1: string;
   StatusGeral: number;
-  Logo: { data: BannerImage | null };
+  Logo: TNewBannerImage | null;
   Banner: TNewBannerImage;
   Thumb: { data: BannerImage };
   Galeria: { data: BannerImage[] | null };

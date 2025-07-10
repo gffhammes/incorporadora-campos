@@ -115,10 +115,10 @@ export const HeroSlider = () => {
                       slide.attributes.empreendimento.data.attributes
                         .Banner as TNewBannerImage
                     )}
-                    logo={
-                      slide.attributes.empreendimento.data.attributes.Logo?.data
-                        ?.attributes.url as string
-                    }
+                    logo={getNewImageUrl(
+                      slide.attributes.empreendimento.data.attributes
+                        .Logo as TNewBannerImage
+                    )}
                     enterpriseName={
                       slide.attributes.empreendimento.data.attributes
                         .Nome as string
@@ -203,7 +203,7 @@ const banners: THomeBanners = [
   {
     id: 6,
     attributes: {
-      Texto: "PRÉ LANÇAMENTO EM BARRA VELHA",
+      Texto: "LANÇAMENTO EM BARRA VELHA",
       TextoBotao: "SAIBA MAIS",
       empreendimento: {
         data: plaza_beach_residence,

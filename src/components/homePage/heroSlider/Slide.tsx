@@ -43,9 +43,9 @@ const sxContent: SxProps<Theme> = {
 const sxLogo: SxProps<Theme> = {
   position: "relative",
   height: "100%",
-  width: "16vw",
+  width: "20vw",
   minWidth: "7rem",
-  maxWidth: "13rem",
+  maxWidth: "20rem",
   mb: 2,
 };
 

@@ -68,9 +68,7 @@ export const bolshoi: IEnterprise = {
     Descricao1:
       "Área privativa de 148,62 a 204,60m²\nLiving com abertura integral\n3 ou 4 suítes",
     StatusGeral: 100,
-    Logo: {
-      data: null,
-    },
+    Logo: null,
     Banner: "/images/bolshoi-brasil/CAMBO_05_FotoImplantacao_P3 (1).webp",
     Thumb: {
       data: {

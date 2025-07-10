@@ -68,9 +68,7 @@ export const san_marco: IEnterprise = {
     Descricao2: "Torre única | 5 andares | 14 apartamentos",
     Descricao1: "Área privativa de 38 a 135m²\n1 suíte com 1 ou 2 dormitórios",
     StatusGeral: 100,
-    Logo: {
-      data: null,
-    },
+    Logo: null,
     Banner: {
       data: {
         id: 211,
@@ -1018,9 +1016,7 @@ export const san_carlo: IEnterprise = {
     Descricao1:
       "Área privativa de 39 a 122m²\n1 suíte com 1, 2 ou 3 dormitórios",
     StatusGeral: 100,
-    Logo: {
-      data: null,
-    },
+    Logo: null,
     Banner: {
       data: {
         id: 206,
@@ -2130,9 +2126,7 @@ export const della_liberta: IEnterprise = {
     Descricao2: "Torre única | 8 andares | 23 apartamentos",
     Descricao1: "Área privativa de 94 a 97m²\n2 suítes e 1 dormitório",
     StatusGeral: 100,
-    Logo: {
-      data: null,
-    },
+    Logo: null,
     Banner: {
       data: {
         id: 164,
@@ -4200,9 +4194,7 @@ export const piazza_di_spagna: IEnterprise = {
     Descricao2: "Localização Privilegiada | Torre Única\n2 vagas de garagem",
     Descricao1: "Área privativa de 125 a 165m²\nOpções com 3 ou 4 suítes",
     StatusGeral: 100,
-    Logo: {
-      data: null,
-    },
+    Logo: null,
     Banner: {
       data: {
         id: 216,

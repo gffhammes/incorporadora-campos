@@ -52,11 +52,11 @@ export const HeroSection = ({ enterpriseData }: IHeroSectionProps) => {
   };
 
   const getLogo = useCallback(() => {
-    if (enterpriseData.Logo.data) {
+    if (enterpriseData.Logo) {
       return (
         <Box sx={sxLogo}>
           <Image
-            src={enterpriseData.Logo.data.attributes.url}
+            src={getNewImageUrl(enterpriseData.Logo)}
             alt={enterpriseData.Nome}
             layout="fill"
             objectFit="contain"
@@ -64,6 +64,7 @@ export const HeroSection = ({ enterpriseData }: IHeroSectionProps) => {
         </Box>
       );
     }
+
     return (
       <SectionTitle theme="light">
         {enterpriseData.Nome.toUpperCase()}

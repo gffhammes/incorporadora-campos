@@ -3,6 +3,7 @@ import { IEnterprise } from "../../interfaces/strapiLocal";
 export const plaza_beach_residence: IEnterprise = {
   id: 6,
   attributes: {
+    redirectLink: "https://plazabeach.com.br/",
     FotoHome: {
       data: {
         id: 337,
@@ -52,7 +53,7 @@ export const plaza_beach_residence: IEnterprise = {
     QteBlocos: 1,
     QteAndares: 25,
     QteApartamentos: 59,
-    Status: "Breve lançamento",
+    Status: "Lançamento",
     TextoPlanta: null,
     TituloPagina: "INSPIRADO NO CONCEITO DE TER SUA RESIDENCIA NA PRAIA",
     TextoPagina:
@@ -65,10 +66,8 @@ export const plaza_beach_residence: IEnterprise = {
     Descricao1:
       "Área privativa de 136 a 160m²\n2 coberturas planas com 210m² e 228m²\nOpções com 3 ou 4 suítes",
     StatusGeral: 100,
-    Logo: {
-      data: null,
-    },
-    Banner: "/images/plaza-beach-residence/Materiais SIte_Home - Banner 1.png",
+    Logo: "/images/plaza-beach-residence/logo-plaza.svg",
+    Banner: "/images/plaza-beach-residence/banner-8-604.webp",
     Thumb: {
       data: {
         id: 322,
