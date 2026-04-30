@@ -18,7 +18,7 @@ const Enterprise = () => {
   const router = useRouter();
 
   const enterprise = enterprises.find(
-    (enterprise) => enterprise.attributes.Slug === router.query.slug
+    (enterprise) => enterprise.attributes.Slug === router.query.slug,
   );
 
   if (!enterprise) return null;
@@ -64,66 +64,5 @@ const Enterprise = () => {
     </>
   );
 };
-
-// export async function getServerSideProps(context) {
-//   const { API_URL } = process.env;
-//   const { slug } = context.query;
-
-//   const query = qs.stringify(
-//     {
-//       // filters: {
-//       //   Slug: {
-//       //     $eq: slug,
-//       //   },
-//       // },
-//       populate: [
-//         "Logo",
-//         "Banner",
-//         "Thumb",
-//         "Galeria",
-//         "Endereco",
-//         "Seccoes",
-//         "StatusDetalhado",
-//         "diferenciais",
-//         "diferenciais.Imagem",
-//         "Plantas",
-//         "Plantas.Foto",
-//         "texoAzulPaginaInterna",
-//         "CarrosselPrimeiraSessao",
-//         "Logo",
-//         "Banner",
-//         "Thumb",
-//         "Galeria",
-//         "Endereco",
-//         "Seccoes",
-//         "StatusDetalhado",
-//         "diferenciais",
-//         "diferenciais.Imagem",
-//         "Plantas",
-//         "Plantas.Foto",
-//         "texoAzulPaginaInterna",
-//         "CarrosselPrimeiraSessao",
-//         "mosaico",
-//         "mosaico.carrossel",
-//         "mosaico.imagem1",
-//         "mosaico.imagem2",
-//         "mosaico.imagem3",
-//         "mosaico.imagem4",
-//       ],
-//     },
-//     {
-//       encodeValuesOnly: true, // prettify URL
-//     }
-//   );
-
-//   const res = await fetch(`${API_URL}/api/empreendimentos?${query}`);
-//   const data = await res.json();
-
-//   return {
-//     props: {
-//       data: data.data,
-//     },
-//   };
-// }
 
 export default Enterprise;

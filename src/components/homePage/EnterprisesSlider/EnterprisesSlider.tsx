@@ -41,21 +41,21 @@ export const EnterprisesSlider = ({
       align: 0,
       skipSnaps: true,
     },
-    [autoplay]
+    [autoplay],
   );
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const scrollPrev = useCallback(
     () => emblaApi && emblaApi.scrollPrev(),
-    [emblaApi]
+    [emblaApi],
   );
   const scrollNext = useCallback(
     () => emblaApi && emblaApi.scrollNext(),
-    [emblaApi]
+    [emblaApi],
   );
   const scrollTo = useCallback(
     (index) => emblaApi && emblaApi.scrollTo(index),
-    [emblaApi]
+    [emblaApi],
   );
 
   const onSelect = useCallback(() => {
@@ -86,17 +86,21 @@ export const EnterprisesSlider = ({
       ));
     }
 
-    return enterprises?.map((enterprise, index) => (
-      <EnterpriseCard
-        key={index}
-        slug={enterprise.attributes.Slug}
-        imageUrl={enterprise.attributes.FotoHome.data?.attributes.url ?? ""}
-        name={enterprise.attributes.Nome}
-        status={enterprise.attributes.Status}
-        description={enterprise.attributes.Descricao1}
-        location={getLocationString(enterprise.attributes)}
-      />
-    ));
+    return enterprises?.map((enterprise, index) => {
+      if (enterprise.isActive === false) return null;
+
+      return (
+        <EnterpriseCard
+          key={index}
+          slug={enterprise.attributes.Slug}
+          imageUrl={enterprise.attributes.FotoHome.data?.attributes.url ?? ""}
+          name={enterprise.attributes.Nome}
+          status={enterprise.attributes.Status}
+          description={enterprise.attributes.Descricao1}
+          location={getLocationString(enterprise.attributes)}
+        />
+      );
+    });
   }, [enterprises, loading]);
 
   return (

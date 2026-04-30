@@ -71,8 +71,8 @@ export const HeroSlider = () => {
   useEffect(() => {
     setDots((dots): any[] =>
       dots.map((dot, index) =>
-        index === selectedSlide ? { active: true } : { active: false }
-      )
+        index === selectedSlide ? { active: true } : { active: false },
+      ),
     );
   }, [selectedSlide]);
 
@@ -108,33 +108,37 @@ export const HeroSlider = () => {
         <Box sx={sxEmbla}>
           <Box sx={{ height: "100%" }} ref={emblaRef}>
             <Box sx={sxEmblaContainer}>
-              {banners.map((slide, index) => (
-                <Box sx={sxEmblaSlide} key={index}>
-                  <Slide
-                    bgImage={getNewImageUrl(
-                      slide.attributes.empreendimento.data.attributes
-                        .Banner as TNewBannerImage
-                    )}
-                    logo={getNewImageUrl(
-                      slide.attributes.empreendimento.data.attributes
-                        .Logo as TNewBannerImage
-                    )}
-                    enterpriseName={
-                      slide.attributes.empreendimento.data.attributes
-                        .Nome as string
-                    }
-                    text={slide.attributes.Texto}
-                    buttonText={slide.attributes.TextoBotao}
-                    href={
-                      slide.attributes.empreendimento.data.attributes.Slug ?? ""
-                    }
-                    externalHref={
-                      slide.attributes.empreendimento.data.attributes
-                        .redirectLink
-                    }
-                  />
-                </Box>
-              ))}
+              {banners.map((slide, index) => {
+                if (slide.attributes.empreendimento.isActive === false)
+                  return null;
+
+                return (
+                  <Box sx={sxEmblaSlide} key={index}>
+                    <Slide
+                      bgImage={getNewImageUrl(
+                        slide.attributes.empreendimento.attributes
+                          .Banner as TNewBannerImage,
+                      )}
+                      logo={getNewImageUrl(
+                        slide.attributes.empreendimento.attributes
+                          .Logo as TNewBannerImage,
+                      )}
+                      enterpriseName={
+                        slide.attributes.empreendimento.attributes
+                          .Nome as string
+                      }
+                      text={slide.attributes.Texto}
+                      buttonText={slide.attributes.TextoBotao}
+                      href={
+                        slide.attributes.empreendimento.attributes.Slug ?? ""
+                      }
+                      externalHref={
+                        slide.attributes.empreendimento.attributes.redirectLink
+                      }
+                    />
+                  </Box>
+                );
+              })}
             </Box>
           </Box>
         </Box>
@@ -185,9 +189,7 @@ const banners: THomeBanners = [
     attributes: {
       Texto: "EM CONSTRUÇÃO EM PIÇARRAS",
       TextoBotao: "SAIBA MAIS",
-      empreendimento: {
-        data: del_mare,
-      },
+      empreendimento: del_mare,
     },
   },
   {
@@ -195,9 +197,7 @@ const banners: THomeBanners = [
     attributes: {
       Texto: "LANÇAMENTO NO AMÉRICA",
       TextoBotao: "SAIBA MAIS",
-      empreendimento: {
-        data: bolshoi,
-      },
+      empreendimento: bolshoi,
     },
   },
   {
@@ -205,9 +205,7 @@ const banners: THomeBanners = [
     attributes: {
       Texto: "LANÇAMENTO EM BARRA VELHA",
       TextoBotao: "SAIBA MAIS",
-      empreendimento: {
-        data: plaza_beach_residence,
-      },
+      empreendimento: plaza_beach_residence,
     },
   },
   {
@@ -215,9 +213,7 @@ const banners: THomeBanners = [
     attributes: {
       Texto: "PRONTO PARA MORAR - Somente 3 unidades disponíveis",
       TextoBotao: "SAIBA MAIS",
-      empreendimento: {
-        data: san_pietro,
-      },
+      empreendimento: san_pietro,
     },
   },
 ];

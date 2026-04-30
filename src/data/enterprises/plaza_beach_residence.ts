@@ -2,6 +2,7 @@ import { IEnterprise } from "../../interfaces/strapiLocal";
 
 export const plaza_beach_residence: IEnterprise = {
   id: 6,
+  isActive: false,
   attributes: {
     redirectLink: "https://plazabeach.com.br/",
     FotoHome: {

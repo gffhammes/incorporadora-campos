@@ -15,12 +15,16 @@ export const EnterprisesSection = ({
       <Container sx={{ py: 10 }}>
         {(enterprises?.length ?? 0) > 0 && (
           <Stack spacing={10}>
-            {enterprises?.map((enterprise) => (
-              <EnterpriseCard
-                key={enterprise.id}
-                enterprise={enterprise.attributes}
-              />
-            ))}
+            {enterprises?.map((enterprise) => {
+              if (enterprise.isActive === false) return null;
+
+              return (
+                <EnterpriseCard
+                  key={enterprise.id}
+                  enterprise={enterprise.attributes}
+                />
+              );
+            })}
           </Stack>
         )}
         {enterprises?.length === 0 && <NotFound />}

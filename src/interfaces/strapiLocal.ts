@@ -132,5 +132,6 @@ export interface IEnterpriseAttributes {
 
 export interface IEnterprise {
   id: number;
+  isActive?: boolean;
   attributes: IEnterpriseAttributes;
 }
