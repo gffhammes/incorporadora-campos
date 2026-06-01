@@ -208,12 +208,12 @@ const banners: THomeBanners = [
       empreendimento: plaza_beach_residence,
     },
   },
-  {
-    id: 1,
-    attributes: {
-      Texto: "PRONTO PARA MORAR - Somente 3 unidades disponíveis",
-      TextoBotao: "SAIBA MAIS",
-      empreendimento: san_pietro,
-    },
-  },
+  // {
+  //   id: 1,
+  //   attributes: {
+  //     Texto: "PRONTO PARA MORAR - Somente 3 unidades disponíveis",
+  //     TextoBotao: "SAIBA MAIS",
+  //     empreendimento: san_pietro,
+  //   },
+  // },
 ];
